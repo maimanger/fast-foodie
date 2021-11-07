@@ -1,0 +1,15 @@
+.searchscreen-main{
+    width: fit-content;
+}
+
+.searchscreen-search-path{
+    font-size: 13px;
+}
+
+.searchscreen-search-results{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    place-content: center;
+
+}

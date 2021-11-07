@@ -1,0 +1,12 @@
+.homescreen-nav-item-location .nav-link:hover{
+    background: none;
+    border: none;
+    border-bottom: 3px solid #d32323;
+}
+
+.homescreen-nav-item-location .nav-link{
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+}

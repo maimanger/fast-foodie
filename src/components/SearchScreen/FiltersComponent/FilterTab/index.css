@@ -1,0 +1,17 @@
+.searchscreen-buttons-price-options > button{
+    border: solid 1px lightgrey;
+    width: 50px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+.searchscreen-buttons-price-options > .searchscreen-button-start{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.searchscreen-buttons-price-options > .searchscreen-button-end{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

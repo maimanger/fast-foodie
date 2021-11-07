@@ -1,0 +1,15 @@
+
+.homescreen-search-bar input:focus{
+    border-color: lightgrey;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.homescreen-search-bar span{
+    height: 3em;
+}
+
+.homescreen-search-input-location {
+    max-width: 30%;
+}
+

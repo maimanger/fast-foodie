@@ -1,0 +1,8 @@
+.homescreen-category-item{
+    width: 220px;
+    border: solid 1px lightgrey;
+}
+.homescreen-category-img{
+    width: 100px;
+    height: 100px;
+}

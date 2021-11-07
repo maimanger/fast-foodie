@@ -1,0 +1,11 @@
+.filter-container {
+    width: fit-content;
+}
+.filter-container *{
+    font-size: 14px;
+}
+.google-img{
+    object-fit: cover;
+    width: 100%;
+
+}

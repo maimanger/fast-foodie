@@ -1,0 +1,13 @@
+.app-brand{
+    font-family: 'Baumans', cursive;
+    font-weight: bold;
+    color: black;
+    height: fit-content;
+}
+
+.app-brand:hover{
+    color: black;
+}
+.brand-img{
+    width: 20px;
+}

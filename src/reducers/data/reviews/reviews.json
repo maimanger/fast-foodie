@@ -1,0 +1,53 @@
+{
+  "reviews": [
+    {
+      "id": "VQP2yEQuzu3-TvuKoQlniQ",
+      "url": "https://www.yelp.com/biz/shake-shack-brooklyn-12?adjust_creative=NGGnIfz9rpfOyp208PsoSQ&hrid=VQP2yEQuzu3-TvuKoQlniQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=NGGnIfz9rpfOyp208PsoSQ",
+      "text": "Smoke shack is real good, there has a bit of spice and crisp in it. I really recommend that if u like spicy burgers.",
+      "rating": 5,
+      "time_created": "2021-09-08 12:50:43",
+      "user": {
+        "id": "Lq4W1M471vBK6dMTYvaBDQ",
+        "profile_url": "https://www.yelp.com/user_details?userid=Lq4W1M471vBK6dMTYvaBDQ",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/photo/8YVSBt46aGjGwFlLh9tvig/o.jpg",
+        "name": "Jonathan V."
+      }
+    },
+    {
+      "id": "XLoWlyoqALRSmWdQjehqFw",
+      "url": "https://www.yelp.com/biz/shake-shack-brooklyn-12?adjust_creative=NGGnIfz9rpfOyp208PsoSQ&hrid=XLoWlyoqALRSmWdQjehqFw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=NGGnIfz9rpfOyp208PsoSQ",
+      "text": "I needed a place to eat lunch that was close to my building. The burger and fries is good. However put me in a sleep coma in the afternoon.\n\nYou order and...",
+      "rating": 5,
+      "time_created": "2021-07-23 05:13:07",
+      "user": {
+        "id": "_-Tvg5rZiPC-e-jM04DzKw",
+        "profile_url": "https://www.yelp.com/user_details?userid=_-Tvg5rZiPC-e-jM04DzKw",
+        "image_url": "https://s3-media4.fl.yelpcdn.com/photo/DKxVFLkPb4CCKEnkbOMOGA/o.jpg",
+        "name": "Jeffrey S."
+      }
+    },
+    {
+      "id": "qw-CDXBBnAjsxh4dYQY4BQ",
+      "url": "https://www.yelp.com/biz/shake-shack-brooklyn-12?adjust_creative=NGGnIfz9rpfOyp208PsoSQ&hrid=qw-CDXBBnAjsxh4dYQY4BQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=NGGnIfz9rpfOyp208PsoSQ",
+      "text": "I had the Shroom Burger, which has been my go-to now. It's a fried portabella mushroom with cheese inside. It's nice and crispy and perfect for someone who...",
+      "rating": 3,
+      "time_created": "2021-09-24 00:46:08",
+      "user": {
+        "id": "40GJ0-HWrWe4T7okSp9aTQ",
+        "profile_url": "https://www.yelp.com/user_details?userid=40GJ0-HWrWe4T7okSp9aTQ",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/photo/Z-phqav_mMfkcWCZ7oeIFg/o.jpg",
+        "name": "Rex W."
+      }
+    }
+  ],
+  "total": 369,
+  "possible_languages": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "ja",
+    "zh"
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "text": "Bird's-eye View",
+    "value": "instant",
+    "name": "distance"
+  },
+  {
+    "text": "Driving (5 mi.)",
+    "value": "short",
+    "name": "distance"
+  },
+  {
+    "text": "GBiking (2 mi.)",
+    "value": "average",
+    "name": "distance"
+  },
+  {
+    "text": "Walking (1 mi.)",
+    "value": "long",
+    "name": "distance"
+  }
+]

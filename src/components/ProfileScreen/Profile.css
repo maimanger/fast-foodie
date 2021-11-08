@@ -1,0 +1,88 @@
+body {
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+
+
+.wd-profile-banner {
+    height: 190px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, antiquewhite);
+}
+
+
+.wd-profile-header {
+    height: 30px;
+    overflow: visible;
+}
+
+.wd-profile-avatar {
+/*    bottom: -25%;*/
+    width: 215px;
+    height: 215px;
+}
+
+.wd-profile-avatar img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    .wd-profile-avatar {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wd-profile-avatar {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .wd-profile-avatar {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.wd-profile-nav-sidebar {
+    width: 60%;
+}
+
+.wd-profile-nav-sidebar>.list-group-item.active {
+    font-weight: bold;
+}
+
+.wd-profile-link-text {
+    text-decoration:none;
+}
+
+.wd-profile-link-text:hover {
+    text-decoration: underline;
+}
+
+.wd-profile-notification-hover {
+    text-decoration:none;
+    background-color: transparent;
+}
+
+.wd-profile-notification-hover:hover {
+    background-color: rgb(233,236,239);
+}
+
+.wd-profile-back-top {
+    text-decoration:none;
+    color: black;
+}
+
+.wd-profile-back-top:hover {
+    color: #df382c;
+}
+
+
+

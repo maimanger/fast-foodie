@@ -1,0 +1,127 @@
+[
+  {
+    "_id": "123",
+    "username": "fangying1101",
+    "password": "123ABC",
+    "firstName": "Fangying",
+    "lastName": "Li",
+    "avatar": "/images/ProfilePage/avatar_img.jpg",
+    "location": "Boston, MA",
+    "birthday": "2021-11-1",
+    "dateJoined": "2019-9-1",
+    "email": "li.fangy@northeastern.edu",
+    "reviewsCount": 88,
+    "reviews": [],
+    "followingCount": 2,
+    "followingList": [
+      234,
+      345
+    ],
+    "followersCount": 3,
+    "followersList": [
+      345,
+      456,
+      567
+    ],
+    "photos": [
+      {
+        "url": "/images/ProfilePage/review.jpg",
+        "text": "Delicious dinner!"
+      },
+      {
+        "url": "/images/ProfilePage/review2.jpg",
+        "text": "Wonderful food!"
+      }
+    ]
+  },
+  {
+    "_id": "234",
+    "username": "mike",
+    "password": "456ABC",
+    "firstName": "Mike",
+    "lastName": "Shah",
+    "avatar": "/images/ProfilePage/avatar_img2.jpg",
+    "location": "Los Angelos, CA",
+    "birthday": "1969-11-11",
+    "dateJoined": "2019-12-30",
+    "email": "mike123@gmail.com",
+    "reviewsCount": 12,
+    "reviews": [],
+    "followingCount": 0,
+    "followingList": [],
+    "followersCount": 2,
+    "followersList": [
+      123,
+      456
+    ],
+    "photos": []
+  },
+  {
+    "_id": "345",
+    "username": "mike",
+    "password": "789ABC",
+    "firstName": "Mike2",
+    "lastName": "Shah",
+    "avatar": "/images/ProfilePage/avatar_img2.jpg",
+    "location": "Los Angelos, CA",
+    "birthday": "1969-11-11",
+    "dateJoined": "2019-12-30",
+    "email": "mike123@gmail.com",
+    "reviewsCount": 12,
+    "reviews": [],
+    "followingCount": 1,
+    "followingList": [
+      123
+    ],
+    "followersCount": 2,
+    "followersList": [
+      123,
+      456
+    ],
+    "photos": []
+  },
+  {
+    "_id": "456",
+    "username": "mike",
+    "password": "101112ABC",
+    "firstName": "Mike3",
+    "lastName": "Shah",
+    "avatar": "/images/ProfilePage/avatar_img2.jpg",
+    "location": "Los Angelos, CA",
+    "birthday": "1969-11-11",
+    "dateJoined": "2019-12-30",
+    "email": "mike123@gmail.com",
+    "reviewsCount": 12,
+    "reviews": [],
+    "followingCount": 3,
+    "followingList": [
+      123,
+      234,
+      345
+    ],
+    "followersCount": 0,
+    "followersList": [],
+    "photos": []
+  },
+  {
+    "_id": "567",
+    "username": "mike",
+    "password": "131415ABC",
+    "firstName": "Mike4",
+    "lastName": "Shah",
+    "avatar": "/images/ProfilePage/avatar_img2.jpg",
+    "location": "Los Angelos, CA",
+    "birthday": "1969-11-11",
+    "dateJoined": "2019-12-30",
+    "email": "mike123@gmail.com",
+    "reviewsCount": 12,
+    "reviews": [],
+    "followingCount": 1,
+    "followingList": [
+      123
+    ],
+    "followersCount": 0,
+    "followersList": [],
+    "photos": []
+  }
+]

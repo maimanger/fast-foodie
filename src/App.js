@@ -1,25 +1,38 @@
 import React from "react";
 import {BrowserRouter, Route} from "react-router-dom";
+import {combineReducers, createStore} from "redux";
+import {Provider} from "react-redux";
+
 import HomeScreen from "./components/HomeScreen";
 import SearchScreen from "./components/SearchScreen";
 import ProfileScreen from "./components/ProfileScreen";
 import './vendor/css/bootstrap.min.css'
-
+import profile from "./reducers/profile";
+import notifications from "./reducers/notifications";
+import users from "./reducers/users";
+import recentActivities from "./reducers/recentActivities";
 
 function App() {
-  return (
-      <BrowserRouter>
-        <Route path={"/"} exact={"true"}>
-          <HomeScreen/>
-        </Route>
-        <Route path={"/search"}>
-          <SearchScreen />
-        </Route>
+    const reducer = combineReducers({profile, notifications, users, recentActivities});
+    const store = createStore(reducer);
 
-          <Route path="/profile" exact={true} component={ProfileScreen}/>
-      </BrowserRouter>
+    return (
+        <Provider store={store}>
 
-  );
+            <BrowserRouter>
+                <Route path={"/"} exact={true}>
+                    <HomeScreen/>
+                </Route>
+                <Route path={"/search"}>
+                    <SearchScreen/>
+                </Route>
+
+                <Route path="/profile" component={ProfileScreen}/>
+            </BrowserRouter>
+
+        </Provider>
+
+    );
 }
 
 export default App;

@@ -1,6 +1,7 @@
 import React from "react";
+import moment from "moment";
 
-const ProfileAboutMe = () => {
+const ProfileAboutMe = ({profile}) => {
     return (
         <div className="d-flex flex-column">
 
@@ -8,7 +9,7 @@ const ProfileAboutMe = () => {
 
             <div className="mb-3">
                 <h6 className="fw-bold">Birthday</h6>
-                November 1, 2021
+                {moment(profile.birthday).format('LL')}
             </div>
 
             <div className="mb-3">
@@ -18,7 +19,7 @@ const ProfileAboutMe = () => {
 
             <div className="mb-3">
                 <h6 className="fw-bold">Joined Since</h6>
-                September 2019
+                {moment(profile.dateJoined).format('MMMM YYYY')}
             </div>
         </div>
     )

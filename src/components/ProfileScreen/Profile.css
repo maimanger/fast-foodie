@@ -50,9 +50,9 @@ body {
     }
 }
 
-.wd-profile-nav-sidebar {
+/*.wd-profile-nav-sidebar {
     width: 60%;
-}
+}*/
 
 .wd-profile-nav-sidebar>.list-group-item.active {
     font-weight: bold;
@@ -66,12 +66,13 @@ body {
     text-decoration: underline;
 }
 
-.wd-profile-notification-hover {
+.wd-profile-content-hover {
     text-decoration:none;
     background-color: transparent;
+    cursor: pointer;
 }
 
-.wd-profile-notification-hover:hover {
+.wd-profile-content-hover:hover {
     background-color: rgb(233,236,239);
 }
 
@@ -83,6 +84,7 @@ body {
 .wd-profile-back-top:hover {
     color: #df382c;
 }
+
 
 
 

@@ -1,0 +1,16 @@
+.img-container, .search-img{
+    width: 100%;
+    min-width: 1200px;
+    filter: brightness(70%);
+}
+
+.text-blue {
+    color: rgba(31,142,255,1)
+}
+
+.wd-absolute-position {
+    position: "absolute";
+    left: "16%";
+    bottom: "10%";
+    color: "white"
+}

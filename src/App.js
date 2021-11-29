@@ -1,7 +1,8 @@
 import React from "react";
 import {BrowserRouter, Route} from "react-router-dom";
-import './vendor/css/bootstrap.min.css'
 import './App.css';
+import './vendor/css/bootstrap.min.css'
+import "./vendor/css/stars.css";
 import HomeScreen from "./components/HomeScreen";
 import SearchScreen from "./components/SearchScreen";
 import ProfileScreen from "./components/ProfileScreen";
@@ -9,6 +10,9 @@ import MessageScreen from "./components/MessageScreen";
 import AdminInboxScreen from "./components/AdminInboxScreen";
 import AdminInboxDetailScreen from "./components/AdminInboxDetailScreen";
 import BusinessClaimSearchScreen from "./components/BusinessClaimScreen/BusinessClaimSearchScreen";
+import RestaurantScreen from "./components/RestaurantScreen";
+import Map from "./components/RestaurantScreen/RestaurantParts/Map";
+
 
 
 function App() {
@@ -21,8 +25,8 @@ function App() {
           <Route path={"/admin/inbox/detail"} exact={true} component={AdminInboxDetailScreen} />
           <Route path={"/business/claim"} component={BusinessClaimSearchScreen} />
           <Route path={"/profile"} exact={true} component={ProfileScreen}/>
+          <Route path={"/restaurant"} component={RestaurantScreen} />
       </BrowserRouter>
-
   );
 }
 

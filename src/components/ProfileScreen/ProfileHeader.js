@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
 import "./Profile.css";
 
-const ProfileHeader = ({profile}) => {
+const ProfileHeader = ({profile, setEdit, edit}) => {
 
     return (
         <>
@@ -57,15 +57,16 @@ const ProfileHeader = ({profile}) => {
                     </div>
                 </div>
 
-                {/******************************Profile Header SideBtns**************************/}
-                <div className="col-auto d-flex flex-column pb-3 mb-4 justify-content-around ps-0 ps-sm-4 ps-md-5">
-
-                    <button className="d-flex flex-nowrap align-items-center justify-content-center
+                {/***************************Profile Header Edit Btn************************/}
+                <div className="col-auto d-flex flex-column pb-3 mb-4 justify-content-around ps-1 ">
+                    {!edit &&
+                    <button className="d-flex flex-nowrap align-items-center justify-content-start
                                            btn rounded-pill btn-outline-info"
-                          to="#">
+                            onClick={() => setEdit(true)}>
                         <i className="fas fa-cog me-0 me-sm-2"></i>
                         <span className="d-none d-sm-inline">Update</span>
                     </button>
+                    }
 
 
 {/*                    <Link className="d-flex flex-nowrap align-items-center justify-content-center

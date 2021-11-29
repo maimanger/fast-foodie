@@ -21,6 +21,8 @@ const ProfileAboutMe = ({profile}) => {
                 <h6 className="fw-bold">Joined Since</h6>
                 {moment(profile.dateJoined).format('MMMM YYYY')}
             </div>
+
+
         </div>
     )
 }

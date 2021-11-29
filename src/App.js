@@ -11,6 +11,9 @@ import profile from "./reducers/profile";
 import notifications from "./reducers/notifications";
 import users from "./reducers/users";
 import recentActivities from "./reducers/recentActivities";
+import ProfilePublicScreen from "./components/ProfileScreen/ProfilePublicScreen";
+import LoginScreen from "./components/LoginScreen";
+import RegisterScreen from "./components/RegisterScreen";
 
 function App() {
     const reducer = combineReducers({profile, notifications, users, recentActivities});
@@ -28,6 +31,10 @@ function App() {
                 </Route>
 
                 <Route path="/profile" component={ProfileScreen}/>
+                <Route path="/profile/:id" component={ProfilePublicScreen}/>
+
+                <Route path="/login"  exact={true} component={LoginScreen}/>
+                <Route path="/register"  exact={true} component={RegisterScreen}/>
             </BrowserRouter>
 
         </Provider>

@@ -21,9 +21,9 @@ const RestaurantStars = ({restaurant}) => {
 
     return (
         <div className="text-primary mb-2">
-            {solidStars.map(c => <i className="fas fa-star fs-5"></i>)}
-            {halfStars.map(c => <i className="fas fa-star-half-alt fs-5"></i>)}
-            {emptyStars.map(c => <i className="far fa-star fs-5"></i>)}
+            {solidStars.map(c => <i className="fas fa-star fs-5 text-warning"></i>)}
+            {halfStars.map(c => <i className="fas fa-star-half-alt fs-5 text-warning"></i>)}
+            {emptyStars.map(c => <i className="far fa-star fs-5 text-warning"></i>)}
 
             <span className="text-muted ms-2">
                 {restaurant.review_count} reviews

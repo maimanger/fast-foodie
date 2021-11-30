@@ -1,14 +1,20 @@
 [
   {
     "_id": "11223344",
-    "profile": {
+    "user": {
       "_id": 123,
-      "avatar": "/images/ProfilePage/avatar_img.jpg"
+      "image_url": "/images/ProfilePage/avatar_img.jpg"
     },
     "type": "review",
     "time_created": "2021-11-29 12:05:40",
     "review": {
       "_id": "12345678",
+      "user": {
+        "_id": "123",
+        "firstName": "Fangying",
+        "lastName": "Li",
+        "image_url": "/images/ProfilePage/avatar_img.jpg"
+      },
       "restaurant": {
         "id": "Rv4NgRl-wkMNPNdqXNSGBg",
         "name": "Shake Shack",
@@ -60,63 +66,80 @@
 
   {
     "_id": "22334455",
-    "profile": {
+    "user": {
       "_id": 123,
-      "avatar": "/images/ProfilePage/avatar_img.jpg"
+      "image_url": "/images/ProfilePage/avatar_img.jpg"
     },
     "type": "bookmark",
     "time_created": "2021-11-28 01:05:40",
-    "restaurant": {
-      "id": "Rv4NgRl-wkMNPNdqXNSGBg",
-      "name": "Shake Shack",
-      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
-      "location": {
-        "address1": "1 Old Fulton St",
-        "address2": "",
-        "address3": "",
-        "city": "Brooklyn",
-        "zip_code": "11201",
-        "country": "US",
-        "state": "NY",
-        "display_address": [
-          "1 Old Fulton St",
-          "Brooklyn, NY 11201"
-        ],
-        "cross_streets": ""
+    "bookmark": {
+      "user": {
+        "_id": 123,
+        "image_url": "/images/ProfilePage/avatar_img.jpg"
       },
-      "rating": 3.65,
-      "review_count": 369,
-      "categories": [
-        {
-          "alias": "tradamerican",
-          "title": "American (Traditional)"
+      "restaurant": {
+        "id": "Rv4NgRl-wkMNPNdqXNSGBg",
+        "name": "Shake Shack",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
+        "location": {
+          "address1": "1 Old Fulton St",
+          "address2": "",
+          "address3": "",
+          "city": "Brooklyn",
+          "zip_code": "11201",
+          "country": "US",
+          "state": "NY",
+          "display_address": [
+            "1 Old Fulton St",
+            "Brooklyn, NY 11201"
+          ],
+          "cross_streets": ""
         },
-        {
-          "alias": "icecream",
-          "title": "Ice Cream & Frozen Yogurt"
-        }
-      ],
-      "price": "$$"
+        "rating": 3.65,
+        "review_count": 369,
+        "categories": [
+          {
+            "alias": "tradamerican",
+            "title": "American (Traditional)"
+          },
+          {
+            "alias": "icecream",
+            "title": "Ice Cream & Frozen Yogurt"
+          }
+        ],
+        "price": "$$"
+      }
     }
   },
 
-
   {
     "_id": "33445566",
-    "profile": {
+    "user": {
       "_id": 123,
-      "avatar": "/images/ProfilePage/avatar_img.jpg"
+      "image_url": "/images/ProfilePage/avatar_img.jpg"
     },
     "type": "follow",
     "time_created": "2021-11-28 11:00:40",
-    "followWhom": {
-      "_id": 234,
-      "firstName": "Mike",
-      "lastName": "Shah",
-      "avatar": "/images/ProfilePage/avatar_img2.jpg",
-      "location": "Los Angelos, CA",
-      "reviewsCount": 12,
-      "followersCount": 2
+    "follow": {
+      "follower": {
+        "_id": 123,
+        "firstName": "Fangying",
+        "lastName": " Li",
+        "image_url": "/images/ProfilePage/avatar_img.jpg",
+        "location": "Boston, MA",
+        "reviewsCount": 88,
+        "followersCount": 3
+      },
+      "followee": {
+        "_id": 234,
+        "firstName": "Mike",
+        "lastName": "Shah",
+        "image_url": "/images/ProfilePage/avatar_img2.jpg",
+        "location": "Los Angelos, CA",
+        "reviewsCount": 12,
+        "followersCount": 2
+      },
+      "time_created": "2021-11-28 11:00:40"
     }
   }
 ]

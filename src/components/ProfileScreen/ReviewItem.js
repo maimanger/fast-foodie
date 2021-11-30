@@ -20,8 +20,8 @@ const ReviewItem = ({review}) => {
 
             {/************************Review Stars**************************/}
             <div className="text-primary mb-2">
-                {solidStars.map(count => <i className="fas fa-star fs-5"></i>)}
-                {emptyStars.map(count => <i className="far fa-star fs-5"></i>)}
+                {solidStars.map(count => <i className="fas fa-star fs-5 text-warning"></i>)}
+                {emptyStars.map(count => <i className="far fa-star fs-5 text-warning"></i>)}
 
                 <span className="text-muted ms-2">
                              {moment(review.time_created).format("L")}

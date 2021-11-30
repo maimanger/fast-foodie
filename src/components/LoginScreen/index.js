@@ -13,15 +13,13 @@ const LoginScreen = () => {
                     <div className="col-md-10 mx-auto col-lg-5">
                         <form className="p-4 p-md-5 border rounded-3 bg-light shadow">
                             <div className="form-floating mb-3">
-                                <input type="email" className="form-control"
-                                       id="loginEmail" placeholder="name@example.com">
-                                </input>
+                                <input required={true} type="email" className="form-control"
+                                       id="loginEmail" placeholder="name@example.com"/>
                                 <label htmlFor="loginEmail">Email address</label>
                             </div>
                             <div className="form-floating mb-3">
-                                <input type="password" className="form-control"
-                                       id="loginPassword" placeholder="Password">
-                                </input>
+                                <input required={true} type="password" className="form-control"
+                                       id="loginPassword" placeholder="Password"/>
                                 <label htmlFor="loginPassword">Password</label>
                             </div>
                             <button className="w-100 btn btn-lg btn-primary" type="submit">

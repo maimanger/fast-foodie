@@ -18,7 +18,7 @@ const BusinessHeader = () => {
 
             {/******************************Profile Header Title**************************/}
             <div className="col-6 col-sm-5 col-lg-6 d-flex flex-column
-                               pb-3 px-0 mb-3 justify-content-end">
+                               pb-3 px-0 mb-4 justify-content-end">
                 <div className="d-flex align-items-center">
                 <HashLink smooth to="/business#top" className="wd-business-back-top fs-1 text-nowrap">
                     Dauzo Restaurant

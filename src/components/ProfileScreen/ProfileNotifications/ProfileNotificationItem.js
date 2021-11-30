@@ -9,7 +9,7 @@ const ProfileNotificationItem = ({notification}) => {
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
             <div className="me-3">
-                <img className="rounded-circle" src={notification.profile.avatar}
+                <img className="rounded-circle" src={notification.user.image_url}
                      width="48px" height="48px"/>
             </div>
 
@@ -20,8 +20,8 @@ const ProfileNotificationItem = ({notification}) => {
                      <div>
                          You received a new message from
                          <Link className="text-info wd-profile-link-text mx-1"
-                               to={`/profile/${notification.fromWhom._id}`}>
-                             {notification.fromWhom.firstName} {notification.fromWhom.lastName}
+                               to={`/profile/${notification.message.sender._id}`}>
+                             {notification.message.sender.firstName} {notification.message.sender.lastName}
                          </Link>
                      </div>
                      <div className="text-muted fst-italic text-nowrap d-none d-md-block">
@@ -39,16 +39,16 @@ const ProfileNotificationItem = ({notification}) => {
                      <div>
                          You have a new follower
                          <Link className="text-info wd-profile-link-text mx-1"
-                               to={`/profile/${notification.fromWhom._id}`}>
-                             {notification.fromWhom.firstName} {notification.fromWhom.lastName}
+                               to={`/profile/${notification.follow.follower._id}`}>
+                             {notification.follow.follower.firstName} {notification.follow.follower.lastName}
                          </Link>
                      </div>
                      <div className="text-muted fst-italic text-nowrap d-none d-md-block">
                          {moment(notification.time_created).fromNow()}
                      </div>
                  </div>
-                 <Link to={`/profile/${notification.fromWhom._id}`} className="wd-profile-content-hover">
-                 <UserAvatarInfo user={notification.fromWhom}/>
+                 <Link to={`/profile/${notification.follow.follower._id}`} className="wd-profile-content-hover">
+                 <UserAvatarInfo user={notification.follow.follower}/>
                  </Link>
 
 
@@ -64,7 +64,7 @@ const ProfileNotificationItem = ({notification}) => {
                          Your order from
                          <Link className="text-info wd-profile-link-text mx-1"
                                to="#">
-                             {notification.order.restaurant}
+                             {notification.order.restaurant.name}
                          </Link>
                          has been updated
                      </div>

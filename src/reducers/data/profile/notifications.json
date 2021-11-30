@@ -1,51 +1,75 @@
 [
   {
     "_id": "112233",
-    "profile": {
+    "user": {
       "_id": 123,
-      "avatar": "/images/ProfilePage/avatar_img.jpg"
+      "image_url": "/images/ProfilePage/avatar_img.jpg"
     },
     "type": "in-message",
     "time_created": "2021-11-29 11:00:40",
-    "fromWhom": {
-      "_id": 345,
-      "firstName": "Mike",
-      "lastName": "Shah",
-      "avatar": "/images/ProfilePage/avatar_img2.jpg",
-      "location": "Los Angelos, CA",
-      "reviewsCount": 12,
-      "followersCount": 2
+    "message": {
+      "sender": {
+        "_id": 345,
+        "image_url": "/images/ProfilePage/avatar_img2.jpg",
+        "firstName": "Mike",
+        "lastName": "Shah",
+        "location": "Los Angelos, CA",
+        "reviewsCount": 12,
+        "followersCount": 2
+      },
+      "receiver": {
+        "_id": 123,
+        "image_url": "/images/ProfilePage/avatar_img.jpg"
+      },
+      "text": "Hello world",
+      "time_created": "2021-11-29 11:00:40"
     }
   },
   {
     "_id": "223344",
-    "profile": {
+    "user": {
       "_id": 123,
-      "avatar": "/images/ProfilePage/avatar_img.jpg"
+      "image_url": "/images/ProfilePage/avatar_img.jpg"
     },
     "type": "new-follower",
     "time_created": "2021-11-28 01:00:40",
-    "fromWhom": {
-      "_id": 345,
-      "firstName": "Mike2",
-      "lastName": "Shah",
-      "avatar": "/images/ProfilePage/avatar_img2.jpg",
-      "location": "Los Angelos, CA",
-      "reviewsCount": 12,
-      "followersCount": 2
+    "follow": {
+      "follower": {
+        "_id": 345,
+        "firstName": "Mike2",
+        "lastName": "Shah",
+        "image_url": "/images/ProfilePage/avatar_img2.jpg",
+        "location": "Los Angelos, CA",
+        "reviewsCount": 12,
+        "followersCount": 2
+      },
+      "followee": {
+        "_id": 123,
+        "firstName": "Fangying",
+        "lastName": " Li",
+        "image_url": "/images/ProfilePage/avatar_img.jpg",
+        "location": "Boston, MA",
+        "reviewsCount": 88,
+        "followersCount": 3
+      },
+      "time_created": "2021-11-28 01:00:40"
     }
   },
   {
     "_id": "334455",
-    "profile": {
+    "user": {
       "_id": 123,
-      "avatar": "/images/ProfilePage/avatar_img.jpg"
+      "image_url": "/images/ProfilePage/avatar_img.jpg"
     },
     "type": "update-order",
     "time_created": "2021-11-28 01:05:40",
     "order": {
       "_id": 111222333,
-      "restaurant": "Shake Shack",
+      "restaurant": {
+        "id": "Rv4NgRl-wkMNPNdqXNSGBg",
+        "name": "Shake Shack",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg"
+      },
       "img": "/images/ProfilePage/shake_shack.jpg",
       "delivery_address": "655 Columbus Street, Boston, 02118 MA",
       "time_ordered": "Nov 28, 2021 10:08:21",

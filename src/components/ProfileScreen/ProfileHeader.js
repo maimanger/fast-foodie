@@ -13,8 +13,8 @@ const ProfileHeader = ({profile, setEdit, edit}) => {
 
                 <div className="col-4 col-lg-3 d-flex justify-content-center px-0">
                     <div className="wd-profile-avatar shadow card">
-                        {profile.avatar &&
-                        <img src={profile.avatar}
+                        {profile.image_url &&
+                        <img src={profile.image_url}
                              className="img-thumbnail bg-light" alt="..."/>
                         }
                     </div>

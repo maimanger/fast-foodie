@@ -31,14 +31,14 @@ const BusinessNavSidebar = ({active = "home"}) => {
                 </span>
             </Link>
 
-            <Link to="/business/photos"
+{/*            <Link to="/business/photos"
                   className={`list-group-item border-top px-2 px-sm-3 text-nowrap
                ${active === "photos" ? "active" : ""}`}>
                 <i className="fas fa-camera ms-3 ms-md-0 me-2 pe-1"></i>
                 <span className="d-none d-md-inline">
                 Photos
                 </span>
-            </Link>
+            </Link>*/}
 
 
             <Link to="/business/messages"

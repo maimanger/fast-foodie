@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import states from "./states.json";
 import CustomerRegister from "./CustomerRegister";
 import BusinessRegister from "./BusinessRegister";
-import AdminRegister from "./AdminRegister";
+
 
 const RegisterScreen = () => {
 
@@ -15,7 +15,7 @@ const RegisterScreen = () => {
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div className="card shadow" style={{borderRadius: "15px"}}>
-                        <div className="card-body p-5">
+                        <form className="card-body p-5">
                             <h2 className="text-uppercase text-center mb-1 text-danger fw-bold">
                                 Create an Account
                             </h2>
@@ -35,9 +35,6 @@ const RegisterScreen = () => {
                                     <option value="business">
                                         Business Owner
                                     </option>
-                                    <option value="admin">
-                                        Admin
-                                    </option>
                                 </select>
                                 <label htmlFor="regeisterSelect">Sign up as</label>
                             </div>
@@ -47,14 +44,14 @@ const RegisterScreen = () => {
                                     <label htmlFor="registerFirstName" className="form-label">
                                         First Name
                                     </label>
-                                    <input type="text" className="form-control"
+                                    <input type="text" className="form-control" required={true}
                                            id="registerFirstName"/>
                                 </div>
                                 <div className="col-md-6">
                                     <label htmlFor="registerLastName" className="form-label">
                                         Last Name
                                     </label>
-                                    <input type="text" className="form-control"
+                                    <input type="text" className="form-control" required={true}
                                            id="registerLastName"/>
                                 </div>
                             </div>
@@ -64,7 +61,7 @@ const RegisterScreen = () => {
                                     Your Email
                                 </label>
                                 <input type="email" id="registerEmail" className="form-control"
-                                       placeholder="example@123.com"/>
+                                       placeholder="example@123.com" required={true}/>
                             </div>
 
                             <div className="mb-3">
@@ -72,7 +69,7 @@ const RegisterScreen = () => {
                                     Password
                                 </label>
                                 <input type="password" id="registerPassword"
-                                       className="form-control"/>
+                                       className="form-control" required={true}/>
 
                             </div>
 
@@ -81,19 +78,18 @@ const RegisterScreen = () => {
                                     Repeat your password
                                 </label>
                                 <input type="password" id="registerPassword"
-                                       className="form-control"/>
+                                       className="form-control" required={true}/>
                             </div>
 
                             {role === "customer" && <CustomerRegister/>}
 
                             {role === "business" && <BusinessRegister/>}
 
-                            {role === "admin" && <AdminRegister/>}
 
 
                             <div
                                 className="form-check d-flex justify-content-center mb-3">
-                                <input
+                                <input required={true}
                                     className="form-check-input me-2"
                                     type="checkbox"
                                     value=""
@@ -107,14 +103,14 @@ const RegisterScreen = () => {
                             </div>
 
                             <div className="d-flex justify-content-center">
-                                <button type="button"
+                                <button type="submit"
                                         className="btn btn-primary rounded-pill btn-lg py-1">
                                     Register
                                 </button>
                             </div>
 
 
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

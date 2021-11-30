@@ -27,7 +27,7 @@ const ProfileScreen = () => {
                     {/****************************Profile NavSidebar**************************/}
 
                     <div className="col-4 col-lg-3 d-flex justify-content-center px-0">
-                        <ProfileNavSidebar active="overview"/>
+                        <ProfileNavSidebar active="overview" visibility={profile.visibility}/>
                     </div>
 
 
@@ -37,8 +37,9 @@ const ProfileScreen = () => {
                          className="col-7 col-lg-6 d-flex flex-column px-0">
                          <div className="mb-3">
                              <h3 className="text-danger fw-bold">Notifications</h3>
-                             <ProfileNotifications profile={profile}/>
+                             <ProfileNotifications/>
                          </div>
+                         <hr className="mb-4 mt-0"/>
                          <div>
                              <h3 className="text-danger fw-bold">Recent Activities</h3>
                              <ProfileRecentActivities/>

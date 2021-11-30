@@ -3,7 +3,7 @@ import ProfileNotificationItem from "./ProfileNotificationItem";
 import {useSelector} from "react-redux";
 
 
-const ProfileNotifications = (profile) => {
+const ProfileNotifications = () => {
     const notifications = useSelector(state => state.notifications);
 
     return (

@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "./Profile.css"
 
-const ProfileNavSidebar = ({active = "overview"}) => {
+const ProfileNavSidebar = ({active, visibility}) => {
     return (
         <ul className="list-group list-group-flush float-end wd-profile-nav-sidebar w-50 mt-4">
             <Link to="/profile"
@@ -21,15 +21,16 @@ const ProfileNavSidebar = ({active = "overview"}) => {
                 </span>
             </Link>
 
-            <Link to="/profile/photos"
+{/*            <Link to="/profile/photos"
                   className={`list-group-item border-top px-2 px-sm-3 text-nowrap
                ${active === "photos" ? "active" : ""}`}>
                 <i className="fas fa-camera ms-3 ms-md-0 me-2 pe-1"></i>
                 <span className="d-none d-md-inline">
                 Photos
                 </span>
-            </Link>
+            </Link>*/}
 
+            {visibility.bookmarks &&
             <Link to="/profile/bookmarks"
                   className={`list-group-item border-top px-2 px-sm-3 text-nowrap
                ${active === "bookmarks" ? "active" : ""}`}>
@@ -38,6 +39,7 @@ const ProfileNavSidebar = ({active = "overview"}) => {
                 Bookmarks
                 </span>
             </Link>
+            }
 
             <Link to="/profile/orders"
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap

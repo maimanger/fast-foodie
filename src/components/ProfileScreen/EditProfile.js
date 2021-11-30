@@ -59,7 +59,7 @@ const EditProfile = ({profile, setEdit}) => {
             <div
                 className="col-12 col-lg-3 col-xxl-2 card border-0 text-white"
                 style={{"height": "130px", "width": "130px"}}>
-                <img src="/images/ProfilePage/avatar_img.jpg"
+                <img src={profile.image_url}
                      className="img-fluid rounded-3 wd-profile-img-faded"
                      style={{"height": "120px", "width": "120px"}}/>
                 <div
@@ -144,28 +144,31 @@ const EditProfile = ({profile, setEdit}) => {
                         <div className="col-md-6">
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="locationVisible"
-                                       id="gridRadios1" value="locationVisible"/>
+                                       id="gridRadios1" value="locationVisible"
+                                       defaultChecked={profile.visibility.location}/>
                                     <label className="form-check-label" htmlFor="locationVisible">
                                         Location
                                     </label>
                             </div>
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="birthdayVisible"
-                                       id="gridRadios2" value="birthdayVisible"/>
+                                       id="gridRadios2" value="birthdayVisible"
+                                       defaultChecked={profile.visibility.birthday}/>
                                     <label className="form-check-label" htmlFor="birthdayVisible">
                                         Birthday
                                     </label>
                             </div>
-                            <div className="form-check mb-2">
+{/*                            <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="photosVisible"
                                        id="gridRadios2" value="photosVisible"/>
                                 <label className="form-check-label" htmlFor="photosVisible">
                                     Photos
                                 </label>
-                            </div>
+                            </div>*/}
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="bookmarksVisible"
-                                       id="gridRadios2" value="bookmarksVisible"/>
+                                       id="gridRadios2" value="bookmarksVisible"
+                                       defaultChecked={profile.visibility.bookmarks}/>
                                 <label className="form-check-label" htmlFor="bookmarksVisible">
                                     Bookmarks
                                 </label>

@@ -11,7 +11,7 @@ const ProfileRecentActivityItem = ({activity}) => {
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
             <div className="me-3">
-                <img className=" rounded-circle" src={activity.profile.avatar}
+                <img className=" rounded-circle" src={activity.user.image_url}
                      width="48px" height="48px"/>
             </div>
 
@@ -54,7 +54,7 @@ const ProfileRecentActivityItem = ({activity}) => {
                          You bookmarked
                          <Link className="text-info wd-profile-link-text mx-1"
                                to="#">
-                             {activity.restaurant.name}
+                             {activity.bookmark.restaurant.name}
                          </Link>
                      </div>
                      <div className="text-muted fst-italic text-nowrap d-none d-md-block">
@@ -62,8 +62,8 @@ const ProfileRecentActivityItem = ({activity}) => {
                      </div>
                  </div>
                  <Link to="#" className="text-black wd-profile-content-hover">
-                 <RestaurantInfo restaurant={activity.restaurant}/>
-                 <RestaurantStars restaurant={activity.restaurant}/>
+                 <RestaurantInfo restaurant={activity.bookmark.restaurant}/>
+                 <RestaurantStars restaurant={activity.bookmark.restaurant}/>
                  </Link>
 
              </div>
@@ -84,8 +84,8 @@ const ProfileRecentActivityItem = ({activity}) => {
                          {moment(activity.time_created).fromNow()}
                      </div>
                  </div>
-                 <Link to={`/profile/${activity.followWhom._id}`} className="wd-profile-content-hover">
-                     <UserAvatarInfo user={activity.followWhom}/>
+                 <Link to={`/profile/${activity.follow.followee._id}`} className="wd-profile-content-hover">
+                     <UserAvatarInfo user={activity.follow.followee}/>
                  </Link>
              </div>
             }

@@ -5,7 +5,7 @@ const UserAvatarInfo = ({user}) => {
         <div className="row g-3 mb-2">
             {/************************User Avatar**************************/}
             <div className="col-4 col-md-2">
-                <img src={user.avatar}
+                <img src={user.image_url}
                      className="img-fluid rounded-3"/>
             </div>
             {/************************User Info**************************/}

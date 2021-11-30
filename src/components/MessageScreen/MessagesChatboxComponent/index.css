@@ -1,0 +1,40 @@
+.messagescreen-right-container{
+    height: 100%;
+}
+
+.messagescreen-right-container div{
+    font-size: 14px;
+}
+
+.messagescreen-right-container ul{
+    height: 100%;
+}
+.messagescreen-chat-item-container{
+    max-width: 30%;
+}
+
+.messagescreen-chat-item-sender-img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+
+.messagescreen-messagesbox-container{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    overflow-y: scroll;
+}
+
+.messagescreen-send-message-input{
+    resize: none;
+}
+
+/*.messagescreen-send-message-input-container{*/
+/*    position: fixed;*/
+/*    bottom: 0;*/
+/*    right: 0;*/
+/*}*/

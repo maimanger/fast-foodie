@@ -1,0 +1,9 @@
+.homepage-banner-logged-in-header-container i:hover{
+    color: lightgray !important;
+    cursor: pointer;
+}
+
+
+.homepage-banner-logged-in-header-container .dropdown-item{
+    font-size: 14px;
+}

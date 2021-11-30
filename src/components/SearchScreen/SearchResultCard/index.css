@@ -1,0 +1,23 @@
+.searchscreen-card-container img {
+    height: 210px;
+    width: 230px;
+    object-fit: cover
+}
+
+.searchscreen-card-img-container{
+    height: 210px;
+    width: 230px;
+}
+.searchscreen-card-category{
+    width: fit-content;
+}
+
+.searchscreen-card-container{
+    font-size: 13px;
+    min-width: fit-content;
+}
+
+.searchscreen-card-container:hover{
+    box-shadow: 0 0 10px 0 lightgrey;
+}
+

@@ -1,0 +1,34 @@
+.homepage-banner{
+    height: fit-content;
+}
+
+.homepage-banner-img{
+    filter: brightness(80%);
+}
+
+.homepage-banner-main{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.homepage-banner-main-content{
+    width: 50%;
+}
+
+.homepage-banner-brand-container{
+    font-size: 50px;
+}
+
+.test {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.homepage-banner-header-container{
+    top: 20px;
+    right: 40px;
+
+}

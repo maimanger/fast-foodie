@@ -1,0 +1,13 @@
+.homescreen-recommendation-cards{
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.homescreen-sub-location-restaurants-container{
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    gap: 30px;
+}
+

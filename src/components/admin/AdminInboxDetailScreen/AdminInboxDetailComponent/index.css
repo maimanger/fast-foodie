@@ -1,0 +1,5 @@
+.admin-message-detail-reply-container > textarea:hover, .admin-message-detail-reply-container > textarea:focus{
+    box-shadow: 0 0 10px 0 lightgrey;
+    border-color: lightgray !important;
+    outline: 0
+}

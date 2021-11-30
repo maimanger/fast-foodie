@@ -1,21 +1,23 @@
 import React from "react";
 import "./index.css";
-import NavHeader from "./public_components/NavHeader";
-import Search from "./Search";
-import LocationsExplore from "./LocationsExplore";
-import CategoriesExplore from "./CategoriesExplore";
-import Footer from "./public_components/Footer";
+import RecommendationComponent from "./RecommendationComponent";
+import CategoryBrowseComponent from "./CategoryBrowseComponent";
+import Footer from "./public-components/Footer";
+import BannerCompoenent from "./BannerComponent";
+import RecentActivityComponent from "./RecentActivityComponent";
 
 const HomeScreen = () => {
 
     return(
-        <>
-            <NavHeader />
-            <Search />
-            <LocationsExplore />
-            <CategoriesExplore />
+        <div className={"bg-white"}>
+            <BannerCompoenent />
+            <RecommendationComponent />
+            <CategoryBrowseComponent />
+            <div className={"d-flex justify-content-center"}>
+                <RecentActivityComponent />
+            </div>
             <Footer />
-        </>
+        </div>
     );
 }
 

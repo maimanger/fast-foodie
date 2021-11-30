@@ -1,17 +1,46 @@
 import React from "react";
 import "./index.css";
 import restaurants from "../../../reducers/data/restaurants/nyc.json";
-import RestaurantCard from "../../HomeScreen/LocationsExplore/RestaurantCard";
+import restaurantDetail from "../../../reducers/data/business_detail/shake_shack.json";
+import SearchResultCard from "../SearchResultCard";
 
-const SearchResultComponent = () => {
+const SearchResultComponent = ({searchFilters={
+    city: "Austin",
+    state: "TX",
+    category: "Restaurant",
+    searchItem: ""
+}}) => {
+
+
     return (
-        <div className={"searchscreen-main ms-auto me-auto my-5"}>
-            <div className={"searchscreen-search-path text-dark mb-2"}>
-                Seattle > Restaurants
+        <div className={"searchscreen-body ms-auto me-auto my-5 w-100"}>
+
+            {/********************  search result path  ************************/}
+            <div className={"searchscreen-search-path mb-2 d-flex"}>
+                <div>{searchFilters.city}</div>
+                <span>&nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp;</span>
+                <div>{searchFilters.category}</div>
+                {searchFilters.searchItem !=='' && (
+                    <>
+                        <span>&nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp;</span>
+                        <div>{searchFilters.searchItem}</div>
+                    </>
+                )}
             </div>
-            <h5 className={"fw-bold mb-4"}>The Best Restaurants in Seattle, WA</h5>
+
+            {/********************  search result header  ************************/}
+            <h4 className={"fw-bold mb-4 text-nowrap"}>The Best Restaurants in {searchFilters.city}, {searchFilters.state}</h4>
+
+
+            {/********************  search results *******************************/}
             <div className={"searchscreen-search-results"}>
-                {restaurants.businesses.map(restaurant => <RestaurantCard restaurant={restaurant}/>)}
+                {restaurants.businesses.map(restaurant => {
+                    return (
+                        <div className={"mb-4"}>
+                            <SearchResultCard restaurantFromSearchApi={restaurant} restaurantFromDetailApi={restaurantDetail}/>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )

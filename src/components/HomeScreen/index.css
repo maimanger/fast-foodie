@@ -1,0 +1,24 @@
+.homepage-color-dimgray{
+    color: dimgray;
+}
+
+.homepage-color-lightgray{
+    color: #f5f5f5
+}
+
+.homescreen-color-gray{
+    color: gray;
+}
+
+.homescreen-w-fit{
+    width: fit-content;
+}
+
+.homescreen-h-fit{
+    height: fit-content;
+}
+
+.homescreen-border-shadow{
+    box-shadow: 0 0 10px 0 lightgrey;
+}
+

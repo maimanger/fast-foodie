@@ -81,7 +81,7 @@ const ProfileRecentActivityItem = ({activity}) => {
                              Mike Shah</Link>
                      </div>
                      <div className="text-muted fst-italic text-nowrap d-none d-md-block">
-                         2 hours ago
+                         {moment(activity.time_created).fromNow()}
                      </div>
                  </div>
                  <Link to={`/profile/${activity.followWhom._id}`} className="wd-profile-content-hover">

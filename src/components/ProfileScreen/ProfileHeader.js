@@ -64,7 +64,8 @@ const ProfileHeader = ({profile, setEdit, edit}) => {
                                            btn rounded-pill btn-outline-info"
                             onClick={() => setEdit(true)}>
                         <i className="fas fa-cog me-0 me-sm-2"></i>
-                        <span className="d-none d-sm-inline">Update</span>
+                        <span className="d-none d-sm-inline me-1">Update</span>
+                        <span className="d-none d-md-inline">Profile</span>
                     </button>
                     }
 

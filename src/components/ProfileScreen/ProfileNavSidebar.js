@@ -51,7 +51,7 @@ const ProfileNavSidebar = ({active = "overview"}) => {
             <Link to="/profile/messages"
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "messages" ? "active" : ""}`}>
-                <i className="fas fa-comments ms-3 ms-md-0 me-2 pe-1"></i>
+                <i className="fas fa-envelope ms-3 ms-md-0 me-2 pe-1"></i>
                 <span className="d-none d-md-inline">
                 Messages
                 </span>

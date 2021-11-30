@@ -1,5 +1,6 @@
 import React from "react";
 import "./Login.css";
+import {Link} from "react-router-dom";
 
 const LoginScreen = () => {
     return (
@@ -29,9 +30,9 @@ const LoginScreen = () => {
 
                             <hr className="my-4"/>
                             <div className="text-center mb-2 text-black-50">Don't have an account?</div>
-                            <button className="w-100 btn btn-lg btn-info" type="submit">
+                            <Link className="w-100 btn btn-lg btn-info" to="/register">
                                 Create an account
-                            </button>
+                            </Link>
 
                         </form>
                     </div>

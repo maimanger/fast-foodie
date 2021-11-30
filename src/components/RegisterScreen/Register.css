@@ -1,0 +1,14 @@
+body {
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+.wd-register-link-text {
+    text-decoration:none;
+}
+
+.wd-register-link-text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+

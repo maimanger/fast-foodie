@@ -1,157 +1,125 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Register.css"
-
-
+import {Link} from "react-router-dom";
+import states from "./states.json";
+import CustomerRegister from "./CustomerRegister";
+import BusinessRegister from "./BusinessRegister";
+import AdminRegister from "./AdminRegister";
 
 const RegisterScreen = () => {
+
+    const [role, setRole] = useState("customer");
+
     return (
-        <section className="vh-100 bg-image"
-                 style={{
-                     backgroundImage: `url(${process.env.PUBLIC_URL + '/RegisterPage/register.jpg'})`
-                 }}>
-            <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-                <div className="container h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
-                        <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div className="card" style={{"border-radius": "15px"}}>
-                                <div className="card-body p-5">
-                                    <h2 className="text-uppercase text-center mb-5">Create an
-                                        account</h2>
+        <div className="container my-4">
+            <div className="row d-flex justify-content-center align-items-center">
+                <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div className="card shadow" style={{borderRadius: "15px"}}>
+                        <div className="card-body p-5">
+                            <h2 className="text-uppercase text-center mb-1 text-danger fw-bold">
+                                Create an Account
+                            </h2>
 
-                                    <div className="form-floating mb-3 mx-auto">
+                            <p className="text-center text-muted mb-4">Already have an
+                                account? <Link to="/login"
+                                               className="fw-bold text-info wd-register-link-text">Login
+                                    here</Link>
+                            </p>
 
-                                        <select className="form-select" id="floatingSelect"
-                                                aria-label="Floating label select example">
+                            <div className="form-floating mb-3">
+                                <select className="form-select " id="regeisterSelect"
+                                        defaultValue="customer" onChange={event => setRole(event.target.value)}>
+                                    <option value="customer">
+                                        Customer
+                                    </option>
+                                    <option value="business">
+                                        Business Owner
+                                    </option>
+                                    <option value="admin">
+                                        Admin
+                                    </option>
+                                </select>
+                                <label htmlFor="regeisterSelect">Sign up as</label>
+                            </div>
 
-                                            <option value="1">Customer</option>
-                                            <option value="2">Business Owner</option>
-                                            <option value="3">Admin</option>
-                                        </select>
-                                        <label htmlFor="floatingSelect">Sign up as</label>
-                                    </div>
-
-                                    <form >
-                                        <div className="row mb-3">
-                                        <div className="col-md-6">
-                                            <label htmlFor="inputEmail4"
-                                                   className="form-label">First Name</label>
-                                            <input type="text" className="form-control"
-                                                   id="inputEmail4">
-                                            </input>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <label htmlFor="inputPassword4"
-                                                   className="form-label">Last Name</label>
-                                            <input type="text" className="form-control"
-                                                   id="inputPassword4">
-                                            </input>
-                                        </div>
-                                        </div>
-
-
-                                        <div className="form-outline mb-3">
-                                            <label className="form-label" htmlFor="form3Example3cg">Your
-                                                Email</label>
-                                            <input type="email" id="form3Example3cg"
-                                                   className="form-control form-control-lg"/>
-
-                                        </div>
-
-                                        <div className="form-outline mb-3">
-                                            <label className="form-label"
-                                                   htmlFor="form3Example4cg">Password</label>
-                                            <input type="password" id="form3Example4cg"
-                                                   className="form-control form-control-lg"/>
-
-                                        </div>
-
-                                        <div className="form-outline mb-3">
-                                            <label className="form-label"
-                                                   htmlFor="form3Example4cdg">Repeat your
-                                                password</label>
-                                            <input type="password" id="form3Example4cdg"
-                                                   className="form-control form-control-lg"/>
-
-                                        </div>
-
-                                        <div className="col-12 mb-3">
-                                            <label htmlFor="inputAddress"
-                                                   className="form-label">Address</label>
-                                            <input type="text" className="form-control"
-                                                   id="inputAddress" placeholder="1234 Main St">
-                                            </input>
-                                        </div>
-                                        <div className="col-12 mb-3">
-                                            <label htmlFor="inputAddress2" className="form-label">Address
-                                                2</label>
-                                            <input type="text" className="form-control"
-                                                   id="inputAddress2"
-                                                   placeholder="Apartment, studio, or floor">
-                                            </input>
-                                        </div>
-
-                                        <div className="row mb-4">
-                                        <div className="col-md-5">
-                                            <label htmlFor="inputCity"
-                                                   className="form-label">City</label>
-                                            <input type="text" className="form-control"
-                                                   id="inputCity">
-                                            </input>
-                                        </div>
-
-                                        <div className="col-md-4">
-                                            <label htmlFor="inputState"
-                                                   className="form-label">State</label>
-                                            <select id="inputState" className="form-select">
-                                                <option selected>Choose...</option>
-                                                <option>...</option>
-                                            </select>
-                                        </div>
-                                        <div className="col-md-3">
-                                            <label htmlFor="inputZip"
-                                                   className="form-label">Zip</label>
-                                            <input type="text" className="form-control"
-                                                   id="inputZip">
-                                            </input>
-                                        </div>
-                                        </div>
-
-                                        <div
-                                            className="form-check d-flex justify-content-center mb-5">
-                                            <input
-                                                className="form-check-input me-2"
-                                                type="checkbox"
-                                                value=""
-                                                id="form2Example3cg"
-                                            />
-                                            <label className="form-check-label"
-                                                   htmlFor="form2Example3g">
-                                                I agree all statements in <a href="#"
-                                                                             className="text-body"><u>Terms
-                                                of service</u></a>
-                                            </label>
-                                        </div>
-
-                                        <div className="d-flex justify-content-center">
-                                            <button type="button"
-                                                    className="btn btn-primary rounded-pill btn-lg gradient-custom-4">Register
-                                            </button>
-                                        </div>
-
-                                        <p className="text-center text-muted mt-5 mb-0">Have already
-                                            an account? <a href="#"
-                                                           className="fw-bold text-body"><u>Login
-                                                here</u></a></p>
-
-                                    </form>
-
+                            <div className="row mb-3">
+                                <div className="col-md-6">
+                                    <label htmlFor="registerFirstName" className="form-label">
+                                        First Name
+                                    </label>
+                                    <input type="text" className="form-control"
+                                           id="registerFirstName"/>
+                                </div>
+                                <div className="col-md-6">
+                                    <label htmlFor="registerLastName" className="form-label">
+                                        Last Name
+                                    </label>
+                                    <input type="text" className="form-control"
+                                           id="registerLastName"/>
                                 </div>
                             </div>
+
+                            <div className="mb-3">
+                                <label className="form-label" htmlFor="registerEmail">
+                                    Your Email
+                                </label>
+                                <input type="email" id="registerEmail" className="form-control"
+                                       placeholder="example@123.com"/>
+                            </div>
+
+                            <div className="mb-3">
+                                <label className="form-label" htmlFor="registerPassword">
+                                    Password
+                                </label>
+                                <input type="password" id="registerPassword"
+                                       className="form-control"/>
+
+                            </div>
+
+                            <div className="mb-3">
+                                <label className="form-label" htmlFor="registerPassword2">
+                                    Repeat your password
+                                </label>
+                                <input type="password" id="registerPassword"
+                                       className="form-control"/>
+                            </div>
+
+                            {role === "customer" && <CustomerRegister/>}
+
+                            {role === "business" && <BusinessRegister/>}
+
+                            {role === "admin" && <AdminRegister/>}
+
+
+                            <div
+                                className="form-check d-flex justify-content-center mb-3">
+                                <input
+                                    className="form-check-input me-2"
+                                    type="checkbox"
+                                    value=""
+                                    id="regesterCheckbox"
+                                />
+                                <label className="form-check-label" htmlFor="regesterCheckbox">
+                                    I agree all statements in the <Link to="#"
+                                                                    className="text-info wd-register-link-text">Privacy
+                                    Policy</Link>
+                                </label>
+                            </div>
+
+                            <div className="d-flex justify-content-center">
+                                <button type="button"
+                                        className="btn btn-primary rounded-pill btn-lg py-1">
+                                    Register
+                                </button>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+
     )
 }
 

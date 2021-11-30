@@ -6,7 +6,6 @@ import ProfileNavSidebar from "./ProfileNavSidebar";
 import ProfileAboutMe from "./ProfileAboutMe";
 import ProfileNotifications from "./ProfileNotifications";
 import ProfileRecentActivities from "./ProfileRecentActivities";
-import moment from "moment";
 import EditProfile from "./EditProfile";
 
 const ProfileScreen = () => {

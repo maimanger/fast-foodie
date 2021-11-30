@@ -79,8 +79,7 @@ const EditProfile = ({profile, setEdit}) => {
                     {/***************************Edit Avatar URL*****************************/}
                     <input type="text" id="editAvatar" placeholder="Edit" maxLength="100"
                            className="form-control bg-transparent border border-secondary
-                                          wd-profile-edit">
-                    </input>
+                                          wd-profile-edit"/>
                     <label htmlFor="editAvatar" className="wd-text-18">Profile Image URL</label>
                 </div>
 
@@ -89,8 +88,7 @@ const EditProfile = ({profile, setEdit}) => {
                     <input type="text" id="editName" placeholder="Edit" maxLength="50"
                               className="form-control bg-transparent border border-secondary
                                           wd-profile-edit"
-                            defaultValue={profile.firstName}>
-                    </input>
+                            defaultValue={profile.firstName}/>
                     <label htmlFor="editName" className="wd-text-18">First Name</label>
                 </div>
 
@@ -98,8 +96,7 @@ const EditProfile = ({profile, setEdit}) => {
                     <input type="text" id="editName" placeholder="Edit" maxLength="50"
                               className="form-control bg-transparent border border-secondary
                                           wd-profile-edit"
-                              defaultValue={profile.lastName}>
-                    </input>
+                              defaultValue={profile.lastName}/>
                     <label htmlFor="editName" className="">Last Name</label>
                 </div>
 
@@ -108,8 +105,7 @@ const EditProfile = ({profile, setEdit}) => {
                     <input type="text" id="editLocation" placeholder="Edit" maxLength="50"
                               className="form-control bg-transparent border border-secondary
                                            wd-profile-edit"
-                           defaultValue={profile.location}>
-                    </input>
+                           defaultValue={profile.location}/>
                     <label htmlFor="editLocation" className="wd-text-18">Location</label>
                 </div>
 
@@ -148,28 +144,28 @@ const EditProfile = ({profile, setEdit}) => {
                         <div className="col-md-6">
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="locationVisible"
-                                       id="gridRadios1" value="locationVisible"></input>
+                                       id="gridRadios1" value="locationVisible"/>
                                     <label className="form-check-label" htmlFor="locationVisible">
                                         Location
                                     </label>
                             </div>
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="birthdayVisible"
-                                       id="gridRadios2" value="birthdayVisible"></input>
+                                       id="gridRadios2" value="birthdayVisible"/>
                                     <label className="form-check-label" htmlFor="birthdayVisible">
                                         Birthday
                                     </label>
                             </div>
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="photosVisible"
-                                       id="gridRadios2" value="photosVisible"></input>
+                                       id="gridRadios2" value="photosVisible"/>
                                 <label className="form-check-label" htmlFor="photosVisible">
                                     Photos
                                 </label>
                             </div>
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="bookmarksVisible"
-                                       id="gridRadios2" value="bookmarksVisible"></input>
+                                       id="gridRadios2" value="bookmarksVisible"/>
                                 <label className="form-check-label" htmlFor="bookmarksVisible">
                                     Bookmarks
                                 </label>

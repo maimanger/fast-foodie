@@ -6,7 +6,7 @@
       "avatar": "/images/ProfilePage/avatar_img.jpg"
     },
     "type": "in-message",
-    "time_created": "2021-11-28 11:00:40",
+    "time_created": "2021-11-29 11:00:40",
     "fromWhom": {
       "_id": 345,
       "firstName": "Mike",
@@ -49,7 +49,18 @@
       "img": "/images/ProfilePage/shake_shack.jpg",
       "delivery_address": "655 Columbus Street, Boston, 02118 MA",
       "time_ordered": "Nov 28, 2021 10:08:21",
-      "cost": 25.58
+      "cost": 25.58,
+      "itemsCount": 3,
+      "items": [
+        {
+          "name": "Gyoza (6 pcs)",
+          "count": 1
+        },
+        {
+          "name": "Tonkotsu Ramen",
+          "count": 2
+        }
+      ]
     }
   }
 ]

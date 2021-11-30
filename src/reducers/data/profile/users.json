@@ -9,6 +9,7 @@
     "location": "Boston, MA",
     "birthday": "2021-11-1",
     "dateJoined": "2019-9-1",
+    "email": "fangying1101@gmail.com",
     "reviewsCount": 88,
     "reviews": [],
     "followingCount": 2,
@@ -30,7 +31,7 @@
   },
   {
     "_id": "234",
-    "username": "mike",
+    "username": "mike@123.com",
     "password": "456ABC",
     "firstName": "Mike",
     "lastName": "Shah",
@@ -56,7 +57,7 @@
   },
   {
     "_id": "345",
-    "username": "mike",
+    "username": "mike2@123.com",
     "password": "789ABC",
     "firstName": "Mike2",
     "lastName": "Shah",
@@ -84,7 +85,7 @@
   },
   {
     "_id": "456",
-    "username": "mike",
+    "username": "mike3@123.com",
     "password": "101112ABC",
     "firstName": "Mike3",
     "lastName": "Shah",
@@ -111,7 +112,7 @@
   },
   {
     "_id": "567",
-    "username": "mike",
+    "username": "mike4@123.com",
     "password": "131415ABC",
     "firstName": "Mike4",
     "lastName": "Shah",

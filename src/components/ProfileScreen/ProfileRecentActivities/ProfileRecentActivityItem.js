@@ -91,7 +91,7 @@ const ProfileRecentActivityItem = ({activity}) => {
                              <span className="text-black-50">{moment(activity.time_created)
                                  .format("L")}</span>
                                  <br/>
-                                 <span>{activity.review.text.split(" ").slice(0, 30)
+                                 <span>{activity.text.split(" ").slice(0, 30)
                                      .join(" ")} ...</span>
                              </div>
                          </Link>

@@ -123,10 +123,28 @@ const BusinessNotificationItem = ({notification}) => {
                          </Link>
                      </Collapse>
                  </div>
-
              </div>
             }
 
+            {/*********************************Bookmark Notification*****************************/}
+            {notification.type === "new-bookmark" &&
+             <div
+                 className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
+
+                 <div className="mb-2 d-flex justify-content-between align-items-center">
+                     <div>
+                         <i className="fas fa-bookmark me-3"></i>
+                         <span>
+                             <Link className="text-info wd-profile-link-text mx-1"
+                                   to={`/profile/${notification.bookmark.user._id}`}>
+                                 {notification.bookmark.user.firstName} {notification.bookmark.user.lastName}
+                             </Link>
+                             bookmarked your restaurant
+                     </span>
+                     </div>
+             </div>
+             </div>
+            }
 
         </div>
     )

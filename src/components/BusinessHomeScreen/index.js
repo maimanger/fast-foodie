@@ -8,6 +8,7 @@ import ProfileAboutMe from "../ProfileScreen/ProfileAboutMe";
 import BusinessHomeStatics from "./BusinessHomeStatics";
 import BusinessNotificationItem from "./BusinessNotifications/BusinessNotificationItem";
 import BusinessNotifications from "./BusinessNotifications";
+import BusinessActivities from "./BusinessActivities";
 
 const BusinessHomeScreen = () => {
     return (
@@ -41,6 +42,7 @@ const BusinessHomeScreen = () => {
 
                         <div>
                             <h3 className="text-danger fw-bold">Recent Activities</h3>
+                            <BusinessActivities/>
 
 
                         </div>

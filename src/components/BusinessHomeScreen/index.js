@@ -6,6 +6,8 @@ import ProfileNotifications from "../ProfileScreen/ProfileNotifications";
 import ProfileRecentActivities from "../ProfileScreen/ProfileRecentActivities";
 import ProfileAboutMe from "../ProfileScreen/ProfileAboutMe";
 import BusinessHomeStatics from "./BusinessHomeStatics";
+import BusinessNotificationItem from "./BusinessNotifications/BusinessNotificationItem";
+import BusinessNotifications from "./BusinessNotifications";
 
 const BusinessHomeScreen = () => {
     return (
@@ -31,7 +33,7 @@ const BusinessHomeScreen = () => {
                         <div className="mb-3">
                             <h3 className="text-danger fw-bold">Notifications</h3>
 
-
+                            <BusinessNotifications/>
 
                         </div>
 

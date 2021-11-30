@@ -30,7 +30,7 @@ const ProfileNotificationItem = ({notification}) => {
 
                  </div>
                  <Link to={`/messages/${notification.message._id}`} className="wd-profile-content-hover text-black-50">
-                     {notification.message.text.split(" ").slice(0, 50).join(" ")} ...
+                     {notification.message.text.split(" ").slice(0, 30).join(" ")} ...
                  </Link>
              </div>
             }

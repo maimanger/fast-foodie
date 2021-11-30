@@ -99,6 +99,14 @@ body {
     filter: brightness(60%);
 }
 
+.wd-rounded-btn:hover {
+    color: #df382c;
+}
+
+.wd-rounded-btn:focus {
+    box-shadow: none;
+}
+
 
 
 

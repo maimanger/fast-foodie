@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import ReviewItem from "../ReviewItem";
 import moment from "moment";
 import RestaurantInfo from "../RestaurantInfo";
 import RestaurantStars from "../RestaurantStars";
 import UserAvatarInfo from "../UserAvatarInfo";
+import "../Profile.css"
+import ReviewStars from "../ReviewStars";
 
 const ProfileRecentActivityItem = ({activity}) => {
+
+    const [reviewVisible, setReviewVisible] = useState(false);
+    const [replyReviewVisible, setReplyReviewVisible] = useState(false);
 
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
@@ -34,8 +39,25 @@ const ProfileRecentActivityItem = ({activity}) => {
 
                  <div className="d-flex flex-column">
                      <Link to="#" className="wd-profile-content-hover text-black">
+                         <button
+                             className="btn rounded-circle border-0 float-end position-relative wd-rounded-btn"
+                             style={{bottom: "5px"}}
+                             onClick={() => {
+                                 if (reviewVisible === true) {
+                                     setReviewVisible(false);
+                                 } else {
+                                     setReviewVisible(true);
+                                 }
+                             }
+                             }>
+                             <i className="fas fa-caret-down" style={{"font-size": "22px"}}></i>
+                         </button>
+
                          <RestaurantInfo restaurant={activity.review.restaurant}/>
-                         <ReviewItem review={activity.review}/>
+
+                         <ReviewStars review={activity.review}/>
+
+                         {reviewVisible && <ReviewItem review={activity.review}/>}
                      </Link>
                      <Link className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
                            to="#">
@@ -65,13 +87,28 @@ const ProfileRecentActivityItem = ({activity}) => {
                  <div className="d-flex flex-column">
                      <Link to="#" className="wd-profile-content-hover text-black">
 
-
+                         <button
+                             className="btn rounded-circle border-0 float-end position-relative wd-rounded-btn"
+                             style={{bottom: "5px"}}
+                             onClick={() => {
+                                 if (replyReviewVisible === true) {
+                                     setReplyReviewVisible(false);
+                                 } else {
+                                     setReplyReviewVisible(true);
+                                 }
+                             }
+                             }>
+                             <i className="fas fa-caret-down" style={{"font-size": "22px"}}></i>
+                         </button>
 
                          <UserAvatarInfo user={activity.review.user}/>
-                         <ReviewItem review={activity.review}/>
+                         <ReviewStars review={activity.review}/>
+                         {replyReviewVisible && <ReviewItem review={activity.review}/>}
 
-                         <div className="text-black-50 mt-3 ms-5 ps-3 border-start border-4">
-                             {activity.review.text.split(" ").slice(0, 50).join(" ")} ...
+                         <div className="text-black opacity-75 mt-3 ms-5 ps-3 border-start border-4">
+                             <span className="text-black-50">{moment(activity.time_created).format("L")}</span>
+                             <br/>
+                             <span>{activity.review.text.split(" ").slice(0, 30).join(" ")} ...</span>
                          </div>
                      </Link>
 
@@ -102,8 +139,8 @@ const ProfileRecentActivityItem = ({activity}) => {
                      </div>
                  </div>
                  <Link to="#" className="text-black wd-profile-content-hover">
-                 <RestaurantInfo restaurant={activity.bookmark.restaurant}/>
-                 <RestaurantStars restaurant={activity.bookmark.restaurant}/>
+                     <RestaurantInfo restaurant={activity.bookmark.restaurant}/>
+                     <RestaurantStars restaurant={activity.bookmark.restaurant}/>
                  </Link>
 
              </div>
@@ -124,7 +161,8 @@ const ProfileRecentActivityItem = ({activity}) => {
                          {moment(activity.time_created).fromNow()}
                      </div>
                  </div>
-                 <Link to={`/profile/${activity.follow.followee._id}`} className="wd-profile-content-hover">
+                 <Link to={`/profile/${activity.follow.followee._id}`}
+                       className="wd-profile-content-hover">
                      <UserAvatarInfo user={activity.follow.followee}/>
                  </Link>
              </div>
@@ -134,5 +172,6 @@ const ProfileRecentActivityItem = ({activity}) => {
         </div>
     )
 }
+;
 
 export default ProfileRecentActivityItem;

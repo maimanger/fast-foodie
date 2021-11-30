@@ -1,19 +1,17 @@
 import React from "react";
 import {useSelector} from "react-redux";
 
-import ProfileNotificationItem from "../../ProfileScreen/ProfileNotifications/ProfileNotificationItem";
+import BusinessNotificationItem from "./BusinessNotificationItem";
+import notifications from "../../../reducers/data/businessHome/businessNotifications.json"
 
 
-const ProfileNotifications = () => {
-    const notifications = {
-
-    }
+const BusinessNotifications = () => {
 
     return (
         <ul className="list-group list-group-flush">
             {notifications.map(notification => {
                 return (
-                    <ProfileNotificationItem notification={notification}/>
+                    <BusinessNotificationItem notification={notification}/>
                 )
             })}
         </ul>
@@ -21,4 +19,4 @@ const ProfileNotifications = () => {
 
 }
 
-export default ProfileNotifications;
+export default BusinessNotifications;

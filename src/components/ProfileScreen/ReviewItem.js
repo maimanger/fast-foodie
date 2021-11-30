@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import moment from "moment";
 import RestaurantInfo from "./RestaurantInfo";
+import ReviewStars from "./ReviewStars";
 
 const ReviewItem = ({review}) => {
     let solidStars = [];
@@ -16,14 +17,15 @@ const ReviewItem = ({review}) => {
     return (
         <>
             {/************************Review Stars**************************/}
-            <div className="text-primary mb-2">
+{/*            <div className="text-primary mb-2">
                 {solidStars.map(count => <i className="fas fa-star fs-5 text-warning"></i>)}
                 {emptyStars.map(count => <i className="far fa-star fs-5 text-warning"></i>)}
 
                 <span className="text-muted ms-2">
                              {moment(review.time_created).format("L")}
                 </span>
-            </div>
+            </div>*/}
+
 
             {/************************Review Text**************************/}
             <p className="mb-2 text-opacity-75 text-black">
@@ -48,6 +50,7 @@ const ReviewItem = ({review}) => {
                 })}
             </div>
             </>
+
 
     )
 }

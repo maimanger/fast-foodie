@@ -41,7 +41,7 @@ const BusinessNavSidebar = ({active = "home"}) => {
             </Link>*/}
 
 
-            <Link to="/business/messages"
+            <Link to="/messages"
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "messages" ? "active" : ""}`}>
                 <i className="fas fa-envelope ms-3 ms-md-0 me-2 pe-1"></i>

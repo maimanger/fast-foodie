@@ -9,7 +9,7 @@ const RestaurantInfo = ({restaurant}) => {
             </div>
 
             <div className="col-12 col-md-8 d-flex flex-column">
-                <div className="fw-bold text-info wd-profile-link-text">
+                <div className="fw-bold text-info">
                     {restaurant.name}
                 </div>
                 <div className="text-info font-weight-light">

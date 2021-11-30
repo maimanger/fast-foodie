@@ -32,9 +32,9 @@ const ProfileRecentActivityItem = ({activity}) => {
                      </div>
                  </div>
 
-
                  <div className="d-flex flex-column">
                      <Link to="#" className="wd-profile-content-hover text-black">
+                         <RestaurantInfo restaurant={activity.review.restaurant}/>
                          <ReviewItem review={activity.review}/>
                      </Link>
                      <Link className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
@@ -44,6 +44,46 @@ const ProfileRecentActivityItem = ({activity}) => {
                  </div>
              </div>
             }
+
+            {/*******************************Reply Review************************************/}
+            {activity.type === "reply-review" &&
+             <div
+                 className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
+                 <div className="mb-2 d-flex justify-content-between">
+                     <div>
+                         You replied to the review of
+                         <Link className="text-info wd-profile-link-text mx-1"
+                               to={`/profile/${activity.review.user._id}`}>
+                             {activity.review.user.firstName} {activity.review.user.lastName}
+                         </Link>
+                     </div>
+                     <div className="text-muted fst-italic text-nowrap d-none d-md-block">
+                         {moment(activity.time_created).fromNow()}
+                     </div>
+                 </div>
+
+                 <div className="d-flex flex-column">
+                     <Link to="#" className="wd-profile-content-hover text-black">
+
+
+
+                         <UserAvatarInfo user={activity.review.user}/>
+                         <ReviewItem review={activity.review}/>
+
+                         <div className="text-black-50 mt-3 ms-5 ps-3 border-start border-4">
+                             {activity.review.text.split(" ").slice(0, 50).join(" ")} ...
+                         </div>
+                     </Link>
+
+                     <Link className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
+                           to="#">
+                         Edit
+                     </Link>
+
+                 </div>
+             </div>
+            }
+
 
             {/*******************************Bookmark Activity************************************/}
             {activity.type === "bookmark" &&
@@ -77,7 +117,7 @@ const ProfileRecentActivityItem = ({activity}) => {
                      <div>
                          You followed
                          <Link className="text-info wd-profile-link-text mx-1"
-                               to="#">
+                               to={`/profile/${activity.follow.followee._id}`}>
                              Mike Shah</Link>
                      </div>
                      <div className="text-muted fst-italic text-nowrap d-none d-md-block">

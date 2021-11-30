@@ -27,7 +27,11 @@ const ProfileNotificationItem = ({notification}) => {
                      <div className="text-muted fst-italic text-nowrap d-none d-md-block">
                          {moment(notification.time_created).fromNow()}
                      </div>
+
                  </div>
+                 <Link to={`/messages/${notification.message._id}`} className="wd-profile-content-hover text-black-50">
+                     {notification.message.text.split(" ").slice(0, 50).join(" ")} ...
+                 </Link>
              </div>
             }
 

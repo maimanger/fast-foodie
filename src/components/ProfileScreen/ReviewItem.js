@@ -15,9 +15,6 @@ const ReviewItem = ({review}) => {
 
     return (
         <>
-            {/************************Review Restaurant**************************/}
-            <RestaurantInfo restaurant={review.restaurant}/>
-
             {/************************Review Stars**************************/}
             <div className="text-primary mb-2">
                 {solidStars.map(count => <i className="fas fa-star fs-5 text-warning"></i>)}

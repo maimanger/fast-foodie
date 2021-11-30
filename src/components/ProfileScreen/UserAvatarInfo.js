@@ -10,7 +10,7 @@ const UserAvatarInfo = ({user}) => {
             </div>
             {/************************User Info**************************/}
             <div className="col-12 col-md-8 d-flex flex-column">
-                <div className="fw-bold text-info wd-profile-link-text">
+                <div className="fw-bold text-info">
                     {user.firstName} {user.lastName}
                 </div>
                 <div className="text-black">

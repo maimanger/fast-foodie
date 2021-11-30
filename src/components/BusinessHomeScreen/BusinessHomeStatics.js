@@ -1,7 +1,10 @@
 import React from "react";
-import moment from "moment";
+import restaurants from "../../reducers/data/restaurants/nyc.json"
+import BusinessStars from "./BusinessStars";
 
 const BusinessHomeStatics = () => {
+    const restaurant = {...restaurants.businesses[3], bookmark_count: 250};
+
     return (
         <div className="d-flex flex-column">
 
@@ -9,21 +12,21 @@ const BusinessHomeStatics = () => {
 
 
              < div className="mb-3">
-                 <h6 className="fw-bold">Birthday</h6>
-                 {moment(profile.birthday).format('LL')}
+                 <h6 className="fw-bold">Rating</h6>
+                 <BusinessStars restaurant={restaurant}/>
              </div>
 
 
 
              <div className="mb-3">
-                 <h6 className="fw-bold">Location</h6>
-                 Boston, MA
+                 <h6 className="fw-bold">Reviews</h6>
+                 {restaurant.review_count.toLocaleString()}
              </div>
 
 
             <div className="mb-3">
-                <h6 className="fw-bold">Joined Since</h6>
-                {moment(profile.dateJoined).format('MMMM YYYY')}
+                <h6 className="fw-bold">Bookmarks</h6>
+                {restaurant.bookmark_count.toLocaleString()}
             </div>
 
 

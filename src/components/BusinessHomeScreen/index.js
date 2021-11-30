@@ -5,6 +5,7 @@ import BusinessNavSidebar from "./BusinessNavSidebar";
 import ProfileNotifications from "../ProfileScreen/ProfileNotifications";
 import ProfileRecentActivities from "../ProfileScreen/ProfileRecentActivities";
 import ProfileAboutMe from "../ProfileScreen/ProfileAboutMe";
+import BusinessHomeStatics from "./BusinessHomeStatics";
 
 const BusinessHomeScreen = () => {
     return (
@@ -45,7 +46,7 @@ const BusinessHomeScreen = () => {
 
                     <div
                         className="d-none d-lg-block col-xl-auto border-2 border-start ">
-                        hello
+                        <BusinessHomeStatics/>
                     </div>
 
                 </div>

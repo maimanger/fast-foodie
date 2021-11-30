@@ -2,8 +2,11 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
 import "./Business.css";
+import restaurants from "../../reducers/data/restaurants/nyc.json"
 
 const BusinessHeader = () => {
+    const restaurant = restaurants.businesses[3];
+
     return (
         <div className="row d-flex flex-nowrap align-items-end wd-business-header">
 
@@ -11,7 +14,7 @@ const BusinessHeader = () => {
 
             <div className="col-4 col-lg-3 d-flex justify-content-center px-0">
                 <div className="wd-business-avatar shadow card bg-transparent">
-                    <img src="/images/BusinessPage/businessAvatar.jpg"
+                    <img src={restaurant.image_url}
                          className="img-thumbnail bg-light" alt="..."/>
                 </div>
             </div>
@@ -21,7 +24,7 @@ const BusinessHeader = () => {
                                pb-3 px-0 mb-4 justify-content-end">
                 <div className="d-flex align-items-center">
                 <HashLink smooth to="/business#top" className="wd-business-back-top fs-1 text-nowrap">
-                    Dauzo Restaurant
+                    {restaurant.name}
                 </HashLink>
                 <Link to="#" className="text-info fs-5 mx-4 wd-business-link-text mt-3">view</Link>
                 </div>

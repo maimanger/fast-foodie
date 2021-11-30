@@ -23,7 +23,7 @@ const OrderInfo = ({order}) => {
                 <div className="text-black">
                     Order #{order._id}
                 </div>
-                
+
                 <div className="text-black-50">
                     {order.delivery_address}
                 </div>

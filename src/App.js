@@ -7,9 +7,9 @@ import HomeScreen from "./components/HomeScreen";
 import SearchScreen from "./components/SearchScreen";
 import ProfileScreen from "./components/ProfileScreen";
 import MessageScreen from "./components/MessageScreen";
-import AdminInboxScreen from "./components/admin/AdminInboxScreen";
-import AdminInboxDetailScreen from "./components/admin/AdminInboxDetailScreen";
-import BusinessClaimSearchScreen from "./components/business/BusinessClaimScreen/BusinessClaimSearchScreen";
+import AdminInboxScreen from "./components/admin-inbox/AdminInboxScreen";
+import AdminInboxDetailScreen from "./components/admin-inbox/AdminInboxDetailScreen";
+import BusinessClaimSearchScreen from "./components/business-claim/BusinessClaimSearchScreen";
 import RestaurantScreen from "./components/RestaurantScreen";
 import Map from "./components/RestaurantScreen/RestaurantParts/Map";
 

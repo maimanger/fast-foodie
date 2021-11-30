@@ -1,0 +1,22 @@
+.admin-inbox-column1-width{
+    width: 20%
+}
+
+.admin-inbox-column2-width{
+    width: 20%
+}
+
+.admin-inbox-column3-width{
+    width: 40%
+}
+
+.admin-inbox-column4-width{
+    width: 20%
+}
+
+.admin-inbox-list-hover-effect:hover{
+    box-shadow: 0 0 10px 0 lightgrey;
+    cursor: pointer;
+    background: #fafafa;
+    z-index:200
+}

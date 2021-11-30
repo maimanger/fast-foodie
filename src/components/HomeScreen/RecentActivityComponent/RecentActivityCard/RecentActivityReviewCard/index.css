@@ -1,0 +1,22 @@
+.homescreen-recent-activity-card{
+    width: 230px;
+    height: 330px;
+    font-size: 14px;
+}
+
+
+.homescreen-recent-activity-card > img{
+    object-fit: cover;
+    width: 230px;
+    height: 110px;
+}
+
+.homescreen-profile-img{
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+}
+
+.homepage-recent-activity-card-review{
+    line-height: 18px;
+}

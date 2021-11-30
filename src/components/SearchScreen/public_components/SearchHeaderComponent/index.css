@@ -1,0 +1,16 @@
+
+.searchscreen-search-header-container{
+    box-shadow: 0 0 10px 0 lightgrey;
+}
+
+.searchscreen-search-header-searchbar-container{
+    box-shadow: 0 0 10px 0 lightgrey;
+}
+
+.searchscreen-search-header-buttons{
+    box-shadow: none;
+}
+
+.searchscreen-search-header-brand-container{
+    font-size: 25px;
+}

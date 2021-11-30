@@ -1,0 +1,15 @@
+.homescreen-recent-activity-show-more-container{
+    font-size: 14px;
+}
+
+.homescreen-recent-activity-show-more-container:hover{
+    cursor: pointer;
+}
+.homescreen-recent-activity-show-more-container > div:hover{
+    text-decoration: underline;
+
+}
+
+.homescreen-recent-activity-container{
+    width: fit-content;
+}

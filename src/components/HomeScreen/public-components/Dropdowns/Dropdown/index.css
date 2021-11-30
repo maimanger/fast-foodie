@@ -1,0 +1,13 @@
+.homepage-search-filter-dropdown > .dropdown-toggle{
+    width: 150px;
+}
+
+
+.homepage-search-filter-dropdown .dropdown-item:hover, .homepage-search-filter-dropdown > .dropdown-toggle > span{
+    cursor: pointer;
+}
+
+
+.homepage-search-filter-dropdown .dropdown-item{
+    font-size: 14px;
+}

@@ -1,0 +1,11 @@
+.homepage-search-filter-more-option > div{
+    width: 180px;
+}
+
+.homepage-search-filter-more-option > div > span {
+    width: fit-content;
+}
+
+.homepage-search-filter-more-option > div > span:hover {
+    cursor: pointer;
+}

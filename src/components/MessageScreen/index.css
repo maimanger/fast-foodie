@@ -1,0 +1,17 @@
+.messagescreen-container{
+    height: 100vh;
+}
+
+.messagescreen-container *, .messagescreen-container{
+    box-sizing: border-box;
+}
+
+.messagescreen-menu-component-container{
+    width: 30%;
+}
+
+.messagescreen-chatbox-component-container{
+    width: 70%;
+}
+
+

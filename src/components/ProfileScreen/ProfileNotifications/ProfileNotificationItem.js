@@ -1,11 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import "../Profile.css";
 import UserAvatarInfo from "../UserAvatarInfo";
 import OrderInfo from "../OrderInfo";
 import moment from "moment";
+import {Collapse} from "react-bootstrap";
 
 const ProfileNotificationItem = ({notification}) => {
+    const [on, setOn] = useState(false);
+
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
             <div className="me-3">
@@ -26,12 +29,17 @@ const ProfileNotificationItem = ({notification}) => {
                      </div>
                      <div className="text-muted fst-italic text-nowrap d-none d-md-block">
                          {moment(notification.time_created).fromNow()}
+                         <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
+                                 onClick={() => setOn(!on)}>
+                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                         </button>
                      </div>
-
                  </div>
+                 <Collapse in={on}>
                  <Link to={`/messages/${notification.message._id}`} className="wd-profile-content-hover text-black-50">
                      {notification.message.text.split(" ").slice(0, 30).join(" ")} ...
                  </Link>
+                 </Collapse>
              </div>
             }
 
@@ -49,11 +57,17 @@ const ProfileNotificationItem = ({notification}) => {
                      </div>
                      <div className="text-muted fst-italic text-nowrap d-none d-md-block">
                          {moment(notification.time_created).fromNow()}
+                         <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
+                                 onClick={() => setOn(!on)}>
+                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                         </button>
                      </div>
                  </div>
+                 <Collapse in={on}>
                  <Link to={`/profile/${notification.follow.follower._id}`} className="wd-profile-content-hover">
                  <UserAvatarInfo user={notification.follow.follower}/>
                  </Link>
+                 </Collapse>
 
 
              </div>
@@ -74,17 +88,23 @@ const ProfileNotificationItem = ({notification}) => {
                      </div>
                      <div className="text-muted fst-italic text-nowrap d-none d-md-block">
                          {moment(notification.time_created).fromNow()}
+                         <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
+                                 onClick={() => setOn(!on)}>
+                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                         </button>
                      </div>
                  </div>
                  {/*************************Order Content*************************/}
+                 <Collapse in={on}>
                  <Link to={`/profile/orders/${notification.order._id}`}
                        className="wd-profile-content-hover">
                  <OrderInfo order={notification.order}/>
                  </Link>
+                 </Collapse>
              </div>
             }
         </div>
     )
-}
+};
 
 export default ProfileNotificationItem;

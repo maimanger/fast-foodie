@@ -30,7 +30,7 @@ const BusinessHeader = () => {
                 </div>
 
                 <h4>Welcome back, Monica</h4>
-                <div className="text-muted">Here's what's going on with your business today</div>
+                <div className="text-black-50">Here's what's going on with your business today</div>
 
 
             </div>

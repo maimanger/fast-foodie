@@ -100,7 +100,7 @@ body {
 }
 
 .wd-rounded-btn:hover {
-    color: #df382c;
+    background-color: rgb(233,236,239)
 }
 
 .wd-rounded-btn:focus {

@@ -10,18 +10,17 @@ const OrderInfo = ({order}) => {
             </div>
             {/************************Order Info**************************/}
             <div className="col-12 col-md-8 d-flex flex-column">
-
                 <div className="text-black fw-bold">
+                    Order #{order._id}
+                </div>
+
+                <div className="text-black">
                     <span>Total ${order.cost}</span>
                     <span className="mx-1">•</span>
                     <span>
                         {order.itemsCount > 1 && `${order.itemsCount} items`}
                         {order.itemsCount <= 1 && `${order.itemsCount} item`}
                     </span>
-                </div>
-
-                <div className="text-black">
-                    Order #{order._id}
                 </div>
 
                 <div className="text-black-50">

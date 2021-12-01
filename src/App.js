@@ -27,6 +27,7 @@ import AdminInboxDetailScreen from "./components/admin-inbox/AdminInboxDetailScr
 import BusinessClaimSearchScreen from "./components/business-claim/BusinessClaimSearchScreen";
 import RestaurantScreen from "./components/RestaurantScreen";
 import Map from "./components/RestaurantScreen/RestaurantParts/Map";
+import BusinessOrdersScreen from "./components/BusinessOrdersScreen";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
                 <Route path="/register"  exact={true} component={RegisterScreen}/>
 
                 <Route path="/business"  exact={true} component={BusinessHomeScreen}/>
+                <Route path="/business/orders"  exact={true} component={BusinessOrdersScreen}/>
                 <Route path={"/business/claim"} component={BusinessClaimSearchScreen} />
 
 

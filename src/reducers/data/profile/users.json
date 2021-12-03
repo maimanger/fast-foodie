@@ -1,6 +1,7 @@
 [
   {
     "_id": "123",
+    "role": "customer",
     "username": "fangying1101@gmail.com",
     "password": "123ABC",
     "firstName": "Fangying",
@@ -31,6 +32,7 @@
   },
   {
     "_id": "234",
+    "role": "customer",
     "username": "mike@123.com",
     "password": "456ABC",
     "firstName": "Mike",
@@ -57,6 +59,7 @@
   },
   {
     "_id": "345",
+    "role": "customer",
     "username": "mike2@123.com",
     "password": "789ABC",
     "firstName": "Mike2",
@@ -85,6 +88,7 @@
   },
   {
     "_id": "456",
+    "role": "customer",
     "username": "mike3@123.com",
     "password": "101112ABC",
     "firstName": "Mike3",
@@ -112,6 +116,7 @@
   },
   {
     "_id": "567",
+    "role": "customer",
     "username": "mike4@123.com",
     "password": "131415ABC",
     "firstName": "Mike4",
@@ -134,5 +139,52 @@
       "birthday": true,
       "bookmarks": true
     }
+  },
+
+  {
+    "_id": "55667788",
+    "role": "business",
+    "verified": true,
+    "username": "monica@123.com",
+    "password": "131415ABC",
+    "firstName": "Monica",
+    "lastName": "Galler",
+    "location": "Brookline, NY",
+    "birthday": "1969-11-11",
+    "dateJoined": "2019-12-30",
+    "email": "monica@123.com",
+    "restaurant": {
+      "id": "Rv4NgRl-wkMNPNdqXNSGBg",
+      "name": "Shake Shack",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
+      "location": {
+        "address1": "1 Old Fulton St",
+        "address2": "",
+        "address3": "",
+        "city": "Brooklyn",
+        "zip_code": "11201",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "1 Old Fulton St",
+          "Brooklyn, NY 11201"
+        ],
+        "cross_streets": ""
+      },
+      "rating": 3.65,
+      "review_count": 369,
+      "categories": [
+        {
+          "alias": "tradamerican",
+          "title": "American (Traditional)"
+        },
+        {
+          "alias": "icecream",
+          "title": "Ice Cream & Frozen Yogurt"
+        }
+      ],
+      "price": "$$"
+    }
+
   }
 ]

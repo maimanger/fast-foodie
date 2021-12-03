@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./Business.css"
 import BusinessHeader from "./BusinessHeader";
 import BusinessNavSidebar from "./BusinessNavSidebar";
-import BusinessHomeStatics from "./BusinessHomeStatics";
+import BusinessStatistics from "./BusinessStatistics";
 import BusinessNotifications from "./BusinessNotifications";
 import BusinessActivities from "./BusinessActivities";
 
@@ -19,8 +19,7 @@ const BusinessHomeScreen = () => {
                 <div className="row flex-nowrap">
 
                     {/****************************Business NavSidebar**************************/}
-
-                    <div className="col-4 col-lg-3 d-flex justify-content-center px-0">
+                    <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
                         <BusinessNavSidebar active="home"/>
                     </div>
 
@@ -39,7 +38,7 @@ const BusinessHomeScreen = () => {
 
                     <div
                         className="d-none d-lg-block col-xl-auto border-2 border-start ">
-                        <BusinessHomeStatics/>
+                        <BusinessStatistics/>
                     </div>
 
                 </div>

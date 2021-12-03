@@ -26,7 +26,7 @@ const ProfileScreen = () => {
 
                     {/****************************Profile NavSidebar**************************/}
 
-                    <div className="col-4 col-lg-3 d-flex justify-content-center px-0">
+                    <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
                         <ProfileNavSidebar active="overview" visibility={profile.visibility}/>
                     </div>
 

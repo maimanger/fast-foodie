@@ -4,12 +4,16 @@ import orders from "../../../reducers/data/businessHome/businessOrders.json"
 import BusinessOrderItem from "./BusinessOrderItem";
 
 const BusinessOrders = () => {
+    let unprocessedCount = 0;
+    orders.map(order => {
+        if (order.status === "unprocessed") unprocessedCount++;
+    })
 
     return (
         <ul className="list-group list-group-flush">
             <div className="mb-3">
-                {orders.length > 1 && `You have ${orders.length} Orders to be Processed`}
-                {orders.length <= 1 && `You have ${orders.length} Order to be Processed`}
+                {unprocessedCount > 1 && `You have ${unprocessedCount} Orders to be Processed`}
+                {unprocessedCount <= 1 && `You have ${unprocessedCount} Order to be Processed`}
             </div>
             <hr className="mt-0 mb-0"/>
 

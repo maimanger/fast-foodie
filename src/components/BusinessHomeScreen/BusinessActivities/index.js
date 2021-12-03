@@ -7,6 +7,9 @@ import BusinessActivityItem from "./BusinessActivityItem";
 const BusinessActivities = () => {
 
     return (
+        <>
+            {activities.length === 0 && <div>No new activity at this time.</div>}
+
         <ul className="list-group list-group-flush">
             {activities.map(activity => {
                 return (
@@ -14,6 +17,7 @@ const BusinessActivities = () => {
                 )
             })}
         </ul>
+        </>
     )
 
 }

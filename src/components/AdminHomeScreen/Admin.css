@@ -1,0 +1,8 @@
+.wd-admin-link-text {
+    text-decoration:none;
+}
+
+.wd-admin-link-text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

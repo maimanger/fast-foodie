@@ -8,6 +8,7 @@
     "type": "in-message",
     "time_created": "2021-11-29 11:00:40",
     "message": {
+      "_id": "555666",
       "sender": {
         "_id": "345",
         "image_url": "/images/ProfilePage/avatar_img2.jpg",

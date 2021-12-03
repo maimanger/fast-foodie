@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import shake_shake from "./shake_shack";
 import ReactMapGL, {Marker} from "react-map-gl";
-
+import { useSelector } from "react-redux";
 // import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
-const Map = () => {
-    const geoPosition = shake_shake.coordinates;
-    
+const Map = ({coordinates}) => {
+    // const restaurant = useSelector(state => state.restaurant)
+    const geoPosition = coordinates;
+    console.log(geoPosition)
     const [viewport, setViewport] = useState({
         latitude: geoPosition.latitude,
         longitude: geoPosition.longitude,

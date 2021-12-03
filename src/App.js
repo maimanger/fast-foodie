@@ -26,11 +26,16 @@ import AdminInboxScreen from "./components/admin-inbox/AdminInboxScreen";
 import AdminInboxDetailScreen from "./components/admin-inbox/AdminInboxDetailScreen";
 import BusinessClaimSearchScreen from "./components/business-claim/BusinessClaimSearchScreen";
 import RestaurantScreen from "./components/RestaurantScreen";
-import Map from "./components/RestaurantScreen/RestaurantParts/Map";
+import AboutScreen from "./components/RestaurantScreen/AboutScreen";
+import ReviewScreen from "./components/RestaurantScreen/ReviewScreen";
+import MenuScreen from "./components/RestaurantScreen/MenuScreen";
+import PlaceOrderScreeen from "./components/RestaurantScreen/PlaceOrderScreen";
+import Test from "./components/RestaurantScreen/test";
+import restaurant from "./reducers/restaurant"
 
 
 function App() {
-    const reducer = combineReducers({profile, notifications, users, recentActivities});
+    const reducer = combineReducers({profile, notifications, users, recentActivities, restaurant});
     const store = createStore(reducer);
 
     return (
@@ -56,7 +61,13 @@ function App() {
                 <Route path={"/admin/inbox"} exact={true} component={AdminInboxScreen} />
                 <Route path={"/admin/inbox/detail"} exact={true} component={AdminInboxDetailScreen} />
 
-                <Route path={"/restaurant"} component={RestaurantScreen} />
+                {/* <Route path={"/restaurants/:id"} component={RestaurantScreen} /> */}
+
+                <Route path={["/restaurants/:id/", "/restaurants/:id/about"]} exact={true} component={RestaurantScreen } />
+                <Route path={"/restaurants/:id/review"} component={ReviewScreen} />
+                <Route path={"/restaurants/:id/menu"} component={MenuScreen} />
+                <Route path={"/restaurants/:id/placeorder"} component={PlaceOrderScreeen} />
+                <Route path={"/test"} exact={true} component={Test} />
 
             </BrowserRouter>
 

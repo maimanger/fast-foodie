@@ -28,13 +28,13 @@ const ReviewListItem = ({review}) => {
                     <span className="col-4 text-muted ms-2 mt-1">{review.time_created.split(' ')[0] }</span>
                     <span className="col-5 dropdown">
                     
-                        <i class="fas fa-ellipsis-h float-end" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i className="fas fa-ellipsis-h float-end" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             
                         </i>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" type="button">Send message</button>
-                            <button class="dropdown-item" type="button">Follow {review.user.name}</button>
-                            <button class="dropdown-item" type="button">Report review</button>
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button className="dropdown-item" type="button">Send message</button>
+                            <button className="dropdown-item" type="button">Follow {review.user.name}</button>
+                            <button className="dropdown-item" type="button">Report review</button>
                         </div>
                         
                     </span>

@@ -16,7 +16,7 @@ const AboutScreen = () => {
             
                 <RestaurantNav active= {'about'} />
             
-            <RestaurantAbout />
+            <RestaurantAbout/>
           </div>
           <div className="col-1"></div>
 

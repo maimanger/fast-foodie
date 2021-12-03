@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const RestaurantNav = ({active = 'about'}) => {
+  const {id} = useParams();
   const [isSaved, setIsSaved] = useState(false)
 
   const save = <button type="button" className="btn btn-outline-primary">Save</button>
@@ -13,17 +14,17 @@ const RestaurantNav = ({active = 'about'}) => {
       <div className="p-0 col-3">
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <Link to="/restaurant/about" className= {`nav-link ${active === 'about' ? 'active': ''} `} >
+            <Link to={`/restaurants/${id}/about`} className= {`nav-link ${active === 'about' ? 'active': ''} `} >
               About
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/restaurant/menu" className= {`nav-link ${active === 'menu' ? 'active': ''} `}>
+            <Link to={`/restaurants/${id}/menu`} className= {`nav-link ${active === 'menu' ? 'active': ''} `}>
               Menu
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/restaurant/review" className= {`nav-link ${active === 'review' ? 'active': ''} `}>
+            <Link to={`/restaurants/${id}/review`} className= {`nav-link ${active === 'review' ? 'active': ''} `}>
               Review
             </Link>
           </li>

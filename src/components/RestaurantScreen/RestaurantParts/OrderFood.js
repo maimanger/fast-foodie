@@ -19,12 +19,12 @@ const OrderFood = () => {
             <h3 className="card-title">Order Food</h3>
 
             <div className="row card-text">
-                <ul class="nav nav-pills p-3">
-                    <li onClick={deliveryClickHandler} class="nav-item">
-                        <Link to="/restaurant/menu" class={`nav-link ${active === 'delivery' ? 'active': ''}`}>Delivery </Link>
+                <ul className="nav nav-pills p-3">
+                    <li onClick={deliveryClickHandler} className="nav-item">
+                        <Link to="/restaurant/menu" className={`nav-link ${active === 'delivery' ? 'active': ''}`}>Delivery </Link>
                     </li>
-                    <li onClick={takeoutClickHandler} class="nav-item">
-                        <Link to="/restaurant/menu" class={`nav-link ${active === 'takeout' ? 'active': ''} `}>Takeout</Link>
+                    <li onClick={takeoutClickHandler} className="nav-item">
+                        <Link to="/restaurant/menu" className={`nav-link ${active === 'takeout' ? 'active': ''} `}>Takeout</Link>
                     </li>
                 </ul>
             </div>

@@ -9,7 +9,6 @@ import ReviewItem from "../../ProfileScreen/ReviewItem";
 import "../Business.css"
 
 const BusinessNotificationItem = ({notification}) => {
-    const [reviewVisible, setReviewVisible] = useState(false);
     const [on, setOn] = useState(false);
 
     return (

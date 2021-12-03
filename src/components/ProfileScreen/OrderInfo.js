@@ -15,8 +15,8 @@ const OrderInfo = ({order}) => {
                 </div>
 
                 <div className="text-black">
-                    <span>Total ${order.cost}</span>
-                    <span className="mx-1">•</span>
+                    <span>Total ${order.cost.toPrecision(4)}</span>
+                    <span className="mx-2">•</span>
                     <span>
                         {order.itemsCount > 1 && `${order.itemsCount} items`}
                         {order.itemsCount <= 1 && `${order.itemsCount} item`}
@@ -24,7 +24,7 @@ const OrderInfo = ({order}) => {
                 </div>
 
                 <div className="text-black-50">
-                    {order.delivery_address}
+                    {order.delivery_contact.address}
                 </div>
                 <div className="text-black-50">
                     Ordered at {order.time_ordered}

@@ -8,6 +8,7 @@
     "type": "in-message",
     "time_created": "2021-11-29 11:00:40",
     "message": {
+      "_id": "555666",
       "sender": {
         "_id": 345,
         "image_url": "/images/ProfilePage/avatar_img2.jpg",
@@ -71,18 +72,28 @@
         "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg"
       },
       "img": "/images/ProfilePage/shake_shack.jpg",
-      "delivery_address": "655 Columbus Street, Boston, 02118 MA",
+      "delivery_contact": {
+        "receiver": "Mike Shah",
+        "address": "655 Columbus Street, Boston, MA 02118",
+        "phone": "3234491111"
+      },
       "time_ordered": "Nov 28, 2021 10:08:21",
       "cost": 25.58,
       "itemsCount": 3,
       "items": [
         {
           "name": "Gyoza (6 pcs)",
-          "count": 1
+          "img_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
+          "count": 1,
+          "price": 10.58,
+          "cost": 10.58
         },
         {
           "name": "Tonkotsu Ramen",
-          "count": 2
+          "img_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
+          "count": 2,
+          "price": 7.50,
+          "cost": 10.00
         }
       ],
       "status": "accepted"

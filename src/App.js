@@ -24,9 +24,11 @@ import BusinessHomeScreen from "./components/BusinessHomeScreen";
 import MessageScreen from "./components/MessageScreen";
 import AdminInboxScreen from "./components/admin-inbox/AdminInboxScreen";
 import AdminInboxDetailScreen from "./components/admin-inbox/AdminInboxDetailScreen";
-import BusinessClaimSearchScreen from "./components/business-claim/BusinessClaimSearchScreen";
+import BusinessClaimScreen from "./components/BusinessClaimScreen";
 import RestaurantScreen from "./components/RestaurantScreen";
 import Map from "./components/RestaurantScreen/RestaurantParts/Map";
+import ContactScreen from "./components/ContactScreen";
+import AboutUs from "./components/AboutUs";
 
 
 function App() {
@@ -41,7 +43,8 @@ function App() {
 
                 <Route path={"/search"} exact={true} component={SearchScreen} />
                 <Route path={"/messages"} exact={true} component={MessageScreen} />
-
+                <Route path={"/contact"} component={ContactScreen} exact={true}/>
+                <Route path={"/about"} component={AboutUs} exact={true} />
 
                 <Route path="/profile" exact={true} component={ProfileScreen}/>
                 <Route path="/profile/:id" exact={true} component={ProfilePublicScreen}/>
@@ -50,7 +53,7 @@ function App() {
                 <Route path="/register"  exact={true} component={RegisterScreen}/>
 
                 <Route path="/business"  exact={true} component={BusinessHomeScreen}/>
-                <Route path={"/business/claim"} component={BusinessClaimSearchScreen} />
+                <Route path={"/business/claim"} component={BusinessClaimScreen} />
 
 
                 <Route path={"/admin/inbox"} exact={true} component={AdminInboxScreen} />

@@ -3,7 +3,7 @@ import AdminInboxDetailComponent from "./AdminInboxDetailComponent";
 
 const AdminInboxDetailScreen = () => {
     return (
-        <div className={"p-5 h-100 bg-white"}>
+        <div className={"h-100 w-100 bg-white"}>
             <AdminInboxDetailComponent />
         </div>
     )

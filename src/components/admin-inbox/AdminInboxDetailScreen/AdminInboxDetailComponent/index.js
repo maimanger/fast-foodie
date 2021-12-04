@@ -17,7 +17,7 @@ const AdminInboxDetailComponent = () => {
         <div>
             <h3 className={"fw-bold"}>{message.title}</h3>
             <div className={"mb-5"}>
-                <Link to={"/admin/inbox"} className={"text-info"}>
+                <Link to={"/admin/inbox"} className={"homepage-color-dimgray"}>
                     <i className="fas fa-arrow-left me-2"/>
                     Back to Inbox
                 </Link>
@@ -58,7 +58,7 @@ const AdminInboxDetailComponent = () => {
 
                 {/********************   message detail buttons  ***********************/}
                 <li className={"list-group-item border-0 px-5"}>
-                    <button className={"btn btn-info me-2"}>Reply</button>
+                    <button className={"btn btn-light me-2"}>Reply</button>
                     <button className={"btn btn-outline-danger"}>Cancel Order</button>
                 </li>
 
@@ -68,7 +68,7 @@ const AdminInboxDetailComponent = () => {
                     <textarea rows="5" placeholder={"Type your message here"} className={"w-100 border-secondary p-2 mb-3"}/>
                     <div>
                         <button className={"btn btn-primary me-2"}>Send</button>
-                        <button className={"btn btn-info"}>Cancel</button>
+                        <button className={"btn btn-light"}>Cancel</button>
                     </div>
 
                 </li>

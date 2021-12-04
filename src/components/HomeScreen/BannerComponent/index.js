@@ -20,9 +20,9 @@ const BannerCompoenent = () => {
                     <div className={"homepage-search-bar-container mb-3"}>
                         <SearchBar/>
                     </div>
-                    <div className={"ps-5 d-none d-lg-block"}>
-                        <Dropdowns color={"white"} isBold={true}/>
-                    </div>
+                    {/*<div className={"ps-5 d-none d-lg-block"}>*/}
+                    {/*    <Dropdowns color={"white"} isBold={true}/>*/}
+                    {/*</div>*/}
                 </div>
 
                 <div className={"homepage-banner-header-container position-absolute"}>

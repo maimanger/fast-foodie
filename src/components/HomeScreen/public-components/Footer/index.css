@@ -1,6 +1,7 @@
 .homescreen-footer{
     background-color: #f5f5f5;
     font-size: 13px;
+    margin-top: auto;
 }
 
 .homescreen-footer-brand{
@@ -11,7 +12,10 @@
     font-size: 20px;
 }
 
-.homepage-footer-links > div:hover{
-    text-decoration: underline;
-    cursor: pointer;
+.homescreen-footer-link {
+    width: 200px;
+}
+
+.homescreen-footer-link:hover{
+    text-decoration: underline !important;
 }

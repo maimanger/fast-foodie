@@ -4,10 +4,10 @@ import {Link} from "react-router-dom";
 
 const BrandName = ({color="white"}) => {
     return (
-        <div className={`homescreen-brand text-${color} text-nowrap`}>
+        <Link className={`homescreen-brand text-${color} text-nowrap text-decoration-none`} to={"/home"}>
             <i className="fas fa-utensils homescreen-brand-logo me-4" />
             <span className={"text-nowrap"}>Fast Foodie</span>
-        </div>
+        </Link>
     )
 }
 

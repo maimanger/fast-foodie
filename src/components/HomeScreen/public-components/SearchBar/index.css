@@ -1,16 +1,54 @@
 
-.homescreen-app-search-bar input:focus{
-    border-color: lightgrey;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+.homescreen-search-bar input:focus{
+    outline-width: 0;
 }
 
 
-.homescreen-app-search-bar{
+.homescreen-search-bar{
     height: 3em;
 }
 
-#homescreen-app-search-bar-location {
-    max-width: 30%;
+.homescreen-search-bar-location {
+    max-width: 40%;
 }
 
+.homescreen-search-bar-location-toggle:hover{
+    cursor: pointer;
+}
+.homescreen-search-bar-location-toggle:hover + .homescreen-search-bar-location-dropdown{
+    display: block !important;
+}
+
+.homescreen-search-bar-location-dropdown{
+    display: none;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+}
+
+.homescreen-search-bar-location-dropdown:hover{
+    display: block !important;
+}
+
+#homescreen-search-bar-input:focus{
+    border: none;
+}
+
+.homescreen-search-bar-auto-completion-dropdown{
+    display: none;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+
+    box-shadow: 0 0 10px 0 lightgrey;
+    
+}
+
+.homescreen-search-bar-term-input:focus + .homescreen-search-bar-auto-completion-dropdown{
+    display: block;
+}
+
+.homescreen-search-bar-auto-completion-dropdown-item:hover{
+    cursor: pointer !important;
+    background-color: #f5f5f5 !important;
+}

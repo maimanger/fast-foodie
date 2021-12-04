@@ -1,4 +1,4 @@
-.searchscreen-logged-in-header-buttons-container div:hover{
+.searchscreen-logged-in-header-buttons-container > div:hover{
     background-color: #f5f5f5 !important;
     cursor: pointer;
 }

@@ -16,3 +16,9 @@
 .homescreen-recommendation-card-body > div{
     font-size: 14px;
 }
+
+.homescreen-recommendation-card:hover{
+    position: relative;
+    bottom: 5px;
+
+}

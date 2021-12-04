@@ -40,6 +40,7 @@ import AdminHomeScreen from "./components/AdminHomeScreen";
 import AdminClaimScreen from "./components/AdminClaimScreen";
 import AdminClaimDetail from "./components/AdminClaimScreen/AdminClaimDetail";
 import BusinessProfileScreen from "./components/BusinessProfileScreen";
+import BusinessClaimSearchComponent from "./components/BusinessClaimScreen/BusinessClaimSearchComponent";
 
 
 
@@ -67,7 +68,7 @@ function App() {
                 <Route path="/business"  exact={true} component={BusinessHomeScreen}/>
                 <Route path="/business/orders"  exact={true} component={BusinessOrdersScreen}/>
                 <Route path="/business/profile"  exact={true} component={BusinessProfileScreen}/>
-                <Route path={"/business/claim"} component={BusinessClaimSearchScreen} />
+                <Route path={"/business/claim"} component={BusinessClaimSearchComponent} />
 
                 <Route path="/admin" exact={true} component={AdminHomeScreen}/>
                 <Route path="/admin/claims" exact={true} component={AdminClaimScreen}/>

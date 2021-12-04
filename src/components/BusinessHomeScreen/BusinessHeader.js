@@ -26,16 +26,18 @@ const BusinessHeader = () => {
                 <HashLink smooth to="/business#top" className="wd-business-back-top fs-1 text-nowrap">
                     {restaurant.name}
                 </HashLink>
-                <Link to="#" className="text-info fs-5 mx-4 wd-business-link-text mt-3">view</Link>
+
+                <Link to="/restaurant" className="text-info fs-5 mx-4 wd-business-link-text mt-3">
+                    view
+                </Link>
                 </div>
 
                 <h4>Welcome back, Monica</h4>
-                <div className="text-muted">Here's what's going on with your business today</div>
-
-
+                <div className="text-black-50">Here's what's going on with your business today</div>
             </div>
+
             {/***************************Profile Header Edit Btn************************/}
-            <div className="col-auto d-flex flex-column pb-3 mb-4 justify-content-around ps-1 ">
+{/*            <div className="col-auto d-flex flex-column pb-3 mb-4 justify-content-around ps-1 ">
 
                 <button className="d-flex flex-nowrap align-items-center justify-content-start
                                            btn rounded-pill btn-outline-info">
@@ -43,9 +45,8 @@ const BusinessHeader = () => {
                     <span className="d-none d-sm-inline me-1">Update</span>
                     <span className="d-none d-md-inline">Profile</span>
                 </button>
+            </div>*/}
 
-
-            </div>
         </div>
 
     )

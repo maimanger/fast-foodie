@@ -27,7 +27,7 @@ const ReportedReview = ({review}) => {
                     <span className="col-3 starability-result" data-rating={review.rating}></span>
                     <span className="col-4 text-muted ms-2 mt-1">{review.time_created.split(' ')[0] }</span>
                     <span className="col-5">
-                        <i class="fas fa-times float-end"></i> 
+                        <i className="fas fa-times float-end"></i> 
                     </span>
                 </div>
 

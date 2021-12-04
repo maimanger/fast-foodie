@@ -78,7 +78,9 @@
     "bookmark": {
       "user": {
         "_id": 123,
-        "image_url": "/images/ProfilePage/avatar_img.jpg"
+        "image_url": "/images/ProfilePage/avatar_img.jpg",
+        "firstName": "Fangying",
+        "lastName": " Li"
       },
       "restaurant": {
         "id": "Rv4NgRl-wkMNPNdqXNSGBg",
@@ -154,7 +156,7 @@
       "image_url": "/images/ProfilePage/avatar_img.jpg"
     },
     "type": "reply-review",
-    "time_created": "2021-11-29 12:05:40",
+    "time_created": "2021-11-30 12:05:40",
     "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     "review": {
       "_id": "12345678",

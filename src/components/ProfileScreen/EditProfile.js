@@ -33,10 +33,6 @@ const EditProfile = ({profile, setEdit}) => {
         setEdit(false);
     }
 
-
-
-
-
     return(
         <>
         <div className="mb-3 d-flex align-items-center">
@@ -48,7 +44,7 @@ const EditProfile = ({profile, setEdit}) => {
             </button>
             {/**********************Save Edit**************************/}
             <button onClick={saveClickHandler}
-                    className="btn btn-danger rounded-pill fw-bold wd-profile-save-btn ms-auto me-0 me-sm-2 me-xl-5 px-3">
+                    className="btn btn-danger rounded-pill fw-bold ms-auto me-0 me-sm-2 me-xl-5 px-3">
                 Save
             </button>
 
@@ -57,7 +53,7 @@ const EditProfile = ({profile, setEdit}) => {
 
             {/***************************Upload Avatar*****************************/}
             <div
-                className="col-12 col-lg-3 col-xxl-2 card border-0 text-white"
+                className="col-12 col-lg-3 col-xxl-2 card border-0 text-white bg-transparent"
                 style={{"height": "130px", "width": "130px"}}>
                 <img src={profile.image_url}
                      className="img-fluid rounded-3 wd-profile-img-faded"
@@ -109,6 +105,15 @@ const EditProfile = ({profile, setEdit}) => {
                     <label htmlFor="editLocation" className="wd-text-18">Location</label>
                 </div>
 
+                {/*************************Edit Email**************************/}
+                <div className="form-floating h-auto mb-4">
+                    <input type="email" id="editEmail" placeholder="Edit" maxLength="50"
+                           className="form-control bg-transparent border border-secondary
+                                           wd-profile-edit"
+                           defaultValue={profile.email}/>
+                    <label htmlFor="editEmail" className="wd-text-18">Email</label>
+                </div>
+
 
                 {/*************************Edit Birthday***************************/}
                 <div className="d-flex flex-column mb-4">
@@ -128,7 +133,7 @@ const EditProfile = ({profile, setEdit}) => {
                     </div>
 
                     <div hidden={editBirth.datePickerHidden} className="">
-                        <input type="date" className="rounded-3 border-secondary form-control"
+                        <input type="date" className="rounded-3 border-secondary form-control bg-transparent"
                                onChange={(event) => {
                                    if (event.target.value !== '') {
                                        console.log(moment(event.target.value).format("YYYY-MM-DD"));

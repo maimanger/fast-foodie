@@ -49,9 +49,6 @@ body {
     }
 }
 
-/*.wd-profile-nav-sidebar {
-    width: 60%;
-}*/
 
 .wd-profile-nav-sidebar>.list-group-item.active {
     font-weight: bold;
@@ -97,6 +94,14 @@ body {
 
 .wd-profile-img-faded {
     filter: brightness(60%);
+}
+
+.wd-rounded-btn:hover {
+    background-color: rgb(233,236,239);
+}
+
+.wd-rounded-btn:focus {
+    box-shadow: none;
 }
 
 

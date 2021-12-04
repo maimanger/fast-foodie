@@ -1,6 +1,7 @@
 import React from "react";
 import AdminNavSidebar from "../AdminHomeScreen/AdminNavSidebar";
 import AdminClaims from "./AdminClaims";
+import "../AdminHomeScreen/Admin.css"
 import claims from "../../reducers/data/adminHome/adminClaims.json";
 import {Link, useParams} from "react-router-dom";
 
@@ -21,7 +22,7 @@ const AdminClaimDetail = () => {
 
                     {/**************************Admin Claim File Detail************************/}
                     <div className="col-7 col-lg-8 d-flex flex-column px-0">
-                        <Link to="/admin/claims">
+                        <Link to="/admin/claims" className="wd-admin-link-text">
                         <h3 className="text-danger fw-bold wd-profile-link-text">Back</h3>
                         </Link>
                     <iframe style={{width: "100%", height: "100vh"}}

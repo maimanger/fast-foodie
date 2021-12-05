@@ -7,8 +7,9 @@ import ProfileNavSidebar from "../ProfileScreen/ProfileNavSidebar";
 import EditProfile from "../ProfileScreen/EditProfile";
 import ProfileAboutMe from "../ProfileScreen/ProfileAboutMe";
 import ProfileBookmarks from "./ProfileBookmarks";
+import {useParams} from "react-router-dom";
 
-const ProfileBookmarksScreen = () => {
+const ProfileBookmarksScreen = ({isPublic=false}) => {
     const profile = useSelector(state => state.profile);
     const [edit, setEdit] = useState(false);
 
@@ -19,14 +20,14 @@ const ProfileBookmarksScreen = () => {
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">
                     <div className="wd-profile-banner bg-secondary vw-100"></div>
-                    <ProfileHeader profile={profile} setEdit = {setEdit} edit={edit}/>
+                    <ProfileHeader profile={profile} setEdit = {setEdit} edit={edit} isPublic={isPublic}/>
                 </div>
 
                 <div className="row flex-nowrap">
 
                     {/****************************Profile NavSidebar**************************/}
                     <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
-                        <ProfileNavSidebar active="bookmarks" visibility={profile.visibility}/>
+                        <ProfileNavSidebar active="bookmarks" visibility={profile.visibility} isPublic={isPublic}/>
                     </div>
 
                     {/***************************Profile MainContent**************************/}
@@ -41,7 +42,7 @@ const ProfileBookmarksScreen = () => {
                     }
 
                     {/***************************Profile Edit**************************/}
-                    {edit &&
+                    {(edit && !isPublic) &&
                      <div className="col-7 col-lg-6 d-flex flex-column px-0">
                          <EditProfile profile={profile} setEdit={setEdit}/>
                      </div>

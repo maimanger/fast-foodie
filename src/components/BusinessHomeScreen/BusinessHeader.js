@@ -32,7 +32,7 @@ const BusinessHeader = ({user}) => {
                      </HashLink>
                     }
                     {user.verified &&
-                     <Link to="/restaurant"
+                     <Link to={`/restaurants/${user.restaurant.id}`}
                            className="text-info fs-5 mx-4 wd-business-link-text mt-3">
                          view
                      </Link>

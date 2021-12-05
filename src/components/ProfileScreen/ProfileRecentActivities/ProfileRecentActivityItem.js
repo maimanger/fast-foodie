@@ -9,6 +9,7 @@ import "../Profile.css"
 import ReviewStars from "../ReviewStars";
 import {Collapse} from "react-bootstrap";
 import BusinessStars from "../../BusinessHomeScreen/BusinessStars";
+import {HashLink} from "react-router-hash-link";
 
 const ProfileRecentActivityItem = ({activity}) => {
     const [on, setOn] = useState(false);
@@ -28,7 +29,7 @@ const ProfileRecentActivityItem = ({activity}) => {
                      <div>
                          You wrote a review for
                          <Link className="text-info wd-profile-link-text mx-1"
-                               to="#">
+                               to={`/restaurants/${activity.review.restaurant.id}`}>
                              {activity.review.restaurant.name}
                          </Link>
                      </div>
@@ -41,13 +42,15 @@ const ProfileRecentActivityItem = ({activity}) => {
                      </div>
                  </div>
 
+                 {/*******************************Review content******************************/}
                  <div className="d-flex flex-column">
                      <Collapse in={on}>
-                     <Link to="#" className="wd-profile-content-hover text-black">
+                     <HashLink to={`/restaurants/${activity.review.restaurant.id}#${activity.review._id}`}
+                           className="wd-profile-content-hover text-black">
                          <RestaurantInfo restaurant={activity.review.restaurant}/>
                          <ReviewStars review={activity.review}/>
                          <ReviewItem review={activity.review}/>
-                     </Link>
+                     </HashLink>
                      </Collapse>
                      <Collapse in={on}>
                      <Link className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
@@ -121,7 +124,7 @@ const ProfileRecentActivityItem = ({activity}) => {
                      <div>
                          You bookmarked
                          <Link className="text-info wd-profile-link-text mx-1"
-                               to="#">
+                               to={`/restaurants/${activity.bookmark.restaurant.id}`}>
                              {activity.bookmark.restaurant.name}
                          </Link>
                      </div>
@@ -135,7 +138,7 @@ const ProfileRecentActivityItem = ({activity}) => {
 
                  </div>
                  <Collapse in={on}>
-                     <Link to={`/restaurant/:${activity.bookmark.restaurant.id}`} className="text-black wd-profile-content-hover">
+                     <Link to={`/restaurants/${activity.bookmark.restaurant.id}`} className="text-black wd-profile-content-hover">
                          <RestaurantInfo restaurant={activity.bookmark.restaurant}/>
                          <BusinessStars restaurant={activity.bookmark.restaurant}/>
                      </Link>

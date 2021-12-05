@@ -81,7 +81,7 @@ const ProfileNotificationItem = ({notification}) => {
                      <div>
                          Your order from
                          <Link className="text-info wd-profile-link-text mx-1"
-                               to="#">
+                               to={`/restaurants/${notification.order.restaurant.id}`}>
                              {notification.order.restaurant.name}
                          </Link>
                          has been updated

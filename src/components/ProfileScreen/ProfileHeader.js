@@ -1,9 +1,12 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
 import "./Profile.css";
 
-const ProfileHeader = ({profile, setEdit, edit, isPublic=false}) => {
+const ProfileHeader = ({profile, setEdit, edit}) => {
+    const userId = useParams().id;
+    const isPublic = userId && true;
+    const currentURL = useLocation().pathname;
 
     return (
         <>
@@ -23,7 +26,8 @@ const ProfileHeader = ({profile, setEdit, edit, isPublic=false}) => {
                 {/******************************Profile Header Title**************************/}
                 <div className="col-6 col-sm-5 col-lg-6 d-flex flex-column
                                pb-3 px-0 mb-4 justify-content-end">
-                    <HashLink smooth to="/profile#top" className="wd-profile-back-top">
+                    <HashLink smooth to={isPublic ? `${currentURL}#top` : `${currentURL}#top`}
+                              className="wd-profile-back-top">
                         {profile.firstName && profile.lastName &&
                     <h1 className="mb-2"> {profile.firstName} {profile.lastName}</h1>
                         }

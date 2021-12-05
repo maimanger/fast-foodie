@@ -11,10 +11,10 @@ import users from "../../reducers/data/profile/users.json"
 
 const PublicProfileScreen = () => {
     // Customer public profile
-/*    const profile = useSelector(state => state.profile);*/
+    const profile = useSelector(state => state.profile);
 
 // Test Business Public Profile
-    const profile = users[users.length - 1];
+/*    const profile = users[users.length - 1];*/
 
     if (profile.role === "customer") {
         return (
@@ -23,7 +23,7 @@ const PublicProfileScreen = () => {
                 <div className="container-fluid vw-100 p-0">
                     <div className="sticky-top">
                         <div className="wd-profile-banner bg-secondary vw-100"></div>
-                        <ProfileHeader profile={profile} isPublic={true}/>
+                        <ProfileHeader profile={profile}/>
                     </div>
 
                     <div className="row flex-nowrap">
@@ -31,8 +31,7 @@ const PublicProfileScreen = () => {
                         {/****************************Profile NavSidebar**************************/}
 
                         <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
-                            <ProfileNavSidebar active="overview" visibility={profile.visibility}
-                                               isPublic={true}/>
+                            <ProfileNavSidebar active="overview" visibility={profile.visibility}/>
                         </div>
 
 

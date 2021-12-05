@@ -11,7 +11,7 @@ const ProfileFollowingItem = ({following}) => {
     return (
         <>
             <div className="list-group-item d-flex flex-column bg-transparent py-3 pe-xl-3 pe-xxl-5">
-                <Link to={`/profile/:${following._id}`} className="wd-profile-content-hover text-black">
+                <Link to={`/profile/${following._id}`} className="wd-profile-content-hover text-black">
                     <UserAvatarInfo user={following}/>
                 </Link>
             </div>

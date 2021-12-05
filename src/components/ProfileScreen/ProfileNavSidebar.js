@@ -1,11 +1,14 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import "./Profile.css"
 
-const ProfileNavSidebar = ({active, visibility, isPublic = false}) => {
+const ProfileNavSidebar = ({active, visibility}) => {
+    const userId = useParams().id;
+    const isPublic = userId && true;
+
     return (
         <ul className="list-group list-group-flush float-end w-50">
-            <Link to="/profile"
+            <Link to={userId ? `/profile/${userId}` : "/profile"}
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                 ${active === "overview" ? "active" : ""}`}>
                 <i className="fas fa-user ms-3 ps-1 ms-md-0 me-2 pe-1"></i>
@@ -33,7 +36,7 @@ const ProfileNavSidebar = ({active, visibility, isPublic = false}) => {
             </Link>*/}
 
             {(visibility.bookmarks || !isPublic) &&
-            <Link to="/profile_bookmarks"
+            <Link to={userId ? `/profile_bookmarks/${userId}` : "/profile_bookmarks"}
                   className={`list-group-item border-top px-2 px-sm-3 text-nowrap
                ${active === "bookmarks" ? "active" : ""}`}>
                 <i className="fas fa-bookmark ms-3 ps-1 ms-md-0 me-2 pe-2"></i>

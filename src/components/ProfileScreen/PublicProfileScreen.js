@@ -4,13 +4,17 @@ import "./Profile.css";
 import ProfileHeader from "./ProfileHeader";
 import ProfileNavSidebar from "./ProfileNavSidebar";
 import ProfileAboutMe from "./ProfileAboutMe";
-import ProfileNotifications from "./ProfileNotifications";
-import ProfileRecentActivities from "./ProfileRecentActivities";
-import EditProfile from "./EditProfile";
+
 import ProfileReviews from "../ProfileReviewsScreen/ProfileReviews";
+import PublicBusinessProfile from "../BusinessProfileScreen/PublicBusinessProfile";
+import users from "../../reducers/data/profile/users.json"
 
 const PublicProfileScreen = () => {
-    const profile = useSelector(state => state.profile);
+    // Customer public profile
+/*    const profile = useSelector(state => state.profile);*/
+
+// Test Business Public Profile
+    const profile = users[users.length - 1];
 
     if (profile.role === "customer") {
         return (
@@ -52,10 +56,10 @@ const PublicProfileScreen = () => {
             </>
         )
     } else if (profile.role === "business") {
-        return (
-            <>
+        console.log(profile);
 
-            </>
+        return (
+            <PublicBusinessProfile profile={profile}/>
         )
     }
 

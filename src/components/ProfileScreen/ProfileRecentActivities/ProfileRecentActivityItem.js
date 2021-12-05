@@ -135,7 +135,7 @@ const ProfileRecentActivityItem = ({activity}) => {
 
                  </div>
                  <Collapse in={on}>
-                     <Link to="#" className="text-black wd-profile-content-hover">
+                     <Link to={`/restaurant/:${activity.bookmark.restaurant.id}`} className="text-black wd-profile-content-hover">
                          <RestaurantInfo restaurant={activity.bookmark.restaurant}/>
                          <BusinessStars restaurant={activity.bookmark.restaurant}/>
                      </Link>

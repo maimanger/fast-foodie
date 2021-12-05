@@ -45,6 +45,7 @@ import ProfileReviewsScreen from "./components/ProfileReviewsScreen";
 import ProfileFollowersScreen from "./components/ProfileFollowersScreen";
 import ProfileFollowingsScreen from "./components/ProfileFollowingsScreen";
 import BusinessClaimScreen from "./components/BusinessClaimScreen";
+import ProfileBookmarksScreen from "./components/ProfileBookmarksScreen";
 
 
 
@@ -67,6 +68,7 @@ function App() {
                 <Route path="/profile" exact={true} component={ProfileScreen}/>
                 <Route path="/profile/:id" exact={true} component={PublicProfileScreen}/>
                 <Route path="/profile_reviews" exact={true} component={ProfileReviewsScreen}/>
+                <Route path="/profile_bookmarks" exact={true} component={ProfileBookmarksScreen}/>
                 <Route path="/profile_followers" exact={true} component={ProfileFollowersScreen}/>
                 <Route path="/profile_followings" exact={true} component={ProfileFollowingsScreen}/>
 

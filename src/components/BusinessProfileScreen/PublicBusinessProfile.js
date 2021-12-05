@@ -6,12 +6,8 @@ import users from "../../reducers/data/profile/users.json"
 import BusinessNavSidebar from "../BusinessHomeScreen/BusinessNavSidebar";
 import BusinessProfile from "./BusinessProfile";
 import BusinessEditProfile from "./BusinessEditProfile"
-import BusinessHeader from "../BusinessHomeScreen/BusinessHeader";
 
-const BusinessProfileScreen = () => {
-    const user = users[users.length - 1];
-
-    const [edit, setEdit] = useState(false);
+const PublicBusinessProfile = ({profile}) => {
 
     return (
         <>
@@ -19,49 +15,44 @@ const BusinessProfileScreen = () => {
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">
                     <div className="wd-business-banner bg-secondary vw-100"></div>
-                    <BusinessHeader user={user}/>
+                    <div className="row d-flex flex-nowrap align-items-end wd-business-header">
 
-
-{/*                    <div className="row d-flex flex-nowrap align-items-end wd-business-header">
                         <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
-                        </div>
-
-                        <div className="col-7 col-lg-6 d-flex flex-column
-                               pb-3 px-0 mb-4 justify-content-end">
-
-
-                            <div className="d-flex align-items-center">
-                                <HashLink smooth to="/business#top" className="wd-business-back-top fs-1 text-nowrap">
-                                    {user.firstName} {user.lastName}
-                                </HashLink>
-                                {!user.verified &&
-                                 <button
-                                     className="btn btn-info rounded-pill fw-bold  ms-auto me-2 me-xl-5 px-3">
-                                     Claim <span className="d-none d-sm-inline">Business</span>
-                                 </button>
-                                }
+                            <div className="wd-business-avatar shadow card bg-transparent">
+                                <img src={profile.image_url}
+                                     className="img-thumbnail bg-light" alt="..."/>
                             </div>
                         </div>
 
-                    </div>*/}
+                        <div className="col-5 col-lg-4 d-flex flex-column
+                               pb-3 px-0 mb-4 justify-content-end">
+                            <div className="d-flex align-items-center">
+                                <HashLink smooth to="/business#top" className="wd-business-back-top fs-1 text-nowrap">
+                                    {profile.firstName} {profile.lastName}
+                                </HashLink>
+                            </div>
+                        </div>
 
+                        <div className="col-auto d-flex flex-column pb-3 mb-4 justify-content-around ps-1 ">
+                            <button className="d-flex flex-nowrap align-items-center justify-content-start
+                                           btn rounded-pill btn-outline-info">
+                                <i className="fas fa-envelope me-0 me-sm-2"></i>
+                                <span className="d-none d-sm-inline">Message</span>
+                            </button>
+                        </div>
 
-
+                    </div>
                 </div>
             </div>
 
-
-
             <div className="row flex-nowrap">
-            {/**********************************Business Sidebar*********************************/}
+
                 <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
-                    <BusinessNavSidebar active="profile" verified={user.verified}/>
                 </div>
 
                 {/***************************Business Profile**************************/}
                 <div className="col-7 col-lg-6 px-0">
-                    {!edit && <BusinessProfile profile={user} setEdit={setEdit}/>}
-                    {edit && <BusinessEditProfile profile={user} setEdit={setEdit}/>}
+                    <BusinessProfile profile={profile} isPublic={true}/>
                 </div>
             </div>
 
@@ -70,4 +61,4 @@ const BusinessProfileScreen = () => {
     )
 }
 
-export default BusinessProfileScreen;
+export default PublicBusinessProfile;

@@ -20,9 +20,9 @@
     ],
     "followersCount": 3,
     "followersList": [
-      345,
-      456,
-      567
+      "345",
+      "456",
+      "567"
     ],
     "bookmarksCount": 1,
     "bookmarksList": [
@@ -84,8 +84,8 @@
     "followingList": [],
     "followersCount": 2,
     "followersList": [
-      123,
-      456
+      "123",
+      "456"
     ],
     "bookmarksCount": 0,
     "bookmarksList": [],
@@ -111,12 +111,12 @@
     "reviews": [],
     "followingCount": 1,
     "followingList": [
-      123
+      "123"
     ],
     "followersCount": 2,
     "followersList": [
-      123,
-      456
+      "123",
+      "456"
     ],
     "bookmarksCount": 0,
     "bookmarksList": [],
@@ -142,9 +142,9 @@
     "reviews": [],
     "followingCount": 3,
     "followingList": [
-      123,
-      234,
-      345
+      "123",
+      "234",
+      "345"
     ],
     "followersCount": 0,
     "followersList": [],
@@ -171,10 +171,10 @@
     "reviews": [],
     "followingCount": 1,
     "followingList": [
-      123
+      "123"
     ],
-    "followersCount": 0,
-    "followersList": [],
+    "followingCount": 0,
+    "followingList": [],
     "followersCount": 0,
     "followersList": [],
     "visibility": {
@@ -185,7 +185,7 @@
   },
 
   {
-    "_id": "55667788",
+    "_id": "b55667788",
     "role": "business",
     "verified": true,
     "username": "monica@123.com",

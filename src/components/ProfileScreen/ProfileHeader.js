@@ -2,8 +2,15 @@ import React from "react";
 import {Link, useLocation, useParams} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
 import "./Profile.css";
+import users from "../../reducers/users";
 
-const ProfileHeader = ({profile, setEdit, edit}) => {
+const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) => {
+
+    /*NOTED:
+    * If userId params exists, this is a public profile
+    * The profile data doesn't belong to the argument profile user, but the profile of userId
+    * So We must fetch the real profile data by the userId
+    * */
     const userId = useParams().id;
     const isPublic = userId && true;
     const currentURL = useLocation().pathname;
@@ -78,12 +85,20 @@ const ProfileHeader = ({profile, setEdit, edit}) => {
                      </button>
                     }
 
-                    {isPublic &&
+                    {isPublic && !isFollowing &&
                     <button className="d-flex flex-nowrap align-items-center justify-content-center
                                            btn rounded-pill btn-outline-info py-1">
                         <i className="fas fa-user-plus me-0 me-sm-2"></i>
                         <span className="d-none d-sm-inline">Follow</span>
                     </button>
+                    }
+
+                    {isPublic && isFollowing &&
+                     <button className="d-flex flex-nowrap align-items-center justify-content-center
+                                           btn rounded-pill btn-outline-info py-1">
+                         <i className="fas fa-user-plus me-0 me-sm-2"></i>
+                         <span className="d-none d-sm-inline">Unfollow</span>
+                     </button>
                     }
 
                 </div>

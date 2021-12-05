@@ -7,7 +7,7 @@ const RestaurantInfo = ({restaurant}) => {
             <div className="col-auto">
                 <img src={restaurant.image_url}
                      className="img-fluid rounded-3"
-                     style={{width: 70, height: 70, "object-fit": "cover"}}/>
+                     style={{width: 70, height: 70, objectFit: "cover"}}/>
             </div>
 
             <div className="col-12 col-md-8 d-flex flex-column">

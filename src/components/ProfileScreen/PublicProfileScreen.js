@@ -8,10 +8,22 @@ import ProfileAboutMe from "./ProfileAboutMe";
 import ProfileReviews from "../ProfileReviewsScreen/ProfileReviews";
 import PublicBusinessProfile from "../BusinessProfileScreen/PublicBusinessProfile";
 import users from "../../reducers/data/profile/users.json"
+import {useParams} from "react-router-dom";
 
 const PublicProfileScreen = () => {
     // Customer public profile
-    const profile = useSelector(state => state.profile);
+    const profile = users[0];
+
+    const userId = useParams().id;
+    let publicProfile = {
+        followersList: []
+    };
+    let isFollowing = false;
+    if (userId) {
+        publicProfile = users.find(user => user._id === userId);
+        let foundFollower = publicProfile.followersList.find(fl => fl === profile._id);
+        if (foundFollower) isFollowing = true;
+    }
 
 // Test Business Public Profile
 /*    const profile = users[users.length - 1];*/
@@ -23,7 +35,7 @@ const PublicProfileScreen = () => {
                 <div className="container-fluid vw-100 p-0">
                     <div className="sticky-top">
                         <div className="wd-profile-banner bg-secondary vw-100"></div>
-                        <ProfileHeader profile={profile}/>
+                        <ProfileHeader profile={publicProfile} isFollowing={isFollowing}/>
                     </div>
 
                     <div className="row flex-nowrap">
@@ -31,7 +43,7 @@ const PublicProfileScreen = () => {
                         {/****************************Profile NavSidebar**************************/}
 
                         <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
-                            <ProfileNavSidebar active="overview" visibility={profile.visibility}/>
+                            <ProfileNavSidebar active="overview" visibility={publicProfile.visibility}/>
                         </div>
 
 
@@ -46,7 +58,7 @@ const PublicProfileScreen = () => {
 
                         <div
                             className="d-none d-lg-block col-xl-auto border-2 border-start ">
-                            <ProfileAboutMe profile={profile}/>
+                            <ProfileAboutMe profile={publicProfile}/>
                         </div>
 
 

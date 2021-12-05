@@ -1,11 +1,13 @@
 import React from "react";
 import {Collapse} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import RestaurantInfo from "../ProfileScreen/RestaurantInfo";
 import ReviewStars from "../ProfileScreen/ReviewStars";
 import ReviewItem from "../ProfileScreen/ReviewItem";
 
-const ProfileReviewItem = ({review, isPublic=false}) => {
+const ProfileReviewItem = ({review}) => {
+    const userId = useParams().id;
+    const isPublic = userId && true;
 
     return (
         <>

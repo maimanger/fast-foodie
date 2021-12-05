@@ -11,10 +11,10 @@ import users from "../../reducers/data/profile/users.json"
 
 const PublicProfileScreen = () => {
     // Customer public profile
-    const profile = useSelector(state => state.profile);
+/*    const profile = useSelector(state => state.profile);*/
 
 // Test Business Public Profile
-/*    const profile = users[users.length - 1];*/
+    const profile = users[users.length - 1];
 
     if (profile.role === "customer") {
         return (
@@ -40,7 +40,7 @@ const PublicProfileScreen = () => {
                             className="col-7 col-lg-6 d-flex flex-column px-0">
                             <div className="mb-3">
                                 <h3 className="text-danger fw-bold">Reviews</h3>
-                                <ProfileReviews isPublic={true}/>
+                                <ProfileReviews/>
                             </div>
                         </div>
 
@@ -55,8 +55,6 @@ const PublicProfileScreen = () => {
             </>
         )
     } else if (profile.role === "business") {
-        console.log(profile);
-
         return (
             <PublicBusinessProfile profile={profile}/>
         )

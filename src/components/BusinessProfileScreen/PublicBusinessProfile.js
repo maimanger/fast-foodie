@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import "../BusinessHomeScreen/Business.css";
 import {HashLink} from "react-router-hash-link";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import users from "../../reducers/data/profile/users.json"
 import BusinessNavSidebar from "../BusinessHomeScreen/BusinessNavSidebar";
 import BusinessProfile from "./BusinessProfile";
 import BusinessEditProfile from "./BusinessEditProfile"
 
 const PublicBusinessProfile = ({profile}) => {
+    const currentURL = useLocation().pathname;
 
     return (
         <>
@@ -27,7 +28,8 @@ const PublicBusinessProfile = ({profile}) => {
                         <div className="col-5 col-lg-4 d-flex flex-column
                                pb-3 px-0 mb-4 justify-content-end">
                             <div className="d-flex align-items-center">
-                                <HashLink smooth to="/business#top" className="wd-business-back-top fs-1 text-nowrap">
+                                <HashLink smooth to={`${currentURL}#top`}
+                                          className="wd-business-back-top fs-1 text-nowrap">
                                     {profile.firstName} {profile.lastName}
                                 </HashLink>
                             </div>
@@ -52,7 +54,7 @@ const PublicBusinessProfile = ({profile}) => {
 
                 {/***************************Business Profile**************************/}
                 <div className="col-7 col-lg-6 px-0">
-                    <BusinessProfile profile={profile} isPublic={true}/>
+                    <BusinessProfile profile={profile}/>
                 </div>
             </div>
 

@@ -69,7 +69,7 @@ function App() {
                 <Route path="/profile/:id" exact={true} component={PublicProfileScreen}/>
                 <Route path="/profile_reviews" exact={true} component={ProfileReviewsScreen}/>
                 <Route path="/profile_bookmarks" exact={true} component={ProfileBookmarksScreen}/>
-                <Route path="/profile_bookmarks/:id" exact={true} render={() => <ProfileBookmarksScreen isPublic={true}/>}/>
+                <Route path="/profile_bookmarks/:id" exact={true} component={ProfileBookmarksScreen}/>
                 <Route path="/profile_followers" exact={true} component={ProfileFollowersScreen}/>
                 <Route path="/profile_followings" exact={true} component={ProfileFollowingsScreen}/>
 

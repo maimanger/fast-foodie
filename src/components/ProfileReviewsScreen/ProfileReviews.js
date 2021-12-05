@@ -2,7 +2,7 @@ import React from "react";
 import reviews from "../../reducers/data/profile/reviews.json"
 import ProfileReviewItem from "./ProfileReviewItem";
 
-const ProfileReviews = ({isPublic=false}) => {
+const ProfileReviews = () => {
 
     return (
         <>
@@ -10,7 +10,7 @@ const ProfileReviews = ({isPublic=false}) => {
 
             <ul className="list-group list-group-flush">
                 {reviews.map(review => {return (
-                    <ProfileReviewItem review={review} isPublic={isPublic}/>
+                    <ProfileReviewItem review={review}/>
                 )})}
 
             </ul>

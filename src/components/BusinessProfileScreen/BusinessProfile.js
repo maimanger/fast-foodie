@@ -1,7 +1,10 @@
 import React, {useState} from "react";
 import moment from "moment";
+import {useParams} from "react-router-dom";
 
-const BusinessProfile = ({profile, setEdit, isPublic=false}) => {
+const BusinessProfile = ({profile, setEdit}) => {
+    const userId = useParams().id;
+    const isPublic = userId && true;
 
     return (
         <>

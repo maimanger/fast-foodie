@@ -1,7 +1,7 @@
 import React from "react";
 import {API_URL} from "../CONST";
 
-export const searchTermAutoCompletion = (searchTerm="Austin", resetHint) => {
+export const searchTermAutoCompletion = (searchTerm, resetHint) => {
     // return fetch(`${API_URL}/search_auto_completion/${searchTerm}`)
     //     .then(res=>["111", "aaa"])
     //     .catch(e=>["222", "bbb"])

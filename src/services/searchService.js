@@ -11,7 +11,7 @@ export const searchRestaurants = (params) => {
         }
     })
 
-    return fetch(`${API_URL}/search/${params.location}?${concatQueries(queries)}`)
+    return fetch(`${API_URL}/search/${params.location}${Object.keys(queries).length!==0 ? "?" : ""}${concatQueries(queries)}`)
         .then(res=>res.json())
 }
 

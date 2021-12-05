@@ -3,12 +3,12 @@ import "./index.css";
 import {searchTermAutoCompletion} from "../../../../services/autoCompletionService";
 import {searchRestaurants} from "../../../../services/searchService";
 import {concatQueries} from "../../../../utils/url";
+import {Link} from "react-router-dom";
 
 const SearchBar = ({
-                       params,
-                       clickFunction
+                       params={location: "United States"},
+                       clickFunction=null
 }) => {
-
 
     const [location, setLocation] = useState(params.location);
     const [locationInput, setLocationInput] = useState('');
@@ -102,15 +102,24 @@ const SearchBar = ({
             </div>
 
             {/*******************   Search button   *******************/}
-            <button type="button" className={"btn btn-primary shadow-none rounded-0 rounded-end"}
-                    onClick={() => {
-                        clickFunction({
-                            location: location,
-                            term: searchTerm
-                        })
-                    }}>
-                <i className="fas fa-search mx-3"/>
-            </button>
+            {clickFunction === null ? (
+                <Link to={`/search?${concatQueries({location:location, term: searchTerm})}`} className={"h-100"}>
+                    <button type="button" className={"btn btn-primary shadow-none rounded-0 rounded-end h-100"}>
+                        <i className="fas fa-search mx-3"/>
+                    </button>
+                </Link>
+            ) : (
+                <button type="button" className={"btn btn-primary shadow-none rounded-0 rounded-end"}
+                        onClick={() => {
+                            clickFunction({
+                                location: location,
+                                term: searchTerm
+                            })
+                        }}>
+                    <i className="fas fa-search mx-3"/>
+                </button>
+            )}
+
 
 
 

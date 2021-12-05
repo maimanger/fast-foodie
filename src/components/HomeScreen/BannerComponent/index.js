@@ -6,7 +6,7 @@ import Dropdowns from "../public-components/Dropdowns";
 import LoginSignupButtons from "./LoginSignupButtons";
 import LoggedInHeaderButtons from "./LoggedInHeaderButtons";
 
-const BannerCompoenent = () => {
+const BannerComponent = () => {
     return (
         <div className={"w-100 homepage-banner position-relative"}>
             <img src="https://as1.ftcdn.net/v2/jpg/01/80/41/98/1000_F_180419859_SbEGEyoMlol8sZGpea1lqQRRYFZ1ExNX.jpg"
@@ -18,7 +18,7 @@ const BannerCompoenent = () => {
                         <BrandName/>
                     </div>
                     <div className={"homepage-search-bar-container mb-3"}>
-                        <SearchBar/>
+                        <SearchBar />
                     </div>
                     {/*<div className={"ps-5 d-none d-lg-block"}>*/}
                     {/*    <Dropdowns color={"white"} isBold={true}/>*/}
@@ -36,4 +36,4 @@ const BannerCompoenent = () => {
     )
 }
 
-export default BannerCompoenent;
+export default BannerComponent;

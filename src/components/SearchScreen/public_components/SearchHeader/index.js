@@ -8,11 +8,7 @@ import LoggedInHeaderButtons from "./LoggedInHeaderButtons";
 
 const SearchHeader = ({
                           loggedIn = false,
-                          params = {
-                              loggedIn: false,
-                              location: "San Fransisco, CA",
-                              term: ""
-                          },
+                          params,
                           clickFunction
 }) => {
 

@@ -1,10 +1,9 @@
 import React from "react";
 import "./index.css";
-import restaurants from "../../../reducers/data/restaurants/nyc.json";
 import restaurantDetail from "../../../reducers/data/business_detail/shake_shack.json";
 import SearchResultCard from "../SearchResultCard";
 
-const SearchResultComponent = ({location="Austin, TX", searchResultList=[]}) => {
+const SearchResultComponent = ({location, searchResultList=[]}) => {
 
 
     return (

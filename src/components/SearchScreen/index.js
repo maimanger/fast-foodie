@@ -10,24 +10,13 @@ import {concatQueries} from "../../utils/url";
 
 const SearchScreen = () => {
     const history = useHistory();
-    // const [searchResults, setSearchResults] = useState([]);
-    // const [searchParams, setSearchParams] = useState({location: "San Fransisco, CA"});
-    //
-    // const searchClickHandler = (params) => {
-    //     setSearchParams(params);
-    // }
-    //
-    // const refreshSearchResult = () => {
-    //     searchRestaurants(searchParams)
-    //         .then(restaurants => {setSearchResults(restaurants)})
-    // }
-    // useEffect(refreshSearchResult, [searchParams]);
 
 
     // get query string from router url
     function useQuery() {
-        return new URLSearchParams(useLocation().search);
+        return new URLSearchParams(useHistory().location.search);
     }
+
     let query = useQuery();
     let defaultParams = {};
 
@@ -37,6 +26,7 @@ const SearchScreen = () => {
 
     const [params, setParams] = useState(defaultParams)
     const [searchResult, setSearchResult] = useState([]);
+
     useEffect(()=>{
         searchRestaurants(params)
             .then(restaurants => {
@@ -44,6 +34,11 @@ const SearchScreen = () => {
             })
     }, [params]);
 
+    if (Object.keys(defaultParams).length===0) {
+        defaultParams = {location: "United States"};
+        history.push(`search?${concatQueries(defaultParams)}`);
+        setParams(defaultParams)
+    }
 
     const clickHandler = (newParams) => {
         history.push(`search?${concatQueries(newParams)}`);

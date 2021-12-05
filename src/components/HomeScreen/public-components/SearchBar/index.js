@@ -1,17 +1,22 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
 import {searchTermAutoCompletion} from "../../../../services/autoCompletionService";
+import {searchRestaurants} from "../../../../services/searchService";
+import {concatQueries} from "../../../../utils/url";
 
-const SearchBar = () => {
+const SearchBar = ({
+                       params,
+                       clickFunction
+}) => {
 
-    const [location, setLocation] = useState({city: "Austin", state: "TX"});
-    const [locationInput, setLocationInput] = useState("");
-    const [searchTerm, setSearchTerm] = useState("");
+
+    const [location, setLocation] = useState(params.location);
+    const [locationInput, setLocationInput] = useState('');
+    const [searchTerm, setSearchTerm] = useState("term" in params ? params.term : '');
     const [autoCompletionList, setAutoCompletionList] = useState([]);
 
     const clickLocationHandler = () => {
-        const [city, state] = locationInput.split(",");
-        setLocation({city: city.trim(), state: state.trim()});
+        setLocation(locationInput);
     }
 
     const changeLocationHandler = (e) => {
@@ -22,8 +27,8 @@ const SearchBar = () => {
         setSearchTerm(e.target.value);
     }
 
-    const searchClickHandler = () => {
-
+    const autoCompletionHandler = (e) => {
+        setSearchTerm(e.target.innerText);
     }
 
     useEffect(()=>{
@@ -32,12 +37,13 @@ const SearchBar = () => {
         })
     },[searchTerm])
 
+
     return (
 
         <div className={"homescreen-search-bar w-100 d-flex"}>
             <div className={"d-flex w-100"}>
 
-                <div className={"d-flex px-0 w-100"}>
+                <div className={"homescreen-search-bar-left-part d-flex px-0 w-100"}>
 
                     {/*******************   label   *******************/}
 
@@ -46,8 +52,8 @@ const SearchBar = () => {
 
                     {/*******************   search restaurant input   *******************/}
 
-                    <div className={"w-100 position-relative"}>
-                        <input type={"text"} className={"homescreen-search-bar-term-input border-0 px-3 w-100 h-100 bg-white dropdown"}
+                    <div className={"w-100 position-relative dropdown"}>
+                        <input type={"text"} className={"homescreen-search-bar-term-input border-0 px-3 w-100 h-100 bg-white"}
                                id="homescreen-search-bar-restaurant"
                                placeholder={"pizza, healthy, asian..."}
                                value={searchTerm} onChange={changeSearchTermHandler}
@@ -55,16 +61,16 @@ const SearchBar = () => {
 
                         {/*******************   search auto-completion dropdown   *******************/}
 
-                        {autoCompletionList.length !== 0 && (
-                            <div className={"homescreen-search-bar-auto-completion-dropdown w-100 position-absolute bg-white rounded-bottom"}>
-                                {autoCompletionList.map(listItem=>{
-                                    return (
-                                        <div className={"homescreen-search-bar-auto-completion-dropdown-item px-2 py-1"} onClick={searchClickHandler}>
-                                            {listItem}
-                                        </div>
-                                    )})}
-                            </div>
-                        )}
+                        <div className={"homescreen-search-bar-auto-completion-dropdown dropdown-menu w-100 position-absolute bg-white rounded-0 homescreen-h-fit p-0 border-0 outline-0 shadow-none"}>
+                            {autoCompletionList.map(listItem=>{
+                                return (
+                                    <div className={"homescreen-search-bar-auto-completion-dropdown-item dropdown-item px-3 py-1"}
+                                         onClick={autoCompletionHandler}>
+                                        {listItem}
+                                    </div>
+                                )})}
+                        </div>
+
 
                     </div>
 
@@ -77,7 +83,7 @@ const SearchBar = () => {
                            htmlFor={"homescreen-search-bar-input"}>
                         <div className={"d-flex w-100"}>
                             <div className={"fw-bold me-2"}>Location</div>
-                            <div className={"w-100"}>{location.city}, {location.state}</div>
+                            <div className={"w-100"}>{location}</div>
                             <div><i className="fas fa-chevron-down" /></div>
                         </div>
                     </label>
@@ -92,10 +98,19 @@ const SearchBar = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-            <button type="button" className={"btn btn-primary shadow-none rounded-0 rounded-end"}><i className="fas fa-search mx-3"/></button>
+
+            {/*******************   Search button   *******************/}
+            <button type="button" className={"btn btn-primary shadow-none rounded-0 rounded-end"}
+                    onClick={() => {
+                        clickFunction({
+                            location: location,
+                            term: searchTerm
+                        })
+                    }}>
+                <i className="fas fa-search mx-3"/>
+            </button>
 
 
 

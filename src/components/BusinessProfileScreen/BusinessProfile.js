@@ -1,17 +1,18 @@
 import React, {useState} from "react";
 import moment from "moment";
 
-const BusinessProfile = ({profile, setEdit}) => {
-
+const BusinessProfile = ({profile, setEdit, isPublic=false}) => {
 
     return (
         <>
             <div className="mb-4 d-flex align-items-center">
                 <h3 className="text-danger fw-bold my-0">Profile</h3>
+                {!isPublic &&
                 <button onClick={() => setEdit(true)}
                         className="btn btn-danger rounded-pill fw-bold  ms-auto me-0 me-sm-2 me-xl-5 px-3">
                     Edit
                 </button>
+                }
             </div>
 
             <div className="row mb-4 d-flex align-content-center">
@@ -71,6 +72,6 @@ const BusinessProfile = ({profile, setEdit}) => {
         </>
     )
 
-}
+};
 
 export default BusinessProfile;

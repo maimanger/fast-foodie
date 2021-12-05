@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "./Profile.css"
 
-const ProfileNavSidebar = ({active, visibility}) => {
+const ProfileNavSidebar = ({active, visibility, isPublic = false}) => {
     return (
         <ul className="list-group list-group-flush float-end w-50">
             <Link to="/profile"
@@ -12,14 +12,16 @@ const ProfileNavSidebar = ({active, visibility}) => {
                 <span className="d-none d-md-inline">Overview</span>
             </Link>
 
-            <Link to="/profile/reviews"
-                  className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
+            {!isPublic &&
+             <Link to="/profile_reviews"
+                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "reviews" ? "active" : ""}`}>
-                <i className="fas fa-comment ms-3 ps-1 ms-md-0 me-2 pe-1"></i>
-                <span className="d-none d-md-inline">
+                 <i className="fas fa-comment ms-3 ps-1 ms-md-0 me-2 pe-1"></i>
+                 <span className="d-none d-md-inline">
                 Reviews
                 </span>
-            </Link>
+             </Link>
+            }
 
 {/*            <Link to="/profile/photos"
                   className={`list-group-item border-top px-2 px-sm-3 text-nowrap
@@ -30,8 +32,8 @@ const ProfileNavSidebar = ({active, visibility}) => {
                 </span>
             </Link>*/}
 
-            {visibility.bookmarks &&
-            <Link to="/profile/bookmarks"
+            {(visibility.bookmarks || !isPublic) &&
+            <Link to="/profile_bookmarks"
                   className={`list-group-item border-top px-2 px-sm-3 text-nowrap
                ${active === "bookmarks" ? "active" : ""}`}>
                 <i className="fas fa-bookmark ms-3 ps-1 ms-md-0 me-2 pe-2"></i>
@@ -41,7 +43,8 @@ const ProfileNavSidebar = ({active, visibility}) => {
             </Link>
             }
 
-            <Link to="/profile/orders"
+            {!isPublic &&
+            <Link to="/profile_orders"
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "orders" ? "active" : ""}`}>
                 <i className="fas fa-utensils ms-3 ps-1 ms-md-0 me-2 pe-2"></i>
@@ -49,33 +52,40 @@ const ProfileNavSidebar = ({active, visibility}) => {
                 Orders
                 </span>
             </Link>
+            }
 
-            <Link to="/messages"
-                  className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
+            {!isPublic &&
+             <Link to="/profile_messages"
+                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "messages" ? "active" : ""}`}>
-                <i className="fas fa-envelope ms-3 ms-md-0 me-2 pe-2"></i>
-                <span className="d-none d-md-inline">
+                 <i className="fas fa-envelope ms-3 ms-md-0 me-2 pe-2"></i>
+                 <span className="d-none d-md-inline">
                 Messages
                 </span>
-            </Link>
+             </Link>
+            }
 
-            <Link to="/profile/followings"
-                  className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
+            {!isPublic &&
+             <Link to="/profile_followings"
+                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "messages" ? "active" : ""}`}>
-                <i className="fas fa-user-tag ms-3 ms-md-0 me-2 pe-1"></i>
-                <span className="d-none d-md-inline">
+                 <i className="fas fa-user-tag ms-3 ms-md-0 me-2 pe-1"></i>
+                 <span className="d-none d-md-inline">
                 Followings
                 </span>
-            </Link>
+             </Link>
+            }
 
-            <Link to="/profile/followers"
-                  className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
+            {!isPublic &&
+             <Link to="/profile_followers"
+                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "messages" ? "active" : ""}`}>
-                <i className="fas fa-user-friends ms-3 ms-md-0 me-2 pe-1"></i>
-                <span className="d-none d-md-inline">
+                 <i className="fas fa-user-friends ms-3 ms-md-0 me-2 pe-1"></i>
+                 <span className="d-none d-md-inline">
                 Followers
                 </span>
-            </Link>
+             </Link>
+            }
         </ul>
 
     )

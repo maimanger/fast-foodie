@@ -5,15 +5,17 @@ import BusinessNavSidebar from "./BusinessNavSidebar";
 import BusinessStatistics from "./BusinessStatistics";
 import BusinessNotifications from "./BusinessNotifications";
 import BusinessActivities from "./BusinessActivities";
+import users from "../../reducers/data/profile/users.json";
 
 const BusinessHomeScreen = () => {
+    const user = users[users.length - 1];
     return (
         <>
             {/**********************************Business Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">
                     <div className="wd-business-banner bg-secondary vw-100"></div>
-                    <BusinessHeader/>
+                    <BusinessHeader user={user}/>
                 </div>
 
                 <div className="row flex-nowrap">

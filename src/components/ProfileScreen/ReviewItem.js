@@ -22,10 +22,10 @@ const ReviewItem = ({review}) => {
             </p>
 
             {/************************Review Img**************************/}
-            <div className="d-lg-flex gap-3 col-8 col-sm-7 col-md-6 col-lg-10 col-xl-8">
+            <div className="d-lg-flex gap-3 col-8 col-sm-7 col-md-5 col-lg-10 col-xl-8">
                 {review.img.map(i => {
                     return (
-                        <div className="card text-white wd-profile-review-card">
+                        <div className="card text-white">
                             <img src={i.url}
                                  className="card-img-top img-fluid"/>
                             <div

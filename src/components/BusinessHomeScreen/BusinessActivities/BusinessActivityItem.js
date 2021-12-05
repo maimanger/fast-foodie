@@ -53,8 +53,11 @@ const BusinessActivityItem = ({activity}) => {
                              <span className="text-black-50">{moment(activity.time_created)
                                  .format("L")}</span>
                                  <br/>
-                                 <span>{activity.text.split(" ").slice(0, 30)
-                                     .join(" ")} ...</span>
+                                 <span>
+                                     {activity.review.replies &&
+                                      activity.review.replies.find(reply => reply.user._id === activity.user._id).reply
+                                         .split(" ").slice(0, 30).join(" ")}  ...
+                                 </span>
                              </div>
                          </Link>
                      </Collapse>
@@ -69,6 +72,6 @@ const BusinessActivityItem = ({activity}) => {
             }
         </div>
     )
-}
+};
 
 export default BusinessActivityItem;

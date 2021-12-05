@@ -65,8 +65,6 @@
       "text": "Doesn’t look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the regular hamburger and wow… there are no words. A classic burger done right. Crisp bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce, tomato, and pickles). There’s about a million options available between the menu board and wall full of specials, so it can get a little overwhelming, but you really can’t go wrong. Not much else to say besides go see for yourself! You won’t be disappointed."
     }
   },
-
-
   {
     "_id": "22334455",
     "user": {
@@ -82,6 +80,7 @@
         "firstName": "Fangying",
         "lastName": " Li"
       },
+      "time_created": "2021-11-28 01:05:40",
       "restaurant": {
         "id": "Rv4NgRl-wkMNPNdqXNSGBg",
         "name": "Shake Shack",
@@ -116,7 +115,6 @@
       }
     }
   },
-
   {
     "_id": "33445566",
     "user": {
@@ -147,8 +145,6 @@
       "time_created": "2021-11-28 11:00:40"
     }
   },
-
-
   {
     "_id": "44556677",
     "user": {
@@ -157,7 +153,6 @@
     },
     "type": "reply-review",
     "time_created": "2021-11-30 12:05:40",
-    "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     "review": {
       "_id": "12345678",
       "user": {
@@ -213,7 +208,23 @@
         }
       ],
       "rating": 4,
-      "text": "Doesn’t look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the regular hamburger and wow… there are no words. A classic burger done right. Crisp bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce, tomato, and pickles). There’s about a million options available between the menu board and wall full of specials, so it can get a little overwhelming, but you really can’t go wrong. Not much else to say besides go see for yourself! You won’t be disappointed."
+      "text": "Doesn’t look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the regular hamburger and wow… there are no words. A classic burger done right. Crisp bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce, tomato, and pickles). There’s about a million options available between the menu board and wall full of specials, so it can get a little overwhelming, but you really can’t go wrong. Not much else to say besides go see for yourself! You won’t be disappointed.",
+      "replies": [
+        {
+          "user": {
+            "_id": 123,
+            "role": "customer",
+            "firstName": "Fangying",
+            "lastName": "Li",
+            "image_url": "/images/ProfilePage/avatar_img.jpg",
+            "location": "Boston, MA",
+            "reviewsCount": 88,
+            "followersCount": 3
+          },
+          "reply": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          "time_created": "2021-11-30 12:05:40"
+        }
+      ]
     }
   }
 ]

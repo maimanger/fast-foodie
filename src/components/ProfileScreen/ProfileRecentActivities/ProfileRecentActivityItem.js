@@ -8,6 +8,7 @@ import UserAvatarInfo from "../UserAvatarInfo";
 import "../Profile.css"
 import ReviewStars from "../ReviewStars";
 import {Collapse} from "react-bootstrap";
+import BusinessStars from "../../BusinessHomeScreen/BusinessStars";
 
 const ProfileRecentActivityItem = ({activity}) => {
     const [on, setOn] = useState(false);
@@ -91,8 +92,11 @@ const ProfileRecentActivityItem = ({activity}) => {
                              <span className="text-black-50">{moment(activity.time_created)
                                  .format("L")}</span>
                                  <br/>
-                                 <span>{activity.text.split(" ").slice(0, 30)
-                                     .join(" ")} ...</span>
+                                 <span>
+                                     {activity.review.replies
+                                         .find(reply => reply.user._id === activity.user._id).reply
+                                         .split(" ").slice(0, 30).join(" ")} ...
+                                 </span>
                              </div>
                          </Link>
                          </Collapse>
@@ -131,9 +135,9 @@ const ProfileRecentActivityItem = ({activity}) => {
 
                  </div>
                  <Collapse in={on}>
-                     <Link to="#" className="text-black wd-profile-content-hover">
+                     <Link to={`/restaurant/:${activity.bookmark.restaurant.id}`} className="text-black wd-profile-content-hover">
                          <RestaurantInfo restaurant={activity.bookmark.restaurant}/>
-                         <RestaurantStars restaurant={activity.bookmark.restaurant}/>
+                         <BusinessStars restaurant={activity.bookmark.restaurant}/>
                      </Link>
                  </Collapse>
 

@@ -9,13 +9,15 @@ const BusinessStars = ({restaurant}) => {
         solidStars.push(1);
         sCount++;
     }
-    let eRating = 5 - restaurant.rating;
+
+    let eRating = 5.0 - restaurant.rating;
     let eCount = 1;
     while (eCount <= eRating) {
         emptyStars.push(1);
         eCount++;
     }
-    if (eCount - eRating > 0) {
+
+    if (solidStars.length + emptyStars.length < 5) {
         halfStars.push(1);
     }
 

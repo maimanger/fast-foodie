@@ -6,7 +6,7 @@
     "password": "123ABC",
     "firstName": "Fangying",
     "lastName": "Li",
-    "image_url": "/images/ProfilePage/avatar_img.jpg",
+    "image_url": "https://s3-media0.fl.yelpcdn.com/photo/wVDMS5UpBq38LCF66T0L-g/o.jpg",
     "location": "Boston, MA",
     "birthday": "2021-11-1",
     "dateJoined": "2019-9-1",
@@ -214,7 +214,7 @@
         ],
         "cross_streets": ""
       },
-      "rating": 3.65,
+      "rating": 3.5,
       "review_count": 369,
       "categories": [
         {

@@ -35,17 +35,12 @@
 }
 
 .homescreen-search-bar-auto-completion-dropdown{
-    display: none;
     bottom: 0;
     left: 0;
     transform: translateY(100%);
 
-    box-shadow: 0 0 10px 0 lightgrey;
+    /*box-shadow: 0 0 10px 0 lightgrey;*/
     
-}
-
-.homescreen-search-bar-term-input:focus + .homescreen-search-bar-auto-completion-dropdown{
-    display: block;
 }
 
 .homescreen-search-bar-auto-completion-dropdown-item:hover{

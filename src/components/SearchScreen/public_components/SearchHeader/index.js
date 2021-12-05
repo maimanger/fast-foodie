@@ -6,7 +6,16 @@ import Dropdowns from "../../../HomeScreen/public-components/Dropdowns";
 import LoginSignupButtons from "./LoginSignupButtons";
 import LoggedInHeaderButtons from "./LoggedInHeaderButtons";
 
-const SearchHeader = ({loggedIn=false}) => {
+const SearchHeader = ({
+                          loggedIn = false,
+                          params = {
+                              loggedIn: false,
+                              location: "San Fransisco, CA",
+                              term: ""
+                          },
+                          clickFunction
+}) => {
+
 
 
     return (
@@ -16,7 +25,7 @@ const SearchHeader = ({loggedIn=false}) => {
             </div>
             <div className={"col-7"}>
                 <div className={"searchscreen-search-header-searchbar-container"}>
-                    <SearchBar/>
+                    <SearchBar params={params} clickFunction={clickFunction}/>
                 </div>
                 {/*<Dropdowns />*/}
             </div>

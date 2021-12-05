@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
 import "./Profile.css";
 
-const ProfileHeader = ({profile, setEdit, edit}) => {
+const ProfileHeader = ({profile, setEdit, edit, isPublic=false}) => {
 
     return (
         <>
@@ -30,36 +30,33 @@ const ProfileHeader = ({profile, setEdit, edit}) => {
                     </HashLink>
 
                     <div className="row p-0 m-0 d-flex flex-nowrap gap-xxl-4 ">
-                        <Link className="col-6 col-md-4 col-lg-3 col-xxl-2 text-black p-0
-                                         text-decoration-none d-none d-md-inline-block"
-                              to="/profile/followings">
+                        <div className="col-6 col-md-4 col-lg-3 col-xxl-2 text-black p-0
+                                         text-decoration-none d-none d-md-inline-block">
                             <span className="fw-bold me-1">
                                 {profile.followingCount}
                             </span>
-                            <span className="text-black wd-profile-link-text">Followings</span>
-                        </Link>
+                            <span className="text-black">Followings</span>
+                        </div>
 
-                        <Link className="col-6 col-md-4 col-lg-3 col-xxl-2 text-black p-0 text-decoration-none"
-                              to="/profile/followers">
+                        <div className="col-6 col-md-4 col-lg-3 col-xxl-2 text-black p-0 text-decoration-none">
                             <span className="fw-bold me-1">
                                 {profile.followersCount}
                             </span>
-                            <span className="text-black wd-profile-link-text">Followers</span>
-                        </Link>
+                            <span className="text-black">Followers</span>
+                        </div>
 
-                        <Link className="col-md-4 col-lg-3 col-xxl-2 text-black p-0 text-decoration-none"
-                              to="/profile/reviews">
+                        <div className="col-md-4 col-lg-3 col-xxl-2 text-black p-0 text-decoration-none">
                             <span className="fw-bold me-1">
                                 {profile.reviewsCount}
                             </span>
-                            <span className="text-black wd-profile-link-text">Reviews</span>
-                        </Link>
+                            <span className="text-black">Reviews</span>
+                        </div>
                     </div>
                 </div>
 
                 {/***************************Profile Header Edit Btn************************/}
                 <div className="col-auto d-flex flex-column pb-3 mb-4 justify-content-around ps-1 ">
-                    {!edit &&
+                    {(!edit && !isPublic) &&
                     <button className="d-flex flex-nowrap align-items-center justify-content-start
                                            btn rounded-pill btn-outline-info"
                             onClick={() => setEdit(true)}>
@@ -69,23 +66,21 @@ const ProfileHeader = ({profile, setEdit, edit}) => {
                     </button>
                     }
 
+                    {isPublic &&
+                     <button className="d-flex flex-nowrap align-items-center justify-content-center
+                                           btn rounded-pill btn-outline-info py-1 mb-2">
+                         <i className="fas fa-envelope me-0 me-sm-2"></i>
+                         <span className="d-none d-sm-inline">Message</span>
+                     </button>
+                    }
 
-{/*                    <Link className="d-flex flex-nowrap align-items-center justify-content-center
-                                           btn rounded-pill btn-outline-info"
-                          to="#">
-                        <i className="far fa-comment me-0 me-sm-2"></i>
-                        <span className="d-none d-sm-inline">Message</span>
-                    </Link>
-
-
-                    <Link className="d-flex flex-nowrap align-items-center justify-content-center
-                                           btn rounded-pill btn-outline-info"
-                          to="#">
+                    {isPublic &&
+                    <button className="d-flex flex-nowrap align-items-center justify-content-center
+                                           btn rounded-pill btn-outline-info py-1">
                         <i className="fas fa-user-plus me-0 me-sm-2"></i>
                         <span className="d-none d-sm-inline">Follow</span>
-
-                    </Link>*/}
-
+                    </button>
+                    }
 
                 </div>
             </div>

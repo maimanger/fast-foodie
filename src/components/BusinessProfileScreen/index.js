@@ -23,12 +23,18 @@ const BusinessProfileScreen = () => {
                         <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
                         </div>
 
-                        <div className="col-6 col-sm-5 col-lg-6 d-flex flex-column
+                        <div className="col-7 col-lg-6 d-flex flex-column
                                pb-3 px-0 mb-4 justify-content-end">
                             <div className="d-flex align-items-center">
                                 <HashLink smooth to="/business#top" className="wd-business-back-top fs-1 text-nowrap">
                                     {user.firstName} {user.lastName}
                                 </HashLink>
+                                {!user.verified &&
+                                 <button
+                                     className="btn btn-info rounded-pill fw-bold  ms-auto me-2 me-xl-5 px-3">
+                                     Claim <span className="d-none d-sm-inline">Business</span>
+                                 </button>
+                                }
                             </div>
                         </div>
 

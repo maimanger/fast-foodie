@@ -3,7 +3,6 @@ import moment from "moment";
 
 const BusinessProfile = ({profile, setEdit}) => {
 
-
     return (
         <>
             <div className="mb-4 d-flex align-items-center">
@@ -71,6 +70,6 @@ const BusinessProfile = ({profile, setEdit}) => {
         </>
     )
 
-}
+};
 
 export default BusinessProfile;

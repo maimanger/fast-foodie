@@ -24,6 +24,42 @@
       456,
       567
     ],
+    "bookmarksCount": 1,
+    "bookmarksList": [
+      {
+        "id": "Rv4NgRl-wkMNPNdqXNSGBg",
+        "name": "Shake Shack",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
+        "location": {
+          "address1": "1 Old Fulton St",
+          "address2": "",
+          "address3": "",
+          "city": "Brooklyn",
+          "zip_code": "11201",
+          "country": "US",
+          "state": "NY",
+          "display_address": [
+            "1 Old Fulton St",
+            "Brooklyn, NY 11201"
+          ],
+          "cross_streets": ""
+        },
+        "rating": 3.65,
+        "review_count": 369,
+        "categories": [
+          {
+            "alias": "tradamerican",
+            "title": "American (Traditional)"
+          },
+          {
+            "alias": "icecream",
+            "title": "Ice Cream & Frozen Yogurt"
+          }
+        ],
+        "price": "$$"
+      }
+    ],
+
     "visibility": {
       "location": true,
       "birthday": true,
@@ -51,6 +87,8 @@
       123,
       456
     ],
+    "bookmarksCount": 0,
+    "bookmarksList": [],
     "visibility": {
       "location": true,
       "birthday": true,
@@ -80,6 +118,8 @@
       123,
       456
     ],
+    "bookmarksCount": 0,
+    "bookmarksList": [],
     "visibility": {
       "location": true,
       "birthday": true,
@@ -114,6 +154,7 @@
       "bookmarks": true
     }
   },
+
   {
     "_id": "567",
     "role": "customer",
@@ -132,6 +173,8 @@
     "followingList": [
       123
     ],
+    "followersCount": 0,
+    "followersList": [],
     "followersCount": 0,
     "followersList": [],
     "visibility": {
@@ -153,6 +196,7 @@
     "birthday": "1969-11-11",
     "dateJoined": "2019-12-30",
     "email": "monica@123.com",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
     "restaurant": {
       "id": "Rv4NgRl-wkMNPNdqXNSGBg",
       "name": "Shake Shack",

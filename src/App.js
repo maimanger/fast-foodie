@@ -16,7 +16,6 @@ import profile from "./reducers/profile";
 import notifications from "./reducers/notifications";
 import users from "./reducers/users";
 import recentActivities from "./reducers/recentActivities";
-import ProfilePublicScreen from "./components/ProfileScreen/ProfilePublicScreen";
 import LoginScreen from "./components/LoginScreen";
 import RegisterScreen from "./components/RegisterScreen";
 import BusinessHomeScreen from "./components/BusinessHomeScreen";
@@ -41,6 +40,10 @@ import AdminClaimScreen from "./components/AdminClaimScreen";
 import AdminClaimDetail from "./components/AdminClaimScreen/AdminClaimDetail";
 import BusinessProfileScreen from "./components/BusinessProfileScreen";
 import BusinessClaimSearchComponent from "./components/BusinessClaimScreen/BusinessClaimSearchComponent";
+import PublicProfileScreen from "./components/ProfileScreen/PublicProfileScreen";
+import ProfileReviewsScreen from "./components/ProfileReviewsScreen";
+import ProfileFollowersScreen from "./components/ProfileFollowersScreen";
+import ProfileFollowingsScreen from "./components/ProfileFollowingsScreen";
 
 
 
@@ -60,7 +63,10 @@ function App() {
                 <Route path={"/about"} component={AboutUs} exact={true} />
 
                 <Route path="/profile" exact={true} component={ProfileScreen}/>
-                <Route path="/profile/:id" exact={true} component={ProfilePublicScreen}/>
+                <Route path="/profile/:id" exact={true} component={PublicProfileScreen}/>
+                <Route path="/profile_reviews" exact={true} component={ProfileReviewsScreen}/>
+                <Route path="/profile_followers" exact={true} component={ProfileFollowersScreen}/>
+                <Route path="/profile_followings" exact={true} component={ProfileFollowingsScreen}/>
 
                 <Route path="/login"  exact={true} component={LoginScreen}/>
                 <Route path="/register"  exact={true} component={RegisterScreen}/>

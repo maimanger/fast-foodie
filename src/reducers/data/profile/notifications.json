@@ -11,7 +11,7 @@
       "_id": "555666",
       "sender": {
         "_id": 345,
-        "image_url": "/images/ProfilePage/avatar_img2.jpg",
+        "image_url": "https://cdn.pixabay.com/photo/2014/11/13/06/12/boy-529067_960_720.jpg",
         "firstName": "Mike",
         "lastName": "Shah",
         "location": "Los Angelos, CA",
@@ -39,7 +39,7 @@
         "_id": 345,
         "firstName": "Mike2",
         "lastName": "Shah",
-        "image_url": "/images/ProfilePage/avatar_img2.jpg",
+        "image_url": "https://cdn.pixabay.com/photo/2014/11/13/06/12/boy-529067_960_720.jpg",
         "location": "Los Angelos, CA",
         "reviewsCount": 12,
         "followersCount": 2

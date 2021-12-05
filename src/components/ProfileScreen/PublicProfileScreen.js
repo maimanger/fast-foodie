@@ -11,10 +11,10 @@ import users from "../../reducers/data/profile/users.json"
 
 const PublicProfileScreen = () => {
     // Customer public profile
-/*    const profile = useSelector(state => state.profile);*/
+    const profile = useSelector(state => state.profile);
 
 // Test Business Public Profile
-    const profile = users[users.length - 1];
+/*    const profile = users[users.length - 1];*/
 
     if (profile.role === "customer") {
         return (

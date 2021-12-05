@@ -1,12 +1,14 @@
 import React from "react";
+import {Image} from "react-bootstrap";
 
 const UserAvatarInfo = ({user}) => {
     return (
         <div className="row g-3 mb-2">
             {/************************User Avatar**************************/}
-            <div className="col-4 col-md-2">
+            <div className="col-auto">
                 <img src={user.image_url}
-                     className="img-fluid rounded-3"/>
+                       className="img-fluid rounded-3"
+                       style={{width: 70, height: 70, "object-fit": "cover"}} />
             </div>
             {/************************User Info**************************/}
             <div className="col-12 col-md-8 d-flex flex-column">
@@ -33,6 +35,6 @@ const UserAvatarInfo = ({user}) => {
             </div>
         </div>
     )
-}
+};
 
 export default UserAvatarInfo;

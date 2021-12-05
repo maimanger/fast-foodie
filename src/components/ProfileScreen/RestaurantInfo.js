@@ -4,8 +4,10 @@ const RestaurantInfo = ({restaurant}) => {
     return (
         <div className="row g-3 mb-2">
 
-            <div className="col-4 col-md-2">
-                <img src={restaurant.image_url} className="img-fluid rounded-3"/>
+            <div className="col-auto">
+                <img src={restaurant.image_url}
+                     className="img-fluid rounded-3"
+                     style={{width: 70, height: 70, "object-fit": "cover"}}/>
             </div>
 
             <div className="col-12 col-md-8 d-flex flex-column">
@@ -25,7 +27,7 @@ const RestaurantInfo = ({restaurant}) => {
             </div>
         </div>
     )
-}
+};
 
 export default RestaurantInfo;
 

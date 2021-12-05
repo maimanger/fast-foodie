@@ -22,7 +22,7 @@ const BusinessProfileScreen = () => {
                     <BusinessHeader user={user}/>
                 </div>
             </div>
-            
+
 
             <div className="row flex-nowrap">
             {/**********************************Business Sidebar*********************************/}

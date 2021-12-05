@@ -27,8 +27,10 @@ const ProfileNotificationItem = ({notification}) => {
                              {notification.message.sender.firstName} {notification.message.sender.lastName}
                          </Link>
                      </div>
-                     <div className="text-muted fst-italic text-nowrap d-none d-md-block">
+                     <div className="text-muted fst-italic text-nowrap">
+                         <span className="d-none d-md-inline">
                          {moment(notification.time_created).fromNow()}
+                         </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
                              <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
@@ -55,8 +57,10 @@ const ProfileNotificationItem = ({notification}) => {
                              {notification.follow.follower.firstName} {notification.follow.follower.lastName}
                          </Link>
                      </div>
-                     <div className="text-muted fst-italic text-nowrap d-none d-md-block">
+                     <div className="text-muted fst-italic text-nowrap">
+                         <span className="d-none d-md-inline">
                          {moment(notification.time_created).fromNow()}
+                         </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
                              <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
@@ -86,8 +90,10 @@ const ProfileNotificationItem = ({notification}) => {
                          </Link>
                          has been updated
                      </div>
-                     <div className="text-muted fst-italic text-nowrap d-none d-md-block">
+                     <div className="text-muted fst-italic text-nowrap">
+                         <span className="d-none d-md-inline">
                          {moment(notification.time_created).fromNow()}
+                         </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
                              <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>

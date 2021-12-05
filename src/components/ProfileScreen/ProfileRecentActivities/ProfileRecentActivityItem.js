@@ -33,8 +33,10 @@ const ProfileRecentActivityItem = ({activity}) => {
                              {activity.review.restaurant.name}
                          </Link>
                      </div>
-                     <div className="text-muted fst-italic text-nowrap d-none d-md-block">
+                     <div className="text-muted fst-italic text-nowrap ">
+                         <span className="d-none d-md-inline">
                          {moment(activity.time_created).fromNow()}
+                         </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
                              <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
@@ -74,8 +76,10 @@ const ProfileRecentActivityItem = ({activity}) => {
                              {activity.review.user.firstName} {activity.review.user.lastName}
                          </Link>
                      </div>
-                     <div className="text-muted fst-italic text-nowrap d-none d-md-block">
+                     <div className="text-muted fst-italic text-nowrap">
+                         <span className="d-none d-md-inline">
                          {moment(activity.time_created).fromNow()}
+                         </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
                              <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
@@ -128,8 +132,10 @@ const ProfileRecentActivityItem = ({activity}) => {
                              {activity.bookmark.restaurant.name}
                          </Link>
                      </div>
-                     <div className="text-muted fst-italic text-nowrap d-none d-md-block">
+                     <div className="text-muted fst-italic text-nowrap">
+                         <span className="d-none d-md-inline">
                          {moment(activity.time_created).fromNow()}
+                         </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
                              <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
@@ -158,8 +164,10 @@ const ProfileRecentActivityItem = ({activity}) => {
                                to={`/profile/${activity.follow.followee._id}`}>
                              Mike Shah</Link>
                      </div>
-                     <div className="text-muted fst-italic text-nowrap d-none d-md-block">
+                     <div className="text-muted fst-italic text-nowrap">
+                         <span className="d-none d-md-inline">
                          {moment(activity.time_created).fromNow()}
+                         </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
                              <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>

@@ -1,12 +1,14 @@
 import React from "react";
+import {Image} from "react-bootstrap";
 
 const OrderInfo = ({order}) => {
     return (
         <div className="row g-3 mb-2">
             {/************************Order Avatar**************************/}
-            <div className="col-4 col-md-2">
+            <div className="col-auto">
                 <img src={order.img}
-                     className="img-fluid rounded-3"/>
+                     className="img-fluid rounded-3"
+                     style={{minHeight: 70, maxWidth:70, "object-fit": "cover"}} />
             </div>
             {/************************Order Info**************************/}
             <div className="col-12 col-md-8 d-flex flex-column">

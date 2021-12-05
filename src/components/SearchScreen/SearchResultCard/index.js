@@ -2,7 +2,7 @@ import React from "react";
 import './index.css';
 import * as truncate from '../../HomeScreen/public-components/Utils/truncate';
 import Sign from "./Sign";
-import {useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) => {
     const restaurantFromDB = {
@@ -14,13 +14,8 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
         }
     }
 
-    const history = useHistory();
-
-    const clickHander = () => {
-        history.push(`/restaurants/${restaurantFromSearchApi.id}`);
-    }
     return (
-        <div className={"searchscreen-card-container w-100 border border-light rounded-2 p-4 d-flex"} onClick={clickHander}>
+        <Link className={"searchscreen-card-container w-100 border border-light rounded-2 p-4 d-flex text-decoration-none text-black"} to={`/restaurants/${restaurantFromSearchApi.id}`}>
             <div className={"searchscreen-card-img-container me-4 rounded-3"}>
                 <img src={restaurantFromSearchApi['image_url']} className={"me-4 rounded-3"} alt="img"/>
             </div>
@@ -94,7 +89,7 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
                 {/*    </div>*/}
                 {/*)}*/}
             </div>
-        </div>
+        </Link>
     )
 }
 

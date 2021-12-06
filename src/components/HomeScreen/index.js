@@ -7,8 +7,8 @@ import BannerComponent from "./BannerComponent";
 import RecentActivityComponent from "./RecentActivityComponent";
 
 const HomeScreen = () => {
-    const profile = null
-
+    // const profile = {name: "Qiansha Meng"};
+    const profile = null;
     const [location, setLocation] = useState("Seattle, WA");
 
     const locationChangeHandler = (newLocation) => {
@@ -19,7 +19,7 @@ const HomeScreen = () => {
 
     return(
         <div className={"bg-white"}>
-            <BannerComponent location={location} locationUpdateHandler={locationChangeHandler}/>
+            <BannerComponent location={location} locationUpdateHandler={locationChangeHandler} profile={profile}/>
             <RecommendationComponent location={location}/>
             <CategoryBrowseComponent location={location}/>
             <div className={"d-flex justify-content-center"}>

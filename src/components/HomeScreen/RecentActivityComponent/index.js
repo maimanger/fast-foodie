@@ -9,7 +9,7 @@ import getHomepageRecentActivities from "../../../services/getHomepageRecentActi
 // who: "all" or "Nearby" or "Following
 
 const RecentActivityComponent = ({profile}) => {
-    const isLoggedIn = profile === null;
+    const isLoggedIn = profile !== null;
     const defaultWho = isLoggedIn ? "Nearby" : "all";
 
     const [who, setWho] = useState(defaultWho);

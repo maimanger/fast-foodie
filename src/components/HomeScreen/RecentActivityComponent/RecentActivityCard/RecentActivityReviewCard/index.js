@@ -5,7 +5,7 @@ import * as truncate from "../../../public-components/Utils/truncate";
 
 const RecentActivityReviewCard = ({activity}) => {
     const reviewCharLimit = 83;
-    const imgUrl = activity['photo_url'] === '' ? activity['restaurant']['img_url'] : activity['photo_url'];
+    const imgUrl = activity['review']['photo_url'] === '' ? activity['restaurant']['img_url'] : activity['review']['photo_url'];
     return (
         <div className={"card homescreen-recent-activity-card"}>
             <div className={"d-flex p-2"}>
@@ -21,11 +21,11 @@ const RecentActivityReviewCard = ({activity}) => {
                 <hr className={"text-secondary"}/>
                 {activity['rating'] !== 0 && (
                     <div className={"mb-2"}>
-                        Rating: {activity.rating}
+                        Rating: {activity['review']['rating']}
                     </div>
                 )}
                 <div className={"homepage-recent-activity-card-review"}>
-                    {truncate.textTruncate(activity.text, reviewCharLimit)}
+                    {truncate.textTruncate(activity['review']['text'], reviewCharLimit)}
                 </div>
 
 

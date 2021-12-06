@@ -6,7 +6,7 @@ import Dropdowns from "../public-components/Dropdowns";
 import LoginSignupButtons from "./LoginSignupButtons";
 import LoggedInHeaderButtons from "./LoggedInHeaderButtons";
 
-const BannerComponent = ({location, locationUpdateHandler}) => {
+const BannerComponent = ({location, locationUpdateHandler, profile}) => {
     const isLoggedIn = false;
     return (
         <div className={"w-100 homepage-banner position-relative"}>

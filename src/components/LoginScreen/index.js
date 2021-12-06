@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {login, logout} from "../../services/profileService";
 
 const LoginScreen = () => {
-    const isValid = useSelector(state => state.loginVerification);
+    const isValid = useSelector(state => state.profileVerification);
     const [user, setUser] = useState({username: "alice@123.com", password: "alice123"});
 
     const history = useHistory();

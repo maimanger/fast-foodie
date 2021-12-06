@@ -1,6 +1,6 @@
 import React from "react";
 
-const loginVerification = (state = true, action) => {
+const profileVerification = (state = true, action) => {
     switch (action.type) {
         case "change-isValid":
             return action.isValid;
@@ -11,4 +11,4 @@ const loginVerification = (state = true, action) => {
     }
 }
 
-export default loginVerification;
+export default profileVerification;

@@ -10,6 +10,7 @@ const profile = (state = {}, action) => {
             break;
 
         case 'edit-profile':
+        case 'create-profile':
             const newProfile = {
                 ...state,
                 ...action.newProfile
@@ -17,9 +18,6 @@ const profile = (state = {}, action) => {
             return (newProfile);
             break;
 
-        case 'delete-profile':
-            return {};
-            break;
 
         default:
             return state;

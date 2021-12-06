@@ -31,8 +31,20 @@ export const fetchProfile = (dispatch) => {
         .then(res => res.json())
         .then(profile => {
             dispatch({
-                        type: "fetch-profile",
-                        profile
-                    });
+                         type: "fetch-profile",
+                         profile
+                     });
         })
+}
+
+// return a promise with the register status
+export const register = (user) => {
+    return fetch(`${API_URL}/register`, {
+        method: 'POST',
+        body: JSON.stringify(user),
+        credentials: 'include',
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
 }

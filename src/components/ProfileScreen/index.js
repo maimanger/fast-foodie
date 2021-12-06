@@ -112,6 +112,8 @@ const ProfileScreen = () => {
                     }
                 </div>
 
+                {JSON.stringify(profile)}
+
             </div>
 
 

@@ -47,7 +47,7 @@ import ProfileFollowersScreen from "./components/ProfileFollowersScreen";
 import ProfileFollowingsScreen from "./components/ProfileFollowingsScreen";
 import BusinessClaimScreen from "./components/BusinessClaimScreen";
 import ProfileBookmarksScreen from "./components/ProfileBookmarksScreen";
-import loginVerification from "./reducers/loginVerification";
+import profileVerification from "./reducers/profileVerification";
 
 function App() {
     const reducer = combineReducers({
@@ -56,7 +56,7 @@ function App() {
                                         users,
                                         recentActivities,
                                         restaurant,
-                                        loginVerification
+                                        profileVerification
                                     });
     const store = createStore(reducer);
 

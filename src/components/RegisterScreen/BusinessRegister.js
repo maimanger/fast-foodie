@@ -1,13 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 
-const BusinessRegister = () => {
+const BusinessRegister = ({setFile, isFinished}) => {
+    const [fileDone, setFileDone] = useState(true);
+
     return (
-        <div className="mb-4">
+        <div className="mb-4 has-validation">
             <label className="form-label" htmlFor="registerFile">
-                Upload supporting documents
+                Supporting documents URL (pdf)
             </label>
-            <input type="file" id="registerFile"
-                   className="form-control"/>
+            <input type="text"
+                   defaultValue="http://www.africau.edu/images/default/sample.pdf"
+                   id="registerFile"
+                   className={`form-control ${(!isFinished && !fileDone) ? "is-invalid" : ""}`}
+                   onChange={(e) => {
+                       setFile(e.target.value);
+                       e.target.value === "" ? setFileDone(false) : setFileDone(true)
+                   }}/>
+            <div className="invalid-feedback">
+                Please fill out
+            </div>
         </div>
     )
 }

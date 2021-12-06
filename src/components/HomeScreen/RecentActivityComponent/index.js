@@ -2,39 +2,18 @@ import React, {useEffect, useState} from "react";
 import './index.css';
 import RecentActivityCards from "./RecentActivityCards";
 import RecentActivityNavigation from "./RecentActivityNavigation";
-import allActivities from "./data/defaultActivities.json";
-import nearbyActivities from "./data/nearbyActivities.json";
-import followersActivities from "./data/followersActivities.json";
-import followingsActivities from "./data/followingsActivities.json";
 
-const whoActivities = {
-    "all": allActivities,
-    "Nearby": nearbyActivities,
-    "Followers": followersActivities,
-    "Followings": followingsActivities
-}
+import getHomepageRecentActivities from "../../../services/getHomepageRecentActivitiesService";
 
 // let count = 6;
+// who: "all" or "Nearby" or "Following
 
-const RecentActivityComponent = () => {
+const RecentActivityComponent = ({profile}) => {
+    const isLoggedIn = profile === null;
+    const defaultWho = isLoggedIn ? "Nearby" : "all";
 
-    const [who, setWho] = useState("all");
-
-
-    // Logged in user initiate
-    const isLoggedIn = () => {
-        return window.location.href === "http://localhost:3000/home/logged-in";
-    }
-    const initWho = () => {
-        if (isLoggedIn()) {
-            setWho("Nearby");
-        } else {
-            setWho("all");
-        }
-    }
-    useEffect(initWho, []);
-
-
+    const [who, setWho] = useState(defaultWho);
+    const [activities, setActivities] = useState([]);
 
     // Navigation handler
     const navigationClickHandler = (e) => {
@@ -42,6 +21,14 @@ const RecentActivityComponent = () => {
         setWho(e.target.innerText);
     }
 
+
+
+    useEffect(() => {
+        getHomepageRecentActivities(who)
+            .then(res=>{
+                setActivities(res)
+            })
+    }, [who]);
     //
     // // load more activities
     // const showMoreHandler = () => {
@@ -52,8 +39,8 @@ const RecentActivityComponent = () => {
         <div className={"homescreen-recent-activity-container text-center p-5"}>
             <h4 className={"text-danger fw-bold mb-5"}>Recent Activity</h4>
 
-            {isLoggedIn() && <RecentActivityNavigation clickHandler={navigationClickHandler} content={<RecentActivityCards activities={whoActivities[who]}/>}/>}
-            {!isLoggedIn() && <RecentActivityCards activities={whoActivities['all']} /> }
+            {isLoggedIn && <RecentActivityNavigation clickHandler={navigationClickHandler} content={<RecentActivityCards activities={activities}/>}/>}
+            {!isLoggedIn && <RecentActivityCards activities={activities} /> }
             <div className={"homescreen-recent-activity-show-more-container d-flex justify-content-center align-items-center"}>
                 <i className="fas fa-chevron-down me-3" />
                 <div className={"text-danger"}>Show More</div>

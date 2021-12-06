@@ -20,5 +20,6 @@
 .homescreen-recommendation-card:hover{
     position: relative;
     bottom: 5px;
-
+    box-shadow: 0 0 10px 0 lightgray;
+    cursor: pointer;
 }

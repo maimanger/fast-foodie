@@ -6,7 +6,8 @@ import Dropdowns from "../public-components/Dropdowns";
 import LoginSignupButtons from "./LoginSignupButtons";
 import LoggedInHeaderButtons from "./LoggedInHeaderButtons";
 
-const BannerComponent = () => {
+const BannerComponent = ({location, locationUpdateHandler}) => {
+    const isLoggedIn = false;
     return (
         <div className={"w-100 homepage-banner position-relative"}>
             <img src="https://as1.ftcdn.net/v2/jpg/01/80/41/98/1000_F_180419859_SbEGEyoMlol8sZGpea1lqQRRYFZ1ExNX.jpg"
@@ -18,7 +19,7 @@ const BannerComponent = () => {
                         <BrandName/>
                     </div>
                     <div className={"homepage-search-bar-container mb-3"}>
-                        <SearchBar />
+                        <SearchBar params={{location: location}} locationUpdateHandler={locationUpdateHandler}/>
                     </div>
                     {/*<div className={"ps-5 d-none d-lg-block"}>*/}
                     {/*    <Dropdowns color={"white"} isBold={true}/>*/}
@@ -26,7 +27,7 @@ const BannerComponent = () => {
                 </div>
 
                 <div className={"homepage-banner-header-container position-absolute"}>
-                    {window.location.href==="http://localhost:3000/home/logged-in" ? <LoggedInHeaderButtons /> :<LoginSignupButtons />}
+                    {isLoggedIn ? <LoggedInHeaderButtons /> :<LoginSignupButtons />}
                 </div>
             </div>
 

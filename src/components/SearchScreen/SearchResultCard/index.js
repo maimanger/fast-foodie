@@ -3,6 +3,8 @@ import './index.css';
 import * as truncate from '../../HomeScreen/public-components/Utils/truncate';
 import Sign from "./Sign";
 import {Link} from "react-router-dom";
+import RestaurantStars from "../../ProfileScreen/RestaurantStars";
+import BusinessStars from "../../BusinessHomeScreen/BusinessStars";
 
 const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) => {
     const restaurantFromDB = {
@@ -30,7 +32,7 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
 
                     {/***************  rating + review  ****************/}
                     <div className={"mb-2"}>
-                        <span>Rating: {restaurantFromSearchApi['rating']}</span>
+                        <span><BusinessStars restaurant={restaurantFromSearchApi} /> </span>
                         {/*<span> | </span>*/}
                         {/*<span>{restaurantFromSearchApi['review_count']}</span>*/}
                     </div>

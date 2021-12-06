@@ -16,16 +16,16 @@ const RecentActivityNavigation = ({clickHandler, content}) => {
                     <a className={"nav-link"}
                        data-toggle="tab" href="#homepage-navigation-pane"
                        onClick={clickHandler}>
-                        Followings
+                        Following
                     </a>
                 </li>
-                <li className={"nav-item"}>
-                    <a className={"nav-link"}
-                       data-toggle="tab" href="#homepage-navigation-pane"
-                       onClick={clickHandler}>
-                        Followers
-                    </a>
-                </li>
+                {/*<li className={"nav-item"}>*/}
+                {/*    <a className={"nav-link"}*/}
+                {/*       data-toggle="tab" href="#homepage-navigation-pane"*/}
+                {/*       onClick={clickHandler}>*/}
+                {/*        Followers*/}
+                {/*    </a>*/}
+                {/*</li>*/}
             </ul>
 
             <div className="tab-content mt-3">

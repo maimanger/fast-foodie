@@ -4,10 +4,11 @@ import React from "react";
 import "./index.css";
 
 
-const CategoryItems = () => {
+const CategoryItems = ({location}) => {
+
     return (
         <div className={"homescreen-categories-buttons"}>
-            {categories.map(category=><CategoryItem category={category} /> )}
+            {categories.map(category=><CategoryItem category={category} location={location}/> )}
         </div>
     )
 }

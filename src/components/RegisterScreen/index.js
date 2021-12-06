@@ -46,7 +46,7 @@ const RegisterScreen = () => {
             "firstName": firstName.trim(),
             "lastName": lastName.trim(),
             "businessData": {
-                "file_url": file
+                "file_url": file.trim()
             }
         };
     }
@@ -81,7 +81,8 @@ const RegisterScreen = () => {
                                            isValid: false
                                        });
                           } else if (res.status === 200) {
-                              history.push('/profile')
+                              newUser.role === "customer" && history.push('/profile');
+                              newUser.role === "business" && history.push('/business/profile')
                           }
                       }
                 )

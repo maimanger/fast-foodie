@@ -105,6 +105,15 @@ const EditProfile = ({profile, setEdit}) => {
                     <label htmlFor="editLocation" className="wd-text-18">Location</label>
                 </div>
 
+                {/*************************Edit Address Detail**************************/}
+                <div className="form-floating h-auto mb-4">
+                    <input type="text" id="editLocation" placeholder="Edit" maxLength="50"
+                           className="form-control bg-transparent border border-secondary
+                                           wd-profile-edit"
+                           defaultValue={profile.addressDetail}/>
+                    <label htmlFor="editLocation" className="wd-text-18">Address</label>
+                </div>
+
                 {/*************************Edit Email**************************/}
                 <div className="form-floating h-auto mb-4">
                     <input type="email" id="editEmail" placeholder="Edit" maxLength="50"

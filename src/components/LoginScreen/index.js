@@ -6,6 +6,8 @@ import {login, logout} from "../../services/profileService";
 
 const LoginScreen = () => {
     const isValid = useSelector(state => state.profileVerification);
+    // for testing
+    const profile = useSelector(state => state.profile);
     const [user, setUser] = useState({username: "alice@123.com", password: "alice123"});
 
     const history = useHistory();
@@ -14,10 +16,12 @@ const LoginScreen = () => {
         e.preventDefault();
         login(user)
             .then(profile => {
-/*                dispatch({
+                // for testing
+                dispatch({
                              type: "fetch-profile",
                              profile
-                         });*/
+                         });
+
                 dispatch({
                              type: "change-isValid",
                              isValid: true
@@ -107,11 +111,10 @@ const LoginScreen = () => {
                             </Link>
 
                         </form>
-
                     </div>
 
                 </div>
-
+                {JSON.stringify(profile)}
             </div>
 
         </>

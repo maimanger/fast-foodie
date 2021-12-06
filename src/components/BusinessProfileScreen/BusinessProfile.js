@@ -59,7 +59,9 @@ const BusinessProfile = ({profile, setEdit}) => {
                     <h5 className="fw-bold">Business : </h5>
                 </div>
                 <div className="col-12 col-md-6">
-                    <h5>{profile.restaurant.name}</h5>
+                    {profile.businessData.restaurant.name &&
+                    <h5>{profile.businessData.restaurant.name}</h5>
+                    }
                 </div>
             </div>
 

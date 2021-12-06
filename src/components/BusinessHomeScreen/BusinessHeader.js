@@ -4,67 +4,93 @@ import {HashLink} from "react-router-hash-link";
 import "./Business.css";
 import restaurants from "../../reducers/data/restaurants/nyc.json"
 import users from "../../reducers/data/profile/users.json"
+import {useLocation} from "react-router";
 
-const BusinessHeader = ({user}) => {
+let sampleUser = {
+    "role": "",
+    "username": "",
+    "password": "",
+    "email": "",
+    "firstName": "",
+    "lastName": "",
+    "image_url": "",
+    "location": "",
+    "birthday": "",
+    "dateJoined": "",
+    "businessData": {
+        "verified": false,
+        "restaurant": {
+            "id": "",
+            "name": ""
+        },
+        "file_url": ""
+    }
+};
+
+const BusinessHeader = ({user = sampleUser}) => {
+    const currentURL = useLocation();
+    const isVerified = user.businessData.verified;
+    const restaurant = user.businessData.restaurant;
 
     return (
         <div className="row d-flex flex-nowrap align-items-end wd-business-header">
 
             {/******************************Profile Header Avatar**************************/}
-            {user.verified &&
              <div className="col-4 col-lg-3 d-flex justify-content-center px-0">
                  <div className="wd-business-avatar shadow card bg-transparent">
                      <img src={user.image_url}
                           className="img-thumbnail bg-light" alt="..."/>
                  </div>
              </div>
-            }
 
             {/******************************Profile Header Title**************************/}
             <div className="col-6 col-sm-5 col-lg-6 d-flex flex-column
                                pb-3 px-0 mb-4 justify-content-end">
                 <div className="d-flex align-items-center">
 
-                    {user.verified &&
+                    {/**********************Verified Business Owner*************************/}
+                    {isVerified && restaurant.name &&
                      <HashLink smooth to="/business#top"
                                className="wd-business-back-top fs-1 text-nowrap">
-                         {user.restaurant.name}
+                         {restaurant.name}
                      </HashLink>
                     }
-                    {user.verified &&
-                     <Link to={`/restaurants/${user.restaurant.id}`}
+                    {isVerified && restaurant.id &&
+                     <Link to={`/restaurants/${restaurant.id}`}
                            className="text-info fs-5 mx-4 wd-business-link-text mt-3">
                          view
                      </Link>
                     }
 
-                    {!user.verified &&
-                     <HashLink smooth to="/business#top"
+                    {/**********************Unverified Business Owner*************************/}
+                    {!isVerified &&
+                     <HashLink smooth to={`${currentURL}#top`}
                                className="wd-business-back-top fs-1 text-nowrap">
                          {user.firstName} {user.lastName}
                      </HashLink>
                     }
-                    {!user.verified &&
+                    {!isVerified &&
                      <button
                          className="btn btn-info rounded-pill fw-bold  ms-auto me-2 me-xl-5 px-3">
                          Claim <span className="d-none d-sm-inline">Business</span>
                      </button>
                     }
+
                 </div>
 
-                {user.verified &&
+                {isVerified &&
                  <h4>Welcome back, {user.firstName}</h4>
                 }
-                {user.verified &&
+                {isVerified &&
                  <div className="text-black-50">Here's what's going on with your business
                      today</div>
                 }
 
-
             </div>
 
-
         </div>
+
+
 
     )
 }

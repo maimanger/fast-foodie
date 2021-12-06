@@ -59,7 +59,6 @@
         "price": "$$"
       }
     ],
-
     "visibility": {
       "location": true,
       "birthday": true,
@@ -154,7 +153,6 @@
       "bookmarks": true
     }
   },
-
   {
     "_id": "567",
     "role": "customer",
@@ -183,51 +181,200 @@
       "bookmarks": true
     }
   },
-
   {
     "_id": "b55667788",
     "role": "business",
-    "verified": true,
     "username": "monica@123.com",
-    "password": "131415ABC",
+    "password": "monica",
+    "email": "monica@123.com",
     "firstName": "Monica",
     "lastName": "Galler",
-    "location": "Brookline, NY",
-    "dateJoined": "2019-12-30",
-    "email": "monica@123.com",
-    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
-    "restaurant": {
-      "id": "Rv4NgRl-wkMNPNdqXNSGBg",
-      "name": "Shake Shack",
-      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
-      "location": {
-        "address1": "1 Old Fulton St",
-        "address2": "",
-        "address3": "",
-        "city": "Brooklyn",
-        "zip_code": "11201",
-        "country": "US",
-        "state": "NY",
-        "display_address": [
-          "1 Old Fulton St",
-          "Brooklyn, NY 11201"
-        ],
-        "cross_streets": ""
-      },
-      "rating": 3.5,
-      "review_count": 369,
-      "categories": [
-        {
-          "alias": "tradamerican",
-          "title": "American (Traditional)"
+    "image_url": "https://s3-media0.fl.yelpcdn.com/photo/wVDMS5UpBq38LCF66T0L-g/o.jpg",
+    "location": "Boston, MA",
+    "addressDetail": "",
+    "birthday": "",
+    "dateJoined": "2019-9-1",
+    "customerData": {
+      "reviews": [],
+      "followings": [],
+      "followers": [],
+      "bookmarks": [],
+      "visibility": {
+        "location": true,
+        "birthday": true,
+        "bookmarks": true
+      }
+    },
+    "businessData": {
+      "verified": true,
+      "restaurant": {
+        "id": "Rv4NgRl-wkMNPNdqXNSGBg",
+        "name": "Shake Shack",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
+        "location": {
+          "address1": "1 Old Fulton St",
+          "address2": "",
+          "address3": "",
+          "city": "Brooklyn",
+          "zip_code": "11201",
+          "country": "US",
+          "state": "NY",
+          "display_address": [
+            "1 Old Fulton St",
+            "Brooklyn, NY 11201"
+          ],
+          "cross_streets": ""
         },
-        {
-          "alias": "icecream",
-          "title": "Ice Cream & Frozen Yogurt"
-        }
-      ],
-      "price": "$$"
+        "rating": 3.5,
+        "review_count": 369,
+        "categories": [
+          {
+            "alias": "tradamerican",
+            "title": "American (Traditional)"
+          },
+          {
+            "alias": "icecream",
+            "title": "Ice Cream & Frozen Yogurt"
+          }
+        ],
+        "price": "$$"
+      },
+      "file_url": "http://www.africau.edu/images/default/sample.pdf"
     }
+  },
 
+
+  {
+    "role": "business",
+    "username": "monica@123.com",
+    "password": "monica",
+    "email": "monica@123.com",
+    "firstName": "Monica",
+    "lastName": "Galler",
+    "image_url": "https://s3-media0.fl.yelpcdn.com/photo/wVDMS5UpBq38LCF66T0L-g/o.jpg",
+    "location": "Boston, MA",
+    "birthday": "",
+    "dateJoined": "2019-9-1",
+    "customerData": {
+      "visibility": {
+        "location": true,
+        "birthday": true,
+        "bookmarks": true
+      },
+      "reviews": [],
+      "followings": [],
+      "followers": [],
+      "bookmarks": []
+    },
+    "businessData": {
+      "verified": true,
+      "restaurant": {
+        "id": "Rv4NgRl-wkMNPNdqXNSGBg",
+        "alias": "shake-shack-brooklyn-12",
+        "name": "Shake Shack",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
+        "is_claimed": true,
+        "is_closed": false,
+        "url": "https://www.yelp.com/biz/shake-shack-brooklyn-12?adjust_creative=NGGnIfz9rpfOyp208PsoSQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=NGGnIfz9rpfOyp208PsoSQ",
+        "phone": "+13474352676",
+        "display_phone": "(347) 435-2676",
+        "review_count": 369,
+        "categories": [
+          {
+            "alias": "tradamerican",
+            "title": "American (Traditional)"
+          },
+          {
+            "alias": "icecream",
+            "title": "Ice Cream & Frozen Yogurt"
+          }
+        ],
+        "rating": 4,
+        "location": {
+          "address1": "1 Old Fulton St",
+          "address2": "",
+          "address3": "",
+          "city": "Brooklyn",
+          "zip_code": "11201",
+          "country": "US",
+          "state": "NY",
+          "display_address": [
+            "1 Old Fulton St",
+            "Brooklyn, NY 11201"
+          ],
+          "cross_streets": ""
+        },
+        "coordinates": {
+          "latitude": 40.7030601700019,
+          "longitude": -73.994004
+        },
+        "photos": [
+          "https://s3-media2.fl.yelpcdn.com/bphoto/fKBAzgXfwErkCiX2l46ruQ/o.jpg",
+          "https://s3-media2.fl.yelpcdn.com/bphoto/P63u0nkbJWwhIjLXR7IQog/o.jpg",
+          "https://s3-media1.fl.yelpcdn.com/bphoto/qqOunlHowKf7SXzTg2XVmw/o.jpg"
+        ],
+        "price": "$$",
+        "hours": [
+          {
+            "open": [
+              {
+                "is_overnight": false,
+                "start": "1100",
+                "end": "2100",
+                "day": 0
+              },
+              {
+                "is_overnight": false,
+                "start": "1100",
+                "end": "2100",
+                "day": 1
+              },
+              {
+                "is_overnight": false,
+                "start": "1100",
+                "end": "2100",
+                "day": 2
+              },
+              {
+                "is_overnight": false,
+                "start": "1100",
+                "end": "2100",
+                "day": 3
+              },
+              {
+                "is_overnight": false,
+                "start": "1100",
+                "end": "2100",
+                "day": 4
+              },
+              {
+                "is_overnight": false,
+                "start": "1100",
+                "end": "2100",
+                "day": 5
+              },
+              {
+                "is_overnight": false,
+                "start": "1100",
+                "end": "2100",
+                "day": 6
+              }
+            ],
+            "hours_type": "REGULAR",
+            "is_open_now": false
+          }
+        ],
+        "transactions": [
+          "delivery"
+        ],
+        "messaging": {
+          "url": "https://www.yelp.com/raq/Rv4NgRl-wkMNPNdqXNSGBg?adjust_creative=NGGnIfz9rpfOyp208PsoSQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=NGGnIfz9rpfOyp208PsoSQ#popup%3Araq",
+          "use_case_text": "Message the Business"
+        }
+      },
+      "file_url": "http://www.africau.edu/images/default/sample.pdf"
+    },
+    "_id": "61ae23205ca832c2d20d0672",
+    "addressDetail": ""
   }
 ]

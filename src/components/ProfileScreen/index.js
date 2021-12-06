@@ -10,6 +10,7 @@ import EditProfile from "./EditProfile";
 import users from "../../reducers/data/profile/users.json";
 import {fetchProfile} from "../../services/profileService";
 import {useHistory} from "react-router-dom";
+import {Redirect, Route} from "react-router";
 
 const ProfileScreen = () => {
 
@@ -25,41 +26,46 @@ const ProfileScreen = () => {
     /*    const profile = users[0];*/
 
     /**********************************Get the login profile data******************************/
-    // Set up a sample profile to avoid undefined type error
+        // Set up a sample profile to avoid undefined type error
     let profile = {
-        "role": "",
-        "username": "",
-        "password": "",
-        "email": "",
-        "firstName": "",
-        "lastName": "",
-        "image_url": "",
-        "location": "",
-        "birthday": "",
-        "dateJoined": "",
-        "customerData": {
-            "reviews": [],
-            "followings": [],
-            "followers": [],
-            "bookmarks": [],
-            "visibility": {
-                "location": true,
-                "birthday": true,
-                "bookmarks": true
+            "role": "",
+            "username": "",
+            "password": "",
+            "email": "",
+            "firstName": "",
+            "lastName": "",
+            "image_url": "",
+            "location": "",
+            "birthday": "",
+            "dateJoined": "",
+            "customerData": {
+                "reviews": [],
+                "followings": [],
+                "followers": [],
+                "bookmarks": [],
+                "visibility": {
+                    "location": true,
+                    "birthday": true,
+                    "bookmarks": true
+                }
+            },
+            "businessData": {
+                "verified": false,
+                "restaurantId": ""
             }
-        },
-        "businessData": {
-            "verified": false,
-            "restaurantId": ""
         }
-    }
     let fetchedProfile = useSelector(state => state.profile);
     profile = {...profile, ...fetchedProfile};
     const [edit, setEdit] = useState(false);
 
+    if (profile.role === "business") {
+        history.push('/business/profile');
+    } else if (profile.role === "admin") {
+        history.push('/admin');
+    }
+
     return (
         <>
-
             {/**********************************Profile Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">
@@ -68,7 +74,6 @@ const ProfileScreen = () => {
                 </div>
 
                 <div className="row flex-nowrap">
-
                     {/****************************Profile NavSidebar**************************/}
                     {profile.customerData &&
                      <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
@@ -93,14 +98,12 @@ const ProfileScreen = () => {
                      </div>
                     }
 
-
                     {/***************************Profile Edit**************************/}
                     {edit &&
                      <div className="col-7 col-lg-6 d-flex flex-column px-0">
                          <EditProfile profile={profile} setEdit={setEdit}/>
                      </div>
                     }
-
 
                     {/***************************Profile RightSidebar****************************/}
                     {!edit &&
@@ -111,14 +114,11 @@ const ProfileScreen = () => {
                      </div>
                     }
                 </div>
-
                 {JSON.stringify(profile)}
-
             </div>
-
-
         </>
     )
+
 };
 
 export default ProfileScreen;

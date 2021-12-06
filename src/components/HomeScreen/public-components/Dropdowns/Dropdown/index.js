@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './index.css';
-import Popup from "../Popup";
-import CategoriesPopup from "../CategoriesPopup";
+import Popup from "../../../CategoryBrowseComponent/Popup";
+import CategoriesPopup from "../../../CategoryBrowseComponent/CategoriesPopup";
 
 
 const Dropdown = ({
@@ -17,7 +17,6 @@ const Dropdown = ({
     const clickHandler = (e) => {
         const text = e.target.innerText;
         setSelected(text);
-        console.log(moreOptions.length);
     }
 
     const resetHandler = () => {

@@ -6,8 +6,9 @@ import {concatQueries} from "../../../../utils/url";
 import {Link} from "react-router-dom";
 
 const SearchBar = ({
-                       params={location: "United States"},
-                       clickFunction=null
+                       params,
+                       clickFunction=null,
+                       locationUpdateHandler=null
 }) => {
 
     const [location, setLocation] = useState(params.location);
@@ -16,7 +17,11 @@ const SearchBar = ({
     const [autoCompletionList, setAutoCompletionList] = useState([]);
 
     const clickLocationHandler = () => {
-        setLocation(locationInput);
+        if (locationUpdateHandler !== null){
+            locationUpdateHandler(locationInput);
+        }else {
+            setLocation(locationInput);
+        }
     }
 
     const changeLocationHandler = (e) => {
@@ -83,7 +88,7 @@ const SearchBar = ({
                            htmlFor={"homescreen-search-bar-input"}>
                         <div className={"d-flex w-100"}>
                             <div className={"fw-bold me-2"}>Location</div>
-                            <div className={"w-100"}>{location}</div>
+                            <div className={"w-100"}>{locationUpdateHandler !== null ? params.location : location}</div>
                             <div><i className="fas fa-chevron-down" /></div>
                         </div>
                     </label>
@@ -103,7 +108,7 @@ const SearchBar = ({
 
             {/*******************   Search button   *******************/}
             {clickFunction === null ? (
-                <Link to={`/search?${concatQueries({location:location, term: searchTerm})}`} className={"h-100"}>
+                <Link to={`/search?${concatQueries({location:params.location, term: searchTerm})}`} className={"h-100"}>
                     <button type="button" className={"btn btn-primary shadow-none rounded-0 rounded-end h-100"}>
                         <i className="fas fa-search mx-3"/>
                     </button>

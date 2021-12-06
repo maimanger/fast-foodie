@@ -9,6 +9,7 @@ import {useHistory, useLocation} from "react-router-dom";
 import {concatQueries} from "../../utils/url";
 
 const SearchScreen = () => {
+    window.scrollTo(0, 0);
     const history = useHistory();
 
 

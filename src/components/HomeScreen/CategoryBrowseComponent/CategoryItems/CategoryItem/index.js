@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import "./index.css";
-import Popup from "../../../public-components/Dropdowns/Popup";
-import CategoriesPopup from "../../../public-components/Dropdowns/CategoriesPopup";
+import Popup from "../../Popup";
+import CategoriesPopup from "../../CategoriesPopup";
+import {Link} from "react-router-dom";
+import {concatQueries} from "../../../../../utils/url";
 
-const CategoryItem = ({category}) => {
+const CategoryItem = ({category, location}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const moreOptions = ["American", "Asian Fusion", "Barbeque", "Breakfast & Brunch", "Buffets", "Burgers", "Cheeseteaks", "Chinese", "Hot Dogs", "French", "Indian", "Italian", "Japanese", "Korean", "Mediterranean", "Mexican", "Pizza", "Salad", "Sandwiches", "Seafood", "Sushi Bars", "Thai"];
@@ -11,22 +13,38 @@ const CategoryItem = ({category}) => {
     const togglePopup = () => {
         setIsOpen(!isOpen);
     }
-    const clickHandler = () => {
+    const clickMoreHandler = () => {
         if (category.category === "More") {
             togglePopup();
         }
     }
-    return (
-        <div>
-            <button className={"homescreen-category-item bg-white border-light rounded-3 py-3"} onClick={clickHandler}>
-                <img src={category.img} alt={"img"} className={"homescreen-category-img"}/>
-                <div className={"fw-bold mt-2 mb-1"}>{category.category}</div>
-            </button>
 
-            {isOpen && <Popup handleClose={togglePopup} content={<CategoriesPopup moreOptions={moreOptions} /> }/>}
-        </div>
+    if (category.category === "More") {
+        return (
+            <div>
+                <div
+                    className={"homescreen-category-item bg-white border-light rounded-3 py-3"} onClick={clickMoreHandler}>
+                    <img src={category.img} alt={"img"} className={"homescreen-category-img"}/>
+                    <div className={"fw-bold mt-2 mb-1"}>{category.category}</div>
+                </div>
 
-    )
+                {isOpen && <Popup handleClose={togglePopup} content={<CategoriesPopup moreOptions={moreOptions} location={location}/> }/>}
+            </div>
+        )
+    } else {
+        return (
+            <Link to={`/search?${concatQueries({term: category.category, location: location})}`} className={"text-decoration-none text-black"}>
+                <div
+                    className={"homescreen-category-item bg-white border-light rounded-3 py-3"} onClick={clickMoreHandler}>
+                    <img src={category.img} alt={"img"} className={"homescreen-category-img"}/>
+                    <div className={"fw-bold mt-2 mb-1"}>{category.category}</div>
+                </div>
+
+                {isOpen && <Popup handleClose={togglePopup} content={<CategoriesPopup moreOptions={moreOptions} /> }/>}
+            </Link>
+
+        )
+    }
 }
 
 export default CategoryItem;

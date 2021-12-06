@@ -2,7 +2,8 @@
   "reviews": [
     {
       "id": "VQP2yEQuzu3-TvuKoQlniQ",
-      "url": "https://www.yelp.com/biz/shake-shack-brooklyn-12?adjust_creative=NGGnIfz9rpfOyp208PsoSQ&hrid=VQP2yEQuzu3-TvuKoQlniQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=NGGnIfz9rpfOyp208PsoSQ",
+      "restaurant_id": "....",
+      "img_url": "https://www.yelp.com/biz/shake-shack-brooklyn-12?adjust_creative=NGGnIfz9rpfOyp208PsoSQ&hrid=VQP2yEQuzu3-TvuKoQlniQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=NGGnIfz9rpfOyp208PsoSQ",
       "text": "Smoke shack is real good, there has a bit of spice and crisp in it. I really recommend that if u like spicy burgers.",
       "rating": 5,
       "time_created": "2021-09-08 12:50:43",

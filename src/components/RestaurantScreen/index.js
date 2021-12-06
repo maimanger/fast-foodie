@@ -44,12 +44,7 @@ const RestaurantScreen = () => {
         </div>
       </div>
 
-      <BrowserRouter>
-              {/* <Route path={["/restaurants/:id/", "/restaurants/:id/about"]} exact={true} component={AboutScreen } /> */}
-              {/* <Route path={`/restaurants/${id}/review`} component={ReviewScreen} />
-              <Route path={`/restaurants/${id}/menu`} component={MenuScreen} />
-              <Route path={`/restaurants/${id}/placeorder`} component={PlaceOrderScreeen} /> */}
-          </BrowserRouter>
+      
       </div>
   
     // <div className="container">

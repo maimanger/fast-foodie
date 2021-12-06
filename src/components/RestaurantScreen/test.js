@@ -21,13 +21,10 @@ const Test = () => {
         <ul>
             {restaurants.map(rest => {return (
             <li key={rest.id}>
-                
                 <Link to={`/restaurants/${rest.id}`}>
                     {rest.id}
                 </Link>
-            
-            
-            
+
             </li>)})}
            
             

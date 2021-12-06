@@ -1,7 +1,8 @@
 import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import "./restaurant.css"
+import "./restaurant.css";
+import RestaurantStars from "../../ProfileScreen/RestaurantStars";
 
 const RestaurantImage = () => {
   const restaurant = useSelector(state => state.restaurant);
@@ -17,7 +18,7 @@ const RestaurantImage = () => {
 
   useEffect(() => findRestaurantById(dispatch)
   , [dispatch])
-  
+  console.log(restaurant)
 
   // const restaurant = useSelector(state => state.restaurant);
   const absoluteStyle = {
@@ -39,8 +40,10 @@ const RestaurantImage = () => {
           <div className="" style={absoluteStyle}>
             <div className="h1 text-white m-0" style={{fontWeight:"bold"}}>{restaurant.name}</div>
             <div className="h3 d-flex flex-row">
-              <div className="starability-result" data-rating={Math.floor(restaurant.rating)}></div>
-              <div className="ms-3">{restaurant.review_count} reviews</div></div>
+              <div className="text-white"><RestaurantStars restaurant={restaurant}/></div>
+              {/* <div className="starability-result" data-rating={Math.floor(restaurant.rating)}></div>
+              <div className="ms-3">{restaurant.review_count} reviews</div> */}
+              </div>
             <div className="h4">
               {restaurant.is_claimed === true? claimed: ""}
               <span>{restaurant.price} &#183; </span>
@@ -50,19 +53,6 @@ const RestaurantImage = () => {
             </div>
           </div>
         </div>
-
-    // <div className="row">
-    //   <div className="card p-0" style={{ position: "relative" }}>
-    //     <img
-    //       className="card-img-top"
-    //       src={shake_shake.image_url}
-    //       alt="restaurantimage"
-    //     />
-    //     <div className="card-body" style={absoluteStyle}>
-    //       <div className="card-title m-0">{shake_shake.name}</div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

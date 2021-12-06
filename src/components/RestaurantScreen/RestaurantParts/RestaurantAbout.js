@@ -21,9 +21,9 @@ const RestaurantAbout = () => {
         </div>
         <div className="col-1"></div>
         <div className="col-5">
-          <ul className="list-group m-0">
+          <ul className="list-group m-0 ">
             {times.map((time, index) => {return (
-              <li key={index} className="list-group-item border-0 p-0">
+              <li key={index} className="list-group-item border-0 p-0 bg-transparent">
                 <div className="row"> 
                 <span className="col-2">{days[time.day]}</span>  
                 <span className="col-10">{`${time.start.substr(0, 2)}:${time.start.substr(2, 4)} AM - 

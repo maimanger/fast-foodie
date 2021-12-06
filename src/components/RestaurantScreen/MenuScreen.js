@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
 import RestaurantImage from "./RestaurantParts/RestaurantImage";
 import RestaurantNav from "./RestaurantParts/RestaurantNav";
 import RestaurantMenu from "./RestaurantParts/RestaurantMenu";
 
 
 const MenuScreen = () => {
+    const restaurant = useSelector(state => state.restaurant);
+    
     return (
       <div><RestaurantImage />
       <div className="container">
@@ -13,7 +16,7 @@ const MenuScreen = () => {
             <div>
                 <RestaurantNav active= {'menu'} />
             </div>
-            <RestaurantMenu />
+            <RestaurantMenu coordinates={restaurant.coordinates}/>
           </div>
           <div className="col-1"></div>
         </div>

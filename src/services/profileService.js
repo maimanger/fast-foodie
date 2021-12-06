@@ -37,6 +37,7 @@ export const fetchProfile = (dispatch) => {
         })
 }
 
+
 // return a promise with the register status
 export const register = (user) => {
     return fetch(`${API_URL}/register`, {
@@ -48,3 +49,4 @@ export const register = (user) => {
         }
     })
 }
+

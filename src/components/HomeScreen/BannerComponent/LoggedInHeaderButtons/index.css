@@ -7,3 +7,12 @@
 .homepage-banner-logged-in-header-container .dropdown-item{
     font-size: 14px;
 }
+
+.homepage-banner-logout-button:hover{
+    cursor:pointer;
+}
+
+.homepage-banner-logged-in-header-container .fas{
+    font-size: 25px;
+}
+

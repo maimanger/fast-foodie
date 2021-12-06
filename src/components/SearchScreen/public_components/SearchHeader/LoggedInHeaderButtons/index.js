@@ -16,8 +16,8 @@ const LoggedInHeaderButtons = () => {
                 <i className="fas fa-user text-black fa-lg" data-toggle="dropdown"/>
                 <div className={"dropdown-menu dropdown-menu-right mt-3 p-1"}>
                     <Link to={"/profile"} className={" dropdown-item"}>View Profile</Link>
-                    <Link to={"#"} className={"dropdown-item"}>Account Settings</Link>
-                    <Link to={"#"} className={"dropdown-item"}>Log out</Link>
+                    {/*<Link to={"#"} className={"dropdown-item"}>Account Settings</Link>*/}
+                    <div className={"homepage-banner-logout-button dropdown-item"}>Log out</div>
                 </div>
             </div>
         </div>

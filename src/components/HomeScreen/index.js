@@ -5,11 +5,13 @@ import CategoryBrowseComponent from "./CategoryBrowseComponent";
 import Footer from "./public-components/Footer";
 import BannerComponent from "./BannerComponent";
 import RecentActivityComponent from "./RecentActivityComponent";
+import {placeholderCheckLogin} from "../../services/login-service";
 
 const HomeScreen = () => {
-    // const profile = {name: "Qiansha Meng"};
-    const profile = null;
-    const [location, setLocation] = useState("Seattle, WA");
+    const profile = placeholderCheckLogin();
+    const defaultLocation = profile !== null ? profile.location : "United States";
+
+    const [location, setLocation] = useState(defaultLocation);
 
     const locationChangeHandler = (newLocation) => {
         setLocation(newLocation);

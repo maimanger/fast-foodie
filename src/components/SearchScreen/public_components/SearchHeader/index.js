@@ -7,12 +7,10 @@ import LoginSignupButtons from "./LoginSignupButtons";
 import LoggedInHeaderButtons from "./LoggedInHeaderButtons";
 
 const SearchHeader = ({
-                          loggedIn = false,
+                          profile,
                           params,
                           clickFunction
 }) => {
-
-
 
     return (
         <div className={"searchscreen-search-header-container bg-white w-100 px-5 py-4 m-0 justify-content-between align-items-top row sticky-top"}>
@@ -26,7 +24,7 @@ const SearchHeader = ({
                 {/*<Dropdowns />*/}
             </div>
             <div className={"searchscreen-search-header-buttons col-2 d-flex justify-content-end align-items-center"}>
-                {loggedIn ? <LoggedInHeaderButtons /> : <LoginSignupButtons />}
+                {profile !== null ? <LoggedInHeaderButtons /> : <LoginSignupButtons />}
             </div>
         </div>
 

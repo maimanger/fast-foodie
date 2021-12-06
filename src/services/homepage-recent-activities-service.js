@@ -5,17 +5,17 @@ import followingsActivities from "../components/HomeScreen/RecentActivityCompone
 import {API_URL} from "../CONST";
 
 const getHomepageAllRecentActivities = () => {
-    return fetch(`${API_URL}/all_activities`)
+    return fetch(`${API_URL}/activities/all`)
         .then(res=>res.json())
 }
 
 const getHomepageNearbyRecentActivities = () => {
-    return fetch(`${API_URL}/nearby_activities`)
+    return fetch(`${API_URL}/activities/nearby`)
         .then(res=>res.json())
 }
 
 const getHomepageFollowingRecentActivities = () => {
-    return fetch(`${API_URL}/following_activities`)
+    return fetch(`${API_URL}/activities/following`)
         .then(res=>res.json())
 }
 

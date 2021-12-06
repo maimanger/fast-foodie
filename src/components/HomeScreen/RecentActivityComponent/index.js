@@ -3,7 +3,7 @@ import './index.css';
 import RecentActivityCards from "./RecentActivityCards";
 import RecentActivityNavigation from "./RecentActivityNavigation";
 
-import getHomepageRecentActivities from "../../../services/getHomepageRecentActivitiesService";
+import getHomepageRecentActivities from "../../../services/homepage-recent-activities-service";
 
 // let count = 6;
 // who: "all" or "Nearby" or "Following
@@ -41,10 +41,12 @@ const RecentActivityComponent = ({profile}) => {
 
             {isLoggedIn && <RecentActivityNavigation clickHandler={navigationClickHandler} content={<RecentActivityCards activities={activities}/>}/>}
             {!isLoggedIn && <RecentActivityCards activities={activities} /> }
-            <div className={"homescreen-recent-activity-show-more-container d-flex justify-content-center align-items-center"}>
-                <i className="fas fa-chevron-down me-3" />
-                <div className={"text-danger"}>Show More</div>
-            </div>
+
+            {/*************  show more pagination  **************/}
+            {/*<div className={"homescreen-recent-activity-show-more-container d-flex justify-content-center align-items-center"}>*/}
+            {/*    <i className="fas fa-chevron-down me-3" />*/}
+            {/*    <div className={"text-danger"}>Show More</div>*/}
+            {/*</div>*/}
         </div>
 
     )

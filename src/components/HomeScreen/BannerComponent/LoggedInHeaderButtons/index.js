@@ -2,6 +2,7 @@ import React from "react";
 import './index.css';
 import Dropdown from "../../public-components/Dropdowns/Dropdown";
 import {Link} from "react-router-dom";
+import {placeholderLogout} from "../../../../services/login-service";
 
 const LoggedInHeaderButtons = () => {
     return (
@@ -12,8 +13,8 @@ const LoggedInHeaderButtons = () => {
                 <i className="fas fa-user-circle text-white fa-lg" data-toggle="dropdown"/>
                 <div className={"dropdown-menu dropdown-menu-right mt-3 p-1"}>
                     <Link to={"/profile"} className={" dropdown-item"}>View Profile</Link>
-                    <Link to={"#"} className={"dropdown-item"}>Account Settings</Link>
-                    <Link to={"#"} className={"dropdown-item"}>Log out</Link>
+                    {/*<Link to={"#"} className={"dropdown-item"}>Account Settings</Link>*/}
+                    <div className={"homepage-banner-logout-button dropdown-item"} onClick={placeholderLogout}>Log out</div>
                 </div>
             </div>
         </div>

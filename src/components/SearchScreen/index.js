@@ -7,11 +7,14 @@ import BrandName from "../HomeScreen/public-components/BrandName";
 import {searchRestaurants} from "../../services/searchService";
 import {useHistory, useLocation} from "react-router-dom";
 import {concatQueries} from "../../utils/url";
+import {placeholderCheckLogin} from "../../services/login-service";
 
 const SearchScreen = () => {
     window.scrollTo(0, 0);
     const history = useHistory();
 
+    // get profile
+    const profile = placeholderCheckLogin();
 
     // get query string from router url
     function useQuery() {
@@ -36,7 +39,7 @@ const SearchScreen = () => {
     }, [params]);
 
     if (Object.keys(defaultParams).length===0) {
-        defaultParams = {location: "United States"};
+        defaultParams = {location: profile === null ? "United States" : profile['location']};
         history.push(`search?${concatQueries(defaultParams)}`);
         setParams(defaultParams)
     }
@@ -49,7 +52,7 @@ const SearchScreen = () => {
 
     return (
         <div className={"bg-white"}>
-            <SearchHeader loggedIn={false} params={params} clickFunction={clickHandler}/>
+            <SearchHeader profile={profile} params={params} clickFunction={clickHandler}/>
             <div className={"searchscreen-body-container d-flex"}>
                 <SearchResultComponent location={params.location} searchResultList={searchResult}/>
             </div>

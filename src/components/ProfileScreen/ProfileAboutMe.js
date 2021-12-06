@@ -7,17 +7,17 @@ const ProfileAboutMe = ({profile}) => {
 
             <h5 className="text-danger fw-bold mb-3">About Me</h5>
 
-            {profile.visibility.birthday &&
+            {profile.customerData.visibility.birthday &&
              < div className="mb-3">
                  <h6 className="fw-bold">Birthday</h6>
                  {moment(profile.birthday).format('LL')}
              </div>
             }
 
-            {profile.visibility.location &&
+            {profile.customerData.visibility.location &&
              <div className="mb-3">
                  <h6 className="fw-bold">Location</h6>
-                 Boston, MA
+                 {profile.location}
              </div>
             }
 

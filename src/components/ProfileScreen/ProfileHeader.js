@@ -43,23 +43,33 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
                     <div className="row p-0 m-0 d-flex flex-nowrap gap-xxl-4 ">
                         <div className="col-6 col-md-4 col-lg-3 col-xxl-2 text-black p-0
                                          text-decoration-none d-none d-md-inline-block">
+
+                            {profile.customerData.followings &&
                             <span className="fw-bold me-1">
-                                {profile.followingCount}
+                                {profile.customerData.followings.length}
                             </span>
+                            }
+
                             <span className="text-black">Followings</span>
                         </div>
 
                         <div className="col-6 col-md-4 col-lg-3 col-xxl-2 text-black p-0 text-decoration-none">
-                            <span className="fw-bold me-1">
-                                {profile.followersCount}
+
+                            {profile.customerData.followers &&
+                             <span className="fw-bold me-1">
+                                {profile.customerData.followers.length}
                             </span>
+                            }
+
                             <span className="text-black">Followers</span>
                         </div>
 
                         <div className="col-md-4 col-lg-3 col-xxl-2 text-black p-0 text-decoration-none">
+
                             <span className="fw-bold me-1">
-                                {profile.reviewsCount}
+                                {profile.customerData.reviews.length}
                             </span>
+
                             <span className="text-black">Reviews</span>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import {Link, useParams} from "react-router-dom";
 import "./Profile.css"
 
-const ProfileNavSidebar = ({active, visibility}) => {
+const ProfileNavSidebar = ({active, visibility = {bookmarks: true}}) => {
     const userId = useParams().id;
     const isPublic = userId && true;
 

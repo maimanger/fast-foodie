@@ -39,63 +39,73 @@ import AdminHomeScreen from "./components/AdminHomeScreen";
 import AdminClaimScreen from "./components/AdminClaimScreen";
 import AdminClaimDetail from "./components/AdminClaimScreen/AdminClaimDetail";
 import BusinessProfileScreen from "./components/BusinessProfileScreen";
-import BusinessClaimSearchComponent from "./components/BusinessClaimScreen/BusinessClaimSearchComponent";
+import BusinessClaimSearchComponent
+    from "./components/BusinessClaimScreen/BusinessClaimSearchComponent";
 import PublicProfileScreen from "./components/ProfileScreen/PublicProfileScreen";
 import ProfileReviewsScreen from "./components/ProfileReviewsScreen";
 import ProfileFollowersScreen from "./components/ProfileFollowersScreen";
 import ProfileFollowingsScreen from "./components/ProfileFollowingsScreen";
 import BusinessClaimScreen from "./components/BusinessClaimScreen";
 import ProfileBookmarksScreen from "./components/ProfileBookmarksScreen";
-
-
-
+import loginVerification from "./reducers/loginVerification";
 
 function App() {
-    const reducer = combineReducers({profile, notifications, users, recentActivities, restaurant});
+    const reducer = combineReducers({
+                                        profile,
+                                        notifications,
+                                        users,
+                                        recentActivities,
+                                        restaurant,
+                                        loginVerification
+                                    });
     const store = createStore(reducer);
 
     return (
         <Provider store={store}>
 
             <BrowserRouter>
-                <Route path={["/", "/home", "/home/logged-in"]} exact={true} component={HomeScreen} />
+                <Route path={["/", "/home", "/home/logged-in"]} exact={true}
+                       component={HomeScreen}/>
 
-                <Route path={"/search"} exact={true} component={SearchScreen} />
-                <Route path={"/messages"} exact={true} component={MessageScreen} />
+                <Route path={"/search"} exact={true} component={SearchScreen}/>
+                <Route path={"/messages"} exact={true} component={MessageScreen}/>
                 <Route path={"/contact"} component={ContactScreen} exact={true}/>
-                <Route path={"/about"} component={AboutUs} exact={true} />
+                <Route path={"/about"} component={AboutUs} exact={true}/>
 
                 <Route path="/profile" exact={true} component={ProfileScreen}/>
                 <Route path="/profile/:id" exact={true} component={PublicProfileScreen}/>
                 <Route path="/profile_reviews" exact={true} component={ProfileReviewsScreen}/>
                 <Route path="/profile_bookmarks" exact={true} component={ProfileBookmarksScreen}/>
-                <Route path="/profile_bookmarks/:id" exact={true} component={ProfileBookmarksScreen}/>
+                <Route path="/profile_bookmarks/:id" exact={true}
+                       component={ProfileBookmarksScreen}/>
                 <Route path="/profile_followers" exact={true} component={ProfileFollowersScreen}/>
                 <Route path="/profile_followings" exact={true} component={ProfileFollowingsScreen}/>
 
-                <Route path="/login"  exact={true} component={LoginScreen}/>
-                <Route path="/register"  exact={true} component={RegisterScreen}/>
+                <Route path="/login" exact={true} component={LoginScreen}/>
+                <Route path="/register" exact={true} component={RegisterScreen}/>
 
-                <Route path="/business"  exact={true} component={BusinessHomeScreen}/>
-                <Route path="/business/orders"  exact={true} component={BusinessOrdersScreen}/>
-                <Route path="/business/profile"  exact={true} component={BusinessProfileScreen}/>
-                <Route path={"/business/claim"} component={BusinessClaimScreen} />
+                <Route path="/business" exact={true} component={BusinessHomeScreen}/>
+                <Route path="/business/orders" exact={true} component={BusinessOrdersScreen}/>
+                <Route path="/business/profile" exact={true} component={BusinessProfileScreen}/>
+                <Route path={"/business/claim"} component={BusinessClaimScreen}/>
 
                 <Route path="/admin" exact={true} component={AdminHomeScreen}/>
                 <Route path="/admin/claims" exact={true} component={AdminClaimScreen}/>
                 <Route path="/admin/claims/:claimId" exact={true} component={AdminClaimDetail}/>
 
 
-                <Route path={"/admin/inbox"} exact={true} component={AdminInboxScreen} />
-                <Route path={"/admin/inbox/detail"} exact={true} component={AdminInboxDetailScreen} />
+                <Route path={"/admin/inbox"} exact={true} component={AdminInboxScreen}/>
+                <Route path={"/admin/inbox/detail"} exact={true}
+                       component={AdminInboxDetailScreen}/>
 
                 {/* <Route path={"/restaurants/:id"} component={RestaurantScreen} /> */}
 
-                <Route path={["/restaurants/:id/", "/restaurants/:id/about"]} exact={true} component={RestaurantScreen } />
-                <Route path={"/restaurants/:id/review"} component={ReviewScreen} />
-                <Route path={"/restaurants/:id/menu"} component={MenuScreen} />
-                <Route path={"/restaurants/:id/placeorder"} component={PlaceOrderScreeen} />
-                <Route path={"/test"} exact={true} component={Test} />
+                <Route path={["/restaurants/:id/", "/restaurants/:id/about"]} exact={true}
+                       component={RestaurantScreen}/>
+                <Route path={"/restaurants/:id/review"} component={ReviewScreen}/>
+                <Route path={"/restaurants/:id/menu"} component={MenuScreen}/>
+                <Route path={"/restaurants/:id/placeorder"} component={PlaceOrderScreeen}/>
+                <Route path={"/test"} exact={true} component={Test}/>
 
             </BrowserRouter>
 

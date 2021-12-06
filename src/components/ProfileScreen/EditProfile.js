@@ -150,7 +150,7 @@ const EditProfile = ({profile, setEdit}) => {
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="locationVisible"
                                        id="gridRadios1" value="locationVisible"
-                                       defaultChecked={profile.visibility.location}/>
+                                       defaultChecked={profile.customerData.visibility.location}/>
                                     <label className="form-check-label" htmlFor="locationVisible">
                                         Location
                                     </label>
@@ -158,7 +158,7 @@ const EditProfile = ({profile, setEdit}) => {
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="birthdayVisible"
                                        id="gridRadios2" value="birthdayVisible"
-                                       defaultChecked={profile.visibility.birthday}/>
+                                       defaultChecked={profile.customerData.visibility.birthday}/>
                                     <label className="form-check-label" htmlFor="birthdayVisible">
                                         Birthday
                                     </label>
@@ -173,15 +173,13 @@ const EditProfile = ({profile, setEdit}) => {
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="bookmarksVisible"
                                        id="gridRadios2" value="bookmarksVisible"
-                                       defaultChecked={profile.visibility.bookmarks}/>
+                                       defaultChecked={profile.customerData.visibility.bookmarks}/>
                                 <label className="form-check-label" htmlFor="bookmarksVisible">
                                     Bookmarks
                                 </label>
                             </div>
                         </div>
                     </fieldset>
-
-
 
             </div>
         </div>

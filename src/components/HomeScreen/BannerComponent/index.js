@@ -7,7 +7,8 @@ import LoginSignupButtons from "./LoginSignupButtons";
 import LoggedInHeaderButtons from "./LoggedInHeaderButtons";
 
 const BannerComponent = ({location, locationUpdateHandler, profile}) => {
-    const isLoggedIn = false;
+    const isLoggedIn = profile !== null;
+
     return (
         <div className={"w-100 homepage-banner position-relative"}>
             <img src="https://as1.ftcdn.net/v2/jpg/01/80/41/98/1000_F_180419859_SbEGEyoMlol8sZGpea1lqQRRYFZ1ExNX.jpg"

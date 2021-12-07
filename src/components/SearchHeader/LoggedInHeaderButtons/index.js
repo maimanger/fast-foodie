@@ -1,8 +1,22 @@
 import React from "react";
 import './index.css';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+import {logout} from "../../../services/profileService";
+import {useDispatch} from "react-redux";
 
 const LoggedInHeaderButtons = () => {
+    const dispatch = useDispatch();
+    let history = useHistory();
+
+    const logoutHandler = () => {
+        logout()
+            .then(res => {
+                history.push("/");
+                dispatch({
+                    type: "delete-profile"
+                })
+            });
+    }
 
     return (
         <div className={"searchscreen-logged-in-header-buttons-container d-flex justify-content-start align-items-top homescreen-h-fit"}>
@@ -17,7 +31,7 @@ const LoggedInHeaderButtons = () => {
                 <div className={"dropdown-menu dropdown-menu-right mt-3 p-1"}>
                     <Link to={"/profile"} className={" dropdown-item"}>View Profile</Link>
                     {/*<Link to={"#"} className={"dropdown-item"}>Account Settings</Link>*/}
-                    <div className={"homepage-banner-logout-button dropdown-item"}>Log out</div>
+                    <div className={"homepage-banner-logout-button dropdown-item"} onClick={logoutHandler}>Log out</div>
                 </div>
             </div>
         </div>

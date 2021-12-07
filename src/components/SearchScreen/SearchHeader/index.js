@@ -1,16 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./index.css";
-import SearchBar from "../../../HomeScreen/public-components/SearchBar";
-import BrandName from "../../../HomeScreen/public-components/BrandName";
-import Dropdowns from "../../../HomeScreen/public-components/Dropdowns";
+import SearchBar from "../SearchBar";
+import BrandName from "../../HomeScreen/public-components/BrandName";
+import Dropdowns from "../../HomeScreen/public-components/Dropdowns";
 import LoginSignupButtons from "./LoginSignupButtons";
 import LoggedInHeaderButtons from "./LoggedInHeaderButtons";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchProfile} from "../../../services/profileService";
+import isLoggedIn from "../../HomeScreen/utils/isLoggedIn";
 
 const SearchHeader = ({
                           profile,
                           params,
-                          clickFunction
+                          clickFunction,
 }) => {
+
 
     return (
         <div className={"searchscreen-search-header-container bg-white w-100 px-5 py-4 m-0 justify-content-between align-items-top row sticky-top"}>
@@ -19,12 +23,12 @@ const SearchHeader = ({
             </div>
             <div className={"col-7"}>
                 <div className={"searchscreen-search-header-searchbar-container"}>
-                    <SearchBar params={params} clickFunction={clickFunction}/>
+                    <SearchBar profile={profile} params={params} clickFunction={clickFunction}/>
                 </div>
                 {/*<Dropdowns />*/}
             </div>
             <div className={"searchscreen-search-header-buttons col-2 d-flex justify-content-end align-items-center"}>
-                {profile !== null ? <LoggedInHeaderButtons /> : <LoginSignupButtons />}
+                {isLoggedIn(profile) ? <LoggedInHeaderButtons /> : <LoginSignupButtons />}
             </div>
         </div>
 

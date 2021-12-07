@@ -1,47 +1,51 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
-import {searchTermAutoCompletion} from "../../../../services/autoCompletionService";
-import {searchRestaurants} from "../../../../services/searchService";
-import {concatQueries} from "../../../../utils/url";
+import {searchTermAutoCompletion} from "../../../services/autoCompletionService";
+import {searchRestaurants} from "../../../services/searchService";
+import {concatQueries} from "../utils/url";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
+import isLoggedIn from "../utils/isLoggedIn";
 
 const SearchBar = ({
-                       params,
-                       clickFunction=null,
-                       locationUpdateHandler=null
+                       location,
+                       locationUpdateHandler,
 }) => {
 
-    const [location, setLocation] = useState(params.location);
+    const profile = useSelector(state=>state.profile);
     const [locationInput, setLocationInput] = useState('');
-    const [searchTerm, setSearchTerm] = useState("term" in params ? params.term : '');
+    const [searchTerm, setSearchTerm] = useState("");
     const [autoCompletionList, setAutoCompletionList] = useState([]);
 
-    const clickLocationHandler = () => {
-        if (locationUpdateHandler !== null){
-            locationUpdateHandler(locationInput);
-        }else {
-            setLocation(locationInput);
-        }
-    }
 
-    const changeLocationHandler = (e) => {
-        setLocationInput(e.target.value);
-    }
-
+    // Search term input handler
     const changeSearchTermHandler = (e) => {
         setSearchTerm(e.target.value);
     }
 
+
+    // Change location input handler
+    const changeLocationInputHandler = (e) => {
+        setLocationInput(e.target.value);
+    }
+
+
+    // Auto-completion handler
     const autoCompletionHandler = (e) => {
         setSearchTerm(e.target.innerText);
     }
-
     useEffect(()=>{
         searchTermAutoCompletion(searchTerm, (res)=>{
             setAutoCompletionList(res);
         })
     },[searchTerm])
 
+
+
+    // Use profile handler
+    const useProfileLocationHandler = () => {
+        locationUpdateHandler(profile.location);
+    }
 
     return (
 
@@ -75,10 +79,7 @@ const SearchBar = ({
                                     </div>
                                 )})}
                         </div>
-
-
                     </div>
-
                 </div>
 
                 <div className={"homescreen-search-bar-location w-100 border-start bg-white position-relative"}>
@@ -88,7 +89,7 @@ const SearchBar = ({
                            htmlFor={"homescreen-search-bar-input"}>
                         <div className={"d-flex w-100"}>
                             <div className={"fw-bold me-2"}>Location</div>
-                            <div className={"w-100"}>{locationUpdateHandler !== null ? params.location : location}</div>
+                            <div className={"w-100"}>{location}</div>
                             <div><i className="fas fa-chevron-down" /></div>
                         </div>
                     </label>
@@ -96,34 +97,23 @@ const SearchBar = ({
                     {/*******************   location dropdown   *******************/}
                     <div className={"homescreen-search-bar-location-dropdown position-absolute w-100 p-3 bg-light"}>
                         <div className={""}>
-                            <div className={"d-flex"}>
+                            <div className={"d-flex mb-2"}>
                                 <input type="text" placeholder={"City, State"} className={"form-control me-2 border-0"} autoComplete={"off"}
-                                       id={"homescreen-search-bar-input"} value={locationInput} onChange={changeLocationHandler}/>
-                                <button className={"btn btn-secondary"} onClick={clickLocationHandler}>Update</button>
+                                       id={"homescreen-search-bar-input"} value={locationInput} onChange={changeLocationInputHandler}/>
+                                <button className={"btn btn-secondary"} onClick={()=>locationUpdateHandler(locationInput)}>Update</button>
                             </div>
+                            {isLoggedIn(profile) && <div className={"homescreen-searchbar-use-profile-location text-info"} onClick={useProfileLocationHandler}>Use my profile location</div>}
                         </div>
                     </div>
                 </div>
             </div>
 
             {/*******************   Search button   *******************/}
-            {clickFunction === null ? (
-                <Link to={`/search?${concatQueries({location:params.location, term: searchTerm})}`} className={"h-100"}>
-                    <button type="button" className={"btn btn-primary shadow-none rounded-0 rounded-end h-100"}>
-                        <i className="fas fa-search mx-3"/>
-                    </button>
-                </Link>
-            ) : (
-                <button type="button" className={"btn btn-primary shadow-none rounded-0 rounded-end"}
-                        onClick={() => {
-                            clickFunction({
-                                location: location,
-                                term: searchTerm
-                            })
-                        }}>
+            <Link to={`/search?${concatQueries({location:location, term: searchTerm})}`} className={"h-100"}>
+                <button type="button" className={"btn btn-primary shadow-none rounded-0 rounded-end h-100"}>
                     <i className="fas fa-search mx-3"/>
                 </button>
-            )}
+            </Link>
 
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import {API_URL} from "../CONST";
-import {concatQueries} from "../utils/url";
+import {concatQueries} from "../components/HomeScreen/utils/url";
 
 export const searchRestaurants = (params) => {
 

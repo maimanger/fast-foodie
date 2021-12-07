@@ -1,7 +1,7 @@
 import React from "react";
 import './index.css';
 import ContactFormComponent from "./ContactFormComponent";
-import SearchHeader from "../SearchScreen/public_components/SearchHeader";
+import SearchHeader from "../SearchScreen/SearchHeader";
 
 const ContactScreen = () => {
     return (

@@ -4,12 +4,14 @@ import RecentActivityCards from "./RecentActivityCards";
 import RecentActivityNavigation from "./RecentActivityNavigation";
 
 import getHomepageRecentActivities from "../../../services/homepage-recent-activities-service";
+import {useSelector} from "react-redux";
 
 // let count = 6;
 // who: "all" or "Nearby" or "Following
 
-const RecentActivityComponent = ({profile}) => {
-    const isLoggedIn = profile !== null;
+const RecentActivityComponent = () => {
+    const profile = useSelector(state=>state.profile);
+    const isLoggedIn = Object.keys(profile).length !==0;
     const defaultWho = isLoggedIn ? "Nearby" : "all";
 
     const [who, setWho] = useState(defaultWho);
@@ -21,6 +23,13 @@ const RecentActivityComponent = ({profile}) => {
         setWho(e.target.innerText);
     }
 
+    useEffect(() => {
+        if (Object.keys(profile).length !==0){
+            setWho('Nearby');
+        } else {
+            setWho('all');
+        }
+    }, [profile])
 
 
     useEffect(() => {

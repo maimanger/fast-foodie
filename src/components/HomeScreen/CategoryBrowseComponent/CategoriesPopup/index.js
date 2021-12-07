@@ -1,6 +1,6 @@
 import React from "react";
 import './index.css';
-import {concatQueries} from "../../../../utils/url";
+import {concatQueries} from "../../utils/url";
 import {Link} from "react-router-dom";
 
 const CategoriesPopup = ({moreOptions, location}) => {

@@ -1,35 +1,57 @@
 import React, {useEffect, useState} from "react";
 import './index.css';
-import SearchHeader from "./public_components/SearchHeader";
+import SearchHeader from "./SearchHeader";
 import SearchResultComponent from "./SearchResultComponent";
 import Footer from "../HomeScreen/public-components/Footer";
 import BrandName from "../HomeScreen/public-components/BrandName";
 import {searchRestaurants} from "../../services/searchService";
 import {useHistory, useLocation} from "react-router-dom";
-import {concatQueries} from "../../utils/url";
+import {concatQueries} from "../HomeScreen/utils/url";
 import {placeholderCheckLogin} from "../../services/login-service";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchProfile} from "../../services/profileService";
+import * as nextProps from "react-router";
+import isLoggedIn from "../HomeScreen/utils/isLoggedIn";
+import defaultLocation from "../HomeScreen/utils/defaultLocation.json";
 
 const SearchScreen = () => {
     window.scrollTo(0, 0);
-    const history = useHistory();
+
 
     // get profile
-    const profile = placeholderCheckLogin();
+    const profile = useSelector(state=>state.profile);
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        fetchProfile(dispatch)
+    }, [])
+
+
+    // Query parameters
+    const history = useHistory();
 
     // get query string from router url
     function useQuery() {
-        return new URLSearchParams(useHistory().location.search);
+        return new URLSearchParams(history.location.search);
     }
-
     let query = useQuery();
-    let defaultParams = {};
 
-    query.forEach((value,key)=> {
-        defaultParams[key] = value;
-    });
-
-    const [params, setParams] = useState(defaultParams)
+    const [params, setParams] = useState({})
     const [searchResult, setSearchResult] = useState([]);
+
+
+    // Set default params
+    const initParams = () => {
+
+        let defaultParams = {};
+        query.forEach((value,key)=> {
+            defaultParams[key] = value;
+        });
+        if (Object.keys(defaultParams).length === 0 || !("location" in defaultParams)) {
+            defaultParams['location'] = isLoggedIn(profile) ? profile.location : defaultLocation;
+        }
+        setParams(defaultParams);
+    }
+    useEffect(initParams, [history.location.search, profile]);
 
     useEffect(()=>{
         searchRestaurants(params)
@@ -38,15 +60,8 @@ const SearchScreen = () => {
             })
     }, [params]);
 
-    if (Object.keys(defaultParams).length===0) {
-        defaultParams = {location: profile === null ? "United States" : profile['location']};
-        history.push(`search?${concatQueries(defaultParams)}`);
-        setParams(defaultParams)
-    }
-
     const clickHandler = (newParams) => {
         history.push(`search?${concatQueries(newParams)}`);
-        setParams(newParams)
     }
 
 

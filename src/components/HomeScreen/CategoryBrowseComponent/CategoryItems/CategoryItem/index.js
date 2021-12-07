@@ -3,7 +3,7 @@ import "./index.css";
 import Popup from "../../Popup";
 import CategoriesPopup from "../../CategoriesPopup";
 import {Link} from "react-router-dom";
-import {concatQueries} from "../../../../../utils/url";
+import {concatQueries} from "../../../utils/url";
 
 const CategoryItem = ({category, location}) => {
     const [isOpen, setIsOpen] = useState(false);

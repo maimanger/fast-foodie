@@ -1,0 +1,9 @@
+.searchscreen-logged-in-header-buttons-container > div:hover{
+    background-color: #f5f5f5 !important;
+    cursor: pointer;
+}
+
+
+.searchscreen-logged-in-header-buttons-container .dropdown-item{
+    font-size: 14px;
+}

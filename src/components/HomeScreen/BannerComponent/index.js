@@ -1,13 +1,17 @@
 import React from "react";
 import './index.css';
-import SearchBar from "../public-components/SearchBar";
+import SearchBar from "../SearchBar";
 import BrandName from "../public-components/BrandName";
 import Dropdowns from "../public-components/Dropdowns";
 import LoginSignupButtons from "./LoginSignupButtons";
 import LoggedInHeaderButtons from "./LoggedInHeaderButtons";
+import {useSelector} from "react-redux";
+import isLoggedIn from "../utils/isLoggedIn";
 
-const BannerComponent = ({location, locationUpdateHandler, profile}) => {
-    const isLoggedIn = profile !== null;
+const BannerComponent = ({profile, location, locationUpdateHandler}) => {
+
+
+
 
     return (
         <div className={"w-100 homepage-banner position-relative"}>
@@ -20,7 +24,7 @@ const BannerComponent = ({location, locationUpdateHandler, profile}) => {
                         <BrandName/>
                     </div>
                     <div className={"homepage-search-bar-container mb-3"}>
-                        <SearchBar params={{location: location}} locationUpdateHandler={locationUpdateHandler}/>
+                        <SearchBar location={location} locationUpdateHandler={locationUpdateHandler}/>
                     </div>
                     {/*<div className={"ps-5 d-none d-lg-block"}>*/}
                     {/*    <Dropdowns color={"white"} isBold={true}/>*/}
@@ -28,7 +32,7 @@ const BannerComponent = ({location, locationUpdateHandler, profile}) => {
                 </div>
 
                 <div className={"homepage-banner-header-container position-absolute"}>
-                    {isLoggedIn ? <LoggedInHeaderButtons /> :<LoginSignupButtons />}
+                    {isLoggedIn(profile) ? <LoggedInHeaderButtons /> :<LoginSignupButtons />}
                 </div>
             </div>
 

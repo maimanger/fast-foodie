@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import RestaurantCards from "./RestaurantCards";
 import {Link} from "react-router-dom";
-import {concatQueries} from "../../../utils/url";
+import {concatQueries} from "../utils/url";
 
 const RecommendationComponent = ({location}) => {
 

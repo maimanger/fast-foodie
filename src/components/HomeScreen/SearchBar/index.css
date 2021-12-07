@@ -47,3 +47,9 @@
     cursor: pointer !important;
     background-color: #f5f5f5 !important;
 }
+
+.homescreen-searchbar-use-profile-location:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+

@@ -1,6 +1,6 @@
 import React from "react";
 import './index.css';
-import {textTruncate} from "../../../HomeScreen/public-components/Utils/truncate";
+import {textTruncate} from "../../../HomeScreen/utils/truncate";
 
 const AdminInboxComponent = () => {
     const unreadCount = 105;

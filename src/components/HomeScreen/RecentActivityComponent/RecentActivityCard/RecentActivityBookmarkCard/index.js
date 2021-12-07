@@ -1,5 +1,5 @@
 import React from "react";
-import * as truncate from "../../../public-components/Utils/truncate";
+import * as truncate from "../../../utils/truncate";
 
 
 const RecentActivityBookmarkCard = ({activity}) => {
@@ -17,7 +17,7 @@ const RecentActivityBookmarkCard = ({activity}) => {
                 <img src={activity['restaurant']['img_url']} className={"card-img-top homepage-recent-activity-card-photo-img"} alt={"img"} />
             </div>
             <div className={"homescreen-recent-activity-card-body p-3 text-start"}>
-                <h6 className={"card-title text-info fw-bold"}>{activity['restaurant']['name']}</h6>
+                <h6 className={"card-title text-danger fw-bold"}>{activity['restaurant']['name']}</h6>
             </div>
         </div>
     )

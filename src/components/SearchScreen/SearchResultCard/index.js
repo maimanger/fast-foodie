@@ -1,6 +1,6 @@
 import React from "react";
 import './index.css';
-import * as truncate from '../../HomeScreen/public-components/Utils/truncate';
+import * as truncate from '../../HomeScreen/utils/truncate';
 import Sign from "./Sign";
 import {Link} from "react-router-dom";
 import RestaurantStars from "../../ProfileScreen/RestaurantStars";

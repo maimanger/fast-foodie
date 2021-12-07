@@ -1,6 +1,6 @@
 import React from "react";
 import './index.css';
-import * as truncate from "../../../public-components/Utils/truncate";
+import * as truncate from "../../../utils/truncate";
 
 
 const RecentActivityReviewCard = ({activity}) => {
@@ -17,7 +17,7 @@ const RecentActivityReviewCard = ({activity}) => {
             </div>
             <img src={imgUrl} className={"card-img-top"} alt={"img"} />
             <div className={"homescreen-recent-activity-card-body p-3 text-start"}>
-                <h6 className={"card-title text-info fw-bold"}>{activity['restaurant']['name']}</h6>
+                <h6 className={"card-title text-danger fw-bold"}>{activity['restaurant']['name']}</h6>
                 <hr className={"text-secondary"}/>
                 {activity['rating'] !== 0 && (
                     <div className={"mb-2"}>

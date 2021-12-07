@@ -18,6 +18,8 @@ const profile = (state = {}, action) => {
             return (newProfile);
             break;
 
+        case 'delete-profile':
+            return {};
 
         default:
             return state;

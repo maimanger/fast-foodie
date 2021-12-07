@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import "./index.css";
 import SearchBar from "./SearchBar";
 import BrandName from "../HomeScreen/public-components/BrandName";
@@ -15,6 +15,7 @@ const SearchHeader = () => {
     useEffect(()=>{
         fetchProfile(dispatch);
     }, [])
+
 
 
     return (

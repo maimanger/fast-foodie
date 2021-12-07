@@ -11,7 +11,6 @@ const LoggedInHeaderButtons = () => {
     const logoutHandler = () => {
         logout()
             .then(res => {
-                history.push("/");
                 dispatch({
                     type: "delete-profile"
                 })

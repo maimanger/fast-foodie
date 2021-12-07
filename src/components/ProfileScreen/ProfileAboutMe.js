@@ -10,7 +10,8 @@ const ProfileAboutMe = ({profile}) => {
             {profile.customerData.visibility.birthday &&
              < div className="mb-3">
                  <h6 className="fw-bold">Birthday</h6>
-                 {moment(profile.birthday).format('LL')}
+                 {profile.birthday &&
+                     moment(profile.birthday).format('LL')}
              </div>
             }
 

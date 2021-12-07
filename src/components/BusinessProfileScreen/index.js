@@ -11,7 +11,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
 
 const BusinessProfileScreen = () => {
-    /*    const profile = users[users.length - 1];*/
 
     const history = useHistory();
     const dispatch = useDispatch();

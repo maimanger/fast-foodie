@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const Map = ({coordinates}) => {
     // const restaurant = useSelector(state => state.restaurant)
     const geoPosition = coordinates;
-    console.log(geoPosition)
+    
     const [viewport, setViewport] = useState({
         latitude: geoPosition.latitude,
         longitude: geoPosition.longitude,

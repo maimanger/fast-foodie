@@ -48,6 +48,7 @@ import ProfileFollowingsScreen from "./components/ProfileFollowingsScreen";
 import BusinessClaimScreen from "./components/BusinessClaimScreen";
 import ProfileBookmarksScreen from "./components/ProfileBookmarksScreen";
 import profileVerification from "./reducers/profileVerification";
+import customerReviews from "./reducers/customerReviews";
 
 function App() {
     const reducer = combineReducers({
@@ -56,7 +57,8 @@ function App() {
                                         users,
                                         recentActivities,
                                         restaurant,
-                                        profileVerification
+                                        profileVerification,
+                                        customerReviews
                                     });
     const store = createStore(reducer);
 

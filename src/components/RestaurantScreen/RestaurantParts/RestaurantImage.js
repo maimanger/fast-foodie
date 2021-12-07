@@ -19,7 +19,6 @@ const RestaurantImage = () => {
   useEffect(() => findRestaurantById(dispatch)
   , [dispatch])
   console.log(restaurant)
-
   // const restaurant = useSelector(state => state.restaurant);
   const absoluteStyle = {
     position: "absolute",
@@ -32,7 +31,7 @@ const RestaurantImage = () => {
 
   return (
         <div style={{ position: "relative" }}>
-          <div className="img-container mt-3">
+          <div className="img-container">
             <img src={restaurant.photos[0]} height="426px" width="34%" alt="restaurantimage" />
             <img src={restaurant.photos[1]} height="426px" width="33%" alt="restaurantimage" />
             <img src={restaurant.photos[2]} height="426px" width="33%" alt="restaurantimage" />

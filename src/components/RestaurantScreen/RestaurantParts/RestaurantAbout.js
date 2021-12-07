@@ -15,9 +15,9 @@ const RestaurantAbout = () => {
           <Map coordinates={restaurant.coordinates}/>
           <div>{restaurant.location.display_address.join(", ")}</div>
           <div>{restaurant.display_phone}</div>
-          <div>
+          {/* <div>
             <a href={restaurant.url}>Visit</a>
-          </div>
+          </div> */}
         </div>
         <div className="col-1"></div>
         <div className="col-5">

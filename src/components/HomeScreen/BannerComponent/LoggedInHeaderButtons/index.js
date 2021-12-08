@@ -2,7 +2,6 @@ import React from "react";
 import './index.css';
 import Dropdown from "../../public-components/Dropdowns/Dropdown";
 import {Link} from "react-router-dom";
-import {placeholderLogout} from "../../../../services/login-service";
 import {logout} from "../../../../services/profileService";
 import {useDispatch, useSelector} from "react-redux";
 

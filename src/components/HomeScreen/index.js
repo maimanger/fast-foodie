@@ -5,7 +5,6 @@ import CategoryBrowseComponent from "./CategoryBrowseComponent";
 import Footer from "./public-components/Footer";
 import BannerComponent from "./BannerComponent";
 import RecentActivityComponent from "./RecentActivityComponent";
-import {placeholderCheckLogin} from "../../services/login-service";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
 import isLoggedIn from "./utils/isLoggedIn";
@@ -17,9 +16,7 @@ const HomeScreen = () => {
 
     // Get profile
     let profile = useSelector(state=>state.profile);
-    console.log(profile);
     useEffect(()=>{
-        console.log("hahahah")
         fetchProfile(dispatch);
     },[])
 

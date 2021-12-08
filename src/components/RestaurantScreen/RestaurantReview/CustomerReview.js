@@ -22,6 +22,7 @@ const CustomerReview = ({profile}) => {
         user: profile._id + '',
         restaurant: restaurant.id +'',
         time_created: moment().format('YYYY-MM-DD h:mm:ss'),
+        location: restaurant.location['city'] + ', ' + restaurant.location['state'],
         rating: reviewRating,
         text: comment,
         img: [{

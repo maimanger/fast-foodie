@@ -10,12 +10,16 @@ const getHomepageAllRecentActivities = () => {
 }
 
 const getHomepageNearbyRecentActivities = () => {
-    return fetch(`${API_URL}/activities/nearby`)
+    return fetch(`${API_URL}/activities/nearby`, {
+        credentials: 'include'
+    })
         .then(res=>res.json())
 }
 
 const getHomepageFollowingRecentActivities = () => {
-    return fetch(`${API_URL}/activities/following`)
+    return fetch(`${API_URL}/activities/following`, {
+        credentials: 'include'
+    })
         .then(res=>res.json())
 }
 

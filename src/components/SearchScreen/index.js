@@ -7,7 +7,6 @@ import BrandName from "../HomeScreen/public-components/BrandName";
 import {searchRestaurants} from "../../services/searchService";
 import {useHistory, useLocation} from "react-router-dom";
 import {concatQueries} from "../HomeScreen/utils/url";
-import {placeholderCheckLogin} from "../../services/login-service";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
 import * as nextProps from "react-router";

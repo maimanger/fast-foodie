@@ -19,8 +19,8 @@ const LoggedInHeaderButtons = () => {
     }
     return (
         <div className={"homepage-banner-logged-in-header-container d-flex align-items-center justify-content-start"}>
-            <i className="fas fa-bell text-white fa-lg me-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Notifications"/>
-            <i className="fas fa-comment text-white fa-lg me-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Messages"/>
+            {/*<i className="fas fa-bell text-white fa-lg me-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Notifications"/>*/}
+            {/*<i className="fas fa-comment text-white fa-lg me-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Messages"/>*/}
             <div className={"dropdown"}  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Profile">
                 <i className="fas fa-user-circle text-white fa-lg" data-toggle="dropdown"/>
                 <div className={"dropdown-menu dropdown-menu-right mt-3 p-1"}>

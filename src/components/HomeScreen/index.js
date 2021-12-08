@@ -13,8 +13,8 @@ import {API_URL} from "../../CONST";
 
 const HomeScreen = () => {
 
-    const user1 = "61b05716bc403e9989444d61";
-    const user2 = "61b05759bc403e9989444d74";
+    // const user1 = "61b05716bc403e9989444d61";
+    // const user2 = "61b05759bc403e9989444d74";
 
 
     const dispatch = useDispatch();
@@ -24,10 +24,6 @@ const HomeScreen = () => {
     useEffect(()=>{
         fetchProfile(dispatch);
     },[])
-
-
-
-    // const [loginStatus, setLoginStatus] = useState(isLoggedIn(profile));
 
 
 
@@ -51,7 +47,6 @@ const HomeScreen = () => {
     // const clickHandler = () => {
     //     follow(user2, dispatch);
     // }
-    //
     //
     // const unFollowHandler = () => {
     //     unfollow(user2, dispatch);

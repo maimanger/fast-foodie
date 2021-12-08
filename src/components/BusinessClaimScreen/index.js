@@ -2,7 +2,7 @@ import React from "react";
 import './index.css';
 import BusinessClaimSearchComponent from "./BusinessClaimSearchComponent";
 import SimpleHeader from "../SearchScreen/public_components/SimpleHeader";
-import Footer from "../HomeScreen/public-components/Footer";
+import Footer from "../CustomerHomeScreen/public-components/Footer";
 import BusinessClaimSearchResultComponent from "./BusinessClaimSearchResultComponent";
 import BusinessClaimSearchNoResultComponent from "./BusinessClaimSearchNoResultComponent";
 import BusinessClaimStatusComponent from "./BusinessClaimStatusComponent";

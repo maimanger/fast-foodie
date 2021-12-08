@@ -8,7 +8,7 @@ import './App.css';
 import './vendor/css/bootstrap.min.css'
 import "./vendor/css/stars.css";
 
-import HomeScreen from "./components/HomeScreen";
+import CustomerHomeScreen from "./components/CustomerHomeScreen";
 import SearchScreen from "./components/SearchScreen";
 import ProfileScreen from "./components/ProfileScreen";
 
@@ -49,6 +49,7 @@ import BusinessClaimScreen from "./components/BusinessClaimScreen";
 import ProfileBookmarksScreen from "./components/ProfileBookmarksScreen";
 import profileVerification from "./reducers/profileVerification";
 import customerReviews from "./reducers/customerReviews";
+import HomeScreen from "./components/HomeScreen";
 
 function App() {
     const reducer = combineReducers({

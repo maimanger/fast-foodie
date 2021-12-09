@@ -21,6 +21,10 @@ const customerReviews = (state = [], action) => {
       return action.reviews;
     case 'create-review':
       return [action.review, ...state];
+    case 'delete-review':
+      return (state.filter(review => review._id !== action.review._id));
+    case 'update-review':
+      return state.map(oldReview => action.newReview._id === oldReview._id ? action.newReview : oldReview);
     default:
       return state;
   }

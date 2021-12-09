@@ -3,6 +3,7 @@ import ReviewList from "./ReviewList";
 import {useDispatch, useSelector} from "react-redux";
 import moment from "moment";
 import {postNewReview} from "../../../services/reviewService";
+import YelpReviewList from "./YelpReviewList";
 
 const CustomerReview = ({profile}) => {
 
@@ -36,8 +37,6 @@ const CustomerReview = ({profile}) => {
       }]
     })
   }
-
-
 
 
   return (
@@ -84,11 +83,12 @@ const CustomerReview = ({profile}) => {
                 value={imageURL}
                 onChange={event => setImageURL(event.target.value)}
             ></textarea>
-            <button className="btn btn-primary mt-2" onClick={submitClickHandler}>Submit</button>
+            <button className="btn btn-primary mt-2" type="button" onClick={submitClickHandler}>Submit</button>
           </div>
         </form>
 
-        <ReviewList />
+        <ReviewList/>
+        <YelpReviewList/>
       </div>
   )
 }

@@ -27,3 +27,25 @@ export const postNewReview = (dispatch, newComment) => {
     review: review,
   }))
 }
+
+export const deleteReview = (dispatch, review) => {
+  fetch(`${COMMENT_API}/reviews/${review._id}`, {
+    method: 'DELETE'
+  }).then(response => dispatch({
+    type: 'delete-review',
+    review
+  }))
+}
+
+export const updateReview = (dispatch, review) => {
+  fetch(`${COMMENT_API}/reviews/${review._id}`, {
+    method: 'PUT',
+    body: JSON.stringify(review),
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then(response => dispatch({
+    type: 'update-review',
+    newReview: review,
+  }))
+}

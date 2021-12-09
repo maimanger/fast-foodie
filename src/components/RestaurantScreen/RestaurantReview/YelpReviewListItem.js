@@ -1,20 +1,12 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {deleteReview} from "../../../services/reviewService";
 
 const YelpReviewListItem = ({review}) => {
-  const dispatch = useDispatch();
-  const profile = useSelector(state => state.profile);
-  const restaurant = useSelector(state=> state.restaurant);
-  const deleteReviewClickHandler = () => {deleteReview(dispatch, restaurant.id, review)}
-
 
   return (
-      <li className="list-group-item border-0 p-0">
+      <li className="list-group-item border-0 p-0 bg-transparent">
         <div className="row border-top p-3">
           <div className="col-4">
             <div className="d-flex flex-row">
-
               <div className="">
                 <img src={review.user.image_url} width="56px" height="56px" className="rounded-3"/>
               </div>
@@ -24,7 +16,6 @@ const YelpReviewListItem = ({review}) => {
                 <div> <i className="fas fa-user-friends"></i> 56 friends </div>
                 <div> <i className="far fa-star"></i> 56 reviews </div>
               </div>
-
             </div>
           </div>
           {/************************Review Stars**************************/}

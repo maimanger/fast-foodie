@@ -13,7 +13,7 @@ const ProfileReviewItem = ({review}) => {
         <>
             <div className="list-group-item d-flex flex-column bg-transparent py-3 pe-xl-3 pe-xxl-5">
 
-                    <Link to="#" className="wd-profile-content-hover text-black">
+                    <Link to={`/restaurants/${review.restaurant.id}`} className="wd-profile-content-hover text-black">
                         <RestaurantInfo restaurant={review.restaurant}/>
                         <ReviewStars review={review}/>
                         <ReviewItem review={review}/>

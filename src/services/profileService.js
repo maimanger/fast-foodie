@@ -23,6 +23,7 @@ export const logout = () => {
 }
 
 // return a promise with the profile.json
+// if return an error, we can catch it in the component page and redirect to "/login"
 export const fetchProfile = (dispatch) => {
     return fetch(`${API_URL}/profile`, {
         method: 'POST',

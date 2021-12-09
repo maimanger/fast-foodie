@@ -55,6 +55,7 @@ const ProfileScreen = () => {
         }
     let fetchedProfile = useSelector(state => state.profile);
     profile = {...profile, ...fetchedProfile};
+
     const [edit, setEdit] = useState(false);
 
     if (profile.role === "business") {

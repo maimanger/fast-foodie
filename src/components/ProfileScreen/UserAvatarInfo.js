@@ -8,7 +8,7 @@ const UserAvatarInfo = ({user}) => {
             <div className="col-auto">
                 <img src={user.image_url}
                        className="img-fluid rounded-3"
-                       style={{width: 70, height: 70, "object-fit": "cover"}} />
+                       style={{width: 70, height: 70, objectFit: "cover"}} />
             </div>
             {/************************User Info**************************/}
             <div className="col-12 col-md-8 d-flex flex-column">

@@ -3,8 +3,13 @@ import {Link, useLocation, useParams} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
 import "./Profile.css";
 import users from "../../reducers/users";
+import {fetchProfile, follow, unfollow} from "../../services/profileService";
+import {useDispatch, useSelector} from "react-redux";
+import {Redirect} from "react-router";
 
 const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) => {
+
+    let loginUser = useSelector(state => state.profile);
 
     /*NOTED:
     * If userId params exists, this is a public profile
@@ -14,6 +19,32 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
     const userId = useParams().id;
     const isPublic = userId && true;
     const currentURL = useLocation().pathname;
+
+    const dispatch = useDispatch();
+    const followHandler = () => {
+        if (!loginUser.role) {
+            fetchProfile(dispatch)
+                .catch(e => {
+                    return (
+                        <Redirect to={"/login"}/>
+                    )
+                })
+
+        }
+        follow(userId, loginUser._id, dispatch);
+    }
+
+    const unFollowHandler = () => {
+        if (!loginUser.role) {
+            fetchProfile(dispatch)
+                .catch(e => {
+                    return (
+                        <Redirect to={"/login"}/>
+                    )
+                })
+        }
+        unfollow(userId, loginUser._id, dispatch);
+    }
 
     return (
         <>
@@ -87,17 +118,18 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
                     </button>
                     }
 
-                    {isPublic &&
+{/*                    {isPublic &&
                      <button className="d-flex flex-nowrap align-items-center justify-content-center
                                            btn rounded-pill btn-outline-info py-1 mb-2">
                          <i className="fas fa-envelope me-0 me-sm-2"></i>
                          <span className="d-none d-sm-inline">Message</span>
                      </button>
-                    }
+                    }*/}
 
                     {isPublic && !isFollowing &&
                     <button className="d-flex flex-nowrap align-items-center justify-content-center
-                                           btn rounded-pill btn-outline-info py-1">
+                                           btn rounded-pill btn-outline-info py-1"
+                            onClick={followHandler}>
                         <i className="fas fa-user-plus me-0 me-sm-2"></i>
                         <span className="d-none d-sm-inline">Follow</span>
                     </button>
@@ -105,7 +137,8 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
 
                     {isPublic && isFollowing &&
                      <button className="d-flex flex-nowrap align-items-center justify-content-center
-                                           btn rounded-pill btn-outline-info py-1">
+                                           btn rounded-pill btn-outline-info py-1"
+                             onClick={unFollowHandler}>
                          <i className="fas fa-user-plus me-0 me-sm-2"></i>
                          <span className="d-none d-sm-inline">Unfollow</span>
                      </button>

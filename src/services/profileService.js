@@ -37,7 +37,6 @@ export const fetchProfile = (dispatch) => {
         })
 }
 
-
 // return a promise with the register status
 export const register = (user) => {
     return fetch(`${API_URL}/register`, {
@@ -50,8 +49,7 @@ export const register = (user) => {
     })
 }
 
-
-export const follow = (followeeId, dispatch) => {
+export const follow = (followeeId, loginUserId, dispatch) => {
     fetch(`${API_URL}/follow`, {
         method: 'PUT',
         credentials: 'include',
@@ -62,13 +60,17 @@ export const follow = (followeeId, dispatch) => {
     })
         .then(res => {
             dispatch({
-                type: 'follow',
-                followeeId,
-            })
+                         type: 'follow',
+                         followeeId
+                     });
+            dispatch({
+                         type: 'follow-publicProfile',
+                         loginUserId
+                     });
         })
 }
 
-export const unfollow = (followeeId, dispatch) => {
+export const unfollow = (followeeId, loginUserId, dispatch) => {
     fetch(`${API_URL}/unfollow`, {
         method: 'PUT',
         credentials: 'include',
@@ -79,12 +81,34 @@ export const unfollow = (followeeId, dispatch) => {
     })
         .then(res => {
             dispatch({
-                type: 'unfollow',
-                followeeId,
-            })
+                         type: 'unfollow',
+                         followeeId,
+                     });
+            dispatch({
+                         type: 'unfollow-publicProfile',
+                         loginUserId
+                     });
         })
+
 }
 
 export const isFollowing = (profile, followeeId) => {
-    return profile !== undefined && Object.keys(profile).length !== 0 && profile['customerData']['followings'].includes(followeeId);
+    return profile !== undefined && Object.keys(profile).length !== 0
+           && profile['customerData']['followings'].includes(followeeId);
+}
+
+
+export const findUserById = (userId, dispatch) => {
+    fetch(`${API_URL}/users/${userId}`, {
+        credentials: 'include',
+        headers: {
+            'content-type': 'application/json'
+        }
+    }).then(res => res.json())
+        .then(publicProfile => {
+            dispatch({
+                         type: 'fetch-publicProfile',
+                         publicProfile: {...publicProfile}
+                     })
+        }).catch(err => {console.log(err)})
 }

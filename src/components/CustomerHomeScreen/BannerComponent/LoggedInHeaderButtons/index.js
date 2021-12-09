@@ -22,7 +22,7 @@ const LoggedInHeaderButtons = () => {
             {/*<i className="fas fa-bell text-white fa-lg me-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Notifications"/>*/}
             {/*<i className="fas fa-comment text-white fa-lg me-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Messages"/>*/}
             <div className={"dropdown"}  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Profile">
-                <i className="fas fa-user-circle text-white fa-lg" data-toggle="dropdown"/>
+                <i className="fas fa-user-circle text-white fa-lg fs-1" data-toggle="dropdown"/>
                 <div className={"dropdown-menu dropdown-menu-right mt-3 p-1"}>
                     <Link to={"/profile"} className={" dropdown-item"}>View Profile</Link>
                     {/*<Link to={"#"} className={"dropdown-item"}>Account Settings</Link>*/}

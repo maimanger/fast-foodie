@@ -50,6 +50,7 @@ import ProfileBookmarksScreen from "./components/ProfileBookmarksScreen";
 import profileVerification from "./reducers/profileVerification";
 import customerReviews from "./reducers/customerReviews";
 import HomeScreen from "./components/HomeScreen";
+import publicProfile from "./reducers/publicProfile";
 
 function App() {
     const reducer = combineReducers({
@@ -59,7 +60,8 @@ function App() {
                                         recentActivities,
                                         restaurant,
                                         profileVerification,
-                                        customerReviews
+                                        customerReviews,
+                                        publicProfile
                                     });
     const store = createStore(reducer);
 

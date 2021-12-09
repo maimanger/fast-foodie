@@ -33,7 +33,7 @@ const ProfileNotificationItem = ({notification}) => {
                          </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
-                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                             <i className="fas fa-caret-down" style={{fontSize: "20px"}}></i>
                          </button>
                      </div>
                  </div>
@@ -63,7 +63,7 @@ const ProfileNotificationItem = ({notification}) => {
                          </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
-                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                             <i className="fas fa-caret-down" style={{fontSize: "20px"}}></i>
                          </button>
                      </div>
                  </div>
@@ -96,7 +96,7 @@ const ProfileNotificationItem = ({notification}) => {
                          </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
-                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                             <i className="fas fa-caret-down" style={{fontSize: "20px"}}></i>
                          </button>
                      </div>
                  </div>

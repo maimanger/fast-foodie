@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import "./Profile.css";
 import ProfileHeader from "./ProfileHeader";
@@ -8,27 +8,88 @@ import ProfileAboutMe from "./ProfileAboutMe";
 import ProfileReviews from "../ProfileReviewsScreen/ProfileReviews";
 import PublicBusinessProfile from "../BusinessProfileScreen/PublicBusinessProfile";
 import users from "../../reducers/data/profile/users.json"
-import {useParams} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
+import {fetchProfile, findUserById} from "../../services/profileService";
 
 const PublicProfileScreen = () => {
-    // Customer public profile
-    const profile = users[0];
-
+    // Get current login user and the public user profile
+    const dispatch = useDispatch();
     const userId = useParams().id;
-    let publicProfile = {
-        followersList: []
+
+    const getProfiles = () => {
+        findUserById(userId, dispatch);
+        fetchProfile(dispatch)
+            .catch(err => console.log(err))
+    }
+    useEffect(getProfiles, [])
+
+    let profile = {
+        "role": "",
+        "username": "",
+        "password": "",
+        "email": "",
+        "firstName": "",
+        "lastName": "",
+        "image_url": "",
+        "location": "",
+        "birthday": "",
+        "dateJoined": "",
+        "customerData": {
+            "reviews": [],
+            "followings": [],
+            "followers": [],
+            "bookmarks": [],
+            "visibility": {
+                "location": true,
+                "birthday": true,
+                "bookmarks": true
+            }
+        },
+        "businessData": {
+            "verified": false,
+            "restaurantId": ""
+        }
     };
-    let isFollowing = false;
-    if (userId) {
-        publicProfile = users.find(user => user._id === userId);
-        let foundFollower = publicProfile.followersList.find(fl => fl === profile._id);
-        if (foundFollower) isFollowing = true;
+    let publicProfile = {
+        "role": "",
+        "username": "",
+        "password": "",
+        "email": "",
+        "firstName": "",
+        "lastName": "",
+        "image_url": "",
+        "location": "",
+        "birthday": "",
+        "dateJoined": "",
+        "customerData": {
+            "reviews": [],
+            "followings": [],
+            "followers": [],
+            "bookmarks": [],
+            "visibility": {
+                "location": true,
+                "birthday": true,
+                "bookmarks": true
+            }
+        },
+        "businessData": {
+            "verified": false,
+            "restaurantId": ""
+        }
     }
 
-// Test Business Public Profile
-/*    const profile = users[users.length - 1];*/
+    const fetchedProfile = useSelector(state => state.profile);
+    profile = {...profile, ...fetchedProfile};
+    const fetchedPublicProfile = useSelector(state => state.publicProfile);
+    publicProfile = {...publicProfile, ...fetchedPublicProfile};
 
-    if (profile.role === "customer") {
+    let isFollowing = false;
+    if (Object.keys(profile).length !== 0
+        && profile.customerData.followings.includes(userId)) {
+        isFollowing = true;
+    }
+
+    if (publicProfile.role === "customer") {
         return (
             <>
                 {/**********************************Profile Header*********************************/}
@@ -43,7 +104,8 @@ const PublicProfileScreen = () => {
                         {/****************************Profile NavSidebar**************************/}
 
                         <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
-                            <ProfileNavSidebar active="overview" visibility={publicProfile.visibility}/>
+                            <ProfileNavSidebar active="overview"
+                                               visibility={publicProfile.customerData.visibility}/>
                         </div>
 
 
@@ -60,18 +122,24 @@ const PublicProfileScreen = () => {
                             className="d-none d-lg-block col-xl-auto border-2 border-start ">
                             <ProfileAboutMe profile={publicProfile}/>
                         </div>
-
-
                     </div>
+
+                    {JSON.stringify(publicProfile)}
                 </div>
             </>
         )
-    } else if (profile.role === "business") {
+    } else if (publicProfile.role === "business") {
         return (
-            <PublicBusinessProfile profile={profile}/>
+            <PublicBusinessProfile profile={publicProfile}/>
+        )
+    } else {
+        return (
+            <>
+                <h1> Error of fetching the public profile!</h1>
+                {JSON.stringify(fetchedPublicProfile)}
+            </>
         )
     }
-
 };
 
 export default PublicProfileScreen;

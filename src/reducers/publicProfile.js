@@ -1,5 +1,4 @@
 import React from "react";
-import users from "./data/profile/users.json"
 
 const defaultProfile = {
     "role": "",
@@ -27,58 +26,45 @@ const defaultProfile = {
         "verified": false,
         "restaurantId": ""
     }
-};
+}
 
-const profile = (state = defaultProfile, action) => {
+const publicProfile = (state = defaultProfile, action) => {
     switch (action.type) {
-        case 'fetch-profile':
-            return action.profile;
+        case 'fetch-publicProfile':
+            return action.publicProfile;
             break;
 
-        case 'edit-profile':
-        case 'create-profile':
-            const newProfile = {
-                ...state,
-                ...action.newProfile
-            };
-            return (newProfile);
-            break;
-
-        case 'delete-profile':
-            return {};
-            break;
-
-        case 'follow':
-            if (state['customerData']['followings'].includes(action.followeeId)){
+        case 'follow-publicProfile':
+            if (state['customerData']['followers'].includes(action.loginUserId)){
                 return state;
             }
-            const newFollowings = state['customerData']['followings'];
-            newFollowings.push(action.followeeId);
+            const newFollowersAfterFollow = state['customerData']['followings'];
+            newFollowersAfterFollow.push(action.loginUserId);
             return {
                 ...state,
                 customerData: {
                     ...state.customerData,
-                    followings: newFollowings
+                    followers: newFollowersAfterFollow
                 }
             }
             break;
 
-        case 'unfollow':
-            if (!state['customerData']['followings'].includes(action.followeeId)) {
+        case 'unfollow-publicProfile':
+            if (!state['customerData']['followers'].includes(action.loginUserId)) {
                 return state;
             }
-            const newFollowingList = state['customerData']['followings'].filter(following => following !== action.followeeId);
-
-            console.log(newFollowingList);
+            const newFollowersAfterUnfollow = state['customerData']['followers'].filter(
+                follower => follower !== action.loginUserId);
 
             return {
                 ...state,
                 customerData: {
                     ...state.customerData,
-                    followings: newFollowingList
+                    followers: newFollowersAfterUnfollow
                 }
             }
             break;
+
 
 
         default:
@@ -86,4 +72,4 @@ const profile = (state = defaultProfile, action) => {
     }
 }
 
-export default profile;
+export default publicProfile;

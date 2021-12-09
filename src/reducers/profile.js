@@ -1,7 +1,7 @@
 import React from "react";
 import users from "./data/profile/users.json"
 
-const defaultProfile = {
+/*const defaultProfile = {
     "role": "",
     "username": "",
     "password": "",
@@ -27,7 +27,9 @@ const defaultProfile = {
         "verified": false,
         "restaurantId": ""
     }
-};
+};*/
+
+const defaultProfile = {};
 
 const profile = (state = defaultProfile, action) => {
     switch (action.type) {

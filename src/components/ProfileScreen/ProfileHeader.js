@@ -1,13 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link, useLocation, useParams} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
 import "./Profile.css";
 import users from "../../reducers/users";
 import {fetchProfile, follow, unfollow} from "../../services/profileService";
 import {useDispatch, useSelector} from "react-redux";
-import {Redirect} from "react-router";
+import {Redirect, useHistory} from "react-router";
 
-const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) => {
+const ProfileHeader = ({profile, setEdit = null, edit = null, isFollowing = false}) => {
+
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const getLoginUser = () => {
+        fetchProfile(dispatch)
+            .catch(e => console.log(e))
+    }
+    useEffect(getLoginUser, [history]);
 
     let loginUser = useSelector(state => state.profile);
 
@@ -20,29 +29,14 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
     const isPublic = userId && true;
     const currentURL = useLocation().pathname;
 
-    const dispatch = useDispatch();
     const followHandler = () => {
         if (!loginUser.role) {
-            fetchProfile(dispatch)
-                .catch(e => {
-                    return (
-                        <Redirect to={"/login"}/>
-                    )
-                })
-
+            history.push("/login");
         }
         follow(userId, loginUser._id, dispatch);
     }
 
     const unFollowHandler = () => {
-        if (!loginUser.role) {
-            fetchProfile(dispatch)
-                .catch(e => {
-                    return (
-                        <Redirect to={"/login"}/>
-                    )
-                })
-        }
         unfollow(userId, loginUser._id, dispatch);
     }
 
@@ -55,8 +49,8 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
                 <div className="col-4 col-lg-3 d-flex justify-content-center px-0">
                     <div className="wd-profile-avatar shadow card">
                         {profile.image_url &&
-                        <img src={profile.image_url}
-                             className="img-thumbnail bg-light" alt="..."/>
+                         <img src={profile.image_url}
+                              className="img-thumbnail bg-light" alt="..."/>
                         }
                     </div>
                 </div>
@@ -67,7 +61,7 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
                     <HashLink smooth to={isPublic ? `${currentURL}#top` : `${currentURL}#top`}
                               className="wd-profile-back-top">
                         {profile.firstName && profile.lastName &&
-                    <h1 className="mb-2"> {profile.firstName} {profile.lastName}</h1>
+                         <h1 className="mb-2"> {profile.firstName} {profile.lastName}</h1>
                         }
                     </HashLink>
 
@@ -76,7 +70,7 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
                                          text-decoration-none d-none d-md-inline-block">
 
                             {profile.customerData.followings &&
-                            <span className="fw-bold me-1">
+                             <span className="fw-bold me-1">
                                 {profile.customerData.followings.length}
                             </span>
                             }
@@ -84,7 +78,8 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
                             <span className="text-black">Followings</span>
                         </div>
 
-                        <div className="col-6 col-md-4 col-lg-3 col-xxl-2 text-black p-0 text-decoration-none">
+                        <div
+                            className="col-6 col-md-4 col-lg-3 col-xxl-2 text-black p-0 text-decoration-none">
 
                             {profile.customerData.followers &&
                              <span className="fw-bold me-1">
@@ -95,7 +90,8 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
                             <span className="text-black">Followers</span>
                         </div>
 
-                        <div className="col-md-4 col-lg-3 col-xxl-2 text-black p-0 text-decoration-none">
+                        <div
+                            className="col-md-4 col-lg-3 col-xxl-2 text-black p-0 text-decoration-none">
 
                             <span className="fw-bold me-1">
                                 {profile.customerData.reviews.length}
@@ -109,16 +105,16 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
                 {/***************************Profile Header Edit Btn************************/}
                 <div className="col-auto d-flex flex-column pb-3 mb-4 justify-content-around ps-1 ">
                     {(!edit && !isPublic) &&
-                    <button className="d-flex flex-nowrap align-items-center justify-content-start
+                     <button className="d-flex flex-nowrap align-items-center justify-content-start
                                            btn rounded-pill btn-outline-info"
-                            onClick={() => setEdit(true)}>
-                        <i className="fas fa-cog me-0 me-sm-2"></i>
-                        <span className="d-none d-sm-inline me-1">Update</span>
-                        <span className="d-none d-md-inline">Profile</span>
-                    </button>
+                             onClick={() => setEdit(true)}>
+                         <i className="fas fa-cog me-0 me-sm-2"></i>
+                         <span className="d-none d-sm-inline me-1">Update</span>
+                         <span className="d-none d-md-inline">Profile</span>
+                     </button>
                     }
 
-{/*                    {isPublic &&
+                    {/*                    {isPublic &&
                      <button className="d-flex flex-nowrap align-items-center justify-content-center
                                            btn rounded-pill btn-outline-info py-1 mb-2">
                          <i className="fas fa-envelope me-0 me-sm-2"></i>
@@ -127,12 +123,12 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
                     }*/}
 
                     {isPublic && !isFollowing &&
-                    <button className="d-flex flex-nowrap align-items-center justify-content-center
+                     <button className="d-flex flex-nowrap align-items-center justify-content-center
                                            btn rounded-pill btn-outline-info py-1"
-                            onClick={followHandler}>
-                        <i className="fas fa-user-plus me-0 me-sm-2"></i>
-                        <span className="d-none d-sm-inline">Follow</span>
-                    </button>
+                             onClick={followHandler}>
+                         <i className="fas fa-user-plus me-0 me-sm-2"></i>
+                         <span className="d-none d-sm-inline">Follow</span>
+                     </button>
                     }
 
                     {isPublic && isFollowing &&
@@ -143,11 +139,11 @@ const ProfileHeader = ({profile, setEdit=null, edit=null, isFollowing=false}) =>
                          <span className="d-none d-sm-inline">Unfollow</span>
                      </button>
                     }
-
                 </div>
+
             </div>
 
-
+            {JSON.stringify(loginUser)}
         </>
     )
 }

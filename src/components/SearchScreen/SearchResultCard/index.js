@@ -38,10 +38,10 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
                     </div>
 
                     {/***************  restaurant categories  **************/}
-                    <div className={"d-flex  mb-2 searchscreen-categories-container"}>
+                    <div className={"d-flex align-items-center mb-2 searchscreen-categories-container flex-wrap"}>
                         {(restaurantFromSearchApi.categories.map(category=>category.title)).map(category=>{
                             return (
-                                <div className={"bg-light me-2 px-1 rounded-2 fw-bold homescreen-w-fit homepage-color-dimgray"}>{category}</div>
+                                <div className={"bg-light me-2 px-1 text-nowrap rounded-2 fw-bold homescreen-w-fit homepage-color-dimgray"}>{category}</div>
                             )
                         })}
                         <div>{restaurantFromSearchApi['price']}</div>

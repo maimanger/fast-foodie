@@ -3,9 +3,8 @@ import restaurants from "../../reducers/data/restaurants/nyc.json"
 import users from "../../reducers/data/profile/users.json"
 import BusinessStars from "./BusinessStars";
 
-const BusinessStatistics = () => {
-    const user = users[users.length - 1];
-    const restaurant = {...user.restaurant, bookmarks_count: 250};
+const BusinessStatistics = ({restaurant}) => {
+    const restaurantData = {...restaurant, "bookmarks_count": 250};
 
     return (
         <div className="d-flex flex-column">
@@ -13,17 +12,17 @@ const BusinessStatistics = () => {
 
              <div className="mb-3">
                  <h6 className="fw-bold">Rating</h6>
-                 <BusinessStars restaurant={restaurant}/>
+                 <BusinessStars restaurant={restaurantData}/>
              </div>
 
-             <div className="mb-3">
+{/*             <div className="mb-3">
                  <h6 className="fw-bold">Reviews</h6>
                  {restaurant.review_count.toLocaleString()}
-             </div>
+             </div>*/}
 
             <div className="mb-3">
                 <h6 className="fw-bold">Bookmarks</h6>
-                {restaurant.bookmarks_count.toLocaleString()}
+                {restaurantData.bookmarks_count.toLocaleString()}
             </div>
 
         </div>

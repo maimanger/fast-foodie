@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./Business.css"
 import BusinessHeader from "./BusinessHeader";
 import BusinessNavSidebar from "./BusinessNavSidebar";
@@ -6,16 +6,53 @@ import BusinessStatistics from "./BusinessStatistics";
 import BusinessNotifications from "./BusinessNotifications";
 import BusinessActivities from "./BusinessActivities";
 import users from "../../reducers/data/profile/users.json";
+import {useHistory} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchProfile} from "../../services/profileService";
 
 const BusinessHomeScreen = () => {
     const user = users[users.length - 1];
+
+    const history = useHistory();
+    const dispatch = useDispatch();
+    // If no profile fetched (unlogin), go to login page
+    const getProfile = () => {
+        fetchProfile(dispatch)
+            .catch(e => history.push('/login'))
+    }
+    useEffect(getProfile, [history])
+    /**********************************Get the login profile data******************************/
+        // Set up a sample profile to avoid undefined type error
+    let profile = {
+            "role": "",
+            "username": "",
+            "password": "",
+            "email": "",
+            "firstName": "",
+            "lastName": "",
+            "image_url": "",
+            "location": "",
+            "birthday": "",
+            "dateJoined": "",
+            "businessData": {
+                "verified": false,
+                "restaurant": {},
+                "file_url": ""
+            }
+        };
+    let fetchedProfile = useSelector(state => state.profile);
+    profile = {...profile, ...fetchedProfile};
+
+    const isVerified = profile.businessData.verified;
+
+
     return (
         <>
             {/**********************************Business Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">
                     <div className="wd-business-banner bg-secondary vw-100"></div>
-                    <BusinessHeader user={user}/>
+                    <BusinessHeader user={profile}/>
                 </div>
 
                 <div className="row flex-nowrap">
@@ -40,16 +77,13 @@ const BusinessHomeScreen = () => {
 
                     <div
                         className="d-none d-lg-block col-xl-auto border-2 border-start ">
-                        <BusinessStatistics/>
+                        <BusinessStatistics restaurant={profile.businessData.restaurant}/>
                     </div>
 
                 </div>
 
-
-
-
-
             </div>
+
 
 
 

@@ -38,7 +38,7 @@ const publicProfile = (state = defaultProfile, action) => {
             if (state['customerData']['followers'].includes(action.loginUserId)){
                 return state;
             }
-            const newFollowersAfterFollow = state['customerData']['followings'];
+            const newFollowersAfterFollow = state['customerData']['followers'];
             newFollowersAfterFollow.push(action.loginUserId);
             return {
                 ...state,

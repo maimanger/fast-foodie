@@ -1,5 +1,6 @@
 import React from "react";
 import ReviewList from "./ReviewList";
+import YelpReviewList from "./YelpReviewList";
 import {Link} from "react-router-dom";
 
 const AnonReview = () => {
@@ -15,6 +16,7 @@ const AnonReview = () => {
         </h3>
 
         <ReviewList/>
+        <YelpReviewList/>
       </div>
   )
 }

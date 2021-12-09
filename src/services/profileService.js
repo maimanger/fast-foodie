@@ -50,3 +50,41 @@ export const register = (user) => {
     })
 }
 
+
+export const follow = (followeeId, dispatch) => {
+    fetch(`${API_URL}/follow`, {
+        method: 'PUT',
+        credentials: 'include',
+        body: JSON.stringify({followeeId}),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(res => {
+            dispatch({
+                type: 'follow',
+                followeeId,
+            })
+        })
+}
+
+export const unfollow = (followeeId, dispatch) => {
+    fetch(`${API_URL}/unfollow`, {
+        method: 'PUT',
+        credentials: 'include',
+        body: JSON.stringify({followeeId}),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(res => {
+            dispatch({
+                type: 'unfollow',
+                followeeId,
+            })
+        })
+}
+
+export const isFollowing = (profile, followeeId) => {
+    return profile !== undefined && Object.keys(profile).length !== 0 && profile['customerData']['followings'].includes(followeeId);
+}

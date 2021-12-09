@@ -4,6 +4,11 @@ import RecentActivityPhotoCard from "./RecentActivityPhotoCard";
 import RecentActivityBookmarkCard from "./RecentActivityBookmarkCard";
 
 const RecentActivityCard = ({activity}) => {
+
+    if (activity === undefined) {
+        return <></>;
+    }
+
     let res = null;
 
     switch (activity.type){

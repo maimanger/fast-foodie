@@ -21,6 +21,35 @@ const profile = (state = {}, action) => {
         case 'delete-profile':
             return {};
 
+        case 'follow':
+            if (state['customerData']['followings'].includes(action.followeeId)){
+                return state;
+            }
+            const newFollowings = state['customerData']['followings'];
+            newFollowings.push(action.followeeId);
+            return {
+                ...state,
+                customerData: {
+                    ...state.customerData,
+                    followings: newFollowings
+                }
+            }
+
+        case 'unfollow':
+            if (!state['customerData']['followings'].includes(action.followeeId)) {
+                return state;
+            }
+            const newFollowingList = state['customerData']['followings'].filter(following => following !== action.followeeId);
+
+            return {
+                ...state,
+                customerData: {
+                    ...state.customerData,
+                    followings: newFollowingList
+                }
+            }
+
+
         default:
             return state;
     }

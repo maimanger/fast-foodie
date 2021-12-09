@@ -2,17 +2,16 @@ import React, {useEffect, useState} from "react";
 import './index.css';
 import SearchHeader from "./SearchHeader";
 import SearchResultComponent from "./SearchResultComponent";
-import Footer from "../HomeScreen/public-components/Footer";
-import BrandName from "../HomeScreen/public-components/BrandName";
+import Footer from "../CustomerHomeScreen/public-components/Footer";
+import BrandName from "../CustomerHomeScreen/public-components/BrandName";
 import {searchRestaurants} from "../../services/searchService";
 import {useHistory, useLocation} from "react-router-dom";
-import {concatQueries} from "../HomeScreen/utils/url";
-import {placeholderCheckLogin} from "../../services/login-service";
+import {concatQueries} from "../CustomerHomeScreen/utils/url";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
 import * as nextProps from "react-router";
-import isLoggedIn from "../HomeScreen/utils/isLoggedIn";
-import defaultLocation from "../HomeScreen/utils/defaultLocation.json";
+import isLoggedIn from "../CustomerHomeScreen/utils/isLoggedIn";
+import defaultLocation from "../CustomerHomeScreen/utils/defaultLocation.json";
 
 const SearchScreen = () => {
     window.scrollTo(0, 0);

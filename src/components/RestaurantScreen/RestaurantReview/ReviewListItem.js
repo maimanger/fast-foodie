@@ -26,18 +26,18 @@ const ReviewListItem = ({review}) => {
                 <div className="row ms-1 d-flex align-items-center">
                     <span className="col-3 starability-result" data-rating={review.rating}></span>
                     <span className="col-4 text-muted ms-2 mt-1">{review.time_created.split(' ')[0] }</span>
-                    <span className="col-5 dropdown">
+                    {/*<span className="col-5 dropdown">*/}
                     
-                        <i className="fas fa-ellipsis-h float-end" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            
-                        </i>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button className="dropdown-item" type="button">Send message</button>
-                            <button className="dropdown-item" type="button">Follow {review.user.name}</button>
-                            <button className="dropdown-item" type="button">Report review</button>
-                        </div>
-                        
-                    </span>
+                    {/*    <i className="fas fa-ellipsis-h float-end" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
+                    {/*        */}
+                    {/*    </i>*/}
+                    {/*    <div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
+                    {/*        <button className="dropdown-item" type="button">Send message</button>*/}
+                    {/*        <button className="dropdown-item" type="button">Follow {review.user.name}</button>*/}
+                    {/*        <button className="dropdown-item" type="button">Report review</button>*/}
+                    {/*    </div>*/}
+                    {/*    */}
+                    {/*</span>*/}
                 </div>
 
             {/************************Review Text**************************/}

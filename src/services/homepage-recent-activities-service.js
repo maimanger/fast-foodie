@@ -1,7 +1,7 @@
 import React from "react";
-import allActivities from "../components/HomeScreen/RecentActivityComponent/data/defaultActivities.json";
-import nearbyActivities from "../components/HomeScreen/RecentActivityComponent/data/nearbyActivities.json";
-import followingsActivities from "../components/HomeScreen/RecentActivityComponent/data/followingsActivities.json"
+import allActivities from "../components/CustomerHomeScreen/RecentActivityComponent/data/defaultActivities.json";
+import nearbyActivities from "../components/CustomerHomeScreen/RecentActivityComponent/data/nearbyActivities.json";
+import followingsActivities from "../components/CustomerHomeScreen/RecentActivityComponent/data/followingsActivities.json"
 import {API_URL} from "../CONST";
 
 const getHomepageAllRecentActivities = () => {
@@ -10,12 +10,16 @@ const getHomepageAllRecentActivities = () => {
 }
 
 const getHomepageNearbyRecentActivities = () => {
-    return fetch(`${API_URL}/activities/nearby`)
+    return fetch(`${API_URL}/activities/nearby`, {
+        credentials: 'include'
+    })
         .then(res=>res.json())
 }
 
 const getHomepageFollowingRecentActivities = () => {
-    return fetch(`${API_URL}/activities/following`)
+    return fetch(`${API_URL}/activities/following`, {
+        credentials: 'include'
+    })
         .then(res=>res.json())
 }
 

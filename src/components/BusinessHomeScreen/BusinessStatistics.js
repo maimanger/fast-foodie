@@ -6,6 +6,7 @@ import BusinessStars from "./BusinessStars";
 const BusinessStatistics = ({restaurant}) => {
     const restaurantData = {...restaurant, "bookmarks_count": 250};
 
+
     return (
         <div className="d-flex flex-column">
             <h5 className="text-danger fw-bold mb-3">Statistics</h5>

@@ -2,11 +2,11 @@ import React, {useEffect, useState} from "react";
 import "./index.css";
 import {searchTermAutoCompletion} from "../../../services/autoCompletionService";
 import {searchRestaurants} from "../../../services/searchService";
-import {concatQueries} from "../../HomeScreen/utils/url";
+import {concatQueries} from "../../CustomerHomeScreen/utils/url";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
-import isLoggedIn from "../../HomeScreen/utils/isLoggedIn";
-import defaultLocation from '../../HomeScreen/utils/defaultLocation.json';
+import isLoggedIn from "../../CustomerHomeScreen/utils/isLoggedIn";
+import defaultLocation from '../../CustomerHomeScreen/utils/defaultLocation.json';
 
 const SearchBar = ({
                        profile,

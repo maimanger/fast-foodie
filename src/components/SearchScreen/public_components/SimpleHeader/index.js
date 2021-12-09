@@ -1,6 +1,6 @@
 import React from "react";
 import './index.css';
-import BrandName from "../../../HomeScreen/public-components/BrandName";
+import BrandName from "../../../CustomerHomeScreen/public-components/BrandName";
 import LoggedInHeaderButtons from "../../SearchHeader/LoggedInHeaderButtons";
 import LoginSignupButtons from "../../SearchHeader/LoginSignupButtons";
 

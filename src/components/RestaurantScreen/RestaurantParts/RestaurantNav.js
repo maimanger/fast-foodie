@@ -7,7 +7,7 @@ const RestaurantNav = ({active = 'about'}) => {
 
   const save = <button type="button" className="btn btn-outline-primary">Save</button>
   const saved = <button type="button" className="btn btn-primary">Saved</button>
-  const saveClickHandler = () => setIsSaved(!isSaved)
+  // const saveClickHandler = () => setIsSaved(!isSaved)
 
   return (
     <div className="row mt-3">
@@ -30,9 +30,9 @@ const RestaurantNav = ({active = 'about'}) => {
           </li>
         </ul>
       </div>
-      <div onClick={saveClickHandler} className="col-4">
+      {/* <div onClick={saveClickHandler} className="col-4">
           {isSaved === false? save: saved}
-      </div>
+      </div> */}
     </div>
   );
 };

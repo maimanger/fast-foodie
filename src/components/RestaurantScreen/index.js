@@ -1,13 +1,8 @@
-import React, {useState, useEffect} from "react";
-import { BrowserRouter, Route, useParams } from "react-router-dom";
-import AboutScreen from "./AboutScreen";
-import MenuScreen from "./MenuScreen";
-import ReviewScreen from "./ReviewScreen";
-import PlaceOrderScreeen from "./PlaceOrderScreen";
+import React from "react";
 import RestaurantImage from "./RestaurantParts/RestaurantImage";
 import RestaurantNav from "./RestaurantParts/RestaurantNav";
 import RestaurantAbout from "./RestaurantParts/RestaurantAbout";
-import { useDispatch, useSelector } from "react-redux";
+import SearchHeader from "../SearchHeader";
 
 const RestaurantScreen = () => {
   // const restaurant = useSelector(state => state.restaurant);
@@ -27,6 +22,7 @@ const RestaurantScreen = () => {
   return (
 
     <div>
+      <SearchHeader/>
       <RestaurantImage/>
       <div className="container">
         <div className="row mt-3">
@@ -43,9 +39,7 @@ const RestaurantScreen = () => {
           
         </div>
       </div>
-
-      
-      </div>
+    </div>
   
     // <div className="container">
     //   <div className="row mt-3">

@@ -1,6 +1,6 @@
 import React from "react";
 import './index.css';
-import Footer from "../HomeScreen/public-components/Footer";
+import Footer from "../CustomerHomeScreen/public-components/Footer";
 import SimpleHeader from "../SearchScreen/public_components/SimpleHeader";
 
 const AboutUs = () => {

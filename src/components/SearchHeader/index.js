@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
 import SearchBar from "./SearchBar";
-import BrandName from "../HomeScreen/public-components/BrandName";
-import Dropdowns from "../HomeScreen/public-components/Dropdowns";
+import BrandName from "../CustomerHomeScreen/public-components/BrandName";
+import Dropdowns from "../CustomerHomeScreen/public-components/Dropdowns";
 import LoginSignupButtons from "./LoginSignupButtons";
 import LoggedInHeaderButtons from "./LoggedInHeaderButtons";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
-import isLoggedIn from "../HomeScreen/utils/isLoggedIn";
+import isLoggedIn from "../CustomerHomeScreen/utils/isLoggedIn";
 
 const SearchHeader = () => {
     const dispatch = useDispatch();

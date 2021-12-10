@@ -7,49 +7,10 @@ import BusinessClaimSearchResultScreen from "./BusinessClaimSearchResultScreen";
 import BusinessClaimSearchNoResultComponent from "./BusinessClaimSearchNoResultComponent";
 import BusinessClaimStatusScreen from "./BusinessClaimStatusScreen";
 import {Route} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchProfile} from "../../services/profileService";
-import {getClaim} from "../../services/claimService";
-import {useHistory} from "react-router-dom";
+
 
 const BusinessClaimScreen = () => {
-    // const profile = useSelector(state => state.profile);
-    // const dispatch = useDispatch();
-    // let history = useHistory();
-    //
-    // // Get profile
-    // useEffect(() => {
-    //     fetchProfile(dispatch);
-    // }, [])
-    //
-    // // Check claim status
-    // const [claimStatus, setClaimStatus] = useState("");
-    // useEffect(() => {
-    //     if (profile !== undefined && Object.keys(profile).length !== 0) {
-    //         if (profile['businessData']['verified']) {
-    //             setClaimStatus("approved")
-    //         } else {
-    //             getClaim()
-    //                 .then(res => {
-    //                     setClaimStatus(res.status)
-    //                 })
-    //                 .catch(e => {
-    //                     setClaimStatus("never")
-    //                 })
-    //         }
-    //     }
-    // }, [profile])
-    //
-    // // case 1: new claim -> claim search
-    // // case 2: have claim -> claim status
-    //
-    // if (profile === undefined || Object.keys(profile).length === 0) {
-    //     return <></>
-    // } else if (claimStatus === "never") {
-    //     history.push("/business/claim/search");
-    // } else {
-    //     history.push('/business/claim/status');
-    // }
+
 
 
     return (

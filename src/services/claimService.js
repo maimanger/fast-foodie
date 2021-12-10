@@ -25,21 +25,21 @@ export const getClaimById = (claimId) => {
 
 // A Promise is returned.
 // 4 claim status in total: 'never', 'unprocessed', 'approved', 'denied'.
-export const checkClaimStatus = (dispatch) => {
+export const initClaim = (dispatch) => {
     return fetch(`${API_URL}/get_claim`, {
         credentials: 'include'
     })
         .then(res => res.json())
         .then(response => {
+            // if (Object.keys(response).length !== 0 && response['status'] === 'approved') {
+            //     dispatch({
+            //         type: 'claim-approved',
+            //         claim: response
+            //     })
+            // }
             dispatch({
-                type: 'init-claim-status',
-                claimStatus: response['status']
-            })
-        })
-        .catch(e => {
-            dispatch({
-                type: 'init-claim-status',
-                claimStatus: "never"
+                type: 'init-claim',
+                claim: response
             })
         })
 }

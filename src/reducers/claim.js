@@ -1,7 +1,7 @@
-const claim = (state="never", action) => {
+const claim = (state={}, action) => {
     switch (action.type) {
-        case 'init-claim-status':
-            return action.claimStatus
+        case 'init-claim':
+            return action.claim
         default:
             return state;
     }

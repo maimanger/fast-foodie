@@ -82,7 +82,16 @@ const profile = (state = {}, action) => {
             }
             break;
 
-
+        case 'claim-approved':
+            const profileAfterApproved = {
+                ...state,
+                businessData: {
+                    "verified": true,
+                    "restaurant": action.claim.restaurant,
+                    "file_url": action.claim.file_url
+                }
+            }
+            return profileAfterApproved;
         default:
             return state;
     }

@@ -21,6 +21,7 @@ const BusinessProfileScreen = () => {
     }
     useEffect(getProfile, [history])
 
+
     /**********************************Get the login profile data******************************/
         // Set up a sample profile to avoid undefined type error
     let profile = {

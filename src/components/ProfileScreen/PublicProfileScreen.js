@@ -17,9 +17,12 @@ const PublicProfileScreen = () => {
     const userId = useParams().id;
 
     const getProfiles = () => {
-        findUserById(userId, dispatch);
-        fetchProfile(dispatch)
-            .catch(err => console.log(err))
+        findUserById(userId, dispatch)
+            .then(() => {
+                fetchProfile(dispatch)
+                    .catch(err => console.log(err))
+            })
+
     }
     useEffect(getProfiles, [])
 

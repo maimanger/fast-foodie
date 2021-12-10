@@ -1,7 +1,12 @@
 import React from "react";
-import recentActivitiesData from "./data/profile/recentActivities.json";
 
-const recentActivities = (state = recentActivitiesData, action) => {
+const recentActivities = (state = [], action) => {
+    switch(action.type) {
+        case 'fetch-userActivities':
+            return action.activities;
+            break;
+    }
+
     return state;
 }
 

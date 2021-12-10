@@ -11,19 +11,31 @@ import users from "../../reducers/data/profile/users.json";
 import {fetchProfile} from "../../services/profileService";
 import {useHistory} from "react-router-dom";
 import {Redirect, Route} from "react-router";
+import {fetchUserActivities} from "../../services/userActivitiesService";
+import recentActivities from "../../reducers/recentActivities";
 
 const ProfileScreen = () => {
-
+    const [edit, setEdit] = useState(false);
     const history = useHistory();
     const dispatch = useDispatch();
+
     // If no profile fetched (unlogin), go to login page
     const getProfile = () => {
         fetchProfile(dispatch)
             .catch(e => history.push('/login'))
     }
-    useEffect(getProfile, [history])
+    const getActivities = () => {
+        fetchUserActivities(dispatch)
+            .catch(e => console.log(e))
+    }
+    const loadData = () => {
+        getProfile();
+        getActivities();
+    }
 
-    /*    const profile = users[0];*/
+    useEffect(loadData, [history])
+
+
     /**********************************Get the login profile data******************************/
         // Set up a sample profile to avoid undefined type error
     let profile = {
@@ -56,7 +68,7 @@ const ProfileScreen = () => {
     let fetchedProfile = useSelector(state => state.profile);
     profile = {...profile, ...fetchedProfile};
 
-    const [edit, setEdit] = useState(false);
+    const fetchedActivities = useSelector(state => state.recentActivities);
 
     if (profile.role === "business") {
         history.push('/business/profile');
@@ -88,12 +100,15 @@ const ProfileScreen = () => {
                          className="col-7 col-lg-6 d-flex flex-column px-0">
                          <div className="mb-3">
                              <h3 className="text-danger fw-bold">Notifications</h3>
-                             <ProfileNotifications/>
+{/*                             <ProfileNotifications/>*/}
                          </div>
                          <hr className="mb-4 mt-0"/>
                          <div>
                              <h3 className="text-danger fw-bold">Recent Activities</h3>
-                             <ProfileRecentActivities/>
+                             {Object.keys(fetchedActivities).length !== 0 &&
+                             <ProfileRecentActivities recentActivities={fetchedActivities}
+                                                      profile={profile}/>
+                             }
                          </div>
                      </div>
                     }
@@ -114,7 +129,8 @@ const ProfileScreen = () => {
                      </div>
                     }
                 </div>
-                {JSON.stringify(profile)}
+                {/*{JSON.stringify(profile)}*/}
+                {/*{JSON.stringify(fetchedActivities)}*/}
             </div>
         </>
     )

@@ -11,27 +11,29 @@ import {Collapse} from "react-bootstrap";
 import BusinessStars from "../../BusinessHomeScreen/BusinessStars";
 import {HashLink} from "react-router-hash-link";
 
-const ProfileRecentActivityItem = ({activity}) => {
+const ProfileRecentActivityItem = ({activity, profile}) => {
     const [on, setOn] = useState(false);
 
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
             <div className="me-3">
-                <img className=" rounded-circle" src={activity.user.image_url}
+                <img className=" rounded-circle" src={profile.image_url}
                      width="48px" height="48px"/>
             </div>
 
             {/*******************************Review Activity************************************/}
-            {activity.type === "review" &&
+            {activity.type === "review" && Object.keys(activity.reviewDetail).length !== 0 &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
                  <div className="mb-2 d-flex justify-content-between">
                      <div>
                          You wrote a review for
+                         {activity.reviewDetail.restaurantDetail &&
                          <Link className="text-info wd-profile-link-text mx-1"
-                               to={`/restaurants/${activity.review.restaurant.id}`}>
-                             {activity.review.restaurant.name}
+                               to={`/restaurants/${activity.reviewDetail.restaurantDetail.id}`}>
+                             {activity.reviewDetail.restaurantDetail.name}
                          </Link>
+                         }
                      </div>
                      <div className="text-muted fst-italic text-nowrap ">
                          <span className="d-none d-md-inline">
@@ -39,7 +41,7 @@ const ProfileRecentActivityItem = ({activity}) => {
                          </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
-                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                             <i className="fas fa-caret-down" style={{fontSize: "20px"}}></i>
                          </button>
                      </div>
                  </div>
@@ -47,11 +49,11 @@ const ProfileRecentActivityItem = ({activity}) => {
                  {/*******************************Review content******************************/}
                  <div className="d-flex flex-column">
                      <Collapse in={on}>
-                     <HashLink to={`/restaurants/${activity.review.restaurant.id}#${activity.review._id}`}
+                     <HashLink to={`/restaurants/${activity.reviewDetail.restaurantDetail.id}#${activity.reviewDetail._id}`}
                            className="wd-profile-content-hover text-black">
-                         <RestaurantInfo restaurant={activity.review.restaurant}/>
-                         <ReviewStars review={activity.review}/>
-                         <ReviewItem review={activity.review}/>
+                         <RestaurantInfo restaurant={activity.reviewDetail.restaurantDetail}/>
+                         <ReviewStars review={activity.reviewDetail}/>
+                         <ReviewItem review={activity.reviewDetail}/>
                      </HashLink>
                      </Collapse>
                      <Collapse in={on}>
@@ -61,11 +63,13 @@ const ProfileRecentActivityItem = ({activity}) => {
                      </Link>
                      </Collapse>
                  </div>
+
+                 {console.log(activity.reviewDetail.text)}
              </div>
             }
 
             {/*******************************Reply Review************************************/}
-            {activity.type === "reply-review" &&
+         {/*   {activity.type === "reply-review" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
                  <div className="mb-2 d-flex justify-content-between">
@@ -82,7 +86,7 @@ const ProfileRecentActivityItem = ({activity}) => {
                          </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
-                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                             <i className="fas fa-caret-down" style={{fontSize: "20px"}}></i>
                          </button>
                      </div>
                  </div>
@@ -118,10 +122,11 @@ const ProfileRecentActivityItem = ({activity}) => {
 
              </div>
             }
+            */}
 
 
             {/*******************************Bookmark Activity************************************/}
-            {activity.type === "bookmark" &&
+         {/*   {activity.type === "bookmark" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
                  <div className="mb-2 d-flex justify-content-between align-content-center">
@@ -138,7 +143,7 @@ const ProfileRecentActivityItem = ({activity}) => {
                          </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
-                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                             <i className="fas fa-caret-down" style={{fontSize: "20px"}}></i>
                          </button>
                      </div>
 
@@ -152,16 +157,17 @@ const ProfileRecentActivityItem = ({activity}) => {
 
              </div>
             }
+            */}
 
             {/*********************************Follow Activity*****************************/}
-            {activity.type === "follow" &&
+            {activity.type === "follow" && Object.keys(activity.followDetail).length !== 0 &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
                  <div className="mb-2 d-flex justify-content-between">
                      <div>
                          You followed
                          <Link className="text-info wd-profile-link-text mx-1"
-                               to={`/profile/${activity.follow.followee._id}`}>
+                               to={`/profile/${activity.followDetail._id}`}>
                              Mike Shah</Link>
                      </div>
                      <div className="text-muted fst-italic text-nowrap">
@@ -170,14 +176,14 @@ const ProfileRecentActivityItem = ({activity}) => {
                          </span>
                          <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                                  onClick={() => setOn(!on)}>
-                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                             <i className="fas fa-caret-down" style={{fontSize: "20px"}}></i>
                          </button>
                      </div>
                  </div>
                  <Collapse in={on}>
-                     <Link to={`/profile/${activity.follow.followee._id}`}
+                     <Link to={`/profile/${activity.followDetail._id}`}
                            className="wd-profile-content-hover">
-                         <UserAvatarInfo user={activity.follow.followee}/>
+                         <UserAvatarInfo user={activity.followDetail}/>
                      </Link>
                  </Collapse>
              </div>

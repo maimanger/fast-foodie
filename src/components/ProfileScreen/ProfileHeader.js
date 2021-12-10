@@ -143,7 +143,7 @@ const ProfileHeader = ({profile, setEdit = null, edit = null, isFollowing = fals
 
             </div>
 
-            {JSON.stringify(loginUser)}
+            {/*{JSON.stringify(loginUser)}*/}
         </>
     )
 }

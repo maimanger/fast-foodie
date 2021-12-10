@@ -26,7 +26,7 @@ const LoginScreen = () => {
                              type: "change-isValid",
                              isValid: true
                          });
-                history.goBack();
+                history.push('/profile');
             })
             .catch(e => {
                 dispatch({

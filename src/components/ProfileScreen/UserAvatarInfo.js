@@ -22,13 +22,13 @@ const UserAvatarInfo = ({user}) => {
                     <div className="me-3 text-black text-opacity-75">
                         <i className="fas fa-user-friends me-2 text-opacity-75 text-primary"></i>
                         <span className="text-nowrap">
-                            {user.followersCount} <span className="d-none d-sm-inline">followers</span>
+                            {user.customerData.followers.length} <span className="d-none d-sm-inline">followers</span>
                         </span>
                     </div>
                     <div className="text-black text-opacity-75">
                         <i className="fas fa-comment me-2 text-opacity-75 text-primary"></i>
                         <span className="text-nowrap">
-                            {user.reviewsCount} <span className="d-none d-sm-inline">reviews</span>
+                            {user.customerData.reviews.length} <span className="d-none d-sm-inline">reviews</span>
                         </span>
                     </div>
                 </div>

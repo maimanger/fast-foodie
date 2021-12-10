@@ -1,4 +1,4 @@
-import React from "react";
+
 import {API_URL} from "../CONST";
 
 // return a promise with the profile.json
@@ -100,7 +100,7 @@ export const isFollowing = (profile, followeeId) => {
 
 
 export const findUserById = (userId, dispatch) => {
-    fetch(`${API_URL}/users/${userId}`, {
+    return fetch(`${API_URL}/users/${userId}`, {
         credentials: 'include',
         headers: {
             'content-type': 'application/json'
@@ -111,5 +111,5 @@ export const findUserById = (userId, dispatch) => {
                          type: 'fetch-publicProfile',
                          publicProfile: {...publicProfile}
                      })
-        }).catch(err => {console.log(err)})
+        })
 }

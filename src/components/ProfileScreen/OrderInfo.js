@@ -8,7 +8,7 @@ const OrderInfo = ({order}) => {
             <div className="col-auto">
                 <img src={order.img}
                      className="img-fluid rounded-3"
-                     style={{minHeight: 70, maxWidth:70, "object-fit": "cover"}} />
+                     style={{minHeight: 70, maxWidth:70, objectFit: "cover"}} />
             </div>
             {/************************Order Info**************************/}
             <div className="col-12 col-md-8 d-flex flex-column">

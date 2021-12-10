@@ -16,7 +16,7 @@ const BusinessNavSidebar = ({active = "home", verified = true}) => {
                 <span className="d-none d-md-inline">Home</span>
             </Link>
 
-            <Link to="/business/profile"
+            <Link to="/profile"
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                 ${active === "profile" ? "active" : ""}`}>
                 <i className="fas fa-user ms-3 ms-md-0 me-2 pe-2"></i>

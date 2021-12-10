@@ -34,25 +34,25 @@ const BusinessHeader = ({user = sampleUser}) => {
     const isVerified = user.businessData.verified;
     const restaurant = user.businessData.restaurant;
 
-
     // Get claim status
     const claimStatus = useSelector(state => state.claim);
     const dispatch = useDispatch();
     useEffect(() => {
         checkClaimStatus(dispatch);
     }, [])
-    const claimRoute = claimStatus === "never" ? '/business/claim/search' : '/business/claim/status';
+    const claimRoute = claimStatus === "never" ? '/business/claim/search'
+                                               : '/business/claim/status';
 
     return (
         <div className="row d-flex flex-nowrap align-items-end wd-business-header">
 
             {/******************************Profile Header Avatar**************************/}
-             <div className="col-4 col-lg-3 d-flex justify-content-center px-0">
-                 <div className="wd-business-avatar shadow card bg-transparent">
-                     <img src={user.image_url}
-                          className="img-thumbnail bg-light" alt="..."/>
-                 </div>
-             </div>
+            <div className="col-4 col-lg-3 d-flex justify-content-center px-0">
+                <div className="wd-business-avatar shadow card bg-transparent">
+                    <img src={user.image_url}
+                         className="img-thumbnail bg-light" alt="..."/>
+                </div>
+            </div>
 
             {/******************************Profile Header Title**************************/}
             <div className="col-7 col-lg-6 d-flex flex-column pb-3 px-0 mb-4 justify-content-end">
@@ -60,10 +60,9 @@ const BusinessHeader = ({user = sampleUser}) => {
 
                     {/**********************Verified Business Owner*************************/}
                     {isVerified && restaurant.name &&
-                     <HashLink smooth to="/business#top"
-                               className="wd-business-back-top fs-1 text-nowrap">
+                     <div className="fs-1 text-nowrap">
                          {restaurant.name}
-                     </HashLink>
+                     </div>
                     }
 
                     {/**********************Unverified Business Owner*************************/}
@@ -80,29 +79,30 @@ const BusinessHeader = ({user = sampleUser}) => {
                          Claim <span className="d-none d-sm-inline">Business</span>
                      </Link>
                     }
+                </div>
+
+                <div>
                     {isVerified &&
-                    <Link
-                        className="btn btn-info rounded-pill fw-bold  ms-auto me-xl-2 px-3"
+                     <h4 className="my-0">Welcome back, {user.firstName}</h4>
+                    }
+                    {isVerified &&
+                     <div className="d-flex align-items-end mb-1">
+                     <div className="text-black-50">Here's what's going on with your business
+                         today</div>
+                        <Link
+                        className="btn btn-info rounded-pill fw-bold text-nowrap ms-auto me-xl-2 px-3"
                         to={`/restaurants/${user.businessData.restaurant.id}`}>
-                        View <span className="d-none d-sm-inline">Restaurant</span>
-                    </Link>
+                        View <span className="d-none d-md-inline">Restaurant</span>
+                        </Link>
+                     </div>
                     }
 
                 </div>
 
-                {isVerified &&
-                 <h4>Welcome back, {user.firstName}</h4>
-                }
-                {isVerified &&
-                 <div className="text-black-50">Here's what's going on with your business
-                     today</div>
-                }
 
             </div>
 
         </div>
-
-
 
     )
 }

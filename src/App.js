@@ -39,8 +39,8 @@ import AdminHomeScreen from "./components/AdminHomeScreen";
 import AdminClaimScreen from "./components/AdminClaimScreen";
 import AdminClaimDetail from "./components/AdminClaimScreen/AdminClaimDetail";
 import BusinessProfileScreen from "./components/BusinessProfileScreen";
-import BusinessClaimSearchComponent
-    from "./components/BusinessClaimScreen/BusinessClaimSearchComponent";
+import BusinessClaimSearchScreen
+    from "./components/BusinessClaimScreen/BusinessClaimSearchScreen";
 import PublicProfileScreen from "./components/ProfileScreen/PublicProfileScreen";
 import ProfileReviewsScreen from "./components/ProfileReviewsScreen";
 import ProfileFollowersScreen from "./components/ProfileFollowersScreen";
@@ -51,6 +51,8 @@ import profileVerification from "./reducers/profileVerification";
 import customerReviews from "./reducers/customerReviews";
 import HomeScreen from "./components/HomeScreen";
 import publicProfile from "./reducers/publicProfile";
+import claim from "./reducers/claim";
+import claims from "./reducers/claims";
 
 function App() {
     const reducer = combineReducers({
@@ -61,7 +63,8 @@ function App() {
                                         restaurant,
                                         profileVerification,
                                         customerReviews,
-                                        publicProfile
+                                        publicProfile,
+                                        claim, claims
                                     });
     const store = createStore(reducer);
 

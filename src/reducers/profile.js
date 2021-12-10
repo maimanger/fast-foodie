@@ -31,7 +31,7 @@ import users from "./data/profile/users.json"
 
 const defaultProfile = {};
 
-const profile = (state = defaultProfile, action) => {
+const profile = (state = {}, action) => {
     switch (action.type) {
         case 'fetch-profile':
             return action.profile;

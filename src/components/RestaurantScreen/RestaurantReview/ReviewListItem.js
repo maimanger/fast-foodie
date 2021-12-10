@@ -1,62 +1,75 @@
 import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {deleteReview, updateReview} from "../../../services/reviewService";
-import restaurant from "../../../reducers/restaurant";
-
+import CustomerEditDelete from "./CustomerEditDelete";
+import AdminDelete from "./AdminDelete";
 const ReviewListItem = ({review}) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const profile = useSelector(state => state.profile);
-  const deleteReviewClickHandler = () => {deleteReview(dispatch, review)}
-  const [isEdited, setIsEdited] = useState(false);
-  const [editedReview, setEditedReview] = useState(review);
-  const editReviewClickHandler = () => setIsEdited(true);
+  // const deleteReviewClickHandler = () => {deleteReview(dispatch, review)}
+  // const [isEdited, setIsEdited] = useState(false);
+  // const [editedReview, setEditedReview] = useState(review);
+  // const editReviewClickHandler = () => setIsEdited(true);
+  //
+  // const buttons = <div className="mt-3">
+  //                   <span>
+  //                     <button onClick={deleteReviewClickHandler} className="btn btn-danger float-end">
+  //                       Delete
+  //                     </button>
+  //                   </span>
+  //                   <span >
+  //                     <button onClick={editReviewClickHandler} className="btn btn-info me-3 float-end">
+  //                         Edit
+  //                     </button>
+  //                   </span>
+  //                 </div>
+  //
+  // const onReviewTextChange = (event) => setEditedReview({...editedReview, text: event.target.value})
+  // const cancelClickHandler = () => setIsEdited(false);
+  // const saveReview = () => {
+  //   updateReview(dispatch, editedReview);
+  //   setIsEdited(false)
+  // }
+  // const editInput = <div className="">
+  //   <div className="row mt-4"></div>
+  //   <div className="mt-5">
+  //   <input className="form-control" value={editedReview.text} onChange={onReviewTextChange}/>
+  //   </div>
+  //   <div className="mt-3">
+  //     <span><button onClick={ cancelClickHandler } className="btn btn-secondary float-end">Cancel</button></span>
+  //     <span><button onClick={ saveReview } className="btn btn-primary me-3 float-end">Save</button></span>
+  //   </div>
+  // </div>
+    let operation;
+    switch (profile.role){
+      case 'customer':
+        operation = <CustomerEditDelete review={review}/>
+        break;
+      case 'admin':
 
-  const buttons = <div className="mt-3">
-                    <span>
-                      <button onClick={deleteReviewClickHandler} className="btn btn-danger float-end">
-                        Delete
-                      </button>
-                    </span>
-                    <span >
-                      <button onClick={editReviewClickHandler} className="btn btn-info me-3 float-end">
-                          Edit
-                      </button>
-                    </span>
-                  </div>
-
-  const onReviewTextChange = (event) => setEditedReview({...editedReview, text: event.target.value})
-  const cancelClickHandler = () => setIsEdited(false);
-  const saveReview = () => {
-    updateReview(dispatch, editedReview);
-    setIsEdited(false)
-  }
-  const editInput = <div className="">
-    <div className="row mt-4"></div>
-    <div className="mt-5">
-    <input className="form-control" value={editedReview.text} onChange={onReviewTextChange}/>
-    </div>
-    <div className="mt-3">
-      <span><button onClick={ cancelClickHandler } className="btn btn-secondary float-end">Cancel</button></span>
-      <span><button onClick={ saveReview } className="btn btn-primary me-3 float-end">Save</button></span>
-    </div>
-  </div>
+        operation = <AdminDelete review={review}/>
+        console.log(operation)
+        break;
+      default:
+        operation = '';
+        break;
+    }
 
 
 
     return (
-        <li className="list-group-item border-0 p-0">
+        <li className="list-group-item border-0 p-0 bg-transparent">
             <div className="row border-top p-3">
                 <div className="col-4">
                     <div className="d-flex flex-row">
-            
                         <div className="">
                             <img src={review.user.image_url} width="56px" height="56px" className="rounded-3"/>
                         </div>
                         <div className="ms-3"> 
                             <div> {review.user.name} </div>
-                            <div> Bridgeport, Chicago, IL </div>
-                            <div> <i className="fas fa-user-friends"></i> 56 friends </div>
-                            <div> <i className="far fa-star"></i> 56 reviews </div>
+                            <div> Boston, MA </div>
+                            <div> <i className="fas fa-user-friends"></i> 54 friends </div>
+                            <div> <i className="far fa-star"></i> 43 reviews  </div>
                         </div>
             
                     </div>
@@ -107,10 +120,11 @@ const ReviewListItem = ({review}) => {
                     </div>
                 </div>
             </div>
-              {review.user === profile._id + ''? buttons: ''}
+              {/*{review.user === profile._id + ''? buttons: ''}*/}
 
-              {isEdited === true ? editInput: ''}
-
+              {/*{isEdited === true ? editInput: ''}*/}
+              {operation}
+              {/*<CustomerEditDelete review={{review}}/>*/}
             </div>
             </div>
             </li>)

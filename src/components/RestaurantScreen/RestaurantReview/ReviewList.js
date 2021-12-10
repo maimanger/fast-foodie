@@ -18,7 +18,6 @@ const ReviewList = () => {
                 {
                     customerReviews.map(review => <ReviewListItem key={review._id} review={review} />)
                 }
-
             </ul>
 
         {/*<ul className="list-group mt-3">*/}
@@ -27,8 +26,6 @@ const ReviewList = () => {
         {/*    }*/}
 
         {/*</ul>*/}
-
-
         </div>
     )
 

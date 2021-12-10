@@ -1,7 +1,4 @@
 import React from "react";
-import allActivities from "../components/CustomerHomeScreen/RecentActivityComponent/data/defaultActivities.json";
-import nearbyActivities from "../components/CustomerHomeScreen/RecentActivityComponent/data/nearbyActivities.json";
-import followingsActivities from "../components/CustomerHomeScreen/RecentActivityComponent/data/followingsActivities.json"
 import {API_URL} from "../CONST";
 
 const getHomepageAllRecentActivities = () => {

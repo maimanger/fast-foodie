@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
 import "./Business.css";
 import restaurants from "../../reducers/data/restaurants/nyc.json"
 import users from "../../reducers/data/profile/users.json"
 import {useLocation} from "react-router";
+import {checkClaimStatus} from "../../services/claimService";
+import {useDispatch, useSelector} from "react-redux";
 
 let sampleUser = {
     "role": "",
@@ -31,6 +33,15 @@ const BusinessHeader = ({user = sampleUser}) => {
     const currentURL = useLocation();
     const isVerified = user.businessData.verified;
     const restaurant = user.businessData.restaurant;
+
+
+    // Get claim status
+    const claimStatus = useSelector(state => state.claim);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        checkClaimStatus(dispatch);
+    }, [])
+    const claimRoute = claimStatus === "never" ? '/business/claim/search' : '/business/claim/status';
 
     return (
         <div className="row d-flex flex-nowrap align-items-end wd-business-header">
@@ -70,10 +81,18 @@ const BusinessHeader = ({user = sampleUser}) => {
                      </HashLink>
                     }
                     {!isVerified &&
-                     <button
-                         className="btn btn-info rounded-pill fw-bold  ms-auto me-2 me-xl-5 px-3">
+                     <Link
+                         className="btn btn-info rounded-pill fw-bold  ms-auto me-2 me-xl-5 px-3"
+                         to={claimRoute}>
                          Claim <span className="d-none d-sm-inline">Business</span>
-                     </button>
+                     </Link>
+                    }
+                    {isVerified &&
+                    <Link
+                        className="btn btn-info rounded-pill fw-bold  ms-auto me-2 me-xl-5 px-3"
+                        to={`/restaurants/${user.businessData.restaurant.id}`}>
+                        <span className="d-none d-sm-inline"> My Restaurant</span>
+                    </Link>
                     }
 
                 </div>

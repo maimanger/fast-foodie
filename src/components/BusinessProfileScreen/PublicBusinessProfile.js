@@ -56,6 +56,8 @@ const PublicBusinessProfile = ({profile}) => {
                 <div className="col-7 col-lg-6 px-0">
                     <BusinessProfile profile={profile}/>
                 </div>
+
+                {JSON.stringify(profile)}
             </div>
 
 

@@ -16,16 +16,6 @@ const PublicProfileScreen = () => {
     const dispatch = useDispatch();
     const userId = useParams().id;
 
-    const getProfiles = () => {
-        findUserById(userId, dispatch)
-            .then(() => {
-                fetchProfile(dispatch)
-                    .catch(err => console.log(err))
-            })
-
-    }
-    useEffect(getProfiles, [])
-
     let profile = {
         "role": "",
         "username": "",
@@ -85,6 +75,16 @@ const PublicProfileScreen = () => {
     profile = {...profile, ...fetchedProfile};
     const fetchedPublicProfile = useSelector(state => state.publicProfile);
     publicProfile = {...publicProfile, ...fetchedPublicProfile};
+
+
+    const getProfiles = () => {
+        findUserById(userId, dispatch);
+        fetchProfile(dispatch)
+            .catch(err => console.log(err))
+    }
+    useEffect(getProfiles, [])
+
+
 
     let isFollowing = false;
     if (Object.keys(profile).length !== 0

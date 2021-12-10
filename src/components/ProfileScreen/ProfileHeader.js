@@ -5,7 +5,7 @@ import "./Profile.css";
 import users from "../../reducers/users";
 import {fetchProfile, follow, unfollow} from "../../services/profileService";
 import {useDispatch, useSelector} from "react-redux";
-import {Redirect, useHistory} from "react-router";
+import {Redirect, useHistory} from "react-router-dom";
 
 const ProfileHeader = ({profile, setEdit = null, edit = null, isFollowing = false}) => {
 

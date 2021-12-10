@@ -5,7 +5,7 @@ export const fetchAllReviewsByRestaurantId = (dispatch, restaurantId) => {
   fetch(`${COMMENT_API}/${restaurantId}/reviews`)
   .then(response => response.json())
   .then(reviews => {
-    console.log(reviews);
+
     dispatch({
       type: 'fetch-all-reviews',
       reviews
@@ -46,6 +46,19 @@ export const updateReview = (dispatch, review) => {
     }
   }).then(response => dispatch({
     type: 'update-review',
+    newReview: review,
+  }))
+}
+
+export const updateReply = (dispatch, review) => {
+  fetch(`${COMMENT_API}/reviews/${review._id}/reply`, {
+    method: 'PUT',
+    body: JSON.stringify(review),
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then(response => dispatch({
+    type: 'update-reply',
     newReview: review,
   }))
 }

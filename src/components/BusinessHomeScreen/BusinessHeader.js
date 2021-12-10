@@ -5,8 +5,9 @@ import "./Business.css";
 import restaurants from "../../reducers/data/restaurants/nyc.json"
 import users from "../../reducers/data/profile/users.json"
 import {useLocation} from "react-router";
-import {checkClaimStatus} from "../../services/claimService";
+import {initClaim} from "../../services/claimService";
 import {useDispatch, useSelector} from "react-redux";
+import {fetchProfile} from "../../services/profileService";
 
 let sampleUser = {
     "role": "",
@@ -35,13 +36,19 @@ const BusinessHeader = ({user = sampleUser}) => {
     const restaurant = user.businessData.restaurant;
 
     // Get claim status
-    const claimStatus = useSelector(state => state.claim);
+    const claim = useSelector(state => state.claim);
     const dispatch = useDispatch();
     useEffect(() => {
-        checkClaimStatus(dispatch);
-    }, [])
-    const claimRoute = claimStatus === "never" ? '/business/claim/search'
-                                               : '/business/claim/status';
+        initClaim(dispatch);
+    }, [user])
+
+    let claimRoute = '';
+    if (claim === undefined || Object.keys(claim).length === 0) {
+        claimRoute = '/business/claim/search'
+    } else {
+        claimRoute = '/business/claim/status';
+    }
+
 
     return (
         <div className="row d-flex flex-nowrap align-items-end wd-business-header">
@@ -97,10 +104,7 @@ const BusinessHeader = ({user = sampleUser}) => {
                     }
 
                 </div>
-
-
             </div>
-
         </div>
 
     )

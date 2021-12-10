@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import ReviewList from "./ReviewList";
 import {useDispatch, useSelector} from "react-redux";
 import moment from "moment";
 import {postNewReview} from "../../../services/reviewService";
@@ -29,6 +28,13 @@ const WriteReview = ({profile}) => {
         url: imageURL,
         text: 'review_image'
       }],
+      userInfo: {
+        username: profile.username,
+        avatar_url: profile.image_url,
+        location: profile.location,
+        reviewNum: profile.customerData.reviews.length + 1,
+        friendNum: profile.customerData.followings.length,
+      },
       replies: [{
         user: '',
         text: '',

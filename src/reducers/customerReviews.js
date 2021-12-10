@@ -25,6 +25,8 @@ const customerReviews = (state = [], action) => {
       return (state.filter(review => review._id !== action.review._id));
     case 'update-review':
       return state.map(oldReview => action.newReview._id === oldReview._id ? action.newReview : oldReview);
+    case 'update-reply':
+      return state.map(oldReview => action.newReview._id === oldReview._id ? action.newReview : oldReview);
     default:
       return state;
   }

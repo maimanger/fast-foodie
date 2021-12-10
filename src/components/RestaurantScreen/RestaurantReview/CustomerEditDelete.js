@@ -13,16 +13,16 @@ const CustomerEditDelete = ({review}) => {
 
   const buttons = <div className="mt-3">
                     <span>
-                      <button onClick={deleteReviewClickHandler} className="btn btn-danger float-end">
+                      <button onClick={deleteReviewClickHandler} type="button" className="btn btn-danger float-end">
                         Delete
                       </button>
                     </span>
-    <span >
-                      <button onClick={editReviewClickHandler} className="btn btn-info me-3 float-end">
+                    <span >
+                      <button onClick={editReviewClickHandler} type="button" className="btn btn-info me-3 float-end">
                           Edit
                       </button>
                     </span>
-  </div>
+                  </div>
 
   const onReviewTextChange = (event) => setEditedReview({...editedReview, text: event.target.value})
   const cancelClickHandler = () => setIsEdited(false);
@@ -36,8 +36,8 @@ const CustomerEditDelete = ({review}) => {
       <input className="form-control" value={editedReview.text} onChange={onReviewTextChange}/>
     </div>
     <div className="mt-3">
-      <span><button onClick={ cancelClickHandler } className="btn btn-secondary float-end">Cancel</button></span>
-      <span><button onClick={ saveReview } className="btn btn-primary me-3 float-end">Save</button></span>
+      <span><button onClick={ cancelClickHandler } type="button" className="btn btn-secondary float-end">Cancel</button></span>
+      <span><button onClick={ saveReview } type="button" className="btn btn-primary me-3 float-end">Save</button></span>
     </div>
   </div>
 

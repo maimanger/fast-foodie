@@ -1,59 +1,37 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
-import {deleteReview, updateReview} from "../../../services/reviewService";
 import CustomerEditDelete from "./CustomerEditDelete";
 import AdminDelete from "./AdminDelete";
-const ReviewListItem = ({review}) => {
-  // const dispatch = useDispatch();
-  const profile = useSelector(state => state.profile);
-  // const deleteReviewClickHandler = () => {deleteReview(dispatch, review)}
-  // const [isEdited, setIsEdited] = useState(false);
-  // const [editedReview, setEditedReview] = useState(review);
-  // const editReviewClickHandler = () => setIsEdited(true);
-  //
-  // const buttons = <div className="mt-3">
-  //                   <span>
-  //                     <button onClick={deleteReviewClickHandler} className="btn btn-danger float-end">
-  //                       Delete
-  //                     </button>
-  //                   </span>
-  //                   <span >
-  //                     <button onClick={editReviewClickHandler} className="btn btn-info me-3 float-end">
-  //                         Edit
-  //                     </button>
-  //                   </span>
-  //                 </div>
-  //
-  // const onReviewTextChange = (event) => setEditedReview({...editedReview, text: event.target.value})
-  // const cancelClickHandler = () => setIsEdited(false);
-  // const saveReview = () => {
-  //   updateReview(dispatch, editedReview);
-  //   setIsEdited(false)
-  // }
-  // const editInput = <div className="">
-  //   <div className="row mt-4"></div>
-  //   <div className="mt-5">
-  //   <input className="form-control" value={editedReview.text} onChange={onReviewTextChange}/>
-  //   </div>
-  //   <div className="mt-3">
-  //     <span><button onClick={ cancelClickHandler } className="btn btn-secondary float-end">Cancel</button></span>
-  //     <span><button onClick={ saveReview } className="btn btn-primary me-3 float-end">Save</button></span>
-  //   </div>
-  // </div>
-    let operation;
-    switch (profile.role){
-      case 'customer':
-        operation = <CustomerEditDelete review={review}/>
-        break;
-      case 'admin':
+import BusinessReply from "./BusinessReply";
 
-        operation = <AdminDelete review={review}/>
-        console.log(operation)
-        break;
-      default:
-        operation = '';
-        break;
-    }
+const ReviewListItem = ({review}) => {
+
+  const profile = useSelector(state => state.profile);
+  const [user, setUser] = useState({})
+
+  let operation;
+  switch (profile.role){
+    case 'customer':
+      operation = <CustomerEditDelete review={review}/>;
+      break;
+    case 'admin':
+      operation = <AdminDelete review={review}/>;
+      break;
+    case 'business':
+      operation = <BusinessReply review={review}/>
+      break;
+    default:
+      operation = '';
+      break;
+  }
+
+  // const getReviewUser = () => {
+  //   fetch(`http://localhost:8000/api/users/${review.user}`)
+  //     .then(response => response.json())
+  //     .then(user => setUser(user))
+  // }
+  // useEffect(getReviewUser, [])
+  // console.log(user)
 
 
 
@@ -63,13 +41,13 @@ const ReviewListItem = ({review}) => {
                 <div className="col-4">
                     <div className="d-flex flex-row">
                         <div className="">
-                            <img src={review.user.image_url} width="56px" height="56px" className="rounded-3"/>
+                            <img src={review.userInfo.avatar_url} width="56px" height="56px" className="rounded-3"/>
                         </div>
-                        <div className="ms-3"> 
-                            <div> {review.user.name} </div>
-                            <div> Boston, MA </div>
-                            <div> <i className="fas fa-user-friends"></i> 54 friends </div>
-                            <div> <i className="far fa-star"></i> 43 reviews  </div>
+                        <div className="ms-3">
+                            <div> {review.userInfo.username} </div>
+                            <div> {review.userInfo.location} </div>
+                            <div> <i className="fas fa-user-friends"></i> {review.userInfo.friendNum} friends </div>
+                            <div> <i className="far fa-star"></i> {review.userInfo.reviewNum} reviews  </div>
                         </div>
             
                     </div>
@@ -102,29 +80,38 @@ const ReviewListItem = ({review}) => {
             {/************************Review Img**************************/}
             <div className="d-lg-flex gap-3 col-8 col-sm-7 col-md-6 col-lg-10 col-xl-8">
                 <div className="card text-white">
-                    <img src="/images/ProfilePage/review.jpg" className="card-img-top img-fluid"/>
-                    <div
-                        className="card-img-overlay d-flex py-0 px-0 flex-column justify-content-end w-auto h-auto">
-                                 <span className="bg-black bg-opacity-50 px-2">
-                                 Delicious dinner!
-                                 </span>
-                    </div>
+                    <img src={review.img[0].url} className="card-img-top img-fluid"/>
+                    {/*<div*/}
+                    {/*    className="card-img-overlay d-flex py-0 px-0 flex-column justify-content-end w-auto h-auto">*/}
+                    {/*             <span className="bg-black bg-opacity-50 px-2">*/}
+                    {/*             Delicious dinner!*/}
+                    {/*             </span>*/}
+                    {/*</div>*/}
                 </div>
-                <div className="card text-white">
-                    <img src="/images/ProfilePage/review.jpg" className="card-img-top img-fluid"/>
-                    <div
-                        className="card-img-overlay d-flex px-0 py-0 flex-column justify-content-end w-auto h-auto">
-                                     <span className="bg-black bg-opacity-50 px-2">
-                                         Delicious dinner!
-                                     </span>
-                    </div>
-                </div>
-            </div>
-              {/*{review.user === profile._id + ''? buttons: ''}*/}
 
-              {/*{isEdited === true ? editInput: ''}*/}
+            </div>
+
+              {review.replies[0].text !== '' &&
+              <div>
+                <div>
+                  <br/>
+                  <div><span>Reply from the owner on {review.replies[0].time_created.split(' ')[0]}</span></div>
+                  {/*<Link className="text-info wd-profile-link-text mx-1"*/}
+                  {/*      to={`/profile/${review.user._id}`}>*/}
+                  {/*  {profile.firstName} {profile.lastName}*/}
+                  {/*</Link>*/}
+                  <div className="text-muted fst-italic"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>{review.replies[0].text}</span></div>
+                </div>
+                {/*<div className="text-muted fst-italic text-nowrap">*/}
+                {/*           <span className="d-none d-md-inline">*/}
+                {/*           {review.replies[0].time_created.split(' ')[0]}*/}
+                {/*           </span>*/}
+
+                {/*</div>*/}
+              </div>}
+
               {operation}
-              {/*<CustomerEditDelete review={{review}}/>*/}
+
             </div>
             </div>
             </li>)

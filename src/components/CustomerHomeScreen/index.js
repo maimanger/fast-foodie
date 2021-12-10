@@ -10,6 +10,8 @@ import {fetchProfile, follow, unfollow} from "../../services/profileService";
 import isLoggedIn from "./utils/isLoggedIn";
 import defaultLocation from "./utils/defaultLocation.json";
 import {API_URL} from "../../CONST";
+import {Link} from "react-router-dom";
+import {checkClaimStatus} from "../../services/claimService";
 
 const CustomerHomeScreen = () => {
 
@@ -42,6 +44,7 @@ const CustomerHomeScreen = () => {
         setLocation(newLocation);
     }
 
+
     // follow test
 
     // const clickHandler = () => {
@@ -52,8 +55,22 @@ const CustomerHomeScreen = () => {
     //     unfollow(user2, dispatch);
     // }
 
+
+
+    // business claim test
+
+    // if (profile !== undefined && Object.keys(profile).length !== 0 && profile['role'] === 'business') {
+    //     checkClaimStatus()
+    //         .then(res => {
+    //             console.log(res);
+    //         })
+    // }
     return(
         <div className={"bg-white"}>
+            {/*<div>*/}
+            {/*    <Link to={"/business/claim/search"}><button>claim</button></Link>*/}
+            {/*</div>*/}
+
             <BannerComponent profile={profile} location={location} locationUpdateHandler={locationChangeHandler}/>
             <RecommendationComponent location={location}/>
             <CategoryBrowseComponent location={location}/>

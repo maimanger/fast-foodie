@@ -1,13 +1,24 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import AdminNavSidebar from "../AdminHomeScreen/AdminNavSidebar";
 import AdminClaims from "./AdminClaims";
 import claims from "../../reducers/data/adminHome/adminClaims.json"
+import {useDispatch, useSelector} from "react-redux";
+import {getAllClaims} from "../../services/claimService";
 
 
 
 const AdminClaimScreen = () => {
 
+    const claims = useSelector(state => state.claims);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        getAllClaims(dispatch);
+    }, [])
+
+    if (claims === undefined || claims.length === 0) {
+        return <></>
+    }
     return (
         <>
             <div className="container-fluid vw-100 p-0">

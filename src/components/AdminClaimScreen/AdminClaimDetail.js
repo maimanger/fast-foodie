@@ -1,15 +1,21 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import AdminNavSidebar from "../AdminHomeScreen/AdminNavSidebar";
 import AdminClaims from "./AdminClaims";
 import "../AdminHomeScreen/Admin.css"
 import claims from "../../reducers/data/adminHome/adminClaims.json";
 import {Link, useParams} from "react-router-dom";
+import {getClaimById} from "../../services/claimService";
 
 const AdminClaimDetail = () => {
-    const {claimId} = useParams();
-    let targetClaim = claims.find(claim => claim._id === claimId);
-    let targetFile = targetClaim.file_url;
-
+    const claimId = useParams().claimId;
+    const [claim, setClaim] = useState({});
+    useEffect(() => {
+        getClaimById(claimId)
+            .then(res => {
+                setClaim(res)
+            })
+    })
+    let targetFile = claim.file_url;
     return (
         <>
             <div className="container-fluid vw-100 p-0">

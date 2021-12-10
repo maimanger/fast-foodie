@@ -44,21 +44,23 @@ const RecentActivityComponent = () => {
     //     count += 6;
     // }
 
-    return (
-        <div className={"homescreen-recent-activity-container text-center p-5"}>
-            <h4 className={"text-danger fw-bold mb-5"}>Recent Activity</h4>
 
-            {isLoggedIn && <RecentActivityNavigation clickHandler={navigationClickHandler} content={<RecentActivityCards activities={activities}/>}/>}
-            {!isLoggedIn && <RecentActivityCards activities={activities} /> }
+        return (
+            <div className={"homescreen-recent-activity-container text-center p-5"}>
+                <h4 className={"text-danger fw-bold mb-5"}>Recent Activity</h4>
 
-            {/*************  show more pagination  **************/}
-            {/*<div className={"homescreen-recent-activity-show-more-container d-flex justify-content-center align-items-center"}>*/}
-            {/*    <i className="fas fa-chevron-down me-3" />*/}
-            {/*    <div className={"text-danger"}>Show More</div>*/}
-            {/*</div>*/}
-        </div>
+                {isLoggedIn && <RecentActivityNavigation clickHandler={navigationClickHandler} content={<RecentActivityCards activities={activities}/>}/>}
+                {!isLoggedIn && <RecentActivityCards activities={activities} /> }
 
-    )
+                {/*************  show more pagination  **************/}
+                {/*<div className={"homescreen-recent-activity-show-more-container d-flex justify-content-center align-items-center"}>*/}
+                {/*    <i className="fas fa-chevron-down me-3" />*/}
+                {/*    <div className={"text-danger"}>Show More</div>*/}
+                {/*</div>*/}
+            </div>
+
+        )
+
 }
 
 export default RecentActivityComponent;

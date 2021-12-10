@@ -113,3 +113,8 @@ export const findUserById = (userId, dispatch) => {
                      })
         }).catch(err => {console.log(err)})
 }
+
+export const findOneUserById = (userId) => {
+    return fetch(`${API_URL}/users/${userId}`)
+        .then(res => res.json())
+}

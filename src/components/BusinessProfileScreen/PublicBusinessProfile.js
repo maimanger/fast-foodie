@@ -25,13 +25,11 @@ const PublicBusinessProfile = ({profile}) => {
                             </div>
                         </div>
 
-                        <div className="col-5 col-lg-4 d-flex flex-column
-                               pb-3 px-0 mb-4 justify-content-end">
+                        <div className="col-5 col-lg-4 d-flex flex-column pb-3 px-0 mb-4 justify-content-end">
                             <div className="d-flex align-items-center">
-                                <HashLink smooth to={`${currentURL}#top`}
-                                          className="wd-business-back-top fs-1 text-nowrap">
+                                <div className="fs-1 text-nowrap">
                                     {profile.firstName} {profile.lastName}
-                                </HashLink>
+                                </div>
                             </div>
                         </div>
 

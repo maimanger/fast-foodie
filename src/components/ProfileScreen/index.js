@@ -13,6 +13,8 @@ import {useHistory} from "react-router-dom";
 import {Redirect, Route} from "react-router";
 import {fetchUserActivities} from "../../services/userActivitiesService";
 import recentActivities from "../../reducers/recentActivities";
+import {fetchUserNotifications} from "../../services/userNotificationsService";
+import notifications from "../../reducers/notifications";
 
 const ProfileScreen = () => {
     const [edit, setEdit] = useState(false);
@@ -24,13 +26,17 @@ const ProfileScreen = () => {
         fetchProfile(dispatch)
             .catch(e => history.push('/login'))
     }
-    const getActivities = () => {
+    const getActivitiesAndNotifications = () => {
         fetchUserActivities(dispatch)
-            .catch(e => console.log(e))
+            .then(res => {
+                fetchUserNotifications(dispatch)
+                    .catch(e => console.log(e))
+            })
     }
-    const loadData = () => {
-        getProfile();
-        getActivities();
+
+    const loadData = async() => {
+        await getProfile();
+        await getActivitiesAndNotifications();
     }
 
     useEffect(loadData, [history])
@@ -69,6 +75,7 @@ const ProfileScreen = () => {
     profile = {...profile, ...fetchedProfile};
 
     const fetchedActivities = useSelector(state => state.recentActivities);
+    const fetchedNotifications = useSelector(state => state.notifications);
 
     if (profile.role === "business") {
         history.push('/business/profile');
@@ -131,6 +138,7 @@ const ProfileScreen = () => {
                 </div>
                 {/*{JSON.stringify(profile)}*/}
                 {/*{JSON.stringify(fetchedActivities)}*/}
+                {JSON.stringify(fetchedNotifications)}
             </div>
         </>
     )

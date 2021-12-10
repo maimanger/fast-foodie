@@ -5,9 +5,14 @@ const recentActivities = (state = [], action) => {
         case 'fetch-userActivities':
             return action.activities;
             break;
-    }
 
-    return state;
+        case 'new-userActivity':
+            return [...state, action.newActivity];
+            break;
+
+        default:
+            return state;
+    }
 }
 
 export default recentActivities;

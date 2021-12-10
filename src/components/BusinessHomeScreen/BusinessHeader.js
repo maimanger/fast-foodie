@@ -67,10 +67,9 @@ const BusinessHeader = ({user = sampleUser}) => {
 
                     {/**********************Unverified Business Owner*************************/}
                     {!isVerified &&
-                     <HashLink smooth to={`${currentURL}#top`}
-                               className="wd-business-back-top fs-1 text-nowrap">
+                     <div className="fs-1 text-nowrap">
                          {user.firstName} {user.lastName}
-                     </HashLink>
+                     </div>
                     }
                     {!isVerified &&
                      <Link

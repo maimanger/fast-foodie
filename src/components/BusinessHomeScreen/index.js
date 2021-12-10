@@ -9,9 +9,9 @@ import users from "../../reducers/data/profile/users.json";
 import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
+import {fetchUserActivities} from "../../services/userActivitiesService";
 
 const BusinessHomeScreen = () => {
-    const user = users[users.length - 1];
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -20,7 +20,17 @@ const BusinessHomeScreen = () => {
         fetchProfile(dispatch)
             .catch(e => history.push('/login'))
     }
-    useEffect(getProfile, [history])
+    const getActivities = () => {
+        fetchUserActivities(dispatch)
+            .catch(e => console.log(e))
+    }
+    const loadData = () => {
+        getProfile();
+        getActivities();
+    }
+    useEffect(loadData, [history])
+
+
     /**********************************Get the login profile data******************************/
         // Set up a sample profile to avoid undefined type error
     let profile = {
@@ -42,9 +52,9 @@ const BusinessHomeScreen = () => {
         };
     let fetchedProfile = useSelector(state => state.profile);
     profile = {...profile, ...fetchedProfile};
-
     const isVerified = profile.businessData.verified;
 
+    const fetchedActivities = useSelector(state => state.recentActivities);
 
     return (
         <>
@@ -66,12 +76,12 @@ const BusinessHomeScreen = () => {
                     <div className="col-7 col-lg-6 d-flex flex-column px-0">
                         <div className="mb-3">
                             <h3 className="text-danger fw-bold">Notifications</h3>
-                            <BusinessNotifications/>
+                            {/*<BusinessNotifications/>*/}
                         </div>
                         <hr className="mb-4 mt-0"/>
                         <div>
                             <h3 className="text-danger fw-bold">Recent Activities</h3>
-                            <BusinessActivities/>
+                            <BusinessActivities activities={fetchedActivities}/>
                         </div>
                     </div>
 

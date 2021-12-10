@@ -2,9 +2,7 @@ import React from "react";
 import users from "../../reducers/data/profile/users.json"
 import ProfileFollowingItem from "./ProfileFollowingItem";
 
-const ProfileFollowings = () => {
-
-    const followings = users.slice(1, users.length - 2);
+const ProfileFollowings = ({followings=[]}) => {
 
     return (
         <>

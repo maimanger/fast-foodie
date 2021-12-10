@@ -28,8 +28,8 @@ const BusinessActivityItem = ({activity}) => {
                      <span>
                      You replied to the review of
                      <Link className="text-info wd-profile-link-text mx-1"
-                           to={`/profile/${activity.review.user._id}`}>
-                         {activity.review.user.firstName} {activity.review.user.lastName}
+                           to={`/profile/${activity.reviewDetail.userDetail._id}`}>
+                         {activity.reviewDetail.userDetail.firstName} {activity.reviewDetail.userDetail.lastName}
                      </Link>
                      </span>
                      </div>
@@ -45,17 +45,17 @@ const BusinessActivityItem = ({activity}) => {
                  <div className="d-flex flex-column">
                      <Collapse in={on}>
                          <Link to="#" className="wd-profile-content-hover text-black">
-                             <UserAvatarInfo user={activity.review.user}/>
-                             <ReviewStars review={activity.review}/>
-                             <ReviewItem review={activity.review}/>
+                             <UserAvatarInfo user={activity.reviewDetail.userDetail}/>
+                             <ReviewStars review={activity.reviewDetail}/>
+                             <ReviewItem review={activity.reviewDetail}/>
                              <div
                                  className="text-black opacity-75 mt-3 ms-5 ps-3 border-start border-4">
                              <span className="text-black-50">{moment(activity.time_created)
                                  .format("L")}</span>
                                  <br/>
                                  <span>
-                                     {activity.review.replies &&
-                                      activity.review.replies.find(reply => reply.user._id === activity.user._id).reply
+                                     {activity.reviewDetail.replies &&
+                                      activity.reviewDetail.replies.find(reply => reply.user === activity.user).text
                                          .split(" ").slice(0, 30).join(" ")}  ...
                                  </span>
                              </div>

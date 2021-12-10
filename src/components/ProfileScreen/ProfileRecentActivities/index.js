@@ -35,8 +35,6 @@ const ProfileRecentActivities = ({
                                      profile = defaultProfile
                                  }) => {
 
-    /*    const recentActivities = useSelector(state => state.recentActivities);*/
-
     return (
         <>
             {recentActivities.length === 0 && <div>No new activity at this time.</div>}

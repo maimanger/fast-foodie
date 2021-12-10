@@ -55,8 +55,7 @@ const BusinessHeader = ({user = sampleUser}) => {
              </div>
 
             {/******************************Profile Header Title**************************/}
-            <div className="col-6 col-sm-5 col-lg-6 d-flex flex-column
-                               pb-3 px-0 mb-4 justify-content-end">
+            <div className="col-7 col-lg-6 d-flex flex-column pb-3 px-0 mb-4 justify-content-end">
                 <div className="d-flex align-items-center">
 
                     {/**********************Verified Business Owner*************************/}
@@ -65,12 +64,6 @@ const BusinessHeader = ({user = sampleUser}) => {
                                className="wd-business-back-top fs-1 text-nowrap">
                          {restaurant.name}
                      </HashLink>
-                    }
-                    {isVerified && restaurant.id &&
-                     <Link to={`/restaurants/${restaurant.id}`}
-                           className="text-info fs-5 mx-4 wd-business-link-text mt-3">
-                         view
-                     </Link>
                     }
 
                     {/**********************Unverified Business Owner*************************/}
@@ -82,16 +75,16 @@ const BusinessHeader = ({user = sampleUser}) => {
                     }
                     {!isVerified &&
                      <Link
-                         className="btn btn-info rounded-pill fw-bold  ms-auto me-2 me-xl-5 px-3"
+                         className="btn btn-info rounded-pill fw-bold ms-auto me-xl-2 px-3"
                          to={claimRoute}>
                          Claim <span className="d-none d-sm-inline">Business</span>
                      </Link>
                     }
                     {isVerified &&
                     <Link
-                        className="btn btn-info rounded-pill fw-bold  ms-auto me-2 me-xl-5 px-3"
+                        className="btn btn-info rounded-pill fw-bold  ms-auto me-xl-2 px-3"
                         to={`/restaurants/${user.businessData.restaurant.id}`}>
-                        <span className="d-none d-sm-inline"> My Restaurant</span>
+                        View <span className="d-none d-sm-inline">Restaurant</span>
                     </Link>
                     }
 

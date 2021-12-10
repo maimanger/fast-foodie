@@ -1,16 +1,63 @@
-import React, {useState} from "react";
-import {useSelector} from "react-redux";
-
-
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import ProfileHeader from "../ProfileScreen/ProfileHeader";
 import ProfileNavSidebar from "../ProfileScreen/ProfileNavSidebar";
 import EditProfile from "../ProfileScreen/EditProfile";
 import ProfileAboutMe from "../ProfileScreen/ProfileAboutMe";
 import ProfileFollowings from "./ProfileFollowings";
+import {useHistory} from "react-router-dom";
+import {fetchProfile} from "../../services/profileService";
 
 const ProfileFollowingsScreen = () => {
-    const profile = useSelector(state => state.profile);
+
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    // If no profile fetched (unlogin), go to login page
+    const getProfile = () => {
+        fetchProfile(dispatch)
+            .catch(e => history.push('/login'))
+    }
+    useEffect(getProfile, [history])
+
+    let profile = {
+        "role": "",
+        "username": "",
+        "password": "",
+        "email": "",
+        "firstName": "",
+        "lastName": "",
+        "image_url": "",
+        "location": "",
+        "birthday": "",
+        "dateJoined": "",
+        "customerData": {
+            "reviews": [],
+            "followings": [],
+            "followers": [],
+            "bookmarks": [],
+            "visibility": {
+                "location": true,
+                "birthday": true,
+                "bookmarks": true
+            }
+        },
+        "businessData": {
+            "verified": false,
+            "restaurantId": ""
+        }
+    }
+    let fetchedProfile = useSelector(state => state.profile);
+    profile = {...profile, ...fetchedProfile};
+
+    if (profile.role === "business") {
+        history.push('/business/profile');
+    } else if (profile.role === "admin") {
+        history.push('/admin');
+    }
+
     const [edit, setEdit] = useState(false);
+
 
     return (
         <>
@@ -26,7 +73,7 @@ const ProfileFollowingsScreen = () => {
 
                     {/****************************Profile NavSidebar**************************/}
                     <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
-                        <ProfileNavSidebar active="followings" visibility={profile.visibility}/>
+                        <ProfileNavSidebar active="followings" visibility={profile.customerData.visibility}/>
                     </div>
 
                     {/***************************Profile MainContent**************************/}
@@ -35,7 +82,7 @@ const ProfileFollowingsScreen = () => {
                          className="col-7 col-lg-6 d-flex flex-column px-0">
                          <div className="mb-3">
                              <h3 className="text-danger fw-bold">Followings</h3>
-                             <ProfileFollowings/>
+                             <ProfileFollowings followings={profile.customerData.followings}/>
                          </div>
                      </div>
                     }

@@ -21,10 +21,10 @@ const BusinessStatistics = ({restaurant}) => {
                  {restaurant.review_count.toLocaleString()}
              </div>*/}
 
-            <div className="mb-3">
+{/*            <div className="mb-3">
                 <h6 className="fw-bold">Bookmarks</h6>
                 {restaurantData.bookmarks_count.toLocaleString()}
-            </div>
+            </div>*/}
 
         </div>
     )

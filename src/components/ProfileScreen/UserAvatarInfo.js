@@ -7,8 +7,8 @@ const UserAvatarInfo = ({user}) => {
             {/************************User Avatar**************************/}
             <div className="col-auto">
                 <img src={user.image_url}
-                       className="img-fluid rounded-3"
-                       style={{width: 70, height: 70, objectFit: "cover"}} />
+                     className="img-fluid rounded-3"
+                     style={{width: 70, height: 70, objectFit: "cover"}}/>
             </div>
             {/************************User Info**************************/}
             <div className="col-12 col-md-8 d-flex flex-column">
@@ -21,14 +21,18 @@ const UserAvatarInfo = ({user}) => {
                 <div className="d-flex flex-nowrap text-muted">
                     <div className="me-3 text-black text-opacity-75">
                         <i className="fas fa-user-friends me-2 text-opacity-75 text-primary"></i>
-                        <span className="text-nowrap">
-                            {user.customerData.followers.length} <span className="d-none d-sm-inline">followers</span>
+                        {user.customerData.followers &&
+                         <span className="text-nowrap">
+                            {user.customerData.followers.length} <span
+                             className="d-none d-sm-inline">followers</span>
                         </span>
+                        }
                     </div>
                     <div className="text-black text-opacity-75">
                         <i className="fas fa-comment me-2 text-opacity-75 text-primary"></i>
                         <span className="text-nowrap">
-                            {user.customerData.reviews.length} <span className="d-none d-sm-inline">reviews</span>
+                            {user.customerData.reviews.length} <span
+                            className="d-none d-sm-inline">reviews</span>
                         </span>
                     </div>
                 </div>

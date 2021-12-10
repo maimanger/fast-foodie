@@ -49,7 +49,7 @@ const ProfileRecentActivityItem = ({activity, profile}) => {
                  {/*******************************Review content******************************/}
                  <div className="d-flex flex-column">
                      <Collapse in={on}>
-                     <HashLink to={`/restaurants/${activity.reviewDetail.restaurantDetail.id}#${activity.reviewDetail._id}`}
+                     <HashLink to={`/restaurants/${activity.reviewDetail.restaurantDetail.id}/review#${activity.reviewDetail._id}`}
                            className="wd-profile-content-hover text-black">
                          <RestaurantInfo restaurant={activity.reviewDetail.restaurantDetail}/>
                          <ReviewStars review={activity.reviewDetail}/>
@@ -168,7 +168,7 @@ const ProfileRecentActivityItem = ({activity, profile}) => {
                          You followed
                          <Link className="text-info wd-profile-link-text mx-1"
                                to={`/profile/${activity.followDetail._id}`}>
-                             Mike Shah</Link>
+                             {activity.followDetail.firstName} {activity.followDetail.lastName}</Link>
                      </div>
                      <div className="text-muted fst-italic text-nowrap">
                          <span className="d-none d-md-inline">

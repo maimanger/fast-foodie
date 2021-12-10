@@ -127,7 +127,7 @@ const PublicProfileScreen = () => {
                         </div>
                     </div>
 
-                    {JSON.stringify(publicProfile)}
+                    {/*{JSON.stringify(publicProfile)}*/}
                 </div>
             </>
         )

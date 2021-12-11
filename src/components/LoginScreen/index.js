@@ -52,7 +52,10 @@ const LoginScreen = () => {
                 dispatch({
                              type: "change-isValid",
                              isValid: true
-                         });
+                         })
+                dispatch({
+                    type: 'delete-profile'
+                })
                 history.push("/");
             })
     }

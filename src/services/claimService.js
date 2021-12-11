@@ -7,7 +7,6 @@ export const claimBusiness = (params) => {
             'content-type': 'application/json'
         },
         body: JSON.stringify(params),
-        credentials: 'include'
     })
 }
 
@@ -19,9 +18,7 @@ export const getClaim = () => {
 }
 
 export const getClaimById = (claimId) => {
-    return fetch(`${API_URL}/get_claim/${claimId}`, {
-        credentials: 'include'
-    })
+    return fetch(`${API_URL}/get_claim/${claimId}`)
         .then(res => res.json())
 }
 
@@ -50,9 +47,7 @@ export const initClaim = (dispatch) => {
 
 // Get all claims
 export const getAllClaims = (dispatch) => {
-    fetch(`${API_URL}/get_claims`, {
-        credentials: 'include'
-    })
+    fetch(`${API_URL}/get_claims`)
         .then(res => res.json())
         .then(response => {
             dispatch({
@@ -69,8 +64,7 @@ export const approveClaim = (dispatch, claim) => {
         body: JSON.stringify(claim),
         headers: {
             'content-type': 'application/json'
-        },
-        credentials: 'include'
+        }
     })
         .then(response => {
             dispatch({
@@ -86,8 +80,7 @@ export const denyClaim = (dispatch, claim) => {
         body: JSON.stringify(claim),
         headers: {
             'content-type': 'application/json'
-        },
-        credentials: 'include'
+        }
     })
         .then(response => {
             dispatch({

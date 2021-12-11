@@ -26,13 +26,7 @@ const LoginScreen = () => {
                              type: "change-isValid",
                              isValid: true
                          });
-                if (profile.role === "customer")  {
-                    history.push('/profile');
-                } else if (profile.role === "business") {
-                    history.push('/business');
-                } else if (profile.role === "admin") {
-                    history.push('/admin');
-                }
+                history.push('/profile');
             })
             .catch(e => {
                 dispatch({

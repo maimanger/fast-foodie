@@ -19,7 +19,7 @@ const AdminNotificationItem = ({notification}) => {
             </div>
 
             {/*********************************Message-in Notification*****************************/}
-{/*            {notification.type === "in-message" &&
+            {notification.type === "in-message" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
 
@@ -48,11 +48,11 @@ const AdminNotificationItem = ({notification}) => {
                      </Link>
                  </Collapse>
              </div>
-            }*/}
+            }
 
 
             {/*********************************Review Notification*****************************/}
-{/*            {notification.type === "report-review" &&
+            {notification.type === "report-review" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
 
@@ -87,11 +87,11 @@ const AdminNotificationItem = ({notification}) => {
                      </Collapse>
                  </div>
              </div>
-            }*/}
+            }
 
 
             {/*********************************Claim Notification*****************************/}
-            {notification.type === "new-claim" &&
+            {notification.type === "business-claim" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
 
@@ -100,8 +100,8 @@ const AdminNotificationItem = ({notification}) => {
                          <i className="fas fa-id-card me-3"></i>
                          <span>
                              <Link className="text-info wd-profile-link-text mx-1"
-                                   to={`/profile/${notification.claimDetail.userDetail._id}`}>
-                                 {notification.claimDetail.userDetail.firstName} {notification.claimDetail.userDetail.lastName}
+                                   to={`/profile/${notification.claim.user._id}`}>
+                                 {notification.claim.user.firstName} {notification.claim.user.lastName}
                              </Link>
                              claimed a business
                      </span>
@@ -109,16 +109,16 @@ const AdminNotificationItem = ({notification}) => {
 
                      <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                              onClick={() => setOn(!on)}>
-                         <i className="fas fa-caret-down" style={{fontSize: "20px"}}></i>
+                         <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
                      </button>
                  </div>
 
 
                  <Collapse in={on}>
-                     <Link to={`/restaurant/${notification.claimDetail.restaurantDetail.id}`}
+                     <Link to={`/restaurant/${notification.claim.restaurant.id}`}
                            className="wd-profile-content-hover text-black-50">
-                         <RestaurantInfo restaurant={notification.claimDetail.restaurantDetail}/>
-                         <RestaurantStars restaurant={notification.claimDetail.restaurantDetail}/>
+                         <RestaurantInfo restaurant={notification.claim.restaurant}/>
+                         <RestaurantStars restaurant={notification.claim.restaurant}/>
                      </Link>
                  </Collapse>
 

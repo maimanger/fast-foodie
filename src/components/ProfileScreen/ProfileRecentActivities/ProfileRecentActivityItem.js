@@ -26,7 +26,7 @@ const ProfileRecentActivityItem = ({activity, profile}) => {
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
                  <div className="mb-2 d-flex justify-content-between">
-                     <div className="pt-1">
+                     <div>
                          You wrote a review for
                          {activity.reviewDetail.restaurantDetail &&
                          <Link className="text-info wd-profile-link-text mx-1"
@@ -164,7 +164,7 @@ const ProfileRecentActivityItem = ({activity, profile}) => {
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
                  <div className="mb-2 d-flex justify-content-between">
-                     <div className="pt-1">
+                     <div>
                          You followed
                          <Link className="text-info wd-profile-link-text mx-1"
                                to={`/profile/${activity.followDetail._id}`}>

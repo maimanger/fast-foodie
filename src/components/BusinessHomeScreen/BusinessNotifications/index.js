@@ -5,7 +5,7 @@ import BusinessNotificationItem from "./BusinessNotificationItem";
 import notifications from "../../../reducers/data/businessHome/businessNotifications.json"
 
 
-const BusinessNotifications = ({notifications}) => {
+const BusinessNotifications = () => {
 
     return (
         <>

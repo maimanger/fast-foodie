@@ -7,10 +7,10 @@ export const fetchUserNotifications = (dispatch) => {
         credentials: 'include'
     })
         .then(res => res.json())
-        .then(notifications => {
+        .then(activities => {
             dispatch({
                          type: 'fetch-userNotifications',
-                         notifications
+                         activities
                      })
         })
 }

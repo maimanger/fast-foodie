@@ -56,7 +56,7 @@ const BusinessHeader = ({user = sampleUser}) => {
             {/******************************Profile Header Avatar**************************/}
             <div className="col-4 col-lg-3 d-flex justify-content-center px-0">
                 <div className="wd-business-avatar shadow card bg-transparent">
-                    <img src={isVerified ? user.businessData.restaurant.image_url : user.image_url}
+                    <img src={user.image_url}
                          className="img-thumbnail bg-light" alt="..."/>
                 </div>
             </div>

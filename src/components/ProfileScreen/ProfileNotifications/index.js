@@ -4,8 +4,8 @@ import {useSelector} from "react-redux";
 
 
 
-const ProfileNotifications = ({notifications, profile}) => {
-
+const ProfileNotifications = () => {
+    const notifications = useSelector(state => state.notifications);
     return (
         <>
             {notifications.length === 0 && <div>No new notification at this time.</div>}
@@ -13,7 +13,7 @@ const ProfileNotifications = ({notifications, profile}) => {
         <ul className="list-group list-group-flush">
             {notifications.map(notification => {
                 return (
-                    <ProfileNotificationItem notification={notification} profile={profile}/>
+                    <ProfileNotificationItem notification={notification}/>
                 )
             })}
         </ul>

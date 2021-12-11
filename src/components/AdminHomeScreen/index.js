@@ -1,39 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 
 import AdminNavSidebar from "./AdminNavSidebar";
 import AdminStatistics from "./AdminStatistics";
 import AdminNotifications from "./AdminNotifications";
-import {useHistory} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchProfile} from "../../services/profileService";
-import {fetchUserActivities} from "../../services/userActivitiesService";
-import {fetchUserNotifications} from "../../services/userNotificationsService";
 
 
 const AdminHomeScreen = () => {
-    const history = useHistory();
-    const dispatch = useDispatch();
-
-    // If no profile fetched (unlogin), go to login page
-    const getProfile = (dispatch) => {
-        fetchProfile(dispatch)
-            .catch(e => history.push('/login'))
-    }
-
-    const getNotifications = (dispatch) => {
-        fetchUserNotifications(dispatch)
-            .catch(e => console.log(e))
-    }
-
-    const loadData = async() => {
-         getProfile(dispatch);
-         getNotifications(dispatch);
-    }
-
-    useEffect(loadData, [])
-    const fetchedNotifications = useSelector(state => state.notifications);
-
-
 
     return (
         <>
@@ -48,20 +20,19 @@ const AdminHomeScreen = () => {
                     {/****************************Admin MainContent************************/}
                     <div className="col-7 col-lg-6 d-flex flex-column px-0">
                         <h3 className="text-danger fw-bold">Notifications</h3>
-                        <AdminNotifications notifications={fetchedNotifications}/>
+                        <AdminNotifications/>
                     </div>
 
 
                     {/****************************Admin Productivity statistics************************/}
                     <div
                         className="d-none d-lg-block col-xl-auto border-2 border-start ">
-                        <AdminStatistics notifications={fetchedNotifications}/>
+                        <AdminStatistics/>
                     </div>
 
                 </div>
 
-{/*                {JSON.stringify(fetchedNotifications)}
-                {console.log(fetchedNotifications)}*/}
+
             </div>
         </>
 

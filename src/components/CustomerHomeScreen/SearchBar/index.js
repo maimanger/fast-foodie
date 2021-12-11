@@ -82,14 +82,14 @@ const SearchBar = ({
                     </div>
                 </div>
 
-                <div className={"homescreen-search-bar-location w-100 border-start bg-white position-relative"}>
+                <div className={"homescreen-search-bar-location w-100 border-start bg-white position-relative d-none d-md-flex"}>
 
                     {/*******************   location bar   *******************/}
-                    <label className={"homescreen-search-bar-location-toggle w-100 h-100 d-flex align-items-center px-3"}
+                    <label className={"homescreen-search-bar-location-toggle w-100 h-100 align-items-center px-3 d-flex"}
                            htmlFor={"homescreen-search-bar-input"}>
                         <div className={"d-flex w-100"}>
                             <div className={"fw-bold me-2"}>Location</div>
-                            <div className={"w-100"}>{location}</div>
+                            <div className={"w-100 text-nowrap"}>{location}</div>
                             <div><i className="fas fa-chevron-down" /></div>
                         </div>
                     </label>

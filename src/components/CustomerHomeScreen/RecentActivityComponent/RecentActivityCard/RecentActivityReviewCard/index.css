@@ -1,14 +1,14 @@
 .homescreen-recent-activity-card{
-    width: 230px;
-    height: 330px;
+    width: 270px;
+    height: 350px;
     font-size: 14px;
 }
 
 
-.homescreen-recent-activity-card > img{
+.homescreen-recent-activity-card .card-img-top{
     object-fit: cover;
-    width: 230px;
-    height: 110px;
+    width: 270px;
+    height: 130px;
 }
 
 .homescreen-profile-img{

@@ -1,10 +1,9 @@
 import React from "react";
-import './index.css';
 import {Link} from "react-router-dom";
 
-const LoginSignupButtons = () => {
+const LoginSignupTwoButtons = () => {
     return (
-        <div className={"d-flex flex-nowrap homescreen-h-fit"}>
+        <div className={"d-flex flex-nowrap"}>
             <Link to={"/login"}>
                 <button className={"btn btn-primary me-2 text-nowrap"}>Log In</button>
             </Link>
@@ -13,6 +12,7 @@ const LoginSignupButtons = () => {
             </Link>
         </div>
     )
+
 }
 
-export default LoginSignupButtons;
+export default LoginSignupTwoButtons;

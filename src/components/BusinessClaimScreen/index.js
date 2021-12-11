@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './index.css';
 import BusinessClaimSearchScreen from "./BusinessClaimSearchScreen";
-import SimpleHeader from "../SearchScreen/public_components/SimpleHeader";
+import SimpleHeader from "../headers/SimpleHeader";
 import Footer from "../CustomerHomeScreen/public-components/Footer";
 import BusinessClaimSearchResultScreen from "./BusinessClaimSearchResultScreen";
 import BusinessClaimSearchNoResultComponent from "./BusinessClaimSearchNoResultComponent";

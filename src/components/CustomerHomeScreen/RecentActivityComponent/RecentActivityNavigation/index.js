@@ -4,7 +4,7 @@ import "./index.css";
 const RecentActivityNavigation = ({clickHandler, content}) => {
     return (
         <div className={"homepage-navigation-container"}>
-            <ul className={"nav nav-tabs"}>
+            <ul className={"nav nav-tabs mx-3"}>
                 <li className={"nav-item"}>
                     <a className={"nav-link active"}
                        data-toggle="tab" href="#homepage-navigation-pane"

@@ -2,7 +2,7 @@ import React from "react";
 import RestaurantImage from "./RestaurantParts/RestaurantImage";
 import RestaurantNav from "./RestaurantParts/RestaurantNav";
 import RestaurantAbout from "./RestaurantParts/RestaurantAbout";
-import SearchHeader from "../SearchHeader";
+import SearchHeader from "../headers/SearchHeader";
 
 const RestaurantScreen = () => {
   // const restaurant = useSelector(state => state.restaurant);

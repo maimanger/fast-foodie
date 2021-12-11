@@ -12,22 +12,22 @@ import {approveClaim, denyClaim} from "../../../services/claimService";
 const AdminClaimItem = ({claim}) => {
 
     const dispatch = useDispatch();
-    const [userName, setUserName] = useState('');
-    const [businessName, setBusinessName] = useState('');
-
-
-    const initData = () => {
-        findOneUserById(claim['user'])
-            .then(res => {
-                setUserName(res.firstName + ' ' + res.lastName)
-            })
-
-        searchOneRestaurantById(claim['restaurant'])
-            .then(res => {
-                setBusinessName(res.name)
-            })
-    }
-    useEffect(initData, [claim])
+    // const [userName, setUserName] = useState('');
+    // const [businessName, setBusinessName] = useState('');
+    //
+    //
+    // const initData = () => {
+    //     findOneUserById(claim['user'])
+    //         .then(res => {
+    //             setUserName(res.firstName + ' ' + res.lastName)
+    //         })
+    //
+    //     searchOneRestaurantById(claim['restaurant'])
+    //         .then(res => {
+    //             setBusinessName(res.name)
+    //         })
+    // }
+    // useEffect(initData, [claim])
 
 
     const clickApproveHandler = () => {
@@ -44,12 +44,12 @@ const AdminClaimItem = ({claim}) => {
             <tr>
                 <td style={{verticalAlign: "middle"}} className="text-center">
                     <Link to={`/profile/${claim.user}`} className="wd-admin-link-text text-black">
-                        {userName}
+                        {claim.userName}
                     </Link>
                 </td>
                 <td style={{verticalAlign: "middle"}} className="text-center">
                     <Link to={`/restaurants/${claim.restaurant}`} className="wd-admin-link-text text-black">
-                        {businessName}
+                        {claim.restaurantName}
                     </Link>
                 </td>
                 <td style={{verticalAlign: "middle"}} className="text-center">

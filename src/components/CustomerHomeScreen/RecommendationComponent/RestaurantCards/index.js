@@ -15,9 +15,9 @@ const RestaurantCards = ({location}) => {
     }, [location]);
 
     return (
-        <div className={"homescreen-recommendation-cards d-flex justify-content-center"}>
+        <div className={"homescreen-recommendation-cards d-inline-block d-lg-flex justify-content-center"}>
             {recommendationList.map(restaurant=>{return (
-                <div className={"me-4"}>
+                <div className={"ms-3 me-3 mb-3"}>
                     <RestaurantCard restaurant={restaurant} />
                 </div>
             )})}

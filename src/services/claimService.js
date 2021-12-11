@@ -1,6 +1,6 @@
 import {API_URL} from "../CONST";
 
-export const claimBusinss = (params) => {
+export const claimBusiness = (params) => {
     return fetch(`${API_URL}/claim`, {
         method: 'POST',
         headers: {

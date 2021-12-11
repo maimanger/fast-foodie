@@ -1,9 +1,44 @@
-.aboutscreen-main-container{
-    padding-left: 20%;
-    padding-right: 20%;
+@media (min-width: 768px){
+    .aboutscreen-main-container{
+        padding-left: 20%;
+        padding-right: 20%;
+    }
 }
+
+@media (min-width: 576px) and (max-width: 768px){
+    .aboutscreen-main-container{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+@media (max-width: 576px){
+    .aboutscreen-main-container{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+
 
 .contactscreen-main-img{
     width: 500px;
 }
 
+.aboutscreen-banner-container{
+    min-height: 400px;
+    background-color: #fec7bd;
+}
+
+.aboutscreen-banner-text-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (min-width: 992px){
+    .aboutscreen-banner-text-container{
+        width: 600px;
+    }
+}

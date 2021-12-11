@@ -1,7 +1,7 @@
 import RestaurantImage from "./RestaurantParts/RestaurantImage";
 import RestaurantNav from "./RestaurantParts/RestaurantNav";
 import RestaurantReview from "./RestaurantReview/RestaurantReview";
-import SearchHeader from "../SearchHeader";
+import SearchHeader from "../headers/SearchHeader";
 
 
 const ReviewScreen = () => {

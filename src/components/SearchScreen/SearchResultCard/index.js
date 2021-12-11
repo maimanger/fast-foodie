@@ -17,7 +17,8 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
     }
 
     return (
-        <Link className={"searchscreen-card-container w-100 border border-light rounded-2 p-4 d-flex text-decoration-none text-black"} to={`/restaurants/${restaurantFromSearchApi.id}`}>
+        <Link className={"searchscreen-card-container w-100 border border-light rounded-2 p-4 text-decoration-none text-black d-flex "}
+              to={`/restaurants/${restaurantFromSearchApi.id}`}>
             <div className={"searchscreen-card-img-container me-4 rounded-3"}>
                 <img src={restaurantFromSearchApi['image_url']} className={"me-4 rounded-3"} alt="img"/>
             </div>
@@ -41,7 +42,7 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
                     <div className={"d-flex align-items-center mb-2 searchscreen-categories-container flex-wrap"}>
                         {(restaurantFromSearchApi.categories.map(category=>category.title)).map(category=>{
                             return (
-                                <div className={"bg-light me-2 px-1 text-nowrap rounded-2 fw-bold homescreen-w-fit homepage-color-dimgray"}>{category}</div>
+                                <div className={"bg-light me-2 px-1 text-nowrap rounded-2 fw-bold homescreen-w-fit homepage-color-dimgray mb-1"}>{category}</div>
                             )
                         })}
                         <div>{restaurantFromSearchApi['price']}</div>

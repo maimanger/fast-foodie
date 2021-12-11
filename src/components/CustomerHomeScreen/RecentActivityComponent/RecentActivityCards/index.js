@@ -13,21 +13,24 @@ const  RecentActivityCards = ({activities}) => {
                     let i = index;
                     if (i % 3 === 0) {
                         return (
-                            <div className={"d-flex justify-content-center mb-4"}>
-                                <div>
+                            <div className={"d-lg-flex justify-content-center mb-4"}>
+                                <div className={"ms-3 me-3 mb-3"}>
                                     <RecentActivityCard activity={activities[i]}/>
                                 </div>
-                                <div className={"me-4 ms-4"}>
+                                {i + 1 < activities.length &&
+                                <div className={"ms-3 me-3 mb-3"}>
                                     <RecentActivityCard activity={activities[i+1]}/>
                                 </div>
-                                <div>
-                                    <RecentActivityCard activity={activities[i+2]} />
+                                }
+                                {i + 2 < activities.length &&
+                                <div className={"ms-3 me-3 mb-3"}>
+                                    <RecentActivityCard activity={activities[i + 2]}/>
                                 </div>
+                                }
                             </div>
                         )
                     }
                 })}
-
             </div>
         )
     }

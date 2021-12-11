@@ -3,7 +3,7 @@ import {Link, useLocation} from "react-router-dom";
 import {matchRestaurant} from "../../../services/searchService";
 import BusinessClaimSearchNoResultComponent from "../BusinessClaimSearchNoResultComponent";
 import {useDispatch, useSelector} from "react-redux";
-import {claimBusinss} from "../../../services/claimService";
+import {claimBusiness} from "../../../services/claimService";
 import {useHistory} from "react-router-dom";
 import {fetchProfile} from "../../../services/profileService";
 import moment from "moment";
@@ -52,16 +52,18 @@ const BusinessClaimSearchResultScreen = () => {
             user: profile._id,
             restaurant: matchResult.id,
             time_created: moment().format('YYYY-MM-DD h:mm:ss'),
-            file_url: profile['businessData']['file_url']
+            file_url: profile['businessData']['file_url'],
+            restaurantName: matchResult.name,
+            userName: profile.lastName + ' ' + profile.firstName
         }
-        claimBusinss(params)
+        claimBusiness(params)
             .then(res => {
                 history.push("/business/claim/status");
             })
     }
 
 
-
+    console.log(profile);
     const restaurant = {
         "_id": "Rv4NgRl-wkMNPNdqXNSGBg",
         "alias": "shake-shack-brooklyn-12",

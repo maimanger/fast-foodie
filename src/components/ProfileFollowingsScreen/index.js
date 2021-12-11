@@ -6,19 +6,33 @@ import EditProfile from "../ProfileScreen/EditProfile";
 import ProfileAboutMe from "../ProfileScreen/ProfileAboutMe";
 import ProfileFollowings from "./ProfileFollowings";
 import {useHistory} from "react-router-dom";
-import {fetchProfile} from "../../services/profileService";
+import {fetchAllFollowings, fetchProfile} from "../../services/profileService";
 
 const ProfileFollowingsScreen = () => {
 
     const history = useHistory();
     const dispatch = useDispatch();
+    const [followingsInfo, setFollowingsInfo] = useState([]);
+    const [edit, setEdit] = useState(false);
 
     // If no profile fetched (unlogin), go to login page
     const getProfile = () => {
         fetchProfile(dispatch)
             .catch(e => history.push('/login'))
     }
-    useEffect(getProfile, [history])
+
+    const getFollowings = () => {
+        fetchAllFollowings()
+            .then(followings => setFollowingsInfo(followings))
+            .catch(e => console.log(e))
+    }
+
+    const loadData = () => {
+        getProfile();
+        getFollowings();
+    }
+
+    useEffect(loadData, [history])
 
     let profile = {
         "role": "",
@@ -56,7 +70,6 @@ const ProfileFollowingsScreen = () => {
         history.push('/admin');
     }
 
-    const [edit, setEdit] = useState(false);
 
 
     return (
@@ -66,14 +79,15 @@ const ProfileFollowingsScreen = () => {
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">
                     <div className="wd-profile-banner bg-secondary vw-100"></div>
-                    <ProfileHeader profile={profile} setEdit = {setEdit} edit={edit}/>
+                    <ProfileHeader profile={profile} setEdit={setEdit} edit={edit}/>
                 </div>
 
                 <div className="row flex-nowrap">
 
                     {/****************************Profile NavSidebar**************************/}
                     <div className="col-4 col-lg-3 d-flex justify-content-center px-0 mt-4">
-                        <ProfileNavSidebar active="followings" visibility={profile.customerData.visibility}/>
+                        <ProfileNavSidebar active="followings"
+                                           visibility={profile.customerData.visibility}/>
                     </div>
 
                     {/***************************Profile MainContent**************************/}
@@ -82,7 +96,7 @@ const ProfileFollowingsScreen = () => {
                          className="col-7 col-lg-6 d-flex flex-column px-0">
                          <div className="mb-3">
                              <h3 className="text-danger fw-bold">Followings</h3>
-                             <ProfileFollowings followings={profile.customerData.followings}/>
+                             <ProfileFollowings followings={followingsInfo}/>
                          </div>
                      </div>
                     }

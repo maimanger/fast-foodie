@@ -117,5 +117,11 @@ export const findUserById = (userId, dispatch) => {
 export const findOneUserById = (userId) => {
     return fetch(`${API_URL}/users/${userId}`)
         .then(res => res.json())
+}
 
+export const fetchAllFollowings = () => {
+    return fetch(`${API_URL}/allFollowings`, {
+        method: 'POST',
+        credentials: 'include'
+    }).then(res => res.json())
 }

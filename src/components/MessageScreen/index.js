@@ -2,7 +2,7 @@ import React from "react";
 import './index.css';
 import MessageMenuComponent from "./MessagesMenuComponent";
 import MessageChatboxComponent from "./MessagesChatboxComponent";
-import SearchHeader from "../SearchHeader";
+import SearchHeader from "../headers/SearchHeader";
 
 const MessageScreen = () => {
 

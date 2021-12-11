@@ -9,7 +9,6 @@ import {useHistory, useLocation} from "react-router-dom";
 import {concatQueries} from "../CustomerHomeScreen/utils/url";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
-import * as nextProps from "react-router";
 import isLoggedIn from "../CustomerHomeScreen/utils/isLoggedIn";
 import defaultLocation from "../CustomerHomeScreen/utils/defaultLocation.json";
 

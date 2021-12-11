@@ -21,7 +21,6 @@ const BusinessProfileScreen = () => {
     }
     useEffect(getProfile, [history])
 
-
     /**********************************Get the login profile data******************************/
         // Set up a sample profile to avoid undefined type error
     let profile = {
@@ -49,7 +48,6 @@ const BusinessProfileScreen = () => {
 
     const [edit, setEdit] = useState(false);
     const isVerified = profile.businessData.verified;
-
     return (
         <>
             {/**********************************Business Header*********************************/}

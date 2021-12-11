@@ -30,6 +30,7 @@ const WriteReview = ({profile}) => {
       }],
       userInfo: {
         username: profile.username,
+        name: profile.firstName + ' ' + profile.lastName,
         avatar_url: profile.image_url,
         location: profile.location,
         reviewNum: profile.customerData.reviews.length + 1,
@@ -39,7 +40,11 @@ const WriteReview = ({profile}) => {
         user: '',
         text: '',
         time_created: ''
-      }]
+      }],
+      restaurantInfo: {
+        name: restaurant.name,
+        image_url: restaurant.image_url
+      }
     })
   }
 

@@ -13,8 +13,16 @@
     height: 100%;
 }
 
-.homepage-banner-main-content{
-    width: 50%;
+@media (min-width: 0px) and (max-width: 1200px) {
+    .homepage-banner-main-content{
+        width: 75%;
+    }
+}
+
+@media (min-width: 1201px) {
+    .homepage-banner-main-content{
+        width: 50%;
+    }
 }
 
 .homepage-banner-brand-container{

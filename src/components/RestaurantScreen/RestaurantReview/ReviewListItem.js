@@ -34,7 +34,6 @@ const ReviewListItem = ({review}) => {
   // console.log(user)
 
 
-
     return (
         <li className="list-group-item border-0 p-0 bg-transparent">
             <div className="row border-top p-3">

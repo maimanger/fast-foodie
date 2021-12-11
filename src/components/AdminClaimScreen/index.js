@@ -16,9 +16,7 @@ const AdminClaimScreen = () => {
         getAllClaims(dispatch);
     }, [])
 
-    if (claims === undefined || claims.length === 0) {
-        return <></>
-    }
+
     return (
         <>
             <div className="container-fluid vw-100 p-0">

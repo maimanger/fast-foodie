@@ -15,10 +15,13 @@ const BusinessClaimStatusScreen = () => {
     }, [])
 
     if (claim === undefined || Object.keys(claim).length === 0) {
-        return <></>
+        return <ReceivedStatus />
     }
+
+
     return (
         <div className={"mt-5 pt-5"}>
+            {(claim === undefined || Object.keys(claim).length === 0) && <></>}
             {claim.status === "denied" && <DeniedStatus />}
             {claim.status === "unprocessed" && <ReceivedStatus />}
             {claim.status === "approved" && <ApprovedStatus />}

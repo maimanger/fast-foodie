@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.css";
 import RecentActivityReviewCard from "./RecentActivityReviewCard";
 import RecentActivityPhotoCard from "./RecentActivityPhotoCard";
 import RecentActivityBookmarkCard from "./RecentActivityBookmarkCard";
@@ -25,7 +26,7 @@ const RecentActivityCard = ({activity}) => {
             res = <RecentActivityReviewCard activity={activity} />
     }
     return (
-        <div>
+        <div className={"homepage-activity-card-container"}>
             {res}
         </div>
     )

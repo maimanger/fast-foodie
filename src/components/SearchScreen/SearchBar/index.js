@@ -97,7 +97,7 @@ const SearchBar = ({
 
                 </div>
 
-                <div className={"homescreen-search-bar-location w-100 border-start bg-white position-relative"}>
+                <div className={"homescreen-search-bar-location w-100 border-start bg-white position-relative d-none d-xl-inline-flex"}>
 
                     {/*******************   location bar   *******************/}
                     <label className={"homescreen-search-bar-location-toggle w-100 h-100 d-flex align-items-center px-3"}

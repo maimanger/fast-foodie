@@ -8,18 +8,32 @@ import EditProfile from "../ProfileScreen/EditProfile";
 import ProfileAboutMe from "../ProfileScreen/ProfileAboutMe";
 import ProfileFollowers from "./ProfileFollowers";
 import {useHistory} from "react-router-dom";
-import {fetchProfile} from "../../services/profileService";
+import {fetchAllFollowers, fetchAllFollowings, fetchProfile} from "../../services/profileService";
 
 const ProfileFollowersScreen = () => {
     const history = useHistory();
     const dispatch = useDispatch();
+    const [followersInfo, setFollowersInfo] = useState([]);
+    const [edit, setEdit] = useState(false);
 
     // If no profile fetched (unlogin), go to login page
     const getProfile = () => {
         fetchProfile(dispatch)
             .catch(e => history.push('/login'))
     }
-    useEffect(getProfile, [history])
+
+    const getFollowers = () => {
+        fetchAllFollowers()
+            .then(followers => setFollowersInfo(followers))
+            .catch(e => console.log(e))
+    }
+
+    const loadData = () => {
+        getProfile();
+        getFollowers();
+    }
+
+    useEffect(loadData, [history])
 
     let profile = {
         "role": "",
@@ -57,7 +71,7 @@ const ProfileFollowersScreen = () => {
         history.push('/admin');
     }
 
-    const [edit, setEdit] = useState(false);
+
 
     return (
         <>
@@ -82,7 +96,7 @@ const ProfileFollowersScreen = () => {
                          className="col-7 col-lg-6 d-flex flex-column px-0">
                          <div className="mb-3">
                              <h3 className="text-danger fw-bold">Followers</h3>
-                             <ProfileFollowers followers={profile.customerData.followers}/>
+                             <ProfileFollowers followers={followersInfo}/>
                          </div>
                      </div>
                     }
@@ -103,6 +117,7 @@ const ProfileFollowersScreen = () => {
                     }
 
                 </div>
+
             </div>
 
         </>

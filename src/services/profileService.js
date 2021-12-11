@@ -125,3 +125,10 @@ export const fetchAllFollowings = () => {
         credentials: 'include'
     }).then(res => res.json())
 }
+
+export const fetchAllFollowers = () => {
+    return fetch(`${API_URL}/allFollowers`, {
+        method: 'POST',
+        credentials: 'include'
+    }).then(res => res.json())
+}

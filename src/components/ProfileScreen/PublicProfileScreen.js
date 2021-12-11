@@ -10,11 +10,29 @@ import PublicBusinessProfile from "../BusinessProfileScreen/PublicBusinessProfil
 import users from "../../reducers/data/profile/users.json"
 import {useHistory, useParams} from "react-router-dom";
 import {fetchProfile, findUserById} from "../../services/profileService";
+import {fetchAllReviewsByUserId} from "../../services/reviewService";
 
 const PublicProfileScreen = () => {
     // Get current login user and the public user profile
     const dispatch = useDispatch();
     const userId = useParams().id;
+    const [userReviews, setUserReviews] = useState([]);
+
+    const getPublicProfileInfo = () => {
+        findUserById(userId, dispatch)
+            .then(res =>
+                      fetchAllReviewsByUserId(userId)
+                          .then(reivews => setUserReviews(reivews))
+                          .catch(e => console.log(e)))
+    }
+
+    const loadData = () => {
+        getPublicProfileInfo();
+        fetchProfile(dispatch)
+            .catch(err => console.log(err));
+    }
+
+    useEffect(loadData, [])
 
     let profile = {
         "role": "",
@@ -73,23 +91,20 @@ const PublicProfileScreen = () => {
 
     const fetchedProfile = useSelector(state => state.profile);
     profile = {...profile, ...fetchedProfile};
+
     const fetchedPublicProfile = useSelector(state => state.publicProfile);
     publicProfile = {...publicProfile, ...fetchedPublicProfile};
-
-
-    const getProfiles = () => {
-        findUserById(userId, dispatch);
-        fetchProfile(dispatch)
-            .catch(err => console.log(err))
-    }
-    useEffect(getProfiles, [])
-
-
 
     let isFollowing = false;
     if (Object.keys(profile).length !== 0
         && profile.customerData.followings.includes(userId)) {
         isFollowing = true;
+    }
+
+    let isBusinessLogin = false;
+    if (Object.keys(profile).length !== 0
+        && profile.role === "business") {
+        isBusinessLogin = true;
     }
 
     if (publicProfile.role === "customer") {
@@ -117,7 +132,7 @@ const PublicProfileScreen = () => {
                             className="col-7 col-lg-6 d-flex flex-column px-0">
                             <div className="mb-3">
                                 <h3 className="text-danger fw-bold">Reviews</h3>
-                                <ProfileReviews/>
+                                <ProfileReviews reviews={userReviews} isBusinessLogin={isBusinessLogin}/>
                             </div>
                         </div>
 

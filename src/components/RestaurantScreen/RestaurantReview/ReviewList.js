@@ -7,10 +7,10 @@ const ReviewList = () => {
 
     const dispatch = useDispatch();
 
-    useEffect(() => fetchAllReviewsByRestaurantId(dispatch, restaurant.id), []);
 
     const restaurant = useSelector(state => state.restaurant);
     const customerReviews = useSelector(state => state.customerReviews)
+    useEffect(() => fetchAllReviewsByRestaurantId(dispatch, restaurant.id), [restaurant]);
 
 /*    console.log(restaurant);
     console.log(customerReviews);*/

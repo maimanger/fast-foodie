@@ -2,14 +2,14 @@ import React from "react";
 import './index.css';
 import Footer from "../CustomerHomeScreen/public-components/Footer";
 import SimpleHeader from "../headers/SimpleHeader";
-import SimpleHeaderLeftAligned from "../headers/SimpleHeaderLeftAligned";
+import HeaderJustifiedBetween from "../headers/HeaderJustifiedBetween";
 
 const AboutUs = () => {
     window.scrollTo(0, 0);
     return (
         <div className={"w-100 homescreen-screen-container-default-size bg-white"}>
             {/***************  header  ****************/}
-            <SimpleHeaderLeftAligned />
+            <HeaderJustifiedBetween />
 
             {/***************  banner  ****************/}
             <div className={"aboutscreen-banner-container w-100 position-relative mb-5"}>

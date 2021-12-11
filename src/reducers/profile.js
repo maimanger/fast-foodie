@@ -34,6 +34,7 @@ const defaultProfile = {};
 const profile = (state = {}, action) => {
     switch (action.type) {
         case 'fetch-profile':
+            if (action.profile === undefined) return state;
             return action.profile;
             break;
 

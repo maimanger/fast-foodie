@@ -1,4 +1,3 @@
-
 import {API_URL} from "../CONST";
 
 // return a promise with the profile.json
@@ -29,7 +28,13 @@ export const fetchProfile = (dispatch) => {
         method: 'POST',
         credentials: 'include'
     })
-        .then(res => res.json())
+        .then(res => {
+            console.log(res);
+            console.log(typeof res);
+            res.json().catch(e => {
+                console.log(e);
+            })
+        })
         .then(profile => {
             dispatch({
                          type: "fetch-profile",
@@ -98,7 +103,6 @@ export const isFollowing = (profile, followeeId) => {
            && profile['customerData']['followings'].includes(followeeId);
 }
 
-
 export const findUserById = (userId, dispatch) => {
     return fetch(`${API_URL}/users/${userId}`, {
         credentials: 'include',
@@ -111,11 +115,15 @@ export const findUserById = (userId, dispatch) => {
                          type: 'fetch-publicProfile',
                          publicProfile: {...publicProfile}
                      })
-        }).catch(err => {console.log(err)})
+        }).catch(err => {
+            console.log(err)
+        })
 }
 
 export const findOneUserById = (userId) => {
-    return fetch(`${API_URL}/users/${userId}`)
+    return fetch(`${API_URL}/users/${userId}`, {
+        credentials: 'include'
+    })
         .then(res => res.json())
 
 }

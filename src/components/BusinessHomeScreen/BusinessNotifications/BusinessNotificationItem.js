@@ -18,7 +18,7 @@ const BusinessNotificationItem = ({notification}) => {
             </div>
 
             {/*********************************Message-in Notification*****************************/}
-            {notification.type === "in-message" &&
+ {/*           {notification.type === "in-message" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
 
@@ -33,13 +33,13 @@ const BusinessNotificationItem = ({notification}) => {
                              </Link>
                      </span>
                      </div>
-                     {/*******************Collapse Btn***********************/}
+                     ******************Collapse Btn**********************
                      <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                              onClick={() => setOn(!on)}>
                          <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
                      </button>
                  </div>
-                 {/*******************Collapse Content***********************/}
+                 ******************Collapse Content**********************
                  <Collapse in={on}>
                      <Link to={`/messages/${notification.message._id}`}
                            className="wd-profile-content-hover text-black-50">
@@ -47,10 +47,10 @@ const BusinessNotificationItem = ({notification}) => {
                      </Link>
                  </Collapse>
              </div>
-            }
+            }*/}
 
             {/*********************************Order Notification*****************************/}
-            {notification.type === "new-order" &&
+ {/*           {notification.type === "new-order" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
 
@@ -66,13 +66,13 @@ const BusinessNotificationItem = ({notification}) => {
                      </span>
                      </div>
 
-                     {/*******************Collapse Btn***********************/}
+                     ******************Collapse Btn**********************
                      <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
                              onClick={() => setOn(!on)}>
                          <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
                      </button>
                  </div>
-                 {/*******************Collapse Content***********************/}
+                 ******************Collapse Content**********************
                  <Collapse in={on}>
                      <Link to={`/profile/orders/${notification.order._id}`}
                            className="wd-profile-content-hover">
@@ -80,7 +80,7 @@ const BusinessNotificationItem = ({notification}) => {
                      </Link>
                  </Collapse>
              </div>
-            }
+            }*/}
 
             {/*********************************Review Notification*****************************/}
             {notification.type === "new-review" &&
@@ -93,8 +93,8 @@ const BusinessNotificationItem = ({notification}) => {
                      <span>
                      You have a new review from
                      <Link className="text-info wd-profile-link-text mx-1"
-                           to={`/profile/${notification.review.user._id}`}>
-                         {notification.review.user.firstName} {notification.review.user.lastName}
+                           to={`/profile/${notification.reviewDetail.userDetail._id}`}>
+                         {notification.reviewDetail.userDetail.firstName} {notification.reviewDetail.userDetail.lastName}
                      </Link>
                      </span>
                      </div>
@@ -110,9 +110,9 @@ const BusinessNotificationItem = ({notification}) => {
                  <div className="d-flex flex-column">
                      <Collapse in={on}>
                          <Link to="#" className="wd-profile-content-hover text-black">
-                             <UserAvatarInfo user={notification.review.user}/>
-                             <ReviewStars review={notification.review}/>
-                             <ReviewItem review={notification.review}/>
+                             <UserAvatarInfo user={notification.reviewDetail.userDetail}/>
+                             <ReviewStars review={notification.reviewDetail}/>
+                             <ReviewItem review={notification.reviewDetail}/>
                          </Link>
                      </Collapse>
                      <Collapse in={on}>
@@ -126,7 +126,7 @@ const BusinessNotificationItem = ({notification}) => {
             }
 
             {/*********************************Bookmark Notification*****************************/}
-            {notification.type === "new-bookmark" &&
+  {/*          {notification.type === "new-bookmark" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
 
@@ -143,7 +143,7 @@ const BusinessNotificationItem = ({notification}) => {
                      </div>
              </div>
              </div>
-            }
+            }*/}
 
         </div>
     )

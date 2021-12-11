@@ -10,23 +10,31 @@ import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
 import {fetchUserActivities} from "../../services/userActivitiesService";
+import {fetchUserNotifications} from "../../services/userNotificationsService";
 
 const BusinessHomeScreen = () => {
 
     const history = useHistory();
     const dispatch = useDispatch();
     // If no profile fetched (unlogin), go to login page
-    const getProfile = () => {
+    const getProfile = (dispatch) => {
         fetchProfile(dispatch)
             .catch(e => history.push('/login'))
     }
-    const getActivities = () => {
+    const getActivities = (dispatch) => {
         fetchUserActivities(dispatch)
             .catch(e => console.log(e))
     }
+
+    const getNotifications = (dispatch) => {
+        fetchUserNotifications(dispatch)
+            .catch(e => console.log(e))
+    }
+
     const loadData = () => {
-        getProfile();
-        getActivities();
+        getProfile(dispatch);
+        getActivities(dispatch);
+        getNotifications(dispatch);
     }
     useEffect(loadData, [history])
 
@@ -52,9 +60,9 @@ const BusinessHomeScreen = () => {
         };
     let fetchedProfile = useSelector(state => state.profile);
     profile = {...profile, ...fetchedProfile};
-    const isVerified = profile.businessData.verified;
 
     const fetchedActivities = useSelector(state => state.recentActivities);
+    const fetchedNotifications = useSelector(state => state.notifications);
 
     return (
         <>
@@ -76,7 +84,7 @@ const BusinessHomeScreen = () => {
                     <div className="col-7 col-lg-6 d-flex flex-column px-0">
                         <div className="mb-3">
                             <h3 className="text-danger fw-bold">Notifications</h3>
-                            {/*<BusinessNotifications/>*/}
+                            <BusinessNotifications notifications={fetchedNotifications}/>
                         </div>
                         <hr className="mb-4 mt-0"/>
                         <div>
@@ -91,12 +99,9 @@ const BusinessHomeScreen = () => {
                     </div>
 
                 </div>
+                {/*{JSON.stringify(fetchedNotifications)}*/}
 
             </div>
-
-
-
-
 
 
         </>

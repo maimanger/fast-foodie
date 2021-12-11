@@ -4,8 +4,9 @@ import {Link, useParams} from "react-router-dom";
 import RestaurantInfo from "../ProfileScreen/RestaurantInfo";
 import ReviewStars from "../ProfileScreen/ReviewStars";
 import ReviewItem from "../ProfileScreen/ReviewItem";
+import {HashLink} from "react-router-hash-link";
 
-const ProfileReviewItem = ({review}) => {
+const ProfileReviewItem = ({review, isBusinessLogin}) => {
     const userId = useParams().id;
     const isPublic = userId && true;
 
@@ -13,24 +14,25 @@ const ProfileReviewItem = ({review}) => {
         <>
             <div className="list-group-item d-flex flex-column bg-transparent py-3 pe-xl-3 pe-xxl-5">
 
-                    <Link to={`/restaurants/${review.restaurant.id}`} className="wd-profile-content-hover text-black">
-                        <RestaurantInfo restaurant={review.restaurant}/>
+                    <HashLink to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}
+                              className="wd-profile-content-hover text-black">
+                        <RestaurantInfo restaurant={review.restaurantDetail}/>
                         <ReviewStars review={review}/>
                         <ReviewItem review={review}/>
-                    </Link>
+                    </HashLink>
 
-                {isPublic  &&
-                    <Link className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
-                          to="#">
+                {isPublic && isBusinessLogin &&
+                    <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
+                          to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}>
                          Reply
-                    </Link>
+                    </HashLink>
                 }
 
                 {!isPublic  &&
-                 <Link className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
-                       to="#">
+                 <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
+                       to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}>
                      Edit
-                 </Link>
+                 </HashLink>
                 }
 
             </div>

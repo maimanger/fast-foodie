@@ -34,12 +34,12 @@ const AdminStatistics = ({notifications = []}) => {
                 </span>
             </div>
 
-            <div className="mb-3">
+{/*            <div className="mb-3">
                 <h6 className="fw-bold">Today's Reports</h6>
                 <span className="ms-2">
                 {reportsCount.toLocaleString()}
                 </span>
-            </div>
+            </div>*/}
 
         </div>
     )

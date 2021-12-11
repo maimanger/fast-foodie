@@ -57,14 +57,13 @@ const ProfileRecentActivityItem = ({activity, profile}) => {
                      </HashLink>
                      </Collapse>
                      <Collapse in={on}>
-                     <Link className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
-                           to="#">
+                     <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
+                           to={`/restaurants/${activity.reviewDetail.restaurantDetail.id}/review#${activity.reviewDetail._id}`}>
                          Edit
-                     </Link>
+                     </HashLink>
                      </Collapse>
                  </div>
 
-                 {console.log(activity.reviewDetail.text)}
              </div>
             }
 

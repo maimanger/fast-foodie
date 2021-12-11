@@ -26,6 +26,7 @@ const ProfileScreen = () => {
         fetchProfile(dispatch)
             .catch(e => history.push('/login'))
     }
+
     const getActivitiesAndNotifications = () => {
         fetchUserActivities(dispatch)
             .then(res => {

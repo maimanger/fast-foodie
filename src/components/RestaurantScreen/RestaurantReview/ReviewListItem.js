@@ -72,21 +72,27 @@ const ReviewListItem = ({review}) => {
 
             {/************************Review Text**************************/}
             <div className="row">
-                <p className="py-2 m-0">
-                    {review.text}
-                </p>
+{/*                <p className="py-2 m-0">
+                    {Object.keys(review.text).length !== 0 &&
+                        review.text}
+                </p>*/}
             </div>
             {/************************Review Img**************************/}
             <div className="d-lg-flex gap-3 col-8 col-sm-7 col-md-6 col-lg-10 col-xl-8">
-                <div className="card text-white">
-                    <img src={review.img[0].url} className="card-img-top img-fluid"/>
-                    {/*<div*/}
-                    {/*    className="card-img-overlay d-flex py-0 px-0 flex-column justify-content-end w-auto h-auto">*/}
-                    {/*             <span className="bg-black bg-opacity-50 px-2">*/}
-                    {/*             Delicious dinner!*/}
-                    {/*             </span>*/}
-                    {/*</div>*/}
-                </div>
+                {review.img?.map(i => {
+                    return (
+                        <div className="card text-white">
+                            <img src={i.url}
+                                 className="card-img-top img-fluid"/>
+                            <div
+                                className="card-img-overlay d-flex py-0 px-0 flex-column justify-content-end">
+                             <span className="bg-black bg-opacity-50 px-2">
+                             {i.text}
+                             </span>
+                            </div>
+                        </div>
+                    )
+                })}
 
             </div>
 

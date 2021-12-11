@@ -2,13 +2,7 @@ import React from "react";
 import reviews from "../../reducers/data/profile/reviews.json"
 import ProfileReviewItem from "./ProfileReviewItem";
 
-const ProfileReviews = ({profile={}}) => {
-
-    /* Noted:
-    * ProfileReviews are retrieved by the reviewId in profile.reviewsList
-    * Must be refactored later
-    * */
-
+const ProfileReviews = ({reviews=[], isBusinessLogin=false}) => {
 
     return (
         <>
@@ -16,7 +10,7 @@ const ProfileReviews = ({profile={}}) => {
 
             <ul className="list-group list-group-flush">
                 {reviews.map(review => {return (
-                    <ProfileReviewItem review={review}/>
+                    <ProfileReviewItem review={review} isBusinessLogin={isBusinessLogin}/>
                 )})}
 
             </ul>

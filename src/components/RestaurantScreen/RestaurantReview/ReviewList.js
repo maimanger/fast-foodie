@@ -1,31 +1,36 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import ReviewListItem from "./ReviewListItem";
-import { fetchAllReviewsByRestaurantId } from "../../../services/reviewService";
-
+import {fetchAllReviewsByRestaurantId} from "../../../services/reviewService";
 
 const ReviewList = () => {
-    const restaurant = useSelector(state => state.restaurant);
-    const customerReviews = useSelector(state => state.customerReviews)
+
     const dispatch = useDispatch();
+
     useEffect(() => fetchAllReviewsByRestaurantId(dispatch, restaurant.id), []);
 
+    const restaurant = useSelector(state => state.restaurant);
+    const customerReviews = useSelector(state => state.customerReviews)
 
+/*    console.log(restaurant);
+    console.log(customerReviews);*/
 
     return (
         <div>
+
             <ul className="list-group mt-3">
                 {
-                    customerReviews.map(review => <ReviewListItem key={review._id} review={review} />)
+                    customerReviews.map(
+                        review => <ReviewListItem key={review._id} review={review}/>)
                 }
             </ul>
 
-        {/*<ul className="list-group mt-3">*/}
-        {/*    {*/}
-        {/*        yelpReviews.map(review => <ReviewListItem key={review.id} review={review} />)*/}
-        {/*    }*/}
+            {/*<ul className="list-group mt-3">*/}
+            {/*    {*/}
+            {/*        yelpReviews.map(review => <ReviewListItem key={review.id} review={review} />)*/}
+            {/*    }*/}
 
-        {/*</ul>*/}
+            {/*</ul>*/}
         </div>
     )
 

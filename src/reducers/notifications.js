@@ -1,7 +1,7 @@
 import React from "react";
 import notificationsData from "./data/profile/notifications.json";
 
-const notifications = (state = notificationsData, action) => {
+const notifications = (state = [], action) => {
     switch(action.type) {
         case 'fetch-userNotifications':
             return action.notifications;

@@ -2,7 +2,7 @@ import React from "react";
 import notifications from "../../../reducers/data/adminHome/adminNotifications.json";
 import AdminNotificationItem from "./AdminNotificationItem";
 
-const AdminNotifications = () => {
+const AdminNotifications = ({notifications}) => {
     return (
         <>
             {notifications.length === 0 && <div>No new notification at this time.</div>}

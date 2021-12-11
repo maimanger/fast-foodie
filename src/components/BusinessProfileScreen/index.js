@@ -43,6 +43,10 @@ const BusinessProfileScreen = () => {
         };
     let fetchedProfile = useSelector(state => state.profile);
     profile = {...profile, ...fetchedProfile};
+    if (profile.role !== "business") {
+        history.push('/login')
+    }
+
     const [edit, setEdit] = useState(false);
     const isVerified = profile.businessData.verified;
 

@@ -34,9 +34,9 @@ const ProfileScreen = () => {
             })
     }
 
-    const loadData = async() => {
-        await getProfile();
-        await getActivitiesAndNotifications();
+    const loadData = () => {
+         getProfile();
+         getActivitiesAndNotifications();
     }
 
     useEffect(loadData, [history])
@@ -107,7 +107,8 @@ const ProfileScreen = () => {
                          className="col-7 col-lg-6 d-flex flex-column px-0">
                          <div className="mb-3">
                              <h3 className="text-danger fw-bold">Notifications</h3>
-{/*                             <ProfileNotifications/>*/}
+                             <ProfileNotifications notifications={fetchedNotifications}
+                                                   profile={profile}/>
                          </div>
                          <hr className="mb-4 mt-0"/>
                          <div>
@@ -138,7 +139,7 @@ const ProfileScreen = () => {
                 </div>
                 {/*{JSON.stringify(profile)}*/}
                 {/*{JSON.stringify(fetchedActivities)}*/}
-                {JSON.stringify(fetchedNotifications)}
+                {/*{JSON.stringify(fetchedNotifications)}*/}
             </div>
         </>
     )

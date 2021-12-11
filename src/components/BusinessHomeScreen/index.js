@@ -10,6 +10,7 @@ import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
 import {fetchUserActivities} from "../../services/userActivitiesService";
+import {fetchUserNotifications} from "../../services/userNotificationsService";
 
 const BusinessHomeScreen = () => {
 
@@ -20,13 +21,18 @@ const BusinessHomeScreen = () => {
         fetchProfile(dispatch)
             .catch(e => history.push('/login'))
     }
-    const getActivities = () => {
+
+    const getActivitiesAndNotifications = () => {
         fetchUserActivities(dispatch)
-            .catch(e => console.log(e))
+            .then(res => {
+                fetchUserNotifications(dispatch)
+                    .catch(e => console.log(e))
+            })
     }
+
     const loadData = () => {
         getProfile();
-        getActivities();
+        getActivitiesAndNotifications();
     }
     useEffect(loadData, [history])
 
@@ -52,9 +58,12 @@ const BusinessHomeScreen = () => {
         };
     let fetchedProfile = useSelector(state => state.profile);
     profile = {...profile, ...fetchedProfile};
-    const isVerified = profile.businessData.verified;
+    if (profile.role !== "business") {
+        history.push('/login')
+    }
 
     const fetchedActivities = useSelector(state => state.recentActivities);
+    const fetchedNotifications = useSelector(state => state.notifications);
 
     return (
         <>
@@ -76,7 +85,7 @@ const BusinessHomeScreen = () => {
                     <div className="col-7 col-lg-6 d-flex flex-column px-0">
                         <div className="mb-3">
                             <h3 className="text-danger fw-bold">Notifications</h3>
-                            {/*<BusinessNotifications/>*/}
+                            <BusinessNotifications notifications={fetchedNotifications}/>
                         </div>
                         <hr className="mb-4 mt-0"/>
                         <div>

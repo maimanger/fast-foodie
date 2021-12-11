@@ -6,18 +6,18 @@ import OrderInfo from "../OrderInfo";
 import moment from "moment";
 import {Collapse} from "react-bootstrap";
 
-const ProfileNotificationItem = ({notification}) => {
+const ProfileNotificationItem = ({notification, profile}) => {
     const [on, setOn] = useState(false);
 
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
             <div className="me-3">
-                <img className="rounded-circle" src={notification.user.image_url}
+                <img className="rounded-circle" src={profile.image_url}
                      width="48px" height="48px"/>
             </div>
 
             {/*********************************Message-in Notification*****************************/}
-            {notification.type === "in-message" &&
+ {/*           {notification.type === "in-message" &&
              <div className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
                  <div className="mb-2 d-flex justify-content-between">
                      <div>
@@ -43,7 +43,7 @@ const ProfileNotificationItem = ({notification}) => {
                  </Link>
                  </Collapse>
              </div>
-            }
+            }*/}
 
             {/*********************************Follower Notification*****************************/}
             {notification.type === "new-follower" &&
@@ -53,8 +53,8 @@ const ProfileNotificationItem = ({notification}) => {
                      <div>
                          You have a new follower
                          <Link className="text-info wd-profile-link-text mx-1"
-                               to={`/profile/${notification.follow.follower._id}`}>
-                             {notification.follow.follower.firstName} {notification.follow.follower.lastName}
+                               to={`/profile/${notification.followerDetail._id}`}>
+                             {notification.followerDetail.firstName} {notification.followerDetail.lastName}
                          </Link>
                      </div>
                      <div className="text-muted fst-italic text-nowrap">
@@ -68,8 +68,8 @@ const ProfileNotificationItem = ({notification}) => {
                      </div>
                  </div>
                  <Collapse in={on}>
-                 <Link to={`/profile/${notification.follow.follower._id}`} className="wd-profile-content-hover">
-                 <UserAvatarInfo user={notification.follow.follower}/>
+                 <Link to={`/profile/${notification.followerDetail._id}`} className="wd-profile-content-hover">
+                 <UserAvatarInfo user={notification.followerDetail}/>
                  </Link>
                  </Collapse>
 
@@ -78,7 +78,7 @@ const ProfileNotificationItem = ({notification}) => {
             }
 
             {/*********************************Order Notification*****************************/}
-            {notification.type === "update-order" &&
+ {/*           {notification.type === "update-order" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
                  <div className="mb-2 d-flex justify-content-between">
@@ -100,7 +100,7 @@ const ProfileNotificationItem = ({notification}) => {
                          </button>
                      </div>
                  </div>
-                 {/*************************Order Content*************************/}
+                 ************************Order Content************************
                  <Collapse in={on}>
                  <Link to={`/profile/orders/${notification.order._id}`}
                        className="wd-profile-content-hover">
@@ -108,7 +108,7 @@ const ProfileNotificationItem = ({notification}) => {
                  </Link>
                  </Collapse>
              </div>
-            }
+            }*/}
         </div>
     )
 };

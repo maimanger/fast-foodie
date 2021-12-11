@@ -21,6 +21,13 @@ export const fetchAllReviewsByProfile = () => {
     }).then(res => res.json())
 }
 
+export const fetchAllReviewsByUserId = (userId) => {
+    return fetch(`${API_URL}/profileReviews/${userId}`, {
+        method: 'POST',
+        credentials: 'include'
+    }).then(res => res.json())
+}
+
 
 
 

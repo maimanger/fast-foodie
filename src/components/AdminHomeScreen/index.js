@@ -32,7 +32,7 @@ const AdminHomeScreen = () => {
     useEffect(loadData, [history])
 
     let fetchedProfile = useSelector(state => state.profile);
-    if (fetchedProfile.role !== "admin") {
+    if (fetchedProfile.role === "customer" || fetchedProfile.role === "business") {
         history.push('/login')
     }
     const fetchedNotifications = useSelector(state => state.notifications);

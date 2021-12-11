@@ -42,7 +42,7 @@ const BusinessProfileScreen = () => {
         };
     let fetchedProfile = useSelector(state => state.profile);
     profile = {...profile, ...fetchedProfile};
-    if (profile.role !== "business") {
+    if (profile.role === "customer" || profile.role === "admin") {
         history.push('/login')
     }
 

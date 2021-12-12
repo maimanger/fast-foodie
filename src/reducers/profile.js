@@ -48,6 +48,10 @@ const profile = (state = {}, action) => {
         case 'update-profile-reviews':
             state.customerData.reviews.push(action.reviewId);
             return state;
+        case 'delete-profile-review':
+            state.customerData.reviews = state.customerData.reviews.filter(id => id !== action.reviewId)
+            console.log(state.customerData.reviews)
+            return state
         case 'delete-profile':
             return {};
             break;

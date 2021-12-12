@@ -1,7 +1,6 @@
 import React, {useState} from "react";
-import shake_shake from "./shake_shack";
 import ReactMapGL, {Marker} from "react-map-gl";
-import { useSelector } from "react-redux";
+
 // import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 const Map = ({coordinates}) => {
@@ -15,16 +14,18 @@ const Map = ({coordinates}) => {
         height: "100%",
         zoom: 10
       });
-    
-      return (
+
+  return (
         <ReactMapGL
           {...viewport}
           mapStyle="mapbox://styles/mapbox/streets-v11"
-          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN} 
+          mapboxApiAccessToken='pk.eyJ1IjoibmtpZm9ubHkiLCJhIjoiY2tvdG5zY3IwMGJjNjJubnpsbWZqczRpMCJ9.Jkloo5yzCDd4HlLptz12ew'
           
           onViewportChange={(viewport) => setViewport(viewport)}
-        > 
-            <Marker latitude={geoPosition.latitude} longitude={geoPosition.longitude}>
+        >
+
+
+          <Marker latitude={geoPosition.latitude} longitude={geoPosition.longitude}>
                 <i className="fas fa-map-marker-alt fa-2x" style={{color:"red"}}></i>
             </Marker>
         </ReactMapGL>

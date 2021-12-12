@@ -41,6 +41,7 @@ export const postNewReview = (dispatch, newComment) => {
         }
     }).then(response => response.json())
         .then(review => {
+
           dispatch({
             type: 'create-review',
             review: review,
@@ -48,8 +49,26 @@ export const postNewReview = (dispatch, newComment) => {
           dispatch({
             type: 'update-profile-reviews',
             reviewId: review._id.toString(),
+          });
+          // dispatch({
+          //   type: 'new-userActivity',
+          //   newActivity: {
+          //     user: review.user,
+          //     type: 'review',
+          //     time_created: review.time_created,
+          //     review: review._id.toString()
+          //   }
+          // });
+          // dispatch({
+          //   type: 'new-userNotifications',
+          //   newNotification: {
+          //     user: review.user,
+          //     type: 'new-review',
+          //     time_created: review.time_created,
+          //     review: review._id.toString()
+          //   }
+
           })
-        })
 }
 
 export const deleteReview = (dispatch, review) => {

@@ -51,6 +51,7 @@ const RestaurantReview = () => {
       }
   let fetchedProfile = useSelector(state => state.profile);
   profile = {...profile, ...fetchedProfile};
+  console.log(profile)
   const [edit, setEdit] = useState(false);
 
   if (profile !== undefined && profile.role !== '') {

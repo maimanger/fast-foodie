@@ -8,7 +8,7 @@ const CustomerEditDelete = ({review, isEditing, setIsEditing}) => {
   const profile = useSelector(state => state.profile);
   const deleteReviewClickHandler = () => {deleteReview(dispatch, review)}
   const [isEdited, setIsEdited] = useState(false);
-  const [editedReview, setEditedReview] = useState("");
+  const [editedReview, setEditedReview] = useState(review);
   const editReviewClickHandler = () => {
     setIsEditing(false);
     setIsEdited(true);

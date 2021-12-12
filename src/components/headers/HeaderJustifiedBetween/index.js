@@ -15,7 +15,7 @@ const HeaderJustifiedBetween = ({loggedIn=true}) => {
 
 
     return (
-        <div className={"searchscreen-simple-header-container bg-white w-100 sticky-top"}>
+        <div className={"header-justified-between bg-white w-100 sticky-top"}>
         <div className={"w-100 d-flex justify-content-between align-items-center px-5 py-3 m-0"}>
             <BrandName color={"primary"} />
 

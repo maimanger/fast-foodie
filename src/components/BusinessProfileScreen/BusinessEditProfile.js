@@ -1,7 +1,32 @@
 import React, {useState} from "react";
 import moment from "moment";
+import {useDispatch} from "react-redux";
+import {updateProfile} from "../../services/profileService";
 
 const BusinessEditProfile = ({profile, setEdit}) => {
+    const dispatch = useDispatch();
+
+    const [firstName, setFirstName] = useState(profile.firstName);
+    const [lastName, setLastName] = useState(profile.lastName);
+    const [location, setLocation] = useState(profile.location);
+    const [email, setEmail] = useState(profile.email);
+
+    const saveClickHandler = ()=> {
+        const newFirstName = firstName === "" ? profile.firstName : firstName.trim();
+        const newLastName = lastName === "" ? profile.lastName : lastName.trim();
+        const newLocation = location === "" ? profile.location : location.trim();
+        const newEmail = email.trim();
+        const newProfile = {
+            ...profile,
+            "email": newEmail,
+            "firstName": newFirstName,
+            "lastName": newLastName,
+            "location": newLocation,
+        }
+        updateProfile(newProfile, dispatch);
+        setEdit(false);
+    }
+
 
     return (
         <>
@@ -15,7 +40,7 @@ const BusinessEditProfile = ({profile, setEdit}) => {
                 </button>
 
                 {/***********************Save Edit*****************************/}
-                <button onClick={() => setEdit(false)}
+                <button onClick={saveClickHandler}
                         className="btn btn-danger rounded-pill fw-bold  ms-auto me-0 me-sm-2 me-xl-5 px-3">
                     Save
                 </button>
@@ -28,7 +53,8 @@ const BusinessEditProfile = ({profile, setEdit}) => {
                     <input type="text" id="editName" placeholder="Edit" maxLength="50"
                            className="form-control bg-transparent border border-secondary
                                           wd-profile-edit"
-                           defaultValue={profile.firstName}/>
+                           value={firstName}
+                           onChange={e => setFirstName(e.target.value)}/>
                     <label htmlFor="editName" className="wd-text-18">First Name</label>
                 </div>
 
@@ -36,7 +62,8 @@ const BusinessEditProfile = ({profile, setEdit}) => {
                     <input type="text" id="editName" placeholder="Edit" maxLength="50"
                            className="form-control bg-transparent border border-secondary
                                           wd-profile-edit"
-                           defaultValue={profile.lastName}/>
+                           value={lastName}
+                           onChange={e => setLastName(e.target.value)}/>
                     <label htmlFor="editName" className="">Last Name</label>
                 </div>
 
@@ -45,7 +72,8 @@ const BusinessEditProfile = ({profile, setEdit}) => {
                     <input type="text" id="editLocation" placeholder="Edit" maxLength="50"
                            className="form-control bg-transparent border border-secondary
                                            wd-profile-edit"
-                           defaultValue={profile.location}/>
+                           value={location}
+                           onChange={e => setLocation(e.target.value)}/>
                     <label htmlFor="editLocation" className="wd-text-18">Location</label>
                 </div>
 
@@ -54,13 +82,13 @@ const BusinessEditProfile = ({profile, setEdit}) => {
                     <input type="email" id="editEmail" placeholder="Edit" maxLength="50"
                            className="form-control bg-transparent border border-secondary
                                            wd-profile-edit"
-                           defaultValue={profile.email}/>
+                           value={email}
+                           onChange={e => setEmail(e.target.value)}/>
                     <label htmlFor="editEmail" className="wd-text-18">Email</label>
                 </div>
             </div>
             </>
     )
-
 }
 
 export default BusinessEditProfile;

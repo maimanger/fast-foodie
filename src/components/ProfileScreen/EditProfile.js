@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import "./Profile.css"
 import moment from "moment";
+import {updateProfile} from "../../services/profileService";
+import {useDispatch} from "react-redux";
 
 const EditProfile = ({profile, setEdit}) => {
 
@@ -29,7 +31,44 @@ const EditProfile = ({profile, setEdit}) => {
                      });
     }
 
+    const [imageURL, setImageURL] = useState(profile.image_url);
+    const [firstName, setFirstName] = useState(profile.firstName);
+    const [lastName, setLastName] = useState(profile.lastName);
+    const [location, setLocation] = useState(profile.location);
+    const [address, setAddress] = useState(profile.addressDetail);
+    const [email, setEmail] = useState(profile.email);
+    const [birthday, setBirthday] = useState(profile.birthday);
+    const [locationVisible, setLocationVisible] = useState(profile.customerData.visibility.location);
+    const [birthdayVisible, setBirthdayVisible] = useState(profile.customerData.visibility.birthday);
+
+    const dispatch = useDispatch();
+    // TODO: fetch server and dispatch reducer in save button
     const saveClickHandler = ()=> {
+        const newImgURL = imageURL.trim();
+        const newFirstName = firstName === "" ? profile.firstName : firstName.trim();
+        const newLastName = lastName === "" ? profile.lastName : lastName.trim();
+        const newLocation = location === "" ? profile.location : location.trim();
+        const newAddress = address.trim();
+        const newEmail = email.trim();
+        const newProfile = {
+            ...profile,
+            "email": newEmail,
+            "firstName": newFirstName,
+            "lastName": newLastName,
+            "image_url": newImgURL,
+            "location": newLocation,
+            "addressDetail": newAddress,
+            "birthday": birthday,
+            "customerData": {
+                ...profile.customerData,
+                "visibility": {
+                    ...profile.customerData.visibility,
+                    "location": locationVisible,
+                    "birthday": birthdayVisible
+                }
+            }
+        };
+        updateProfile(newProfile, dispatch);
         setEdit(false);
     }
 
@@ -60,11 +99,11 @@ const EditProfile = ({profile, setEdit}) => {
                      style={{"height": "120px", "width": "120px"}}/>
                 <div
                     className="card-img-overlay p-0 m-0 d-flex justify-content-center align-items-center">
-                    <label className="btn wd-circle-btn rounded-circle p-0 d-flex
+{/*                    <label className="btn wd-circle-btn rounded-circle p-0 d-flex
                                           justify-content-center align-items-center">
                         <i className="fas fa-camera text-white"></i>
                         <input type="file" className="d-none" accept="image/*"/>
-                    </label>
+                    </label>*/}
                 </div>
             </div>
 
@@ -75,7 +114,9 @@ const EditProfile = ({profile, setEdit}) => {
                     {/***************************Edit Avatar URL*****************************/}
                     <input type="text" id="editAvatar" placeholder="Edit" maxLength="100"
                            className="form-control bg-transparent border border-secondary
-                                          wd-profile-edit"/>
+                                          wd-profile-edit"
+                           value={imageURL}
+                           onChange={e => setImageURL(e.target.value)}/>
                     <label htmlFor="editAvatar" className="wd-text-18">Profile Image URL</label>
                 </div>
 
@@ -84,7 +125,8 @@ const EditProfile = ({profile, setEdit}) => {
                     <input type="text" id="editName" placeholder="Edit" maxLength="50"
                               className="form-control bg-transparent border border-secondary
                                           wd-profile-edit"
-                            defaultValue={profile.firstName}/>
+                              value={firstName}
+                              onChange={e => setFirstName(e.target.value)}/>
                     <label htmlFor="editName" className="wd-text-18">First Name</label>
                 </div>
 
@@ -92,7 +134,8 @@ const EditProfile = ({profile, setEdit}) => {
                     <input type="text" id="editName" placeholder="Edit" maxLength="50"
                               className="form-control bg-transparent border border-secondary
                                           wd-profile-edit"
-                              defaultValue={profile.lastName}/>
+                              value={lastName}
+                              onChange={e => setLastName(e.target.value)}/>
                     <label htmlFor="editName" className="">Last Name</label>
                 </div>
 
@@ -101,7 +144,8 @@ const EditProfile = ({profile, setEdit}) => {
                     <input type="text" id="editLocation" placeholder="Edit" maxLength="50"
                               className="form-control bg-transparent border border-secondary
                                            wd-profile-edit"
-                           defaultValue={profile.location}/>
+                           value={location}
+                            onChange={e => setLocation(e.target.value)}/>
                     <label htmlFor="editLocation" className="wd-text-18">Location</label>
                 </div>
 
@@ -110,7 +154,8 @@ const EditProfile = ({profile, setEdit}) => {
                     <input type="text" id="editLocation" placeholder="Edit" maxLength="50"
                            className="form-control bg-transparent border border-secondary
                                            wd-profile-edit"
-                           defaultValue={profile.addressDetail}/>
+                           value={address}
+                           onChange={e => setAddress(e.target.value)}/>
                     <label htmlFor="editLocation" className="wd-text-18">Address</label>
                 </div>
 
@@ -119,7 +164,8 @@ const EditProfile = ({profile, setEdit}) => {
                     <input type="email" id="editEmail" placeholder="Edit" maxLength="50"
                            className="form-control bg-transparent border border-secondary
                                            wd-profile-edit"
-                           defaultValue={profile.email}/>
+                           value={email}
+                           onChange={e => setEmail(e.target.value)}/>
                     <label htmlFor="editEmail" className="wd-text-18">Email</label>
                 </div>
 
@@ -138,14 +184,15 @@ const EditProfile = ({profile, setEdit}) => {
                     </div>
 
                     <div hidden={editBirth.dateHidden} className=" ">
-                        {moment(profile.birthday).format('LL')}
+                        {moment(birthday).format('LL')}
                     </div>
 
                     <div hidden={editBirth.datePickerHidden} className="">
                         <input type="date" className="rounded-3 border-secondary form-control bg-transparent"
-                               onChange={(event) => {
+                               onChange={event => {
                                    if (event.target.value !== '') {
-                                       console.log(moment(event.target.value).format("YYYY-MM-DD"));
+                                       /*console.log(moment(event.target.value).format("YYYY-MM-DD"));*/
+                                       setBirthday(moment(event.target.value).format("YYYY-MM-DD"));
                                    }
                                }}/>
                     </div>
@@ -159,7 +206,10 @@ const EditProfile = ({profile, setEdit}) => {
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="locationVisible"
                                        id="gridRadios1" value="locationVisible"
-                                       defaultChecked={profile.customerData.visibility.location}/>
+                                       defaultChecked={locationVisible}
+                                       onChange={e => {
+                                           e.target.checked ?
+                                           setLocationVisible(true) : setLocationVisible(false)}}/>
                                     <label className="form-check-label" htmlFor="locationVisible">
                                         Location
                                     </label>
@@ -167,7 +217,10 @@ const EditProfile = ({profile, setEdit}) => {
                             <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="birthdayVisible"
                                        id="gridRadios2" value="birthdayVisible"
-                                       defaultChecked={profile.customerData.visibility.birthday}/>
+                                       defaultChecked={birthdayVisible}
+                                       onChange={e => {
+                                           e.target.checked ?
+                                           setBirthdayVisible(true) : setBirthdayVisible(false)}}/>
                                     <label className="form-check-label" htmlFor="birthdayVisible">
                                         Birthday
                                     </label>
@@ -179,14 +232,14 @@ const EditProfile = ({profile, setEdit}) => {
                                     Photos
                                 </label>
                             </div>*/}
-                            <div className="form-check mb-2">
+{/*                            <div className="form-check mb-2">
                                 <input className="form-check-input" type="checkbox" name="bookmarksVisible"
                                        id="gridRadios2" value="bookmarksVisible"
                                        defaultChecked={profile.customerData.visibility.bookmarks}/>
                                 <label className="form-check-label" htmlFor="bookmarksVisible">
                                     Bookmarks
                                 </label>
-                            </div>
+                            </div>*/}
                         </div>
                     </fieldset>
 

@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
 import {fetchUserActivities} from "../../services/userActivitiesService";
 import {fetchUserNotifications} from "../../services/userNotificationsService";
+import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
 
 const AdminHomeScreen = () => {
     const history = useHistory();
@@ -39,7 +40,8 @@ const AdminHomeScreen = () => {
 
     return (
         <>
-            <div className="container-fluid vw-100 p-0">
+            <SimpleLogoutHeader />
+            <div className="container-fluid vw-100 p-0 pt-5">
 
                 <div className="row flex-nowrap">
                     {/****************************Admin NavSidebar************************/}

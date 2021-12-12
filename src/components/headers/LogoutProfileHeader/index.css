@@ -1,9 +1,11 @@
 .searchscreen-simple-header-container{
     font-size: 30px;
+    box-shadow: 0 0 10px 0 lightgray;
 }
 
 .searchscreen-simple-header-buttons{
     font-size: 15px;
     right: 30px;
 }
+
 

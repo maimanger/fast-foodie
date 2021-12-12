@@ -3,7 +3,7 @@ import './index.css';
 import MessageMenuComponent from "./MessagesMenuComponent";
 import MessageChatboxComponent from "./MessagesChatboxComponent";
 import SearchHeader from "../headers/SearchHeader";
-import LogoutHeader from "../headers/LogoutHeader";
+import LogoutProfileHeader from "../headers/LogoutProfileHeader";
 import SimpleHeader from "../headers/SimpleHeader";
 
 const MessageScreen = () => {
@@ -11,7 +11,7 @@ const MessageScreen = () => {
     return (
         <div className={"bg-white w-100 messagescreen-container d-flex flex-column"}>
             {/*<SearchHeader />*/}
-            <LogoutHeader />
+            <LogoutProfileHeader />
             {/*<SimpleHeader />*/}
 
             <div className={"d-flex border border-light bg-white h-100"}>

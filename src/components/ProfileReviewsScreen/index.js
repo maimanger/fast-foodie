@@ -12,6 +12,8 @@ import ProfileReviews from "./ProfileReviews";
 import {useHistory} from "react-router-dom";
 import {fetchProfile} from "../../services/profileService";
 import {fetchAllReviewsByProfile} from "../../services/reviewService";
+import SimpleHeader from "../headers/SimpleHeader";
+import CustomerPrivateProfileHeader from "../headers/CustomerPrivateProfileHeader";
 
 const ProfileReviewsScreen = () => {
 
@@ -80,7 +82,7 @@ const ProfileReviewsScreen = () => {
 
     return (
         <>
-
+            {(fetchedProfile && Object.keys(fetchedProfile).length !== 0 && (fetchedProfile.role === 'business' || fetchedProfile.role === 'admin')) ? <SimpleHeader /> : <CustomerPrivateProfileHeader />}
             {/**********************************Profile Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">

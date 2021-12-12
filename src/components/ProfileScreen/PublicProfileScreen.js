@@ -11,6 +11,8 @@ import users from "../../reducers/data/profile/users.json"
 import {useHistory, useParams} from "react-router-dom";
 import {fetchProfile, findUserById} from "../../services/profileService";
 import {fetchAllReviewsByUserId} from "../../services/reviewService";
+import LogoutProfileHeader from "../headers/LogoutProfileHeader";
+import SearchHeader from "../headers/SearchHeader";
 
 const PublicProfileScreen = () => {
     // Get current login user and the public user profile
@@ -110,6 +112,7 @@ const PublicProfileScreen = () => {
     if (publicProfile.role === "customer") {
         return (
             <>
+                {(fetchedProfile && Object.keys(fetchedProfile).length !== 0 && (fetchedProfile.role === 'business' || fetchedProfile.role === 'admin')) ? <LogoutProfileHeader /> : <SearchHeader />}
                 {/**********************************Profile Header*********************************/}
                 <div className="container-fluid vw-100 p-0">
                     <div className="sticky-top">

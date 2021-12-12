@@ -6,7 +6,7 @@ import LoginSignupButtons from "../../headers/SearchHeader/LoginSignupButtons";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile, logout} from "../../../services/profileService";
 
-const LogoutHeader = ({loggedIn=true}) => {
+const LogoutProfileHeader = ({loggedIn=true}) => {
     const profile = useSelector(state => state.profile);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -27,4 +27,4 @@ const LogoutHeader = ({loggedIn=true}) => {
     )
 }
 
-export default LogoutHeader;
+export default LogoutProfileHeader;

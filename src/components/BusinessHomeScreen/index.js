@@ -11,6 +11,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
 import {fetchUserActivities} from "../../services/userActivitiesService";
 import {fetchUserNotifications} from "../../services/userNotificationsService";
+import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
 
 const BusinessHomeScreen = () => {
 
@@ -67,6 +68,7 @@ const BusinessHomeScreen = () => {
 
     return (
         <>
+            <SimpleLogoutHeader />
             {/**********************************Business Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">

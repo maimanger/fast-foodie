@@ -9,6 +9,7 @@ import BusinessEditProfile from "./BusinessEditProfile"
 import BusinessHeader from "../BusinessHomeScreen/BusinessHeader";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProfile} from "../../services/profileService";
+import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
 
 const BusinessProfileScreen = () => {
 
@@ -50,6 +51,7 @@ const BusinessProfileScreen = () => {
     const isVerified = profile.businessData.verified;
     return (
         <>
+            <SimpleLogoutHeader />
             {/**********************************Business Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">

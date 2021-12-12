@@ -5,6 +5,7 @@ import AdminClaims from "./AdminClaims";
 import claims from "../../reducers/data/adminHome/adminClaims.json"
 import {useDispatch, useSelector} from "react-redux";
 import {getAllClaims} from "../../services/claimService";
+import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
 
 
 
@@ -19,7 +20,8 @@ const AdminClaimScreen = () => {
 
     return (
         <>
-            <div className="container-fluid vw-100 p-0">
+            <SimpleLogoutHeader />
+            <div className="container-fluid vw-100 p-0 pt-5">
 
                 <div className="row flex-nowrap">
                     {/****************************Admin NavSidebar************************/}

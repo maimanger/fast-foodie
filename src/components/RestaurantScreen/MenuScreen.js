@@ -3,15 +3,18 @@ import RestaurantImage from "./RestaurantParts/RestaurantImage";
 import RestaurantNav from "./RestaurantParts/RestaurantNav";
 import RestaurantMenu from "./RestaurantParts/RestaurantMenu";
 import SearchHeader from "../headers/SearchHeader";
+import SimpleHeader from "../headers/SimpleHeader";
+import React from "react";
 
 
 const MenuScreen = () => {
     const restaurant = useSelector(state => state.restaurant);
-    
+    const profile = useSelector(state => state.profile);
+
     return (
 
       <div>
-        <SearchHeader/>
+          {(profile && Object.keys(profile).length !== 0 && (profile.role === 'business' || profile.role === 'admin')) ? <SimpleHeader /> : <SearchHeader />}
         <RestaurantImage />
           <div className="container">
             <div className="row mt-3">

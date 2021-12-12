@@ -2,12 +2,18 @@ import RestaurantImage from "./RestaurantParts/RestaurantImage";
 import RestaurantNav from "./RestaurantParts/RestaurantNav";
 import RestaurantReview from "./RestaurantReview/RestaurantReview";
 import SearchHeader from "../headers/SearchHeader";
+import {useSelector} from "react-redux";
+import SimpleHeader from "../headers/SimpleHeader";
+import React from "react";
+
 
 
 const ReviewScreen = () => {
+
+    const profile = useSelector(state => state.profile);
     return (
       <div>
-        <SearchHeader />
+          {(profile && Object.keys(profile).length !== 0 && (profile.role === 'business' || profile.role === 'admin')) ? <SimpleHeader /> : <SearchHeader />}
         <RestaurantImage />
           <div className="container">
             <div className="row mt-3">

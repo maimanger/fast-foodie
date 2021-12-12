@@ -3,6 +3,8 @@ import RestaurantImage from "./RestaurantParts/RestaurantImage";
 import RestaurantNav from "./RestaurantParts/RestaurantNav";
 import RestaurantAbout from "./RestaurantParts/RestaurantAbout";
 import SearchHeader from "../headers/SearchHeader";
+import {useSelector} from "react-redux";
+import SimpleHeader from "../headers/SimpleHeader";
 
 const RestaurantScreen = () => {
   // const restaurant = useSelector(state => state.restaurant);
@@ -18,11 +20,12 @@ const RestaurantScreen = () => {
 
   // useEffect(() => findRestaurantById(dispatch)
   // , [dispatch])
-  
+  const profile = useSelector(state => state.profile);
+
   return (
 
     <div>
-      <SearchHeader/>
+        {(profile && Object.keys(profile).length !== 0 && (profile.role === 'business' || profile.role === 'admin')) ? <SimpleHeader /> : <SearchHeader />}
       <RestaurantImage/>
       <div className="container">
         <div className="row mt-3">

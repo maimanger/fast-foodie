@@ -45,7 +45,9 @@ const profile = (state = {}, action) => {
             };
             return (newProfile);
             break;
-
+        case 'update-profile-reviews':
+            state.customerData.reviews.push(action.reviewId);
+            return state;
         case 'delete-profile':
             return {};
             break;

@@ -40,10 +40,16 @@ export const postNewReview = (dispatch, newComment) => {
             'content-type': 'application/json'
         }
     }).then(response => response.json())
-        .then(review => dispatch({
-                                     type: 'create-review',
-                                     review: review,
-                                 }))
+        .then(review => {
+          dispatch({
+            type: 'create-review',
+            review: review,
+          });
+          dispatch({
+            type: 'update-profile-reviews',
+            reviewId: review._id.toString(),
+          })
+        })
 }
 
 export const deleteReview = (dispatch, review) => {

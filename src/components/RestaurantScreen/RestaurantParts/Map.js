@@ -10,8 +10,8 @@ const Map = ({coordinates}) => {
     const [viewport, setViewport] = useState({
         latitude: geoPosition.latitude,
         longitude: geoPosition.longitude,
-        width: "100%",
-        height: "100%",
+        width: "300px",
+        height: "200px",
         zoom: 10
       });
 

@@ -11,17 +11,18 @@ const RestaurantAbout = () => {
     <div>
       <h3 className="row mt-3 p-0">Location & hours</h3>
       <div className="row mb-3">
-        <div className="col-4 p-0">
+        <div className="col-lg-5 col-md-8 p-0">
           <Map coordinates={restaurant.coordinates}/>
           <div>{restaurant.location.display_address.join(", ")}</div>
           <div>{restaurant.display_phone}</div>
           {/* <div>
             <a href={restaurant.url}>Visit</a>
           </div> */}
+
         </div>
-        <div className="col-1"></div>
-        <div className="col-5">
-          <ul className="list-group m-0 ">
+
+        <div className="col-lg-5 col-md-8 p-0 mt-2">
+          <ul className="list-group m-0 p-0">
             {times.map((time, index) => {return (
               <li key={index} className="list-group-item border-0 p-0 bg-transparent">
                 <div className="row"> 

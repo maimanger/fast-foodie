@@ -50,23 +50,6 @@ export const postNewReview = (dispatch, newComment) => {
             type: 'update-profile-reviews',
             reviewId: review._id.toString(),
           });
-          // dispatch({
-          //   type: 'new-userActivity',
-          //   newActivity: {
-          //     user: review.user,
-          //     type: 'review',
-          //     time_created: review.time_created,
-          //     review: review._id.toString()
-          //   }
-          // });
-          // dispatch({
-          //   type: 'new-userNotifications',
-          //   newNotification: {
-          //     user: review.user,
-          //     type: 'new-review',
-          //     time_created: review.time_created,
-          //     review: review._id.toString()
-          //   }
 
           })
 }

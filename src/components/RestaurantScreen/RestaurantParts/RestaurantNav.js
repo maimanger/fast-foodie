@@ -12,7 +12,14 @@ const RestaurantNav = ({active = 'about'}) => {
   return (
     <div className="row mt-3">
       <div className="p-0 col-3">
-        <ul className="nav nav-pills">
+        <ul className="nav navbar-expand-lg nav-pills">
+          <button className="navbar-toggler bg-primary" type="button"
+                  data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                  aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <span className="fas fa-bars text-white"></span>
+          </button>
+          <div className="collapse navbar-collapse mt-2" id="navbarTogglerDemo01">
           <li className="nav-item">
             <Link to={`/restaurants/${id}/about`} className= {`nav-link ${active === 'about' ? 'active': ''} `} >
               About
@@ -28,6 +35,7 @@ const RestaurantNav = ({active = 'about'}) => {
               Review
             </Link>
           </li>
+          </div>
         </ul>
       </div>
       {/* <div onClick={saveClickHandler} className="col-4">

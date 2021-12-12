@@ -16,7 +16,7 @@ const AnonReview = () => {
         </h3>
 
         <ReviewList/>
-        <YelpReviewList/>
+        {/*<YelpReviewList/>*/}
       </div>
   )
 }

@@ -5,22 +5,25 @@ import AdminDelete from "./AdminDelete";
 import BusinessReply from "./BusinessReply";
 import {Link} from "react-router-dom";
 import "../../ProfileScreen/Profile.css"
+import ReviewStars from "../../ProfileScreen/ReviewStars";
+import moment from "moment";
 
 const ReviewListItem = ({review}) => {
 
     const profile = useSelector(state => state.profile);
     const [user, setUser] = useState({})
+    const[isEditing, setIsEditing] = useState("false");
 
     let operation;
     switch (profile.role) {
         case 'customer':
-            operation = <CustomerEditDelete review={review}/>;
+            operation = <CustomerEditDelete review={review} isEditing={isEditing} setIsEditing={setIsEditing}/>;
             break;
         case 'admin':
             operation = <AdminDelete review={review}/>;
             break;
         case 'business':
-            operation = <BusinessReply review={review}/>
+            operation = <BusinessReply review={review} isEditing={isEditing} setIsEditing={setIsEditing}/>
             break;
         default:
             operation = '';
@@ -38,7 +41,7 @@ const ReviewListItem = ({review}) => {
     return (
         <li className="list-group-item border-0 p-0 bg-transparent">
             <div className="row border-top p-3">
-                <div className="col-4">
+                <div className="col-12 col-md-5 col-xl-3">
                     <Link to={`/profile/${review.user}`}
                           className="wd-profile-content-hover text-black ms-3 d-flex flex-row">
 
@@ -48,9 +51,9 @@ const ReviewListItem = ({review}) => {
                                  style={{width: 70, height: 70, objectFit: "cover"}}/>
                         </div>
 
-
                         <div className="ms-3">
-                            <div className="fw-bold text-info"> {review.userInfo.name} </div>
+                            <div
+                                className="fw-bold text-info text-nowrap"> {review.userInfo.name} </div>
                             <div className="text-black"> {review.userInfo.location} </div>
                             <div>
                                 <i className="fas fa-user-friends pe-1 me-2 text-opacity-75 text-primary"></i>
@@ -69,17 +72,21 @@ const ReviewListItem = ({review}) => {
                                 </span>
                             </div>
                         </div>
-
-
                     </Link>
                 </div>
+
+
                 {/************************Review Stars**************************/}
-                <div className="col-8">
-                    <div className="row ms-1 d-flex align-items-center">
-                        <span className="col-3 starability-result"
-                              data-rating={review.rating}></span>
-                        <span className="col-4 text-muted ms-2 mt-1">{review.time_created.split(
-                            ' ')[0]}</span>
+                <div className="col-xl-9">
+                    <div className="row d-flex align-items-center"
+                         style={{fontSize: "18px"}}>
+                        <ReviewStars review={review}/>
+
+                        {/*                        <span className="col-3 starability-result"
+                              data-rating={review.rating}></span>*/}
+
+                        {/*                        <span className="col-4 text-muted ms-2 mt-1">{review.time_created.split(
+                            ' ')[0]}</span>*/}
                         {/*<span className="col-5 dropdown">*/}
 
                         {/*    <i className="fas fa-ellipsis-h float-end" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
@@ -95,45 +102,48 @@ const ReviewListItem = ({review}) => {
                     </div>
 
                     {/************************Review Text**************************/}
-                    <div className="row">
-                                        <p className="py-2 m-0">
-                    {Object.keys(review.text).length !== 0 &&
-                        review.text}
-                </p>
-                    </div>
+
+                    <p className="mb-2 text-opacity-75 text-black">
+                        {review.text}
+                    </p>
+
                     {/************************Review Img**************************/}
-                    <div className="d-lg-flex gap-3 col-8 col-sm-7 col-md-6 col-lg-5 col-xl-4">
+                    <div className="d-lg-flex gap-3 col-7 col-sm-6 col-md-5 col-lg-8 col-xl-7">
                         {review.img?.map(i => {
                             return (<>
-                                { i &&
-                                <div className="card text-white">
-                                    <img src={i.url}
-                                         className="card-img-top img-fluid"/>
-{/*                                    {i.text && <div
-                                        className="card-img-overlay d-flex py-0 px-0 flex-column justify-content-end">
+                                {i && i.url !== "" &&
+                                 <div className="card text-white h-100">
+                                     <img src={i.url}
+                                          className="card-img-top img-fluid"/>
+                                     {i.text && <div
+                                         className="card-img-overlay d-flex py-0 px-0 flex-column justify-content-end">
                              <span className="bg-black bg-opacity-50 px-2">
                              {i.text}
                              </span>
-                                    </div>}*/}
-                                </div>}
-                                </>)
+                                     </div>}
+                                 </div>}
+                            </>)
                         })}
 
                     </div>
 
-                    {review.replies[0].text !== '' &&
-                     <div>
+                    {review.replies.length !== 0 && review.replies[0].text !== "" &&
+                     <div className="text-black opacity-75 mt-3 ms-5 p-3 border-start border-4">
                          <div>
-                             <br/>
                              <div>
-                                 <span>Reply from the owner on {review.replies[0].time_created.split(
-                                     ' ')[0]}</span></div>
+                                  <div className="mb-2" style={{fontSize: "17px"}}>
+                                      <span className="fw-bold">Reply from the owner </span>
+                                      <div className="text-black-50">{moment(
+                                          review.replies[0].time_created)
+                                          .format("L")}</div>
+                                  </div>
+                             </div>
                              {/*<Link className="text-info wd-profile-link-text mx-1"*/}
                              {/*      to={`/profile/${review.user._id}`}>*/}
                              {/*  {profile.firstName} {profile.lastName}*/}
                              {/*</Link>*/}
-                             <div className="text-muted fst-italic">
-                                 <span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>{review.replies[0].text}</span>
+                             <div className="fst-italic">
+                                 <span>{review.replies[0].text}</span>
                              </div>
                          </div>
                          {/*<div className="text-muted fst-italic text-nowrap">*/}
@@ -144,7 +154,9 @@ const ReviewListItem = ({review}) => {
                          {/*</div>*/}
                      </div>}
 
+
                     {operation}
+
 
                 </div>
             </div>

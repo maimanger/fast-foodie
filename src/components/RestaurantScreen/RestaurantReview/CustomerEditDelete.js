@@ -3,13 +3,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {deleteReview, updateReview} from "../../../services/reviewService";
 
 
-const CustomerEditDelete = ({review}) => {
+const CustomerEditDelete = ({review, isEditing, setIsEditing}) => {
   const dispatch = useDispatch();
   const profile = useSelector(state => state.profile);
   const deleteReviewClickHandler = () => {deleteReview(dispatch, review)}
   const [isEdited, setIsEdited] = useState(false);
-  const [editedReview, setEditedReview] = useState(review);
-  const editReviewClickHandler = () => setIsEdited(true);
+  const [editedReview, setEditedReview] = useState("");
+  const editReviewClickHandler = () => {
+    setIsEditing(false);
+    setIsEdited(true);
+  }
 
   const buttons = <div className="mt-3">
                     <span>
@@ -25,15 +28,20 @@ const CustomerEditDelete = ({review}) => {
                   </div>
 
   const onReviewTextChange = (event) => setEditedReview({...editedReview, text: event.target.value})
-  const cancelClickHandler = () => setIsEdited(false);
+  const cancelClickHandler = () => {
+    setIsEditing(true);
+    setIsEdited(false);
+  }
   const saveReview = () => {
     updateReview(dispatch, editedReview);
-    setIsEdited(false)
+    setIsEditing(true);
+    setIsEdited(false);
   }
   const editInput = <div className="">
     <div className="row mt-4"></div>
     <div className="mt-5">
-      <input className="form-control" value={editedReview.text} onChange={onReviewTextChange}/>
+      <textarea className="form-control" rows="3" style={{resize: "none"}}
+                value={editedReview.text} onChange={onReviewTextChange}/>
     </div>
     <div className="mt-3">
       <span><button onClick={ cancelClickHandler } type="button" className="btn btn-secondary float-end">Cancel</button></span>
@@ -43,7 +51,7 @@ const CustomerEditDelete = ({review}) => {
 
   return (
       <div>
-        {review.user === profile._id + ''? buttons: ''}
+        {review.user === profile._id + '' && isEditing ? buttons: ''}
         {isEdited === true ? editInput: ''}
       </div>
   )

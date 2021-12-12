@@ -15,7 +15,7 @@ const ReviewScreen = () => {
       <div>
           {(profile && Object.keys(profile).length !== 0 && (profile.role === 'business' || profile.role === 'admin')) ? <SimpleHeader /> : <SearchHeader />}
         <RestaurantImage />
-          <div className="container">
+          <div className="container-fluid container-lg px-lg-5">
             <div className="row mt-3">
               <div className="col-1"></div>
               <div className="col-10">

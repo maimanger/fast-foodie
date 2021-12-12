@@ -16,7 +16,7 @@ const SimpleLogoutHeader = ({loggedIn=true}) => {
 
     return (
         <div className={"searchscreen-simple-header-container header-container-shadow bg-white w-100 sticky-top"}>
-        <div className={"w-100 d-flex justify-content-center align-items-center px-5 py-3 m-0 position-relative"}>
+        <div className={"w-100 d-flex justify-content-between align-items-center px-5 py-3 m-0 position-relative"}>
             <BrandName color={"primary"} />
 
             <div className={"searchscreen-search-header-buttons searchscreen-simple-header-buttons position-absolute"}>

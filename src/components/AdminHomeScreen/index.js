@@ -40,8 +40,9 @@ const AdminHomeScreen = () => {
 
     return (
         <>
-            <SimpleLogoutHeader />
+            <SimpleLogoutHeader/>
             <div className="container-fluid vw-100 p-0 pt-5">
+
 
                 <div className="row flex-nowrap">
                     {/****************************Admin NavSidebar************************/}

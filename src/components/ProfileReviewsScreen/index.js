@@ -86,7 +86,7 @@ const ProfileReviewsScreen = () => {
             <SimpleLogoutHeader />
             {/**********************************Profile Header*********************************/}
             <div className="container-fluid vw-100 p-0">
-                <div className="sticky-top">
+                <div className="">
                     <div className="wd-profile-banner bg-secondary vw-100"></div>
                     <ProfileHeader profile={profile} setEdit = {setEdit} edit={edit}/>
                 </div>

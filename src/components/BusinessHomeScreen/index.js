@@ -68,10 +68,11 @@ const BusinessHomeScreen = () => {
 
     return (
         <>
-            <SimpleLogoutHeader />
+
             {/**********************************Business Header*********************************/}
             <div className="container-fluid vw-100 p-0">
-                <div className="sticky-top">
+                <div className="">
+                    <SimpleLogoutHeader />
                     <div className="wd-business-banner bg-secondary vw-100"></div>
                     <BusinessHeader user={profile}/>
                 </div>

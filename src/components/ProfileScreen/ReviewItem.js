@@ -73,12 +73,14 @@ const ReviewItem = ({review=defaultReview}) => {
                         <div className="card text-white">
                             <img src={i.url}
                                  className="card-img-top img-fluid"/>
+                            {i.text &&
                             <div
                                 className="card-img-overlay d-flex py-0 px-0 flex-column justify-content-end">
                              <span className="bg-black bg-opacity-50 px-2">
                              {i.text}
                              </span>
                             </div>
+                            }
                         </div>
                     )
                 })}

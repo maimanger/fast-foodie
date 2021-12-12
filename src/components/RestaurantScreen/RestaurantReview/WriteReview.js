@@ -35,7 +35,7 @@ const WriteReview = ({profile}) => {
         location: profile.location,
         reviewNum: profile.customerData.reviews.length + 1,
         friendNum: profile.customerData.followings.length,
-        followersNum: profile.customerData.followers.length
+        followerNum: profile.customerData.followers.length
       },
       replies: [{
         user: '',

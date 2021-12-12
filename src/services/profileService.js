@@ -132,3 +132,22 @@ export const fetchAllFollowers = () => {
         credentials: 'include'
     }).then(res => res.json())
 }
+
+
+export const updateProfile = (newProfile, dispatch) => {
+    fetch(`${API_URL}/editProfile`, {
+        method: 'PUT',
+        credentials: 'include',
+        body: JSON.stringify(newProfile),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(res => {
+            dispatch({
+                         type: 'edit-profile',
+                         newProfile,
+                     });
+        })
+
+}

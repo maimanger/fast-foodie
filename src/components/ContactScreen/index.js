@@ -2,13 +2,14 @@ import React from "react";
 import './index.css';
 import ContactFormComponent from "./ContactFormComponent";
 import SearchHeader from "../SearchScreen/SearchHeader";
+import SimpleHeader from "../headers/SimpleHeader";
 
 const ContactScreen = () => {
     return (
         <div className={"bg-white homescreen-screen-container-default-size"}>
 
             {/*******************  header  **********************/}
-            <SearchHeader loggedIn={true}/>
+            <SimpleHeader />
 
             {/*******************  banner  **********************/}
             <img src="https://cdn.shopify.com/s/files/1/1740/3779/files/K_Js-contactUs-Banner.jpg?10988943411126984298"

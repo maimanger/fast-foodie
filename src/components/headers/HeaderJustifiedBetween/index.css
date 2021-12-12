@@ -1,9 +1,10 @@
-.searchscreen-simple-header-container{
-    font-size: 30px;
-}
+
 
 .searchscreen-simple-header-buttons{
     font-size: 15px;
     right: 30px;
 }
 
+.header-justified-between{
+    font-size: 30px;
+}

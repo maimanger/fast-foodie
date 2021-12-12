@@ -18,6 +18,7 @@ import notifications from "../../reducers/notifications";
 import SimpleHeader from "../headers/SimpleHeader";
 import SearchHeader from "../headers/SearchHeader";
 import CustomerPrivateProfileHeader from "../headers/CustomerPrivateProfileHeader";
+import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
 
 const ProfileScreen = () => {
     const [edit, setEdit] = useState(false);
@@ -89,7 +90,7 @@ const ProfileScreen = () => {
 
     return (
         <>
-            {(fetchedProfile && Object.keys(fetchedProfile).length !== 0 && (fetchedProfile.role === 'business' || fetchedProfile.role === 'admin')) ? <SimpleHeader /> : <CustomerPrivateProfileHeader />}
+            <SimpleLogoutHeader />
             {/**********************************Profile Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">

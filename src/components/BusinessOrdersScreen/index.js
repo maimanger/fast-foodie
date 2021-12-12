@@ -4,11 +4,13 @@ import BusinessNavSidebar from "../BusinessHomeScreen/BusinessNavSidebar";
 import BusinessHeader from "../BusinessHomeScreen/BusinessHeader";
 import BusinessOrders from "./BusinessOrders";
 import users from "../../reducers/data/profile/users.json";
+import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
 
 const BusinessOrdersScreen = () => {
     const user = users[users.length - 1];
     return (
         <>
+            <SimpleLogoutHeader />
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">
                     <div className="wd-business-banner bg-secondary vw-100"></div>

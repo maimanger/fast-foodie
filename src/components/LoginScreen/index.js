@@ -3,6 +3,7 @@ import "./Login.css";
 import {Link, useHistory, Redirect} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {login, logout} from "../../services/profileService";
+import LoginScreenHeader from "../headers/LoginScreenHeader";
 
 const LoginScreen = () => {
     const isValid = useSelector(state => state.profileVerification);
@@ -62,6 +63,7 @@ const LoginScreen = () => {
 
     return (
         <>
+            <LoginScreenHeader />
             <div className="container">
                 <div className="row align-items-center g-lg-5 py-5">
                     <div className="col-lg-6 text-center text-lg-start">

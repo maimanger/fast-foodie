@@ -8,6 +8,9 @@ import EditProfile from "../ProfileScreen/EditProfile";
 import ProfileAboutMe from "../ProfileScreen/ProfileAboutMe";
 import ProfileBookmarks from "./ProfileBookmarks";
 import {useParams} from "react-router-dom";
+import SimpleHeader from "../headers/SimpleHeader";
+import CustomerPrivateProfileHeader from "../headers/CustomerPrivateProfileHeader";
+import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
 
 const ProfileBookmarksScreen = () => {
     const profile = useSelector(state => state.profile);
@@ -18,7 +21,7 @@ const ProfileBookmarksScreen = () => {
 
     return (
         <>
-
+            <SimpleLogoutHeader />
             {/**********************************Profile Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">

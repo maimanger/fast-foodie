@@ -9,6 +9,9 @@ import ProfileAboutMe from "../ProfileScreen/ProfileAboutMe";
 import ProfileFollowers from "./ProfileFollowers";
 import {useHistory} from "react-router-dom";
 import {fetchAllFollowers, fetchAllFollowings, fetchProfile} from "../../services/profileService";
+import SimpleHeader from "../headers/SimpleHeader";
+import CustomerPrivateProfileHeader from "../headers/CustomerPrivateProfileHeader";
+import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
 
 const ProfileFollowersScreen = () => {
     const history = useHistory();
@@ -75,7 +78,7 @@ const ProfileFollowersScreen = () => {
 
     return (
         <>
-
+            <SimpleLogoutHeader />
             {/**********************************Profile Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">

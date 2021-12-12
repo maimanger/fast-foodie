@@ -8,6 +8,7 @@ const WriteReview = ({profile}) => {
   const [reviewRating, setReviewRating] = useState(5);
   const [comment, setComment] = useState("");
   const [imageURL, setImageURL] = useState("");
+  const [imageTitle, setImageTitle] = useState("");
   const dispatch = useDispatch();
 
   const onRatingClick = (rating) => {
@@ -26,7 +27,7 @@ const WriteReview = ({profile}) => {
       text: comment,
       img: [{
         url: imageURL,
-        text: 'review_image'
+        text: 'imageTitle'
       }],
       userInfo: {
         username: profile.username,
@@ -51,12 +52,11 @@ const WriteReview = ({profile}) => {
 
   return (
       <div className="row mt-3 mb-3">
-        <h2 className="p-0">Write a Review</h2>
+        <label className="p-0 fs-2 mb-1" htmlFor="review">Write a Review</label>
 
         <form className="p-0" action="">
           <div>
             <fieldset className="starability-basic">
-
               <input onClick={() => onRatingClick(1)} type="radio"
                      id="first-rate1" name="rating" value="1"/>
               <label htmlFor="first-rate1" title="Terrible">1 star</label>
@@ -73,32 +73,45 @@ const WriteReview = ({profile}) => {
                      id="first-rate5" name="rating" value="5"/>
               <label htmlFor="first-rate5" title="Amazing">5 stars</label>
             </fieldset>
+
             {/* <label className="form-label" htmlFor="review">
             Review text
           </label> */}
-            <textarea
+            <textarea style={{resize: "none"}}
                 className="form-control"
                 name="review"
                 id="review"
                 placeholder="Write a review ..."
-                cols="30"
-                rows="3"
+                rows="5"
                 value={comment}
                 onChange={event => setComment(event.target.value)}
             ></textarea>
 
-            <div className="h3 mt-3">Add a photo</div>
-            <textarea
+            <div className="form-floating h-auto my-4">
+            <input
                 className="form-control mt-3"
                 name="review"
-                id="review"
-                placeholder="Image URL ..."
-                cols="30"
-                rows="1"
+                id="imgURL"
+                placeholder="ImageURL"
                 value={imageURL}
                 onChange={event => setImageURL(event.target.value)}
-            ></textarea>
-            <button className="btn btn-primary mt-2" type="button"
+            ></input>
+              <label className="text-black-50" htmlFor="imgURL">Add a photo...</label>
+            </div>
+
+            <div className="form-floating h-auto my-4">
+              <input
+                  className="form-control mt-3"
+                  name="review"
+                  id="imgURL"
+                  placeholder="ImageURL"
+                  value={imageTitle}
+                  onChange={event => setImageTitle(event.target.value)}
+              ></input>
+              <label className="text-black-50" htmlFor="imgURL">Add photo title...</label>
+            </div>
+
+            <button className="btn btn-primary mt-2 mb-3" type="button"
                     onClick={submitClickHandler}>Submit
             </button>
           </div>

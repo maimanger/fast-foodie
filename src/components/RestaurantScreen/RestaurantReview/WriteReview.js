@@ -56,7 +56,7 @@ const WriteReview = ({profile}) => {
 
         <form className="p-0" action="">
           <div>
-            <fieldset className="starability-basic">
+            <fieldset className="starability-basic" id="reviewRating">
               <input onClick={() => onRatingClick(1)} type="radio"
                      id="first-rate1" name="rating" value="1"/>
               <label htmlFor="first-rate1" title="Terrible">1 star</label>
@@ -77,7 +77,7 @@ const WriteReview = ({profile}) => {
             {/* <label className="form-label" htmlFor="review">
             Review text
           </label> */}
-            <textarea style={{resize: "none"}}
+            <textarea style={{resize: "none", overFlow: "hidden"}}
                 className="form-control"
                 name="review"
                 id="review"

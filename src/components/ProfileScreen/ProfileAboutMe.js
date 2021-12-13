@@ -1,13 +1,23 @@
 import React from "react";
 import moment from "moment";
+import {useParams} from "react-router-dom";
 
 const ProfileAboutMe = ({profile}) => {
+    console.log(useParams().id);
+    let isPublic = false;
+    if (useParams().id) {
+        isPublic = true;
+    }
+    console.log(isPublic);
+
+
     return (
         <div className="d-flex flex-column">
 
             <h5 className="text-danger fw-bold mb-3">About Me</h5>
 
-            {profile.customerData.visibility.birthday &&
+            {((profile.customerData.visibility.birthday && isPublic)
+             || !isPublic ) &&
              < div className="mb-3">
                  <h6 className="fw-bold">Birthday</h6>
                  {profile.birthday &&
@@ -15,7 +25,8 @@ const ProfileAboutMe = ({profile}) => {
              </div>
             }
 
-            {profile.customerData.visibility.location &&
+            {((profile.customerData.visibility.location && isPublic)
+             || !isPublic) &&
              <div className="mb-3">
                  <h6 className="fw-bold">Location</h6>
                  {profile.location}

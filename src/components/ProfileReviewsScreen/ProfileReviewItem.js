@@ -6,13 +6,15 @@ import ReviewStars from "../ProfileScreen/ReviewStars";
 import ReviewItem from "../ProfileScreen/ReviewItem";
 import {HashLink} from "react-router-hash-link";
 
-const ProfileReviewItem = ({review, isBusinessLogin}) => {
+const ProfileReviewItem = ({review, isMyRestaurant = false}) => {
     const userId = useParams().id;
     const isPublic = userId && true;
 
-    return (
-        <>
-            <div className="list-group-item d-flex flex-column bg-transparent py-3 pe-xl-3 pe-xxl-5">
+    if (review !== undefined && Object.keys(review).length !== 0) {
+        return (
+            <>
+                <div
+                    className="list-group-item d-flex flex-column bg-transparent py-3 pe-xl-3 pe-xxl-5">
 
                     <HashLink to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}
                               className="wd-profile-content-hover text-black">
@@ -21,25 +23,30 @@ const ProfileReviewItem = ({review, isBusinessLogin}) => {
                         <ReviewItem review={review}/>
                     </HashLink>
 
-                {isPublic && isBusinessLogin &&
-                    <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
-                          to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}>
+                    {isPublic && isMyRestaurant &&
+                     <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
+                               to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}>
                          Reply
-                    </HashLink>
-                }
+                     </HashLink>
+                    }
 
-                {!isPublic  &&
-                 <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
-                       to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}>
-                     Edit
-                 </HashLink>
-                }
+                    {!isPublic &&
+                     <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
+                               to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}>
+                         Edit
+                     </HashLink>
+                    }
 
-            </div>
+                </div>
 
-        </>
-
-    )
-
+            </>
+        )
+    } else {
+        return (
+            <h3>
+                Loading...
+            </h3>
+        )
+    }
 }
 export default ProfileReviewItem;

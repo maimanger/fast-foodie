@@ -110,7 +110,7 @@ const PublicProfileScreen = () => {
         isBusinessLogin = true;
     }
 
-    if (publicProfile.role === "customer") {
+    if (publicProfile && publicProfile.role === "customer") {
         return (
             <>
 

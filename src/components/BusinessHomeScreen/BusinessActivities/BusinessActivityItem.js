@@ -15,7 +15,7 @@ const BusinessActivityItem = ({activity}) => {
 
     const profile = useSelector(state => state.profile);
 
-    if (Object.keys(profile) !== 0 && profile !== undefined) {
+    if (Object.keys(profile).length !== 0 && profile !== undefined) {
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
             <div className="me-3" style={{width: "100px"}}>

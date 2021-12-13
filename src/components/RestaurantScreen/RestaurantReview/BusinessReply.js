@@ -31,7 +31,8 @@ const BusinessReply = ({review}) => {
   const replyInput = <div className="">
     <div className="row mt-4"></div>
     <div className="mt-5">
-      <input className="form-control" value={replyContent} onChange={onReplyChange}/>
+      <textarea className="form-control" rows="3" style={{resize: "none", overFlow: "hidden"}}
+             value={replyContent} onChange={onReplyChange}/>
     </div>
     <div className="mt-3">
       <span><button onClick={ cancelClickHandler } type="button" className="btn btn-secondary float-end">Cancel</button></span>

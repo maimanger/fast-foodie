@@ -42,7 +42,6 @@ export const postNewReview = (dispatch, newComment) => {
         credentials: 'include'
     }).then(response => response.json())
         .then(review => {
-
           dispatch({
             type: 'create-review',
             review: review,

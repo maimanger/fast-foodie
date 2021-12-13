@@ -54,6 +54,7 @@ const BusinessProfile = ({profile, setEdit}) => {
                 </div>
             </div>
 
+            {!isPublic &&
             <div className="row mb-4 d-flex align-content-center">
                 <div className="col-12 col-md-6">
                     <h5 className="fw-bold">Business : </h5>
@@ -64,6 +65,7 @@ const BusinessProfile = ({profile, setEdit}) => {
                     }
                 </div>
             </div>
+            }
 
             <div className="row mb-4 d-flex align-content-center">
                 <div className="col-12 col-md-6">

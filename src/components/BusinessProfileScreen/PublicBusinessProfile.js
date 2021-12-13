@@ -33,13 +33,13 @@ const PublicBusinessProfile = ({profile}) => {
                             </div>
                         </div>
 
-                        <div className="col-auto d-flex flex-column pb-3 mb-4 justify-content-around ps-1 ">
+{/*                        <div className="col-auto d-flex flex-column pb-3 mb-4 justify-content-around ps-1 ">
                             <button className="d-flex flex-nowrap align-items-center justify-content-start
                                            btn rounded-pill btn-outline-info">
                                 <i className="fas fa-envelope me-0 me-sm-2"></i>
                                 <span className="d-none d-sm-inline">Message</span>
                             </button>
-                        </div>
+                        </div>*/}
 
                     </div>
                 </div>
@@ -55,7 +55,6 @@ const PublicBusinessProfile = ({profile}) => {
                     <BusinessProfile profile={profile}/>
                 </div>
 
-                {JSON.stringify(profile)}
             </div>
 
 

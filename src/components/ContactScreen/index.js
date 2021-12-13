@@ -7,6 +7,7 @@ import ContactInfo from "./ContactInfo";
 import Footer from "../CustomerHomeScreen/public-components/Footer";
 
 const ContactScreen = () => {
+    window.scrollTo(0, 0);
     return (
         <div className={"bg-white homescreen-screen-container-default-size"}>
 

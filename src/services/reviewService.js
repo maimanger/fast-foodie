@@ -57,7 +57,8 @@ export const postNewReview = (dispatch, newComment) => {
 
 export const deleteReview = (dispatch, review) => {
     fetch(`${COMMENT_API}/reviews/${review._id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        credentials: 'include'
     }).then(response => {
       dispatch({
         type: 'delete-review',

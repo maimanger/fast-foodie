@@ -73,6 +73,7 @@ export const deleteReview = (dispatch, review) => {
 export const updateReview = (dispatch, review) => {
     fetch(`${COMMENT_API}/reviews/${review._id}`, {
         method: 'PUT',
+        credentials: 'include',
         body: JSON.stringify(review),
         headers: {
             'content-type': 'application/json'
@@ -86,6 +87,7 @@ export const updateReview = (dispatch, review) => {
 export const updateReply = (dispatch, review) => {
     fetch(`${COMMENT_API}/reviews/${review._id}/reply`, {
         method: 'PUT',
+        credentials: 'include',
         body: JSON.stringify(review),
         headers: {
             'content-type': 'application/json'

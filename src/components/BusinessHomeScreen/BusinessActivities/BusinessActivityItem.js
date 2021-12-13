@@ -59,7 +59,7 @@ const BusinessActivityItem = ({activity}) => {
                              <span className="text-black-50">{moment(activity.time_created)
                                  .format("L")}</span>
                                  <br/>
-                                 <span>
+                                 <span style={{"overflow-wrap": "break-word", "white-space": "pre-line"}}>
                                      {activity.reviewDetail.replies &&
                                       activity.reviewDetail.replies.find(reply => reply.user === activity.user).text
                                          .split(" ").slice(0, 30).join(" ")}  ...

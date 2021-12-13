@@ -62,7 +62,8 @@ const ReviewItem = ({review = defaultReview}) => {
     return (
         <>
             {/************************Review Text**************************/}
-            <p className="mb-2 text-opacity-75 text-black">
+            <p className="mb-2 text-opacity-75 text-black"
+               style={{"white-space": "pre-line"}}>
                 {review.text}
             </p>
 

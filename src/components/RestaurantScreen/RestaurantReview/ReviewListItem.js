@@ -109,7 +109,8 @@ const ReviewListItem = ({review}) => {
 
                     {/************************Review Text**************************/}
 
-                        <p className="mb-2 text-opacity-75 text-black"  style={{"overflow-wrap": "break-word"}}>
+                        <p className="mb-2 text-opacity-75 text-black"
+                           style={{"overflow-wrap": "break-word", "white-space": "pre-line"}}>
                             {review.text}
                         </p>
 
@@ -149,7 +150,8 @@ const ReviewListItem = ({review}) => {
                 {/*      to={`/profile/${review.user._id}`}>*/}
                 {/*  {profile.firstName} {profile.lastName}*/}
                 {/*</Link>*/}
-                <div className="fst-italic">
+                <div className="fst-italic"
+                     style={{"overflow-wrap": "break-word", "white-space": "pre-line"}}>
                   <span>{review.replies[0].text}</span>
                 </div>
               </div>

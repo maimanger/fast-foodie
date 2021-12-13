@@ -27,7 +27,7 @@ const WriteReview = ({profile}) => {
       text: comment,
       img: [{
         url: imageURL,
-        text: 'imageTitle'
+        text: imageTitle
       }],
       userInfo: {
         username: profile.username,

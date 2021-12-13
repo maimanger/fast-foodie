@@ -14,14 +14,15 @@ const BusinessNotificationItem = ({notification}) => {
     const [on, setOn] = useState(false);
     const profile = useSelector(state => state.profile);
 
-    return (
-        <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
-            <div className="me-3" style={{width: "100px"}}>
-                {moment(notification.time_created).format("MM/DD/YYYY HH:mm:ss")}
-            </div>
+    if (Object.keys(profile) !== 0 && profile !== undefined) {
+        return (
+            <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
+                <div className="me-3" style={{width: "100px"}}>
+                    {moment(notification.time_created).format("MM/DD/YYYY HH:mm:ss")}
+                </div>
 
-            {/*********************************Message-in Notification*****************************/}
-{/*            {notification.type === "in-message" &&
+                {/*********************************Message-in Notification*****************************/}
+                {/*            {notification.type === "in-message" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
 
@@ -52,8 +53,8 @@ const BusinessNotificationItem = ({notification}) => {
              </div>
             }*/}
 
-            {/*********************************Order Notification*****************************/}
- {/*           {notification.type === "new-order" &&
+                {/*********************************Order Notification*****************************/}
+                {/*           {notification.type === "new-order" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
 
@@ -85,52 +86,53 @@ const BusinessNotificationItem = ({notification}) => {
              </div>
             }*/}
 
-            {/*********************************Review Notification*****************************/}
-            {notification.type === "new-review" &&
-             <div
-                 className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
+                {/*********************************Review Notification*****************************/}
+                {notification.type === "new-review" &&
+                 <div
+                     className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
 
-                 <div className="mb-2 d-flex justify-content-between align-items-center">
-                     <div>
-                     <i className="fas fa-comment me-3"></i>
-                     <span>
+                     <div className="mb-2 d-flex justify-content-between align-items-center">
+                         <div>
+                             <i className="fas fa-comment me-3"></i>
+                             <span>
                      You have a new review from
                      <Link className="text-info wd-profile-link-text mx-1"
                            to={`/profile/${notification.reviewDetail.userDetail._id}`}>
                          {notification.reviewDetail.userDetail.firstName} {notification.reviewDetail.userDetail.lastName}
                      </Link>
                      </span>
+                         </div>
+
+                         {/*******************Collapse Btn***********************/}
+                         <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
+                                 onClick={() => setOn(!on)}>
+                             <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
+                         </button>
+
                      </div>
-
-                     {/*******************Collapse Btn***********************/}
-                     <button className="btn ms-1 rounded-circle border-0 wd-rounded-btn"
-                             onClick={() => setOn(!on)}>
-                         <i className="fas fa-caret-down" style={{"font-size": "20px"}}></i>
-                     </button>
-
+                     {/*******************Collapse Content***********************/}
+                     <div className="d-flex flex-column">
+                         <Collapse in={on}>
+                             <Link to={`/restaurants/${profile.businessData.restaurant.id}/review`}
+                                   className="wd-profile-content-hover text-black">
+                                 <UserAvatarInfo user={notification.reviewDetail.userDetail}/>
+                                 <ReviewStars review={notification.reviewDetail}/>
+                                 <ReviewItem review={notification.reviewDetail}/>
+                             </Link>
+                         </Collapse>
+                         <Collapse in={on}>
+                             <HashLink
+                                 className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
+                                 to={`/restaurants/${notification.reviewDetail.restaurant}/review#${notification.reviewDetail._id}`}>
+                                 Reply
+                             </HashLink>
+                         </Collapse>
+                     </div>
                  </div>
-                 {/*******************Collapse Content***********************/}
-                 <div className="d-flex flex-column">
-                     <Collapse in={on}>
-                         <Link to={`/restaurants/${profile.businessData.restaurant.id}/review`}
-                             className="wd-profile-content-hover text-black">
-                             <UserAvatarInfo user={notification.reviewDetail.userDetail}/>
-                             <ReviewStars review={notification.reviewDetail}/>
-                             <ReviewItem review={notification.reviewDetail}/>
-                         </Link>
-                     </Collapse>
-                     <Collapse in={on}>
-                         <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
-                               to={`/restaurants/${notification.reviewDetail.restaurant}/review#${notification.reviewDetail._id}`}>
-                             Reply
-                         </HashLink>
-                     </Collapse>
-                 </div>
-             </div>
-            }
+                }
 
-            {/*********************************Bookmark Notification*****************************/}
-  {/*          {notification.type === "new-bookmark" &&
+                {/*********************************Bookmark Notification*****************************/}
+                {/*          {notification.type === "new-bookmark" &&
              <div
                  className="text-black flex-grow-1 d-flex flex-column flex-nowrap me-xl-3 me-xxl-5">
 
@@ -149,8 +151,16 @@ const BusinessNotificationItem = ({notification}) => {
              </div>
             }*/}
 
-        </div>
-    )
+            </div>
+        )
+    }
+    else {
+        return (
+            <h1>
+                Loading...
+            </h1>
+        )
+    }
 }
 
 export default BusinessNotificationItem;

@@ -58,7 +58,7 @@ const ReviewListItem = ({review}) => {
                             <div
                                 className="fw-bold text-info text-nowrap"> {textTruncate(review.userInfo.name, 23)}</div>
                             <div className="text-black mb-1"> {review.userInfo.location} </div>
-                            <div className={"d-flex flex-nowrap"}>
+                            <div className="d-flex flex-nowrap align-items-center">
                                 <i className="fas fa-user-friends pe-1 me-2 text-opacity-75 text-primary"></i>
                                 <span className="text-nowrap">
                                     {review.userInfo.followerNum} <span
@@ -67,7 +67,7 @@ const ReviewListItem = ({review}) => {
                                 </span>
 
                             </div>
-                            <div className={"d-flex flex-nowrap"}>
+                            <div className="d-flex flex-nowrap align-items-center">
                                 <i className="fas fa-comment me-3 text-opacity-75 text-primary"></i>
                                 <span className="text-nowrap">
                                     {review.userInfo.reviewNum} <span

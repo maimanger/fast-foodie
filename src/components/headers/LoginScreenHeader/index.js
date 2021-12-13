@@ -28,7 +28,7 @@ const LoginScreenHeader = ({loggedIn = true}) => {
 
 
     return (
-        <div className={"searchscreen-simple-header-container bg-white w-100 sticky-top"}>
+        <div className={"searchscreen-simple-header-container d-flex align-items-center bg-white w-100 sticky-top"} style={{"height": "80px"}}>
             <div className={"w-100 d-flex justify-content-between align-items-center px-5 py-2 m-0"}>
                 <BrandName color={"primary"}/>
 

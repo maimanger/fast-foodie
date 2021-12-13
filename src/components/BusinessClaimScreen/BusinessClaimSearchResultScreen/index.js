@@ -51,7 +51,7 @@ const BusinessClaimSearchResultScreen = () => {
         const params = {
             user: profile._id,
             restaurant: matchResult.id,
-            time_created: moment().format('YYYY-MM-DD h:mm:ss'),
+            time_created: moment().format('YYYY-MM-DD HH:mm:ss'),
             file_url: profile['businessData']['file_url'],
             restaurantName: matchResult.name,
             userName: profile.lastName + ' ' + profile.firstName

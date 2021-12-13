@@ -13,7 +13,7 @@ const BusinessReply = ({review}) => {
   const replyClickHandler = () => setIsReply(true);
   const cancelClickHandler = () => setIsReply(false);
   const saveReply = () => {
-    review.replies[0] = {text: replyContent, user: profile._id, time_created: moment().format('YYYY-MM-DD h:mm:ss')}
+    review.replies[0] = {text: replyContent, user: profile._id, time_created: moment().format('YYYY-MM-DD HH:mm:ss')}
     console.log(review);
     updateReply(dispatch, review)
     setIsReply(false)

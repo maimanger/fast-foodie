@@ -15,7 +15,7 @@ const AdminNotificationItem = ({notification}) => {
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
             <div className="me-3" style={{width: "100px"}}>
-                {moment(notification.time_created).format("MM/DD/YYYY hh:mm:ss")}
+                {moment(notification.time_created).format("MM/DD/YYYY HH:mm:ss")}
             </div>
 
             {/*********************************Message-in Notification*****************************/}

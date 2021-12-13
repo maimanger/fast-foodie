@@ -2,13 +2,20 @@ import RestaurantImage from "./RestaurantParts/RestaurantImage";
 import RestaurantNav from "./RestaurantParts/RestaurantNav";
 import RestaurantReview from "./RestaurantReview/RestaurantReview";
 import SearchHeader from "../headers/SearchHeader";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import SimpleHeader from "../headers/SimpleHeader";
-import React from "react";
+import React, {useEffect} from "react";
+import {fetchProfile} from "../../services/profileService";
 
 
 
 const ReviewScreen = () => {
+    const dispatch = useDispatch();
+    const getProfile = () => {
+        fetchProfile(dispatch)
+            .catch(e => console.log(e))
+    }
+    useEffect(getProfile, [])
 
     const profile = useSelector(state => state.profile);
     return (
@@ -28,6 +35,7 @@ const ReviewScreen = () => {
               <div className="col-1"></div>
             </div>
           </div>
+
       </div>
     );
 }

@@ -49,7 +49,7 @@ const defaultReview = {
     "text": ""
 }
 
-const ReviewItem = ({review=defaultReview}) => {
+const ReviewItem = ({review = defaultReview}) => {
     let solidStars = [];
     for (let i = 1; i <= review.rating; i++) {
         solidStars.push(1);
@@ -67,26 +67,29 @@ const ReviewItem = ({review=defaultReview}) => {
             </p>
 
             {/************************Review Img**************************/}
-            <div className="d-lg-flex gap-3 col-8 col-sm-7 col-md-5 col-lg-10 col-xl-8 align-items-start">
+            <div
+                className="d-lg-flex gap-3 col-8 col-sm-7 col-md-5 col-lg-10 col-xl-8 align-items-start">
                 {review.img?.map(i => {
                     return (
-                        <div className="card text-white">
-                            <img src={i.url}
-                                 className="card-img-top img-fluid"/>
-                            {i.text &&
-                            <div
-                                className="card-img-overlay d-flex py-0 px-0 flex-column justify-content-end">
+                        <>{i && i.url !== "" &&
+                             <div className="card text-white">
+                                 <img src={i.url} style={{maxHeight: "300px"}}
+                                      className="card-img-top img-fluid"/>
+                                 {i.text &&
+                                  <div
+                                      className="card-img-overlay d-flex py-0 px-0 flex-column justify-content-end">
                              <span className="bg-black bg-opacity-50 px-2">
                              {i.text}
                              </span>
-                            </div>
-                            }
-                        </div>
+                                  </div>
+                                 }
+                             </div>
+                            }</>
                     )
-                })}
+                })
+                }
             </div>
-            </>
-
+        </>
 
     )
 }

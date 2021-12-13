@@ -12,6 +12,8 @@ import {textTruncate} from "../../CustomerHomeScreen/utils/truncate";
 const ReviewListItem = ({review}) => {
 
     const profile = useSelector(state => state.profile);
+    let isLogin = profile._id && true;
+
     const [user, setUser] = useState({})
     const[isEditing, setIsEditing] = useState("false");
 
@@ -40,10 +42,10 @@ const ReviewListItem = ({review}) => {
     // console.log(user)
 
     return (
-        <li className="list-group-item border-0 p-0 bg-transparent">
+        <li className="list-group-item border-0 p-0 bg-transparent" id={review._id}>
             <div className="row border-top p-3">
                 <div className="col-12 col-md-5 col-xl-4">
-                    <Link to={`/profile/${review.user}`}
+                    <Link to={isLogin && review.user === profile._id.toString() ? '/profile' : `/profile/${review.user}`}
                           className="wd-profile-content-hover text-black ms-3 d-flex flex-row">
 
                         <div className="">
@@ -118,7 +120,7 @@ const ReviewListItem = ({review}) => {
                             return (<>
                                 {i && i.url !== "" &&
                                  <div className="card text-white h-100">
-                                     <img src={i.url}
+                                     <img src={i.url} style={{maxHeight: "350px"}}
                                           className="card-img-top img-fluid"/>
                                      {i.text && <div
                                          className="card-img-overlay d-flex py-0 px-0 flex-column justify-content-end">
@@ -158,7 +160,6 @@ const ReviewListItem = ({review}) => {
 
               {/*</div>*/}
             </div>}
-
 
             {operation}
 

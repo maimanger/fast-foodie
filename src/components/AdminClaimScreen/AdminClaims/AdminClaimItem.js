@@ -53,7 +53,7 @@ const AdminClaimItem = ({claim}) => {
                     </Link>
                 </td>
                 <td style={{verticalAlign: "middle"}} className="text-center">
-                    {moment(claim.time_created).format("MM/DD/YYYY hh:mm:ss")}
+                    {moment(claim.time_created).format("MM/DD/YYYY HH:mm:ss")}
                 </td>
                 <td className="text-center" style={{verticalAlign: "middle"}}>
 

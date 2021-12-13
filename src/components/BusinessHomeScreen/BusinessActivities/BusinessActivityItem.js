@@ -7,6 +7,7 @@ import OrderInfo from "../../ProfileScreen/OrderInfo";
 import ReviewStars from "../../ProfileScreen/ReviewStars";
 import ReviewItem from "../../ProfileScreen/ReviewItem";
 import "../Business.css"
+import {HashLink} from "react-router-hash-link";
 
 const BusinessActivityItem = ({activity}) => {
     const [on, setOn] = useState(false);
@@ -14,7 +15,7 @@ const BusinessActivityItem = ({activity}) => {
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
             <div className="me-3" style={{width: "100px"}}>
-                {moment(activity.time_created).format("MM/DD/YYYY hh:mm:ss")}
+                {moment(activity.time_created).format("MM/DD/YYYY HH:mm:ss")}
             </div>
 
             {/*********************************Review activity*****************************/}
@@ -44,7 +45,8 @@ const BusinessActivityItem = ({activity}) => {
                  {/*******************Collapse Content***********************/}
                  <div className="d-flex flex-column">
                      <Collapse in={on}>
-                         <Link to="#" className="wd-profile-content-hover text-black">
+                         <HashLink to={`/restaurants/${activity.reviewDetail.restaurantDetail.id}/review#${activity.reviewDetail._id}`}
+                               className="wd-profile-content-hover text-black">
                              <UserAvatarInfo user={activity.reviewDetail.userDetail}/>
                              <ReviewStars review={activity.reviewDetail}/>
                              <ReviewItem review={activity.reviewDetail}/>
@@ -59,7 +61,7 @@ const BusinessActivityItem = ({activity}) => {
                                          .split(" ").slice(0, 30).join(" ")}  ...
                                  </span>
                              </div>
-                         </Link>
+                         </HashLink>
                      </Collapse>
                      <Collapse in={on}>
                          <Link className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"

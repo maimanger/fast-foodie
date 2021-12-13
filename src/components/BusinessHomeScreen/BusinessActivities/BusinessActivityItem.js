@@ -81,9 +81,9 @@ const BusinessActivityItem = ({activity}) => {
     }
     else {
         return (
-            <h1>
+            <h5>
                 Loading...
-            </h1>
+            </h5>
         )
     }
 

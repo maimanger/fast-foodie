@@ -35,7 +35,7 @@ const ProfileNavSidebar = ({active, visibility = {bookmarks: true}}) => {
                 </span>
             </Link>*/}
 
-            {(visibility.bookmarks || !isPublic) &&
+{/*            {(visibility.bookmarks || !isPublic) &&
             <Link to={userId ? `/profile_bookmarks/${userId}` : "/profile_bookmarks"}
                   className={`list-group-item border-top px-2 px-sm-3 text-nowrap
                ${active === "bookmarks" ? "active" : ""}`}>
@@ -44,9 +44,9 @@ const ProfileNavSidebar = ({active, visibility = {bookmarks: true}}) => {
                 Bookmarks
                 </span>
             </Link>
-            }
+            }*/}
 
-            {!isPublic &&
+{/*            {!isPublic &&
             <Link to="/profile_orders"
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "orders" ? "active" : ""}`}>
@@ -55,9 +55,9 @@ const ProfileNavSidebar = ({active, visibility = {bookmarks: true}}) => {
                 Orders
                 </span>
             </Link>
-            }
+            }*/}
 
-            {!isPublic &&
+{/*            {!isPublic &&
              <Link to="/profile_messages"
                    className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "messages" ? "active" : ""}`}>
@@ -66,7 +66,7 @@ const ProfileNavSidebar = ({active, visibility = {bookmarks: true}}) => {
                 Messages
                 </span>
              </Link>
-            }
+            }*/}
 
             {!isPublic &&
              <Link to="/profile_followings"

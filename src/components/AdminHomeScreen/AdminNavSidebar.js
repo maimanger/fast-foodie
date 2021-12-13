@@ -22,24 +22,24 @@ const AdminNavSidebar = ({active = "home"}) => {
                 </span>
             </Link>
 
-            <Link to="/admin/reports"
+{/*            <Link to="/admin/reports"
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "reports" ? "active" : ""}`}>
                 <i className="fas fa-ban ms-3 ms-md-0 me-2 pe-1"></i>
                 <span className="d-none d-md-inline">
                 Reports
                 </span>
-            </Link>
+            </Link>*/}
 
 
-            <Link to="/admin/inbox"
+{/*            <Link to="/admin/inbox"
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                ${active === "inbox" ? "active" : ""}`}>
                 <i className="fas fa-envelope ms-3 ms-md-0 me-2 pe-1"></i>
                 <span className="d-none d-md-inline">
                 Inbox
                 </span>
-            </Link>
+            </Link>*/}
 
         </ul>
 

@@ -23,7 +23,7 @@ const BusinessNavSidebar = ({active = "home", verified = true}) => {
                 <span className="d-none d-md-inline">Profile</span>
             </Link>
 
-            <Link to={`${verified === true ? "/business/orders" : "#"}`}
+{/*            <Link to={`${verified === true ? "/business/orders" : "#"}`}
                   style={verified === true ? null : {pointerEvents: "none"}}
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                   ${verified === true ? "" : "text-muted"}
@@ -33,9 +33,9 @@ const BusinessNavSidebar = ({active = "home", verified = true}) => {
                 <span className="d-none d-md-inline">
                 Orders
                 </span>
-            </Link>
+            </Link>*/}
 
-            <Link to={`${verified === true ? "/business/reviews" : "#"}`}
+{/*            <Link to={`${verified === true ? "/business/reviews" : "#"}`}
                   style={verified === true ? null : {pointerEvents: "none"}}
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                   ${verified === true ? "" : "text-muted"}
@@ -45,7 +45,7 @@ const BusinessNavSidebar = ({active = "home", verified = true}) => {
                 <span className="d-none d-md-inline">
                 Reviews
                 </span>
-            </Link>
+            </Link>*/}
 
             {/*            <Link to="/business/photos"
                   className={`list-group-item border-top px-2 px-sm-3 text-nowrap
@@ -57,7 +57,7 @@ const BusinessNavSidebar = ({active = "home", verified = true}) => {
             </Link>*/}
 
 
-            <Link to={`${verified === true ? "/messages" : "#"}`}
+{/*            <Link to={`${verified === true ? "/messages" : "#"}`}
                   style={verified === true ? null : {pointerEvents: "none"}}
                   className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
                   ${verified === true ? "" : "text-muted"}
@@ -67,7 +67,7 @@ const BusinessNavSidebar = ({active = "home", verified = true}) => {
                 <span className="d-none d-md-inline">
                 Messages
                 </span>
-            </Link>
+            </Link>*/}
 
         </ul>
 

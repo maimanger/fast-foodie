@@ -79,6 +79,6 @@ const BusinessProfile = ({profile, setEdit}) => {
         </>
     )
 
-};
+}
 
 export default BusinessProfile;

@@ -280,7 +280,7 @@ const RegisterScreen = () => {
                     </div>
                 </div>
 
-                {JSON.stringify(newUser)}
+               {/* {JSON.stringify(newUser)}*/}
             </div>
         </div>
 

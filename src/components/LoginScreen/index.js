@@ -125,7 +125,6 @@ const LoginScreen = () => {
                     </div>
 
                 </div>
-                {JSON.stringify(profile)}
             </div>
 
         </>

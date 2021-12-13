@@ -120,10 +120,9 @@ const ProfileScreen = () => {
                          <hr className="mb-4 mt-0"/>
                          <div>
                              <h3 className="text-danger fw-bold">Recent Activities</h3>
-                             {Object.keys(fetchedActivities).length !== 0 &&
                              <ProfileRecentActivities recentActivities={fetchedActivities}
                                                       profile={profile}/>
-                             }
+
                          </div>
                      </div>
                     }

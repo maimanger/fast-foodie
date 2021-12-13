@@ -37,7 +37,8 @@ const ProfileRecentActivities = ({
 
     return (
         <>
-            {recentActivities.length === 0 && <div>No new activity at this time.</div>}
+            {(recentActivities.length === 0 || !recentActivities)
+             && <div>No new activity at this time.</div>}
 
             <ul className="list-group list-group-flush">
                 {recentActivities.map(activity => {

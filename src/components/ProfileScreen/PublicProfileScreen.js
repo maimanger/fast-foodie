@@ -159,7 +159,7 @@ const PublicProfileScreen = () => {
         return (
             <>
                 <h1> Error of fetching the public profile!</h1>
-                {JSON.stringify(fetchedPublicProfile)}
+                {/*{JSON.stringify(fetchedPublicProfile)}*/}
             </>
         )
     }

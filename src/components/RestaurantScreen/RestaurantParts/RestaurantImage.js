@@ -5,6 +5,7 @@ import "./restaurant.css";
 import RestaurantStars from "../../ProfileScreen/RestaurantStars";
 import HomepageActivityStar
     from "../../CustomerHomeScreen/RecentActivityComponent/RecentActivityCard/HomepageActivityStar";
+import RestaurantStarForDetail from "./RestaurantStarForDetail";
 
 const RestaurantImage = () => {
   const restaurant = useSelector(state => state.restaurant);
@@ -30,6 +31,8 @@ const RestaurantImage = () => {
   };
   
   const claimed = <span className="text-blue"> <i className="fas fa-check-circle"></i> Claimed &#183; </span>
+    const reviews = useSelector(state => state.customerReviews);
+    const reviewsCount = ((reviews && reviews.length !== 0) ? reviews.length : 0);
   return (
         <div style={{ position: "relative" }}>
           <div className="img-container">
@@ -41,8 +44,9 @@ const RestaurantImage = () => {
             <div className="h1 text-white m-0" style={{fontWeight:"bold"}}>{restaurant.name}</div>
             <div className="h3 d-flex flex-row">
               <div className="text-light d-flex">
-                  <HomepageActivityStar rating={restaurant.rating} />
-                  <span className={"ms-4"}>{restaurant.review_count} reviews</span>
+                  {/*<HomepageActivityStar rating={restaurant.rating} />*/}
+                  <RestaurantStarForDetail rating={restaurant.rating} />
+                  <span className={"ms-4"}>{reviewsCount} reviews</span>
               </div>
               {/* <div className="starability-result" data-rating={Math.floor(restaurant.rating)}></div>
               <div className="ms-3">{restaurant.review_count} reviews</div> */}

@@ -20,7 +20,7 @@ const WriteReview = ({profile}) => {
     postNewReview(dispatch, {
       user: profile._id + '',
       restaurant: restaurant.id + '',
-      time_created: moment().format('YYYY-MM-DD hh:mm:ss'),
+      time_created: moment().format('YYYY-MM-DD HH:mm:ss'),
       location: restaurant.location['city'] + ', '
           + restaurant.location['state'],
       rating: reviewRating,

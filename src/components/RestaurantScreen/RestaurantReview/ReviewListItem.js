@@ -41,6 +41,8 @@ const ReviewListItem = ({review}) => {
     // useEffect(getReviewUser, [])
     // console.log(user)
 
+    const isMe = review.user === profile._id;
+    const reviewCount = isMe ? profile['customerData']['reviews'].length : review.userInfo.reviewNum;
     return (
         <li className="list-group-item border-0 p-0 bg-transparent" id={review._id}>
             <div className="row border-top p-3">
@@ -70,7 +72,7 @@ const ReviewListItem = ({review}) => {
                             <div className="d-flex flex-nowrap align-items-center">
                                 <i className="fas fa-comment me-3 text-opacity-75 text-primary"></i>
                                 <span className="text-nowrap">
-                                    {review.userInfo.reviewNum} <span
+                                    {reviewCount} <span
                       className="d-none d-sm-inline">reviews
                                     </span>
                                 </span>

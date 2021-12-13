@@ -8,9 +8,9 @@ export const fetchAllReviewsByRestaurantId = (dispatch, restaurantId) => {
         .then(response => response.json())
         .then(reviews => {
             dispatch({
-                         type: 'fetch-all-reviews',
-                         reviews
-                     })
+                type: 'fetch-all-reviews',
+                reviews
+            })
         })
 }
 
@@ -29,8 +29,6 @@ export const fetchAllReviewsByUserId = (userId) => {
 }
 
 
-
-
 export const postNewReview = (dispatch, newComment) => {
 
     fetch(`${COMMENT_API}/reviews`, {
@@ -42,16 +40,17 @@ export const postNewReview = (dispatch, newComment) => {
         credentials: 'include'
     }).then(response => response.json())
         .then(review => {
-          dispatch({
-            type: 'create-review',
-            review: review,
-          });
-          dispatch({
-            type: 'update-profile-reviews',
-            reviewId: review._id.toString(),
-          });
+            dispatch({
+                type: 'update-profile-reviews',
+                reviewId: review._id.toString(),
+            });
+            dispatch({
+                type: 'create-review',
+                review: review,
+            });
 
-          })
+
+        })
 }
 
 export const deleteReview = (dispatch, review) => {
@@ -59,14 +58,14 @@ export const deleteReview = (dispatch, review) => {
         method: 'DELETE',
         credentials: 'include'
     }).then(response => {
-      dispatch({
-        type: 'delete-review',
-        review
-      });
-      dispatch({
-        type: 'delete-profile-review',
-        reviewId: review._id.toString(),
-      })
+        dispatch({
+            type: 'delete-profile-review',
+            reviewId: review._id.toString(),
+        })
+        dispatch({
+            type: 'delete-review',
+            review
+        });
     })
 }
 
@@ -78,9 +77,9 @@ export const updateReview = (dispatch, review) => {
             'content-type': 'application/json'
         }
     }).then(response => dispatch({
-                                     type: 'update-review',
-                                     newReview: review,
-                                 }))
+        type: 'update-review',
+        newReview: review,
+    }))
 }
 
 export const updateReply = (dispatch, review) => {
@@ -91,7 +90,7 @@ export const updateReply = (dispatch, review) => {
             'content-type': 'application/json'
         }
     }).then(response => dispatch({
-                                     type: 'update-reply',
-                                     newReview: review,
-                                 }))
+        type: 'update-reply',
+        newReview: review,
+    }))
 }

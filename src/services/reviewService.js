@@ -38,7 +38,8 @@ export const postNewReview = (dispatch, newComment) => {
         body: JSON.stringify(newComment),
         headers: {
             'content-type': 'application/json'
-        }
+        },
+        credentials: 'include'
     }).then(response => response.json())
         .then(review => {
 

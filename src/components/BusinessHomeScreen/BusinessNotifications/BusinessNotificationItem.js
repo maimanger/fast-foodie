@@ -8,9 +8,11 @@ import ReviewStars from "../../ProfileScreen/ReviewStars";
 import ReviewItem from "../../ProfileScreen/ReviewItem";
 import "../Business.css"
 import {HashLink} from "react-router-hash-link";
+import {useSelector} from "react-redux";
 
 const BusinessNotificationItem = ({notification}) => {
     const [on, setOn] = useState(false);
+    const profile = useSelector(state => state.profile);
 
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
@@ -110,18 +112,18 @@ const BusinessNotificationItem = ({notification}) => {
                  {/*******************Collapse Content***********************/}
                  <div className="d-flex flex-column">
                      <Collapse in={on}>
-                         <HashLink to={`/restaurants/${notification.reviewDetail.restaurantDetail.id}/review#${notification.reviewDetail._id}`}
-                                   className="wd-profile-content-hover text-black">
+                         <Link to={`/restaurants/${profile.businessData.restaurant.id}/review`}
+                             className="wd-profile-content-hover text-black">
                              <UserAvatarInfo user={notification.reviewDetail.userDetail}/>
                              <ReviewStars review={notification.reviewDetail}/>
                              <ReviewItem review={notification.reviewDetail}/>
-                         </HashLink>
+                         </Link>
                      </Collapse>
                      <Collapse in={on}>
-                         <Link className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
-                               to="#">
+                         <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
+                               to={`/restaurants/${notification.reviewDetail.restaurant}/review#${notification.reviewDetail._id}`}>
                              Reply
-                         </Link>
+                         </HashLink>
                      </Collapse>
                  </div>
              </div>

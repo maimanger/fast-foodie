@@ -7,7 +7,6 @@ const recentActivities = (state = [], action) => {
             break;
 
         case 'new-userActivity':
-
             return [...state, action.newActivity];
             break;
 

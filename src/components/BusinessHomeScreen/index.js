@@ -23,17 +23,20 @@ const BusinessHomeScreen = () => {
             .catch(e => history.push('/login'))
     }
 
-    const getActivitiesAndNotifications = () => {
+    const getActivities = () => {
         fetchUserActivities(dispatch)
-            .then(res => {
-                fetchUserNotifications(dispatch)
-                    .catch(e => console.log(e))
-            })
+            .catch(e => console.log(e))
     }
 
-    const loadData = () => {
-        getProfile();
-        getActivitiesAndNotifications();
+    const getNotifications = () => {
+        fetchUserNotifications(dispatch)
+            .catch(e => console.log(e))
+    }
+
+    const loadData = async () => {
+        await getProfile();
+        await getActivities();
+        await getNotifications();
     }
     useEffect(loadData, [history])
 
@@ -64,8 +67,12 @@ const BusinessHomeScreen = () => {
     }
 
     const fetchedActivities = useSelector(state => state.recentActivities);
+    console.log(fetchedActivities.reviewDetail);
     const fetchedNotifications = useSelector(state => state.notifications);
+    console.log(fetchedActivities.reviewDetail);
 
+
+if (fetchedActivities !== undefined && fetchedNotifications !== undefined) {
     return (
         <>
 
@@ -88,31 +95,41 @@ const BusinessHomeScreen = () => {
                     <div className="col-7 col-lg-6 d-flex flex-column px-0">
                         <div className="mb-3">
                             <h3 className="text-danger fw-bold">Notifications</h3>
-                            <BusinessNotifications notifications={fetchedNotifications}/>
+                            {Object.keys(fetchedNotifications).length !== 0 &&
+                             <BusinessNotifications notifications={fetchedNotifications}/>
+                            }
                         </div>
                         <hr className="mb-4 mt-0"/>
                         <div>
                             <h3 className="text-danger fw-bold">Recent Activities</h3>
+                            {fetchedActivities &&
                             <BusinessActivities activities={fetchedActivities}/>
+                            }
                         </div>
                     </div>
 
                     <div
                         className="d-none d-lg-block col-xl-auto border-2 border-start ">
+                        {profile.businessData.restaurant &&
                         <BusinessStatistics restaurant={profile.businessData.restaurant}/>
+                        }
                     </div>
 
                 </div>
+                {/*{JSON.stringify(fetchedNotifications)}
+                {JSON.stringify(fetchedActivities)}*/}
 
             </div>
 
-
-
-
-
-
         </>
     )
+} else {
+    return (
+        <h1>
+            Opps! Something went wrong...
+        </h1>
+    )
+}
 }
 
 export default BusinessHomeScreen;

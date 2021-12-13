@@ -14,7 +14,8 @@ const BusinessNotificationItem = ({notification}) => {
     const [on, setOn] = useState(false);
     const profile = useSelector(state => state.profile);
 
-    if (Object.keys(profile) !== 0 && profile !== undefined) {
+    if (profile !== undefined && Object.keys(profile).length !== 0) {
+
         return (
             <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
                 <div className="me-3" style={{width: "100px"}}>
@@ -156,9 +157,9 @@ const BusinessNotificationItem = ({notification}) => {
     }
     else {
         return (
-            <h1>
+            <h5>
                 Loading...
-            </h1>
+            </h5>
         )
     }
 }

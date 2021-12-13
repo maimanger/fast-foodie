@@ -7,17 +7,20 @@ import HomepageActivityStar
     from "../../CustomerHomeScreen/RecentActivityComponent/RecentActivityCard/HomepageActivityStar";
 import RestaurantStarForDetail from "./RestaurantStarForDetail";
 import {checkRestaurantClaimStatus} from "../../../services/claimService";
+import {fetchAllReviewsByRestaurantId} from "../../../services/reviewService";
 
 const RestaurantImage = () => {
-    const restaurant = useSelector(state => state.restaurant);
     const dispatch = useDispatch();
+
+    // Get restaurant
+    const restaurant = useSelector(state => state.restaurant);
     const {id} = useParams();
 
     const findRestaurantById = (dispatch) =>
         fetch(`http://localhost:8000/api/restaurants/${id}`)
-            .then(res => res.json()).then(restaurant => dispatch({
+            .then(res => res.json()).then(oneRestaurant => dispatch({
             type: 'fetch-restaurant',
-            restaurant,
+            restaurant: oneRestaurant
         }));
 
     useEffect(() => findRestaurantById(dispatch)
@@ -46,9 +49,17 @@ const RestaurantImage = () => {
 
     }, [restaurant])
 
-    const claimMark = <span className="text-light"> <i className="fas fa-check-circle" /> Claimed &#183;  </span>
+
+    // Check review count
     const reviews = useSelector(state => state.customerReviews);
+    useEffect(() => {
+        fetchAllReviewsByRestaurantId(dispatch, restaurant.id)
+    }, [restaurant])
     const reviewsCount = ((reviews && reviews.length !== 0) ? reviews.length : 0);
+
+    const claimMark = <span className="text-light"> <i className="fas fa-check-circle" /> Claimed &#183;  </span>
+
+
     return (
         <div style={{position: "relative"}}>
             <div className="img-container">

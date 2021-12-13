@@ -22,7 +22,7 @@ const RestaurantImage = () => {
 
     useEffect(() => findRestaurantById(dispatch)
         , [dispatch])
-    console.log(restaurant)
+    // console.log(restaurant)
     // const restaurant = useSelector(state => state.restaurant);
     const absoluteStyle = {
         position: "absolute",

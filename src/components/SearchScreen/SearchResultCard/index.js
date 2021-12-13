@@ -48,6 +48,12 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
                         <div>{restaurantFromSearchApi['price']}</div>
                     </div>
 
+                    {/****************  location  ******************/}
+                    <div className={"searchscreen-result-card-location"}>
+                        {`${restaurantFromSearchApi.location.city}, ${restaurantFromSearchApi.location.state}`}
+                    </div>
+
+
                     {/****************  open status  ******************/}
                     {/*<div className={"fw-bold"}>*/}
                     {/*    {restaurantFromDetailApi['hours'][0]['is_open_now'] ? (*/}

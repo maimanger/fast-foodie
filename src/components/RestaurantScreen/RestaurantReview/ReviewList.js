@@ -12,8 +12,8 @@ const ReviewList = () => {
     const customerReviews = useSelector(state => state.customerReviews)
     useEffect(() => fetchAllReviewsByRestaurantId(dispatch, restaurant.id), [restaurant]);
 
-    /*console.log(restaurant);
-    console.log(customerReviews);*/
+    // console.log(restaurant);
+    // console.log(customerReviews);
 
     return (
         <div>

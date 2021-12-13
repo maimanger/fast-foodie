@@ -90,3 +90,7 @@ export const denyClaim = (dispatch, claim) => {
         })
 }
 
+
+export const checkRestaurantClaimStatus = (restaurantId) => {
+    return fetch(`${API_URL}/restaurant_claim_status/${restaurantId}`)
+}

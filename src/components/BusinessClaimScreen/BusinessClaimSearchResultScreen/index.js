@@ -63,7 +63,6 @@ const BusinessClaimSearchResultScreen = () => {
     }
 
 
-    console.log(profile);
     const restaurant = {
         "_id": "Rv4NgRl-wkMNPNdqXNSGBg",
         "alias": "shake-shack-brooklyn-12",

@@ -15,11 +15,11 @@ const BusinessClaimSearchScreen = () => {
     }, [])
 
 
-    const [name, setName] = useState("Shake Shack");
-    const [address1, setAddress1] = useState("1 Old Fulton St");
+    const [name, setName] = useState("Happy Lamb Hot Pot");
+    const [address1, setAddress1] = useState("609 S Weller St");
     const [address2, setAddress2] = useState("");
-    const [city, setCity] = useState("Brooklyn");
-    const [state, setState] = useState("NY");
+    const [city, setCity] = useState("Seattle");
+    const [state, setState] = useState("WA");
     const [zipCode, setZipCode] = useState("");
 
     const changeNameHandler = (e) => {
@@ -48,6 +48,9 @@ const BusinessClaimSearchScreen = () => {
 
     let history = useHistory();
     const submitClickHandler = (e) => {
+        if (name==='' || address1==='' || city==='' || state===''){
+            return;
+        }
         const queries = {
             name,
             address1,
@@ -60,7 +63,9 @@ const BusinessClaimSearchScreen = () => {
     }
     return (
 
-        <div>
+        <form>
+
+
             <img src="https://business.yelp.com/wp-content/uploads/sites/2/2020/10/ILL_Visitors_768x512_2x-768x512.png"
                  alt="img" className={"businessclaimscreen-title-img mb-3"}/>
             <h4 className={"fw-bold text-center mb-5"}>Let's look up your business</h4>
@@ -71,7 +76,7 @@ const BusinessClaimSearchScreen = () => {
                     Business Name<span className={"text-danger"}>*</span>
                 </label>
                 <input type="text" placeholder={"Bisiness name"} className={"form-control"}
-                       id={"businessclaimscreen-business-name"} value={name} onChange={changeNameHandler}/>
+                       id={"businessclaimscreen-business-name"} value={name} onChange={changeNameHandler} required/>
             </div>
 
             {/****************  Address 1  ***************/}
@@ -80,7 +85,8 @@ const BusinessClaimSearchScreen = () => {
                     Address Line1<span className={"text-danger"}>*</span>
                 </label>
                 <input type="text" placeholder={"Street address"} className={"form-control"}
-                       id={"businessclaimscreen-address1"} value={address1} onChange={changeAddress1Handler}/>
+                       id={"businessclaimscreen-address1"} value={address1} onChange={changeAddress1Handler}
+                       required/>
             </div>
 
             {/****************  Address 2  ***************/}
@@ -99,7 +105,7 @@ const BusinessClaimSearchScreen = () => {
                         City<span className={"text-danger"}>*</span>
                     </label>
                     <input type="text" placeholder={"City name"} className={"form-control"}
-                           id={"businessclaimscreen-city"} value={city} onChange={changeCityHandler}/>
+                           id={"businessclaimscreen-city"} value={city} onChange={changeCityHandler} required/>
                 </div>
 
                 <div className={""}>
@@ -107,24 +113,24 @@ const BusinessClaimSearchScreen = () => {
                         State<span className={"text-danger"}>*</span>
                     </label>
                     <input type="text" placeholder={"State name"} className={"form-control"}
-                           id={"businessclaimscreen-state"} value={state} onChange={changeStateHandler}/>
+                           id={"businessclaimscreen-state"} value={state} onChange={changeStateHandler} required/>
                 </div>
             </div>
 
             {/****************  Zip code  ***************/}
             <div className={"mb-5"}>
                 <label className={"fw-bold form-label"} htmlFor={"businessclaimscreen-zip-code"}>
-                    Zip Code<span className={"text-danger"}>*</span>
+                    Zip Code
                 </label>
                 <input type="text" placeholder={"12345"} className={"form-control"}
                        id={"businessclaimscreen-zip-code"} value={zipCode} onChange={changeZipCodeHandler}/>
             </div>
 
-            <div className={"d-flex justify-content-center mb-5"} onClick={submitClickHandler}>
-                <button className={"btn btn-primary"}>Continue</button>
+            <div className={"d-flex justify-content-center mb-5"} >
+                <button type="submit" className={"btn btn-primary"} onClick={submitClickHandler}>Continue</button>
             </div>
 
-        </div>
+        </form>
     )
 }
 

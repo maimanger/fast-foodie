@@ -29,7 +29,10 @@ export const fetchProfile = (dispatch) => {
         method: 'POST',
         credentials: 'include'
     })
-        .then(res => res.json())
+        .then(res => {
+            console.log(res);
+            return res.json();
+        })
         .then(profile => {
             dispatch({
                          type: "fetch-profile",

@@ -99,7 +99,7 @@ const AdminNotificationItem = ({notification}) => {
                      <div>
                          <i className="fas fa-id-card me-3"></i>
                          <span>
-                             <Link className="text-info wd-profile-link-text mx-1"
+                             <Link className="text-info wd-profile-link-text mx-1 text-nowrap"
                                    to={`/profile/${notification.claimDetail.userDetail._id}`}>
                                  {notification.claimDetail.userDetail.firstName} {notification.claimDetail.userDetail.lastName}
                              </Link>
@@ -115,10 +115,9 @@ const AdminNotificationItem = ({notification}) => {
 
 
                  <Collapse in={on}>
-                     <Link to={`/restaurant/${notification.claimDetail.restaurantDetail.id}`}
+                     <Link to={`/restaurants/${notification.claimDetail.restaurant}`}
                            className="wd-profile-content-hover text-black-50">
-                         <RestaurantInfo restaurant={notification.claimDetail.restaurantDetail}/>
-                         <RestaurantStars restaurant={notification.claimDetail.restaurantDetail}/>
+                         <RestaurantInfo restaurant={notification.claimDetail.restaurantInfo}/>
                      </Link>
                  </Collapse>
 

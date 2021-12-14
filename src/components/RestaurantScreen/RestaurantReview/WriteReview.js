@@ -16,8 +16,7 @@ const WriteReview = ({profile}) => {
   }
 
   const submitClickHandler = () => {
-    let categories = restaurant.categories.map(category => category.title)
-        .reduce((prev, curr) => [prev, ', ', curr]).join('');
+    let categories = restaurant.categories.map(category => category.title).join(', ');
     console.log(categories);
 
 

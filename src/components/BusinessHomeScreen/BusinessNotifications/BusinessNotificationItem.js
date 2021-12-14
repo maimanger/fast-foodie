@@ -97,7 +97,7 @@ const BusinessNotificationItem = ({notification}) => {
                              <i className="fas fa-comment me-3"></i>
                              <span>
                      You have a new review from
-                     <Link className="text-info wd-profile-link-text mx-1"
+                     <Link className="text-info wd-profile-link-text mx-1 text-nowrap"
                            to={`/profile/${notification.reviewDetail.userDetail._id}`}>
                          {notification.reviewDetail.userDetail.firstName} {notification.reviewDetail.userDetail.lastName}
                      </Link>

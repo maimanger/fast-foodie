@@ -109,11 +109,11 @@ const LoginScreen = () => {
                             </button>
 
                             {/***********TODO: Only for testing, remember to remove***************/}
-                            <br/><br/>
+{/*                            <br/><br/>
                             <button className="w-100 btn btn-lg btn-success"
                                     onClick={(e) => logoutHandler(e)}>
                                 logout
-                            </button>
+                            </button>*/}
 
 
                             <hr className="my-4"/>

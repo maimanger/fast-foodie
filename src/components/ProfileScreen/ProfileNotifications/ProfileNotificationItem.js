@@ -52,7 +52,7 @@ const ProfileNotificationItem = ({notification, profile}) => {
                  <div className="mb-2 d-flex justify-content-between">
                      <div>
                          You have a new follower
-                         <Link className="text-info wd-profile-link-text mx-1"
+                         <Link className="text-info wd-profile-link-text mx-1 text-nowrap"
                                to={`/profile/${notification.followerDetail._id}`}>
                              {notification.followerDetail.firstName} {notification.followerDetail.lastName}
                          </Link>

@@ -32,7 +32,7 @@ const BusinessActivityItem = ({activity}) => {
                      <i className="fas fa-comment me-3"></i>
                      <span>
                      You replied to the review of
-                     <Link className="text-info wd-profile-link-text mx-1"
+                     <Link className="text-info wd-profile-link-text mx-1 text-nowrap"
                            to={`/profile/${activity.reviewDetail.userDetail._id}`}>
                          {activity.reviewDetail.userDetail.firstName} {activity.reviewDetail.userDetail.lastName}
                      </Link>

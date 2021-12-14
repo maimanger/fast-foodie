@@ -120,6 +120,7 @@ if (fetchedActivities !== undefined && fetchedNotifications !== undefined) {
                 </div>
 {/*                {JSON.stringify(fetchedNotifications)}
                 {JSON.stringify(fetchedActivities)}*/}
+                {console.log(profile)}
 
             </div>
 

@@ -2,10 +2,11 @@ import React from "react";
 import './index.css';
 import * as truncate from "../../../utils/truncate";
 import {Link} from "react-router-dom";
-import ReviewStars from "../../../../ProfileScreen/ReviewStars";
-import HomepageActivityStar from "../HomepageActivityStar";
+import ReviewStars from "../../../../ProfileScreen/stars/ReviewStars";
 import {HashLink} from "react-router-hash-link";
 import {textTruncate} from "../../../utils/truncate";
+import RoundedStar from "../../../../ProfileScreen/stars/RoundedStar";
+import moment from "moment";
 
 
 const RecentActivityReviewCard = ({activity}) => {
@@ -22,7 +23,10 @@ const RecentActivityReviewCard = ({activity}) => {
                            className={"text-info fw-bold text-decoration-none text-nowrap"}>
                         {textTruncate(activity['user']['name'], 24)}
                     </Link>
-                    <div>Wrote a review</div>
+                    <div>
+                        <span>Wrote a review</span>
+                        <span className={"ms-3 text-secondary"}>{moment(activity.time_created).format("L")}</span>
+                    </div>
                 </div>
             </div>
             <Link to={`/restaurants/${activity.restaurant._id}`}>
@@ -36,7 +40,8 @@ const RecentActivityReviewCard = ({activity}) => {
                 <HashLink to={`/restaurants/${activity.restaurant._id}/review#${activity.review._id}`} className={"text-decoration-none text-black"}>
                     <div className={"d-flex"}>
                         <span>Rating: &nbsp; &nbsp;</span>
-                        <HomepageActivityStar rating={activity['review']['rating']} />
+                        {/*<HomepageActivityStar rating={activity['review']['rating']} />*/}
+                        <RoundedStar review={activity.review} />
                     </div>
                     {activity['review']['text'] !== '' &&
                     <div className={"d-flex"}>

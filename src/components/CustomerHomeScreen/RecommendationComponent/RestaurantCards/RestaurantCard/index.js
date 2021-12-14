@@ -2,25 +2,26 @@ import React, {useEffect, useState} from "react";
 import "./index.css";
 import * as truncate from "../../../utils/truncate";
 import {Link} from "react-router-dom";
-import ReviewStars from "../../../../ProfileScreen/ReviewStars";
+import ReviewStars from "../../../../ProfileScreen/stars/ReviewStars";
 import BusinessStars from "../../../../BusinessHomeScreen/BusinessStars";
 import {API_URL} from "../../../../../CONST";
+import DecimalStar from "../../../../ProfileScreen/stars/DecimalStar";
 
 const RestaurantCard = ({restaurant}) => {
 
 
     // Get reviews count of a restaurant
-    const [reviewsCount, setReviewsCount] = useState(0);
+    const [reviews, setReviews] = useState([]);
     useEffect(() => {
 
         fetch(`${API_URL}/${restaurant.id}/reviews`)
             .then(res => res.json())
             .then(reviews => {
                 if (reviews && reviews.length !== 0){
-                    setReviewsCount(reviews.length);
+                    setReviews(reviews);
                 }
             })
-    }, [])
+    }, [restaurant]);
 
     const img_url = restaurant && restaurant.image_url ? restaurant.image_url : 'https://img.freepik.com/free-photo/delicious-vietnamese-food-including-pho-ga-noodles-spring-rolls-white-table_181624-34062.jpg?size=626&ext=jpg';
     return (
@@ -29,8 +30,8 @@ const RestaurantCard = ({restaurant}) => {
             <div className={"homescreen-recommendation-card-body p-3"}>
                 <h6 className={"card-title text-danger fw-bold"}>{restaurant.name}</h6>
                 <div className={"d-flex"}>
-                    {/*<div className={"me-2"}><BusinessStars restaurant={restaurant} /></div>*/}
-                    <div className={"text-dark"}>{reviewsCount} reviews</div>
+                    <div className={"me-2"}><DecimalStar reviews={reviews} /></div>
+                    <div className={"text-secondary"}>{reviews.length} reviews</div>
                 </div>
                 <div>
                     {truncate.arrayTruncate(restaurant.categories.map(category=>category.title), 42)}

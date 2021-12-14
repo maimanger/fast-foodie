@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import moment from "moment";
 import RestaurantInfo from "./RestaurantInfo";
-import ReviewStars from "./ReviewStars";
+import ReviewStars from "./stars/ReviewStars";
 
 const defaultReview = {
     "user": "",

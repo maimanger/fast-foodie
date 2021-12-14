@@ -3,9 +3,10 @@ import './index.css';
 import * as truncate from '../../CustomerHomeScreen/utils/truncate';
 import Sign from "./Sign";
 import {Link} from "react-router-dom";
-import RestaurantStars from "../../ProfileScreen/RestaurantStars";
+import RestaurantStars from "../../ProfileScreen/stars/RestaurantStars";
 import BusinessStars from "../../BusinessHomeScreen/BusinessStars";
 import {API_URL} from "../../../CONST";
+import DecimalStar from "../../ProfileScreen/stars/DecimalStar";
 
 const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) => {
     const restaurantFromDB = {
@@ -18,17 +19,17 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
     }
 
     // Get reviews count of a restaurant
-    const [reviewsCount, setReviewsCount] = useState(0);
+    const [reviews, setReviews] = useState([]);
     useEffect(() => {
-
+        console.log(restaurantFromSearchApi.name);
         fetch(`${API_URL}/${restaurantFromSearchApi.id}/reviews`)
             .then(res => res.json())
             .then(reviews => {
                 if (reviews && reviews.length !== 0){
-                    setReviewsCount(reviews.length);
+                    setReviews(reviews);
                 }
             })
-    }, [])
+    }, [restaurantFromSearchApi])
 
     return (
         <Link className={"searchscreen-card-container w-100 border border-light rounded-2 p-4 text-decoration-none text-black d-flex "}
@@ -56,10 +57,9 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
                     </div>
 
                     {/***************  rating + review  ****************/}
-                    <div className={"mb-2"}>
-                        {/*<span><BusinessStars restaurant={restaurantFromSearchApi} /> </span>*/}
-                        {/*<span> | </span>*/}
-                        <span style={{'font-size': '15px'}} className={"text-dark"}>{reviewsCount} reviews</span>
+                    <div className={"d-flex"}>
+                        <DecimalStar reviews={reviews} />
+                        <span style={{'font-size': '15px'}} className={"text-secondary ms-2"}>{reviews.length} reviews</span>
                     </div>
 
 

@@ -4,10 +4,10 @@ import moment from "moment";
 import {Link} from "react-router-dom";
 import {Collapse} from "react-bootstrap";
 import UserAvatarInfo from "../../ProfileScreen/UserAvatarInfo";
-import ReviewStars from "../../ProfileScreen/ReviewStars";
+import ReviewStars from "../../ProfileScreen/stars/ReviewStars";
 import ReviewItem from "../../ProfileScreen/ReviewItem";
 import RestaurantInfo from "../../ProfileScreen/RestaurantInfo";
-import RestaurantStars from "../../ProfileScreen/RestaurantStars";
+import RestaurantStars from "../../ProfileScreen/stars/RestaurantStars";
 
 const AdminNotificationItem = ({notification}) => {
     const [on, setOn] = useState(false);

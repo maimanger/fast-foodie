@@ -5,7 +5,7 @@ import AdminDelete from "./AdminDelete";
 import BusinessReply from "./BusinessReply";
 import {Link} from "react-router-dom";
 import "../../ProfileScreen/Profile.css"
-import ReviewStars from "../../ProfileScreen/ReviewStars";
+import ReviewStars from "../../ProfileScreen/stars/ReviewStars";
 import moment from "moment";
 import {textTruncate} from "../../CustomerHomeScreen/utils/truncate";
 

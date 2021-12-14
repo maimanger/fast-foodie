@@ -2,7 +2,7 @@ import React from "react";
 import {Collapse} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import RestaurantInfo from "../ProfileScreen/RestaurantInfo";
-import ReviewStars from "../ProfileScreen/ReviewStars";
+import ReviewStars from "../ProfileScreen/stars/ReviewStars";
 import ReviewItem from "../ProfileScreen/ReviewItem";
 import UserAvatarInfo from "../ProfileScreen/UserAvatarInfo";
 

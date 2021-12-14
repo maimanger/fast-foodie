@@ -2,12 +2,10 @@ import React, {useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {useParams} from "react-router-dom";
 import "./restaurant.css";
-import RestaurantStars from "../../ProfileScreen/RestaurantStars";
-import HomepageActivityStar
-    from "../../CustomerHomeScreen/RecentActivityComponent/RecentActivityCard/HomepageActivityStar";
-import RestaurantStarForDetail from "./RestaurantStarForDetail";
+
 import {checkRestaurantClaimStatus} from "../../../services/claimService";
 import {fetchAllReviewsByRestaurantId} from "../../../services/reviewService";
+import DecimalStar from "../../ProfileScreen/stars/DecimalStar";
 
 const RestaurantImage = () => {
     const dispatch = useDispatch();
@@ -73,7 +71,8 @@ const RestaurantImage = () => {
                     <div className="text-light d-flex">
                         {/*<HomepageActivityStar rating={restaurant.rating} />*/}
                         {/*<RestaurantStarForDetail rating={restaurant.rating}/>*/}
-                        <span>{reviewsCount} reviews</span>
+                        <DecimalStar reviews={reviews} />
+                        <span className={"ms-2"}>{reviewsCount} reviews</span>
                     </div>
                     {/* <div className="starability-result" data-rating={Math.floor(restaurant.rating)}></div>
               <div className="ms-3">{restaurant.review_count} reviews</div> */}

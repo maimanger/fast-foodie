@@ -4,7 +4,7 @@ import {Collapse} from "react-bootstrap";
 import moment from "moment";
 import UserAvatarInfo from "../../ProfileScreen/UserAvatarInfo";
 import OrderInfo from "../../ProfileScreen/OrderInfo";
-import ReviewStars from "../../ProfileScreen/ReviewStars";
+import ReviewStars from "../../ProfileScreen/stars/ReviewStars";
 import ReviewItem from "../../ProfileScreen/ReviewItem";
 import "../Business.css"
 import {HashLink} from "react-router-hash-link";

@@ -3,10 +3,10 @@ import {Link} from "react-router-dom";
 import ReviewItem from "../ReviewItem";
 import moment from "moment";
 import RestaurantInfo from "../RestaurantInfo";
-import RestaurantStars from "../RestaurantStars";
+import RestaurantStars from "../stars/RestaurantStars";
 import UserAvatarInfo from "../UserAvatarInfo";
 import "../Profile.css"
-import ReviewStars from "../ReviewStars";
+import ReviewStars from "../stars/ReviewStars";
 import {Collapse} from "react-bootstrap";
 import BusinessStars from "../../BusinessHomeScreen/BusinessStars";
 import {HashLink} from "react-router-hash-link";

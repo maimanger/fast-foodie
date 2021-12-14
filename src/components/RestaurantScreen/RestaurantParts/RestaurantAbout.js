@@ -3,7 +3,9 @@ import Map from "./Map";
 import { useSelector } from "react-redux";
 const RestaurantAbout = () => {
 
-  const restaurant = useSelector(state => state.restaurant)
+  const restaurant = useSelector(state => state.restaurant);
+  console.log(restaurant);
+
   const times = restaurant.hours[0].open;
   const days = {0: "Mon", 1: "Tue", 2: "Wed", 3: "Thu", 4: "Fri", 5: "Sat", 6: "Sun"};
 

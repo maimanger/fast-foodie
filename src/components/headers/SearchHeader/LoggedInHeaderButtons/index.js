@@ -16,6 +16,7 @@ const LoggedInHeaderButtons = () => {
                 dispatch({
                     type: "delete-profile"
                 })
+                history.push('/');
             });
     }
 

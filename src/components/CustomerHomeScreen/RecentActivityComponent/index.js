@@ -3,7 +3,7 @@ import './index.css';
 import RecentActivityCards from "./RecentActivityCards";
 import RecentActivityNavigation from "./RecentActivityNavigation";
 
-import getHomepageRecentActivities from "../../../services/homepage-recent-activities-service";
+import getHomepageRecentActivities from "../../../services/hpActivitiesService";
 import {useSelector} from "react-redux";
 
 // let count = 6;

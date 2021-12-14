@@ -9,7 +9,7 @@ import {register} from "../../services/profileService";
 import LogoHeader from "../headers/LogoHeader";
 
 const RegisterScreen = () => {
-
+    window.scrollTo(0, 0);
     const [role, setRole] = useState("customer");
     const [firstName, setFirstName] = useState("FirstName");
     const [lastName, setLastName] = useState("LastName");

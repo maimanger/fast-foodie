@@ -1,3 +1,8 @@
 .privacy-policy-content-container{
     max-width: 900px;
+    color: black !important;
+}
+
+.privacy-policy-content-container:focus{
+    color: black !important;
 }

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./index.css";
 import RecommendationComponent from "./RecommendationComponent";
 import CategoryBrowseComponent from "./CategoryBrowseComponent";
-import Footer from "./public-components/Footer";
+import Footer from "../footers/Footer";
 import BannerComponent from "./BannerComponent";
 import RecentActivityComponent from "./RecentActivityComponent";
 import {useDispatch, useSelector} from "react-redux";

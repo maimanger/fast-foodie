@@ -14,8 +14,10 @@ import {fetchAllReviewsByUserId} from "../../services/reviewService";
 import LogoutProfileHeader from "../headers/LogoutProfileHeader";
 import SearchHeader from "../headers/SearchHeader";
 import SimpleHeader from "../headers/SimpleHeader";
+import SimpleFooter from "../footers/SimpleFooter";
 
 const PublicProfileScreen = () => {
+    window.scrollTo(0, 0);
     // Get current login user and the public user profile
     const dispatch = useDispatch();
     const userId = useParams().id;
@@ -112,7 +114,8 @@ const PublicProfileScreen = () => {
 
     if (publicProfile && publicProfile.role === "customer") {
         return (
-            <>
+            <div className={"app-window-container"}>
+            <div className={"min-vh-100"}>
 
                 {/**********************************Profile Header*********************************/}
                 <div className="container-fluid vw-100 p-0">
@@ -149,7 +152,9 @@ const PublicProfileScreen = () => {
 
                     {/*{JSON.stringify(publicProfile)}*/}
                 </div>
-            </>
+            </div>
+            <SimpleFooter />
+            </div>
         )
     } else if (publicProfile.role === "business") {
         return (

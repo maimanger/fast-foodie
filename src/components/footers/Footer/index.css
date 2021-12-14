@@ -19,3 +19,10 @@
 .homescreen-footer-link:hover{
     text-decoration: underline !important;
 }
+
+.app-window-container{
+    height: fit-content;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

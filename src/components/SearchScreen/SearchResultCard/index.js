@@ -32,11 +32,11 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
                     </div>
 
                     {/***************  rating + review  ****************/}
-                    <div className={"mb-2"}>
-                        <span><BusinessStars restaurant={restaurantFromSearchApi} /> </span>
-                        {/*<span> | </span>*/}
-                        {/*<span>{restaurantFromSearchApi['review_count']}</span>*/}
-                    </div>
+                    {/*<div className={"mb-2"}>*/}
+                    {/*    <span><BusinessStars restaurant={restaurantFromSearchApi} /> </span>*/}
+                    {/*    /!*<span> | </span>*!/*/}
+                    {/*    /!*<span>{restaurantFromSearchApi['review_count']}</span>*!/*/}
+                    {/*</div>*/}
 
                     {/***************  restaurant categories  **************/}
                     <div className={"d-flex align-items-center mb-2 searchscreen-categories-container flex-wrap"}>

@@ -10,6 +10,7 @@ import {fetchAllFollowings, fetchProfile} from "../../services/profileService";
 import SimpleHeader from "../headers/SimpleHeader";
 import CustomerPrivateProfileHeader from "../headers/CustomerPrivateProfileHeader";
 import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
+import SimpleFooter from "../footers/SimpleFooter";
 
 const ProfileFollowingsScreen = () => {
 
@@ -76,7 +77,8 @@ const ProfileFollowingsScreen = () => {
 
 
     return (
-        <>
+        <div className={"app-window-container"}>
+        <div className={"min-vh-100"}>
             {/**********************************Profile Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="">
@@ -122,7 +124,9 @@ const ProfileFollowingsScreen = () => {
                 </div>
             </div>
 
-        </>
+        </div>
+        <SimpleFooter />
+        </div>
 
     )
 

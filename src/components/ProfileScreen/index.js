@@ -19,8 +19,10 @@ import SimpleHeader from "../headers/SimpleHeader";
 import SearchHeader from "../headers/SearchHeader";
 import CustomerPrivateProfileHeader from "../headers/CustomerPrivateProfileHeader";
 import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
+import SimpleFooter from "../footers/SimpleFooter";
 
 const ProfileScreen = () => {
+    window.scrollTo(0, 0);
     const [edit, setEdit] = useState(false);
     const history = useHistory();
     const dispatch = useDispatch();
@@ -91,7 +93,8 @@ const ProfileScreen = () => {
     }
 
     return (
-        <>
+        <div className={"app-window-container"}>
+        <div className={"min-vh-100"}>
 
             {/**********************************Profile Header*********************************/}
             <div className="container-fluid vw-100 p-0">
@@ -149,7 +152,9 @@ const ProfileScreen = () => {
                 {/*{JSON.stringify(fetchedActivities)}*/}
                 {/*{JSON.stringify(fetchedNotifications)}*/}
             </div>
-        </>
+        </div>
+        <SimpleFooter />
+        </div>
     )
 
 };

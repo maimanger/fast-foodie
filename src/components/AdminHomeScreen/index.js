@@ -9,6 +9,8 @@ import {fetchProfile} from "../../services/profileService";
 import {fetchUserActivities} from "../../services/userActivitiesService";
 import {fetchUserNotifications} from "../../services/userNotificationsService";
 import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
+import SimpleFooter from "../footers/SimpleFooter";
+import Footer from "../footers/Footer";
 
 const AdminHomeScreen = () => {
     const history = useHistory();
@@ -39,7 +41,8 @@ const AdminHomeScreen = () => {
     const fetchedNotifications = useSelector(state => state.notifications);
 
     return (
-        <>
+        <div className={"app-window-container"}>
+        <div className={"min-vh-100"}>
             <SimpleLogoutHeader/>
             <div className="container-fluid vw-100 p-0 pt-5">
 
@@ -67,8 +70,10 @@ const AdminHomeScreen = () => {
 
 
             </div>
-        </>
 
+        </div>
+        <SimpleFooter/>
+        </div>
     )
 }
 

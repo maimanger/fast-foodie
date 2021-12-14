@@ -1,6 +1,6 @@
 import React from "react";
 import './index.css';
-import Footer from "../CustomerHomeScreen/public-components/Footer";
+import Footer from "../footers/Footer";
 import SimpleHeader from "../headers/SimpleHeader";
 import HeaderJustifiedBetween from "../headers/HeaderJustifiedBetween";
 

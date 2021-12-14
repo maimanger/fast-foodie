@@ -4,12 +4,13 @@ import ContactFormComponent from "./ContactFormComponent";
 import SearchHeader from "../SearchScreen/SearchHeader";
 import SimpleHeader from "../headers/SimpleHeader";
 import ContactInfo from "./ContactInfo";
-import Footer from "../CustomerHomeScreen/public-components/Footer";
+import Footer from "../footers/Footer";
+import SimpleFooter from "../footers/SimpleFooter";
 
 const ContactScreen = () => {
     window.scrollTo(0, 0);
     return (
-        <div className={"bg-white homescreen-screen-container-default-size"}>
+        <div className={"bg-white app-window-container"}>
 
             {/*******************  header  **********************/}
             <SimpleHeader />

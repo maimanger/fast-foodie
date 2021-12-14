@@ -5,6 +5,7 @@ import RestaurantMenu from "./RestaurantParts/RestaurantMenu";
 import SearchHeader from "../headers/SearchHeader";
 import SimpleHeader from "../headers/SimpleHeader";
 import React from "react";
+import SimpleFooter from "../footers/SimpleFooter";
 
 
 const MenuScreen = () => {
@@ -12,8 +13,8 @@ const MenuScreen = () => {
     const profile = useSelector(state => state.profile);
 
     return (
-
-      <div>
+        <div className={"app-window-container"}>
+      <div className={"min-vh-100"}>
           {(profile && Object.keys(profile).length !== 0 && (profile.role === 'business' || profile.role === 'admin')) ? <SimpleHeader /> : <SearchHeader />}
         <RestaurantImage />
           <div className="container">
@@ -29,6 +30,8 @@ const MenuScreen = () => {
             </div>
           </div>
       </div>
+            <SimpleFooter />
+        </div>
     )
 }
 

@@ -72,8 +72,8 @@ const RestaurantImage = () => {
                 <div className="h3 d-flex flex-row">
                     <div className="text-light d-flex">
                         {/*<HomepageActivityStar rating={restaurant.rating} />*/}
-                        <RestaurantStarForDetail rating={restaurant.rating}/>
-                        <span className={"ms-4"}>{reviewsCount} reviews</span>
+                        {/*<RestaurantStarForDetail rating={restaurant.rating}/>*/}
+                        <span>{reviewsCount} reviews</span>
                     </div>
                     {/* <div className="starability-result" data-rating={Math.floor(restaurant.rating)}></div>
               <div className="ms-3">{restaurant.review_count} reviews</div> */}

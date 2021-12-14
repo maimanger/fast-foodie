@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './index.css';
 import * as truncate from '../../CustomerHomeScreen/utils/truncate';
 import Sign from "./Sign";
 import {Link} from "react-router-dom";
 import RestaurantStars from "../../ProfileScreen/RestaurantStars";
 import BusinessStars from "../../BusinessHomeScreen/BusinessStars";
+import {API_URL} from "../../../CONST";
 
 const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) => {
     const restaurantFromDB = {
@@ -15,6 +16,19 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
             delivery: true
         }
     }
+
+    // Get reviews count of a restaurant
+    const [reviewsCount, setReviewsCount] = useState(0);
+    useEffect(() => {
+
+        fetch(`${API_URL}/${restaurantFromSearchApi.id}/reviews`)
+            .then(res => res.json())
+            .then(reviews => {
+                if (reviews && reviews.length !== 0){
+                    setReviewsCount(reviews.length);
+                }
+            })
+    }, [])
 
     return (
         <Link className={"searchscreen-card-container w-100 border border-light rounded-2 p-4 text-decoration-none text-black d-flex "}
@@ -31,13 +45,6 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
                         <h5 className={"fw-bold"}>{restaurantFromSearchApi.name}</h5>
                     </div>
 
-                    {/***************  rating + review  ****************/}
-                    {/*<div className={"mb-2"}>*/}
-                    {/*    <span><BusinessStars restaurant={restaurantFromSearchApi} /> </span>*/}
-                    {/*    /!*<span> | </span>*!/*/}
-                    {/*    /!*<span>{restaurantFromSearchApi['review_count']}</span>*!/*/}
-                    {/*</div>*/}
-
                     {/***************  restaurant categories  **************/}
                     <div className={"d-flex align-items-center mb-2 searchscreen-categories-container flex-wrap"}>
                         {(restaurantFromSearchApi.categories.map(category=>category.title)).map(category=>{
@@ -47,6 +54,15 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
                         })}
                         <div>{restaurantFromSearchApi['price']}</div>
                     </div>
+
+                    {/***************  rating + review  ****************/}
+                    <div className={"mb-2"}>
+                        {/*<span><BusinessStars restaurant={restaurantFromSearchApi} /> </span>*/}
+                        {/*<span> | </span>*/}
+                        <span style={{'font-size': '15px'}} className={"text-dark"}>{reviewsCount} reviews</span>
+                    </div>
+
+
 
                     {/****************  location  ******************/}
                     <div className={"searchscreen-result-card-location"}>

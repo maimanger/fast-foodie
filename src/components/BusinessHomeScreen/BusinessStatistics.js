@@ -33,7 +33,7 @@ const BusinessStatistics = ({restaurant}) => {
 
             <div className="mb-3">
                 <h6 className="fw-bold">Reviews</h6>
-                {reviews.lengt}
+                {reviews.length}
             </div>
 
             {/*            <div className="mb-3">

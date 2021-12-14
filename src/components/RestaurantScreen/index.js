@@ -5,6 +5,7 @@ import RestaurantAbout from "./RestaurantParts/RestaurantAbout";
 import SearchHeader from "../headers/SearchHeader";
 import {useSelector} from "react-redux";
 import SimpleHeader from "../headers/SimpleHeader";
+import SimpleFooter from "../footers/SimpleFooter";
 
 const RestaurantScreen = () => {
   // const restaurant = useSelector(state => state.restaurant);
@@ -23,8 +24,8 @@ const RestaurantScreen = () => {
   const profile = useSelector(state => state.profile);
 
   return (
-
-    <div>
+    <div className={"app-window-container"}>
+    <div className={"min-vh-100"}>
         {(profile && Object.keys(profile).length !== 0 && (profile.role === 'business' || profile.role === 'admin')) ? <SimpleHeader /> : <SearchHeader />}
       <RestaurantImage/>
       <div className="container">
@@ -42,6 +43,8 @@ const RestaurantScreen = () => {
           
         </div>
       </div>
+    </div>
+    <SimpleFooter />
     </div>
   
     // <div className="container">

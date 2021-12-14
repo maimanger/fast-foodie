@@ -6,6 +6,7 @@ import claims from "../../reducers/data/adminHome/adminClaims.json"
 import {useDispatch, useSelector} from "react-redux";
 import {getAllClaims} from "../../services/claimService";
 import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
+import SimpleFooter from "../footers/SimpleFooter";
 
 
 
@@ -19,7 +20,8 @@ const AdminClaimScreen = () => {
 
 
     return (
-        <>
+        <div className={"app-window-container"}>
+        <div className={"min-vh-100"}>
             <SimpleLogoutHeader />
             <div className="container-fluid vw-100 p-0 pt-5">
 
@@ -40,7 +42,9 @@ const AdminClaimScreen = () => {
 
             </div>
 
-        </>
+        </div>
+        <SimpleFooter />
+        </div>
 
     )
 }

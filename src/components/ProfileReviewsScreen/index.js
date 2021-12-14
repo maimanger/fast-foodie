@@ -15,6 +15,7 @@ import {fetchAllReviewsByProfile} from "../../services/reviewService";
 import SimpleHeader from "../headers/SimpleHeader";
 import CustomerPrivateProfileHeader from "../headers/CustomerPrivateProfileHeader";
 import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
+import SimpleFooter from "../footers/SimpleFooter";
 
 const ProfileReviewsScreen = () => {
 
@@ -81,7 +82,8 @@ const ProfileReviewsScreen = () => {
     }
 
     return (
-        <>
+        <div className={"app-window-container"}>
+        <div className={"min-vh-100"}>
             <SimpleLogoutHeader />
             {/**********************************Profile Header*********************************/}
             <div className="container-fluid vw-100 p-0">
@@ -126,7 +128,9 @@ const ProfileReviewsScreen = () => {
                 </div>
             </div>
 
-        </>
+        </div>
+        <SimpleFooter />
+        </div>
 
     )
 

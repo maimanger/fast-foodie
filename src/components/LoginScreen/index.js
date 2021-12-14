@@ -4,6 +4,7 @@ import {Link, useHistory, Redirect} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {login, logout} from "../../services/profileService";
 import LoginScreenHeader from "../headers/LoginScreenHeader";
+import SimpleFooter from "../footers/SimpleFooter";
 
 const LoginScreen = () => {
     const isValid = useSelector(state => state.profileVerification);
@@ -62,7 +63,8 @@ const LoginScreen = () => {
     }
 
     return (
-        <>
+        <div className={"app-window-container"}>
+        <div className={"min-vh-100"}>
             <LoginScreenHeader />
             <div className="container">
                 <div className="row align-items-center g-lg-5 py-5">
@@ -127,7 +129,9 @@ const LoginScreen = () => {
                 </div>
             </div>
 
-        </>
+        </div>
+        <SimpleFooter />
+        </div>
     )
 }
 

@@ -12,6 +12,7 @@ import {fetchProfile} from "../../services/profileService";
 import {fetchUserActivities} from "../../services/userActivitiesService";
 import {fetchUserNotifications} from "../../services/userNotificationsService";
 import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
+import SimpleFooter from "../footers/SimpleFooter";
 
 const BusinessHomeScreen = () => {
 
@@ -74,7 +75,8 @@ const BusinessHomeScreen = () => {
 
 if (fetchedActivities !== undefined && fetchedNotifications !== undefined) {
     return (
-        <>
+        <div className={"app-window-container"}>
+        <div className={"min-vh-100"}>
 
             {/**********************************Business Header*********************************/}
             <div className="container-fluid vw-100 p-0">
@@ -120,7 +122,11 @@ if (fetchedActivities !== undefined && fetchedNotifications !== undefined) {
                 {JSON.stringify(fetchedActivities)}*/}
 
             </div>
-        </>
+
+
+        </div>
+        <SimpleFooter />
+        </div>
     )
 } else {
     return (

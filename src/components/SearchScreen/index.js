@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import './index.css';
 import SearchHeader from "./SearchHeader";
 import SearchResultComponent from "./SearchResultComponent";
-import Footer from "../CustomerHomeScreen/public-components/Footer";
+import Footer from "../footers/Footer";
 import BrandName from "../CustomerHomeScreen/public-components/BrandName";
 import {searchRestaurants} from "../../services/searchService";
 import {useHistory, useLocation} from "react-router-dom";
@@ -64,7 +64,7 @@ const SearchScreen = () => {
 
 
     return (
-        <div className={"bg-white"}>
+        <div className={"bg-white app-window-container"}>
             <SearchHeader profile={profile} params={params} clickFunction={clickHandler}/>
             <div className={"searchscreen-body-container d-flex"}>
                 <SearchResultComponent location={params.location} searchResultList={searchResult}/>

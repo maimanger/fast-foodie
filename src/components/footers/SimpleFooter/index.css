@@ -1,0 +1,21 @@
+.simple-footer{
+    background-color: #f5f5f5;
+    font-size: 13px;
+    margin-top: auto;
+}
+
+.homescreen-footer-brand{
+    font-size: 30px;
+}
+
+.homepage-footer-links{
+    font-size: 20px;
+}
+
+.homescreen-footer-link {
+    width: 200px;
+}
+
+.homescreen-footer-link:hover{
+    text-decoration: underline !important;
+}

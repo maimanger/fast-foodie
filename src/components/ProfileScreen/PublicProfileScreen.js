@@ -118,7 +118,7 @@ const PublicProfileScreen = () => {
 
                 {/**********************************Profile Header*********************************/}
                 <div className="container-fluid vw-100 p-0">
-                    <div className="sticky-top">
+                    <div className="">
                         <SimpleHeader />
                         <div className="wd-profile-banner bg-secondary vw-100"></div>
                         <ProfileHeader profile={publicProfile} isFollowing={isFollowing}/>

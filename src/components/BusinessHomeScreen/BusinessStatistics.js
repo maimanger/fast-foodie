@@ -3,36 +3,37 @@ import restaurants from "../../reducers/data/restaurants/nyc.json"
 import users from "../../reducers/data/profile/users.json"
 import BusinessStars from "./BusinessStars";
 import {API_URL} from "../../CONST";
+import DecimalStar from "../ProfileScreen/stars/DecimalStar";
 
 const BusinessStatistics = ({restaurant}) => {
 
-    const [reviewsCount, setReviewsCount] = useState(0);
-    console.log(restaurant.id);
+    const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
         if (restaurant.id) {
             fetch(`${API_URL}/${restaurant.id}/reviews`)
                 .then(res => res.json())
                 .then(reviews => {
-                    if (reviews && reviews.length !== 0) {
-                        setReviewsCount(reviews.length);
+                    if (reviews && reviews.length !== 0){
+                        setReviews(reviews);
                     }
-                })
-        }
-    }, [restaurant]);
+                })}
+        }, [restaurant]);
+
 
     return (
         <div className="d-flex flex-column">
             <h5 className="text-danger fw-bold mb-3">Statistics</h5>
 
-            {/*             <div className="mb-3">
+            <div className="mb-3">
                  <h6 className="fw-bold">Rating</h6>
-                 <BusinessStars restaurant={restaurantData}/>
-             </div>*/}
+                <DecimalStar reviews={reviews} />
+            </div>
+
 
             <div className="mb-3">
                 <h6 className="fw-bold">Reviews</h6>
-                {reviewsCount}
+                {reviews.lengt}
             </div>
 
             {/*            <div className="mb-3">

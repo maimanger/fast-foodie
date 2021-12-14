@@ -16,23 +16,23 @@ const ProfileReviewItem = ({review, isMyRestaurant = false}) => {
                 <div
                     className="list-group-item d-flex flex-column bg-transparent py-3 pe-xl-3 pe-xxl-5">
 
-                    <HashLink to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}
+                    <HashLink to={`/restaurants/${review.restaurant}/review#${review._id}`}
                               className="wd-profile-content-hover text-black">
-                        <RestaurantInfo restaurant={review.restaurantDetail}/>
+                        <RestaurantInfo restaurant={review.restaurantInfo}/>
                         <ReviewStars review={review}/>
                         <ReviewItem review={review}/>
                     </HashLink>
 
                     {isPublic && isMyRestaurant &&
                      <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
-                               to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}>
+                               to={`/restaurants/${review.restaurant}/review#${review._id}`}>
                          Reply
                      </HashLink>
                     }
 
                     {!isPublic &&
                      <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
-                               to={`/restaurants/${review.restaurantDetail.id}/review#${review._id}`}>
+                               to={`/restaurants/${review.restaurant}/review#${review._id}`}>
                          Edit
                      </HashLink>
                     }

@@ -16,6 +16,8 @@ const BusinessStatistics = ({restaurant}) => {
                  <BusinessStars restaurant={restaurantData}/>
              </div>
 
+
+{/*TODO: how to retrieve restaurant review_count*/}
 {/*             <div className="mb-3">
                  <h6 className="fw-bold">Reviews</h6>
                  {restaurant.review_count.toLocaleString()}

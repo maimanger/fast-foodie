@@ -28,10 +28,10 @@ const ProfileRecentActivityItem = ({activity, profile}) => {
                  <div className="mb-2 d-flex justify-content-between">
                      <div className="pt-1">
                          You wrote a review for
-                         {activity.reviewDetail.restaurantDetail &&
+                         {activity.reviewDetail.restaurantInfo &&
                          <Link className="text-info wd-profile-link-text mx-1"
-                               to={`/restaurants/${activity.reviewDetail.restaurantDetail.id}`}>
-                             {activity.reviewDetail.restaurantDetail.name}
+                               to={`/restaurants/${activity.reviewDetail.restaurant}`}>
+                             {activity.reviewDetail.restaurantInfo.name}
                          </Link>
                          }
                      </div>
@@ -49,16 +49,16 @@ const ProfileRecentActivityItem = ({activity, profile}) => {
                  {/*******************************Review content******************************/}
                  <div className="d-flex flex-column">
                      <Collapse in={on}>
-                     <HashLink to={`/restaurants/${activity.reviewDetail.restaurantDetail.id}/review#${activity.reviewDetail._id}`}
+                     <HashLink to={`/restaurants/${activity.reviewDetail.restaurant}/review#${activity.reviewDetail._id}`}
                            className="wd-profile-content-hover text-black">
-                         <RestaurantInfo restaurant={activity.reviewDetail.restaurantDetail}/>
+                         <RestaurantInfo restaurant={activity.reviewDetail.restaurantInfo}/>
                          <ReviewStars review={activity.reviewDetail}/>
                          <ReviewItem review={activity.reviewDetail}/>
                      </HashLink>
                      </Collapse>
                      <Collapse in={on}>
                      <HashLink className="ms-auto me-2 btn btn-outline-info rounded-pill py-1 mt-1"
-                           to={`/restaurants/${activity.reviewDetail.restaurantDetail.id}/review#${activity.reviewDetail._id}`}>
+                           to={`/restaurants/${activity.reviewDetail.restaurant}/review#${activity.reviewDetail._id}`}>
                          Edit
                      </HashLink>
                      </Collapse>

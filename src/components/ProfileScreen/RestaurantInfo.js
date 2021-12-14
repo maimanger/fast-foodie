@@ -17,12 +17,10 @@ const RestaurantInfo = ({restaurant}) => {
                 <div className="text-info font-weight-light">
                     {restaurant.price}
                     <span className="mx-1">•</span>
-                    {restaurant.categories.map(category => category.title)
-                        .reduce((prev, curr) => [prev, ', ', curr])
-                    }
+                    {restaurant.categories}
                 </div>
                 <div>
-                    {restaurant.location.display_address.map(addr => addr).join(', ')}
+                    {restaurant.location}
                 </div>
             </div>
         </div>

@@ -16,6 +16,10 @@ const WriteReview = ({profile}) => {
   }
 
   const submitClickHandler = () => {
+    let categories = restaurant.categories.map(category => category.title)
+        .reduce((prev, curr) => [prev, ', ', curr]).join('');
+    console.log(categories);
+
 
     postNewReview(dispatch, {
       user: profile._id + '',
@@ -45,7 +49,10 @@ const WriteReview = ({profile}) => {
       }],
       restaurantInfo: {
         name: restaurant.name,
-        image_url: restaurant.image_url
+        image_url: restaurant.image_url,
+        price: restaurant.price,
+        categories: categories,
+        location: restaurant.location.display_address.map(addr => addr).join(', ')
       }
     })
   }

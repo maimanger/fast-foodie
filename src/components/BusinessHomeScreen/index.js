@@ -69,7 +69,7 @@ const BusinessHomeScreen = () => {
     const fetchedActivities = useSelector(state => state.recentActivities);
     // console.log(fetchedActivities.reviewDetail);
     const fetchedNotifications = useSelector(state => state.notifications);
-    // console.log(fetchedActivities.reviewDetail);
+
 
 
 if (fetchedActivities !== undefined && fetchedNotifications !== undefined) {
@@ -116,11 +116,10 @@ if (fetchedActivities !== undefined && fetchedNotifications !== undefined) {
                     </div>
 
                 </div>
-                {/*{JSON.stringify(fetchedNotifications)}
+{/*                {JSON.stringify(fetchedNotifications)}
                 {JSON.stringify(fetchedActivities)}*/}
 
             </div>
-
         </>
     )
 } else {

@@ -41,7 +41,7 @@ const ProfileReviewsScreen = () => {
         getReviews();
     }
 
-    useEffect(loadData, [reviewsInfo])
+    useEffect(loadData, [])
 
     let profile = {
         "role": "",
@@ -79,7 +79,6 @@ const ProfileReviewsScreen = () => {
     } else if (profile.role === "admin") {
         history.push('/admin');
     }
-
 
     return (
         <>

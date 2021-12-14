@@ -40,7 +40,7 @@ const CustomerEditDelete = ({review, isEditing, setIsEditing}) => {
   const editInput = <div className="">
     <div className="row mt-4"></div>
     <div className="mt-5">
-      <textarea className="form-control" rows="3" style={{resize: "none", overFlow: "hidden"}}
+      <textarea className="form-control" rows="3" placeholder="Edit your review ..." style={{resize: "none", overFlow: "hidden"}}
                 value={editedReview.text} onChange={onReviewTextChange}/>
     </div>
     <div className="mt-3">

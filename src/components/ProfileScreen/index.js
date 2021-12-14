@@ -44,7 +44,7 @@ const ProfileScreen = () => {
          getActivitiesAndNotifications();
     }
 
-    useEffect(loadData, [history])
+
 
 
     /**********************************Get the login profile data******************************/
@@ -81,6 +81,8 @@ const ProfileScreen = () => {
 
     const fetchedActivities = useSelector(state => state.recentActivities);
     const fetchedNotifications = useSelector(state => state.notifications);
+
+    useEffect(loadData, [])
 
     if (profile.role === "business") {
         history.push('/business/profile');

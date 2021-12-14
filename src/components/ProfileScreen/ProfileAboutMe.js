@@ -3,12 +3,10 @@ import moment from "moment";
 import {useParams} from "react-router-dom";
 
 const ProfileAboutMe = ({profile}) => {
-    console.log(useParams().id);
     let isPublic = false;
     if (useParams().id) {
         isPublic = true;
     }
-    console.log(isPublic);
 
 
     return (

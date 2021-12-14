@@ -4,6 +4,7 @@ import users from "../../reducers/data/profile/users.json"
 import BusinessStars from "./BusinessStars";
 import {API_URL} from "../../CONST";
 import DecimalStar from "../ProfileScreen/stars/DecimalStar";
+import {fetchAllReviewsByRestaurantIdWithoutDispatch} from "../../services/reviewService";
 
 const BusinessStatistics = ({restaurant}) => {
 
@@ -11,8 +12,7 @@ const BusinessStatistics = ({restaurant}) => {
 
     useEffect(() => {
         if (restaurant.id) {
-            fetch(`${API_URL}/${restaurant.id}/reviews`)
-                .then(res => res.json())
+            fetchAllReviewsByRestaurantIdWithoutDispatch(restaurant.id)
                 .then(reviews => {
                     if (reviews && reviews.length !== 0){
                         setReviews(reviews);

@@ -14,6 +14,11 @@ export const fetchAllReviewsByRestaurantId = (dispatch, restaurantId) => {
         })
 }
 
+export const fetchAllReviewsByRestaurantIdWithoutDispatch = (restaurantId) => {
+    return fetch(`${COMMENT_API}/${restaurantId}/reviews`)
+        .then(response => response.json())
+}
+
 export const fetchAllReviewsByProfile = () => {
     return fetch(`${API_URL}/profileReviews`, {
         method: 'POST',

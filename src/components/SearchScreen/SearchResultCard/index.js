@@ -7,6 +7,7 @@ import RestaurantStars from "../../ProfileScreen/stars/RestaurantStars";
 import BusinessStars from "../../BusinessHomeScreen/BusinessStars";
 import {API_URL} from "../../../CONST";
 import DecimalStar from "../../ProfileScreen/stars/DecimalStar";
+import {fetchAllReviewsByRestaurantIdWithoutDispatch} from "../../../services/reviewService";
 
 const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) => {
     const restaurantFromDB = {
@@ -18,12 +19,10 @@ const SearchResultCard = ({restaurantFromSearchApi, restaurantFromDetailApi}) =>
         }
     }
 
-    // Get reviews count of a restaurant
+    // Get reviews of a restaurant
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        console.log(restaurantFromSearchApi.name);
-        fetch(`${API_URL}/${restaurantFromSearchApi.id}/reviews`)
-            .then(res => res.json())
+        fetchAllReviewsByRestaurantIdWithoutDispatch(restaurantFromSearchApi.id)
             .then(reviews => {
                 if (reviews && reviews.length !== 0){
                     setReviews(reviews);

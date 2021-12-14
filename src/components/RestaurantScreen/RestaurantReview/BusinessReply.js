@@ -14,7 +14,6 @@ const BusinessReply = ({review}) => {
   const cancelClickHandler = () => setIsReply(false);
   const saveReply = () => {
     review.replies[0] = {text: replyContent, user: profile._id, time_created: moment().format('YYYY-MM-DD HH:mm:ss')}
-    console.log(review);
     updateReply(dispatch, review)
     setIsReply(false)
   }
@@ -31,7 +30,7 @@ const BusinessReply = ({review}) => {
   const replyInput = <div className="">
     <div className="row mt-4"></div>
     <div className="mt-5">
-      <textarea className="form-control" rows="3" style={{resize: "none", overFlow: "hidden"}}
+      <textarea className="form-control" rows="3" placeholder={"Reply to the review ..."} style={{resize: "none", overFlow: "hidden"}}
              value={replyContent} onChange={onReplyChange}/>
     </div>
     <div className="mt-3">

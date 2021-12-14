@@ -22,7 +22,6 @@ import SimpleLogoutHeader from "../headers/SimpleLogoutHeader";
 import SimpleFooter from "../footers/SimpleFooter";
 
 const ProfileScreen = () => {
-    window.scrollTo(0, 0);
     const [edit, setEdit] = useState(false);
     const history = useHistory();
     const dispatch = useDispatch();

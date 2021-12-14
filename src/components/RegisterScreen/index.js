@@ -7,9 +7,10 @@ import BusinessRegister from "./BusinessRegister";
 import {useDispatch, useSelector} from "react-redux";
 import {register} from "../../services/profileService";
 import LogoHeader from "../headers/LogoHeader";
+import Popup from "./PrivacyPolicyPopup";
+import PrivacyContent from "../PrivacyScreen/PrivacyContent";
 
 const RegisterScreen = () => {
-    window.scrollTo(0, 0);
     const [role, setRole] = useState("customer");
     const [firstName, setFirstName] = useState("FirstName");
     const [lastName, setLastName] = useState("LastName");
@@ -88,6 +89,12 @@ const RegisterScreen = () => {
                       }
                 )
         }
+    }
+
+    // Control popup window of privacy policy
+    const [isOpen, setIsOpen] = useState(false);
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
     }
 
     return (
@@ -260,9 +267,11 @@ const RegisterScreen = () => {
                                                }
                                            }}/>
                                     <label className="form-check-label" htmlFor="registerCheckbox">
-                                        I agree all statements in the <Link to="#"
-                                                                            className="text-info wd-register-link-text">Privacy
-                                        Policy</Link>
+                                        <span>I agree all statements in the</span>
+                                        <span className="text-info wd-register-link-text ms-2" onClick={togglePopup}>
+                                            Privacy Policy
+                                        </span>
+                                        {isOpen && <Popup handleClose={togglePopup} content={<PrivacyContent />}/>}
                                     </label>
                                 </div>
 

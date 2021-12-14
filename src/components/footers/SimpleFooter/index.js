@@ -14,7 +14,7 @@ const SimpleFooter = () => {
             <div className={"homepage-footer-links d-flex justify-content-center pb-5"}>
                 <Link to={"/about"} className={"homescreen-footer-link homepage-color-dimgray text-decoration-none border-end"}>ABOUT US</Link>
                 <Link to={"/contact"} className={"homescreen-footer-link homepage-color-dimgray text-decoration-none border-end"}>CONTACT</Link>
-                <Link to={"/privacy_policy"} className={"homescreen-footer-link homepage-color-dimgray text-decoration-none text-nowrap ms-2"}>PRIVACY POLICY</Link>
+                <Link to={"/privacy"} className={"homescreen-footer-link homepage-color-dimgray text-decoration-none text-nowrap ms-2"}>PRIVACY POLICY</Link>
             </div>
 
             {/*copyright*/}

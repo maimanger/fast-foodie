@@ -53,6 +53,7 @@ import HomeScreen from "./components/HomeScreen";
 import publicProfile from "./reducers/publicProfile";
 import claim from "./reducers/claim";
 import claims from "./reducers/claims";
+import PrivacyScreen from "./components/PrivacyScreen";
 
 function App() {
     const reducer = combineReducers({
@@ -114,6 +115,7 @@ function App() {
                 <Route path={"/restaurants/:id/menu"} component={MenuScreen}/>
                 <Route path={"/restaurants/:id/placeorder"} component={PlaceOrderScreeen}/>
                 <Route path={"/test"} exact={true} component={Test}/>
+                <Route path={"/privacy"} exact component={PrivacyScreen} />
 
             </BrowserRouter>
 

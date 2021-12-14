@@ -15,11 +15,11 @@ const BusinessClaimSearchScreen = () => {
     }, [])
 
 
-    const [name, setName] = useState("Happy Lamb Hot Pot");
-    const [address1, setAddress1] = useState("609 S Weller St");
+    const [name, setName] = useState("Neptune Oyster");
+    const [address1, setAddress1] = useState("63 Salem St");
     const [address2, setAddress2] = useState("");
-    const [city, setCity] = useState("Seattle");
-    const [state, setState] = useState("WA");
+    const [city, setCity] = useState("Boston");
+    const [state, setState] = useState("MA");
     const [zipCode, setZipCode] = useState("");
 
     const changeNameHandler = (e) => {

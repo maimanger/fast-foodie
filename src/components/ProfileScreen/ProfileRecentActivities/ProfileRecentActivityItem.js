@@ -17,7 +17,7 @@ const ProfileRecentActivityItem = ({activity, profile}) => {
     return (
         <div className="list-group-item d-flex flex-nowrap bg-transparent py-3">
             <div className="me-3">
-                <img className=" rounded-circle" src={profile.image_url}
+                <img className=" rounded-circle" src={profile.image_url} style={{objectFit: "cover"}}
                      width="48px" height="48px"/>
             </div>
 

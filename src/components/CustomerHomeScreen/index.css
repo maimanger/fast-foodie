@@ -30,3 +30,11 @@
     height: fit-content;
     min-height: 100vh;
 }
+
+.homescreen-hover-text-underline:hover{
+    text-decoration: underline !important;
+}
+
+.homescreen-hover-border-shadow:hover{
+    box-shadow: 0 0 10px 0 lightgray !important;
+}

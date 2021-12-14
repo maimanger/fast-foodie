@@ -20,7 +20,7 @@ const RecentActivityReviewCard = ({activity}) => {
                 </Link>
                 <div className={"text-start"}>
                     <Link  to={`/profile/${activity.user._id}`}
-                           className={"text-info fw-bold text-decoration-none text-nowrap"}>
+                           className={"text-info fw-bold text-decoration-none text-nowrap homescreen-hover-text-underline"}>
                         {textTruncate(activity['user']['name'], 24)}
                     </Link>
                     <div>
@@ -34,7 +34,9 @@ const RecentActivityReviewCard = ({activity}) => {
             </Link>
             <div className={"homescreen-recent-activity-card-body p-3 text-start"}>
                 <Link to={`/restaurants/${activity.restaurant._id}`} className={"text-decoration-none"}>
-                    <h6 className={"card-title text-danger fw-bold text-nowrap"}>{textTruncate(activity['restaurant']['name'], 28)}</h6>
+                    <h6 className={"card-title text-danger fw-bold text-nowrap homescreen-hover-text-underline"}>
+                        {textTruncate(activity['restaurant']['name'], 28)}
+                    </h6>
                 </Link>
                 <hr className={"text-secondary"}/>
                 <HashLink to={`/restaurants/${activity.restaurant._id}/review#${activity.review._id}`} className={"text-decoration-none text-black"}>
@@ -46,7 +48,7 @@ const RecentActivityReviewCard = ({activity}) => {
                     {activity['review']['text'] !== '' &&
                     <div className={"d-flex"}>
                         <i className="far fa-comment-alt text-secondary pt-1 me-2" />
-                        <div className={"homepage-recent-activity-card-review w-100 pe-4"}>
+                        <div className={"homepage-recent-activity-card-review homescreen-hover-text-underline w-100 pe-4"}>
                             {truncate.textTruncate(activity['review']['text'], reviewCharLimit)}
                         </div>
                     </div>

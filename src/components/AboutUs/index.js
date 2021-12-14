@@ -15,7 +15,7 @@ const AboutUs = () => {
             <div className={"aboutscreen-banner-container w-100 position-relative mb-5"}>
                 <div className={"aboutscreen-banner-text-container position-absolute  text-center"}>
                     <h1 className={"fw-bold"}>Who we are</h1>
-                    <p>Our community is built on trust. Whether you're a consumer or a business owner, you put your trust in us to provide information people can rely on to make good decisions. We work hard to maintain that trust, and make Yelp truly helpful for everyone.</p>
+                    <p>Our community is built on trust. Whether you're a consumer or a business owner, you put your trust in us to provide information people can rely on to make good decisions. We work hard to maintain that trust, and make Fast Foodie truly helpful for everyone.</p>
                 </div>
             </div>
 

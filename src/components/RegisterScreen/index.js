@@ -137,6 +137,7 @@ const RegisterScreen = () => {
                                             First Name
                                         </label>
                                         <input type="text"
+                                               placeholder="First name"
                                                defaultValue={firstName}
                                                className={`form-control ${(!isFinished && firstName
                                                    === "") ? "is-invalid"
@@ -157,6 +158,7 @@ const RegisterScreen = () => {
                                             Last Name
                                         </label>
                                         <input type="text"
+                                               placeholder="Last name"
                                                defaultValue={lastName}
                                                className={`form-control ${(!isFinished && lastName
                                                    === "") ? "is-invalid"
@@ -198,6 +200,7 @@ const RegisterScreen = () => {
                                         Password
                                     </label>
                                     <input type="password"
+                                           placeholder="Password"
                                            defaultValue={password}
                                            id="registerPassword"
                                            className={`form-control 
@@ -221,6 +224,7 @@ const RegisterScreen = () => {
                                            className={`form-control ${isValidPassword ? ""
                                                : "is-invalid"}`}
                                            required={true}
+                                           placeholder="Repeat password"
                                            onChange={(e) => {
                                                setIsValidPassword(password === e.target.value);
                                            }}/>

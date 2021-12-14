@@ -10,6 +10,7 @@ const BusinessRegister = ({setFile, isFinished}) => {
             </label>
             <input type="text"
                    defaultValue="http://www.africau.edu/images/default/sample.pdf"
+                   placeholder="Input the url of your file"
                    id="registerFile"
                    className={`form-control ${(!isFinished && !fileDone) ? "is-invalid" : ""}`}
                    onChange={(e) => {

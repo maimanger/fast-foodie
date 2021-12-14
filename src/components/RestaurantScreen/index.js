@@ -8,6 +8,7 @@ import SimpleHeader from "../headers/SimpleHeader";
 import SimpleFooter from "../footers/SimpleFooter";
 
 const RestaurantScreen = () => {
+  window.scrollTo(0, 0);
   // const restaurant = useSelector(state => state.restaurant);
   // const dispatch = useDispatch();
   // const {id} = useParams();

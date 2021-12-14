@@ -17,6 +17,7 @@ import SimpleHeader from "../headers/SimpleHeader";
 import SimpleFooter from "../footers/SimpleFooter";
 
 const PublicProfileScreen = () => {
+    window.scrollTo(0, 0);
     // Get current login user and the public user profile
     const dispatch = useDispatch();
     const userId = useParams().id;

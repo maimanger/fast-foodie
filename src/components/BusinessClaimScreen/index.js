@@ -6,11 +6,26 @@ import Footer from "../footers/Footer";
 import BusinessClaimSearchResultScreen from "./BusinessClaimSearchResultScreen";
 import BusinessClaimSearchNoResultComponent from "./BusinessClaimSearchNoResultComponent";
 import BusinessClaimStatusScreen from "./BusinessClaimStatusScreen";
-import {Route} from "react-router-dom";
+import {Route, useHistory} from "react-router-dom";
+import {API_URL} from "../../CONST";
+import {fetchProfile} from "../../services/profileService";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const BusinessClaimScreen = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const profile = useSelector(state => state.profile)
+    useEffect(() => {
+        fetchProfile(dispatch)
+            .catch(e => {
+                history.push('/');
+            })
+    }, [])
 
+    if (profile !== undefined && Object.keys(profile).length !== 0 && profile.role !== 'business') {
+        history.push('/');
+    }
 
 
     return (

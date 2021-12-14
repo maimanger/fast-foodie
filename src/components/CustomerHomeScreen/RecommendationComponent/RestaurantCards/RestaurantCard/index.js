@@ -6,6 +6,7 @@ import ReviewStars from "../../../../ProfileScreen/stars/ReviewStars";
 import BusinessStars from "../../../../BusinessHomeScreen/BusinessStars";
 import {API_URL} from "../../../../../CONST";
 import DecimalStar from "../../../../ProfileScreen/stars/DecimalStar";
+import {fetchAllReviewsByRestaurantIdWithoutDispatch} from "../../../../../services/reviewService";
 
 const RestaurantCard = ({restaurant}) => {
 
@@ -14,8 +15,7 @@ const RestaurantCard = ({restaurant}) => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
 
-        fetch(`${API_URL}/${restaurant.id}/reviews`)
-            .then(res => res.json())
+        fetchAllReviewsByRestaurantIdWithoutDispatch(restaurant.id)
             .then(reviews => {
                 if (reviews && reviews.length !== 0){
                     setReviews(reviews);

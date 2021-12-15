@@ -17,7 +17,7 @@ This is a React application for fast-foodie project.
 - Dynamic contents: 
   - Notifications
   - Activities
-<br />
+
 
 ### Server end
 Please see the server end of this application on [Github](https://github.com/mengqianshasha/fast-foodie-server)

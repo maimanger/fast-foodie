@@ -35,7 +35,7 @@ Please see the server end of this application on [Github](https://github.com/men
 - Express.js
 - MongoDB
 - Mongoose
-<br />
+
 
 ### Remote Api
 The project leverages [Yelp Fusion API](https://fusion.yelp.com/)

@@ -1,6 +1,7 @@
 # Fast Foodie
 
-
+<br />
+<br />
 
 ## About the project
 This is a React application for fast-foodie project.
@@ -8,7 +9,7 @@ This is a React application for fast-foodie project.
 ![project image](https://i.postimg.cc/zzdFj8QP/Screen-Shot-2021-12-14-at-7-21-31-PM.png)
 
 
-#### Project basic functionalities
+### Project basic functionalities
 - Login, register
 - Search restaurant
 - CRUD reviews
@@ -16,13 +17,13 @@ This is a React application for fast-foodie project.
 - Dynamic contents: 
   - Notifications
   - Activities
+<br />
 
-
-#### Server end
+### Server end
 Please see the server end of this application on [Github](https://github.com/mengqianshasha/fast-foodie-server)
+<br />
 
-
-#### Built with
+### Built with
 - HTML
 - CSS
 - JavaScript
@@ -33,16 +34,17 @@ Please see the server end of this application on [Github](https://github.com/men
 - Express.js
 - MongoDB
 - Mongoose
+<br />
 
-
-#### Remote Api
+### Remote Api
 The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
-
+<br />
+<br />
 
 
 ## Getting Started
-
-#### Pages
+<br />
+### Pages
 - Home
 - Search
 - Detail
@@ -51,29 +53,29 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
 - Register
 - Business claim
 - Privacy policy
+<br />
 
-
-#### 3 user roles
+### 3 user roles
 * **Anonymous user**
-  - Search restaurants
-  - See details of a restaurant: open time, address, map, menu...
-  - See reviews of a restaurant left by other users
-  - See profiles of other users
-  - See generic recent activities
+    - Search restaurants
+    - See details of a restaurant: open time, address, map, menu...
+    - See reviews of a restaurant left by other users
+    - See profiles of other users
+    - See generic recent activities
 1. **Customer user**
-  - Search restaurants
-  - CRUD his/her reviews for a restaurant
-  - Own a private profile which displays the user's activities
-  - Get notification reminders
-  - Browse activities of nearby restaurant and the user's followings
+    - Search restaurants
+    - CRUD his/her reviews for a restaurant
+    - Own a private profile which displays the user's activities
+    - Get notification reminders
+    - Browse activities of nearby restaurant and the user's followings
 2. **Business owner**
-  - Claim a business
-  - Reply reviews from customers
+    - Claim a business
+    - Reply reviews from customers
 3. **Admin**
-  - Verify business owner's authentication, and accordingly accept or decline his/her claim request.
+    - Verify business owner's authentication, and accordingly accept or decline his/her claim request.
+<br />
 
-
-#### Data models
+### Data models
 - Domain object models
   - Follow
   - Review
@@ -85,9 +87,9 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
   - Customer
   - BusinessOwner
   - Admin
+ <br />
  
- 
-#### Data model relations
+### Data model relations
 - One to one
   - BusinessOwner and Restaurant (claim)
 - One to many
@@ -97,12 +99,13 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
 - Many to many
   - Customer and Customer (follow)
   - Customer and Restaurant (review)
+<br />
 
-
-#### Contributors
+### Contributors
 - Qiansha Meng
 - Ying Fang
 - Zihan Wang
-
+<br />
+<br />
 
 Hope you like this content :thumbsup:

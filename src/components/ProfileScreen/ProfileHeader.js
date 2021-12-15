@@ -32,8 +32,9 @@ const ProfileHeader = ({profile, setEdit = null, edit = null, isFollowing = fals
     const followHandler = () => {
         if (!loginUser.role) {
             history.push("/login");
+        } else {
+            follow(userId, loginUser._id, dispatch);
         }
-        follow(userId, loginUser._id, dispatch);
     }
 
     const unFollowHandler = () => {

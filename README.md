@@ -14,6 +14,7 @@ This is a React application for fast-foodie project.
 - Search restaurant
 - CRUD reviews
 - View profile
+- Follow other users
 - Dynamic contents: 
   - Notifications
   - Activities
@@ -67,14 +68,15 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/) and [Documenu 
 1. **Customer user**
     - Search restaurants
     - CRUD his/her reviews for a restaurant
-    - Own a private profile which displays the user's activities
+    - Follow other customer users
     - Get notification reminders
+    - Own a private profile which displays the user's activities
     - Browse activities of nearby restaurant and the user's followings
 2. **Business owner**
     - Claim a business
     - Reply reviews from customers
 3. **Admin**
-    - Verify business owner's authentication, and accordingly accept or decline his/her claim request.
+    - Verify business owner's identity, and accordingly accept or decline his/her claim request.
 <br />
 
 ### Data models

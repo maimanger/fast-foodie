@@ -41,6 +41,7 @@ Please see the server end of this application on [Github](https://github.com/men
 The project leverages [Yelp Fusion API](https://fusion.yelp.com/) and [Documenu API](https://documenu.com/).
 <br />
 <br />
+<br />
 
 ## Getting Started
 <br />

@@ -46,6 +46,7 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
 
 ## Getting Started
 <br />
+
 ### Pages
 - Home
 - Search

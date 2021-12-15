@@ -41,7 +41,8 @@ Please see the server end of this application on [Github](https://github.com/men
 The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
 <br />
 <br />
-
+<br />
+<br />
 
 ## Getting Started
 <br />

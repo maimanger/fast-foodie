@@ -6,12 +6,14 @@ import users from "../../reducers/data/profile/users.json"
 import BusinessNavSidebar from "../BusinessHomeScreen/BusinessNavSidebar";
 import BusinessProfile from "./BusinessProfile";
 import BusinessEditProfile from "./BusinessEditProfile"
+import SimpleHeader from "../headers/SimpleHeader";
 
 const PublicBusinessProfile = ({profile}) => {
     const currentURL = useLocation().pathname;
 
     return (
         <>
+            <SimpleHeader />
             {/**********************************Business Header*********************************/}
             <div className="container-fluid vw-100 p-0">
                 <div className="sticky-top">

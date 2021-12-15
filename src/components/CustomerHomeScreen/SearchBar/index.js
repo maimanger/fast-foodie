@@ -89,8 +89,8 @@ const SearchBar = ({
                            htmlFor={"homescreen-search-bar-input"}>
                         <div className={"d-flex w-100"}>
                             <div className={"fw-bold me-2"}>Location</div>
-                            <div className={"w-100 text-nowrap"}>{location}</div>
-                            <div><i className="fas fa-chevron-down" /></div>
+                            <div className={"w-100 text-nowrap"} style={{"overflow": "hidden"}}>{location}</div>
+                            <div className={"ms-1"}><i className="fas fa-chevron-down" /></div>
                         </div>
                     </label>
 

@@ -69,8 +69,6 @@ const RestaurantImage = () => {
                 <div className="h1 text-white m-0" style={{fontWeight: "bold"}}>{restaurant.name}</div>
                 <div className="h3 d-flex flex-row">
                     <div className="text-light d-flex">
-                        {/*<HomepageActivityStar rating={restaurant.rating} />*/}
-                        {/*<RestaurantStarForDetail rating={restaurant.rating}/>*/}
                         <DecimalStar reviews={reviews} />
                         <span className={"ms-2"}>{reviewsCount} reviews</span>
                     </div>

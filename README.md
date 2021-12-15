@@ -107,7 +107,7 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/) and [Documenu 
 
 ### Contributors
 - Qiansha Meng
-- Ying Fang
+- Fangying Li
 - Zihan Wang
 <br />
 <br />

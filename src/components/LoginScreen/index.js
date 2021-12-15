@@ -7,7 +7,7 @@ import LoginScreenHeader from "../headers/LoginScreenHeader";
 import SimpleFooter from "../footers/SimpleFooter";
 
 const LoginScreen = () => {
-    window.scrollTo(0, 0);
+
     const isValid = useSelector(state => state.profileVerification);
     // for testing
     const profile = useSelector(state => state.profile);

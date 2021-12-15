@@ -71,7 +71,7 @@ const ProfileNavSidebar = ({active, visibility = {bookmarks: true}}) => {
             {!isPublic &&
              <Link to="/profile_followings"
                    className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
-               ${active === "messages" ? "active" : ""}`}>
+               ${active === "followings" ? "active" : ""}`}>
                  <i className="fas fa-user-tag ms-3 ms-md-0 me-2 pe-1"></i>
                  <span className="d-none d-md-inline">
                 Followings
@@ -82,7 +82,7 @@ const ProfileNavSidebar = ({active, visibility = {bookmarks: true}}) => {
             {!isPublic &&
              <Link to="/profile_followers"
                    className={`list-group-item  border-top px-2 px-sm-3 text-nowrap
-               ${active === "messages" ? "active" : ""}`}>
+               ${active === "followers" ? "active" : ""}`}>
                  <i className="fas fa-user-friends ms-3 ms-md-0 me-2 pe-1"></i>
                  <span className="d-none d-md-inline">
                 Followers

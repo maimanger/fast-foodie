@@ -1,9 +1,12 @@
 # Fast Foodie
 
+
+
 ## About the project
-----
 This is a React application for fast-foodie project.
-![project image](https://i.postimg.cc/z5sg1yTF/Screen-Shot-2021-12-14-at-7-08-34-PM.png)
+
+![project image](https://i.postimg.cc/zzdFj8QP/Screen-Shot-2021-12-14-at-7-21-31-PM.png)
+
 
 #### Project basic functionalities
 - Login, register
@@ -14,8 +17,10 @@ This is a React application for fast-foodie project.
   - Notifications
   - Activities
 
+
 #### Server end
 Please see the server end of this application on [Github](https://github.com/mengqianshasha/fast-foodie-server)
+
 
 #### Built with
 - HTML
@@ -29,12 +34,14 @@ Please see the server end of this application on [Github](https://github.com/men
 - MongoDB
 - Mongoose
 
+
 #### Remote Api
 The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
 
 
+
 ## Getting Started
-----
+
 #### Pages
 - Home
 - Search
@@ -44,6 +51,7 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
 - Register
 - Business claim
 - Privacy policy
+
 
 #### 3 user roles
 * **Anonymous user**
@@ -64,6 +72,7 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
 3. **Admin**
   - Verify business owner's authentication, and accordingly accept or decline his/her claim request.
 
+
 #### Data models
 - Domain object models
   - Follow
@@ -76,6 +85,7 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
   - Customer
   - BusinessOwner
   - Admin
+ 
  
 #### Data model relations
 - One to one
@@ -93,5 +103,6 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/)
 - Qiansha Meng
 - Ying Fang
 - Zihan Wang
+
 
 Hope you like this content :thumbsup:

@@ -21,7 +21,7 @@ This is a React application for fast-foodie project.
 
 
 ### Server end
-Please see the server end of this application on [Github](https://github.com/mengqianshasha/fast-foodie-server)
+Please see the server end of this application on [Github](https://github.com/maimanger/fast-foodie-server.git)
 <br />
 <br />
 

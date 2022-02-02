@@ -1,12 +1,11 @@
 # Fast Foodie
 
 <br />
-<br />
 
 ## About the project
 This is a React application for fast-foodie project.
 
-![project image](https://i.postimg.cc/zzdFj8QP/Screen-Shot-2021-12-14-at-7-21-31-PM.png)
+<img width="900px" src="./homepage.png">
 
 
 ### Project basic functionalities
@@ -104,6 +103,7 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/) and [Documenu 
   - Customer and Customer (follow)
   - Customer and Restaurant (review)
 <br />
+ <img width="900px" src="./Foodie_UML.png">
 
 ### Contributors
 - Qiansha Meng

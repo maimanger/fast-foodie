@@ -6,6 +6,7 @@
 This is a React application for fast-foodie project.
 
 <img width="900px" src="./homepage.png">
+<img width="900px" src="./searchpage.png">
 
 
 ### Project basic functionalities

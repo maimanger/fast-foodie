@@ -65,17 +65,17 @@ The project leverages [Yelp Fusion API](https://fusion.yelp.com/) and [Documenu 
     - See reviews of a restaurant left by other users
     - See profiles of other users
     - See generic recent activities
-1. **Customer user**
+* **Customer user**
     - Search restaurants
     - CRUD his/her reviews for a restaurant
     - Follow other customer users
     - Get notification reminders
     - Own a private profile which displays the user's activities
     - Browse activities of nearby restaurant and the user's followings
-2. **Business owner**
+* **Business owner**
     - Claim a business
     - Reply reviews from customers
-3. **Admin**
+* **Admin**
     - Verify business owner's identity, and accordingly accept or decline his/her claim request.
 <br />
 
